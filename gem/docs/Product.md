@@ -1,0 +1,103 @@
+# KoronaCloudClient::Product
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**active** | **Boolean** | indicates whether the object is active for use or not | [optional] [readonly] 
+**id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] 
+**number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] 
+**revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional] [readonly] 
+**alternative_sector** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**assortment** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**codes** | [**Array&lt;ProductCode&gt;**](ProductCode.md) |  | [optional] 
+**commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**conversion** | **Boolean** |  | [optional] 
+**costs** | **Float** |  | [optional] 
+**deactivated** | **Boolean** |  | [optional] 
+**deposit** | **Boolean** |  | [optional] 
+**descriptions** | [**Array&lt;ProductDescription&gt;**](ProductDescription.md) |  | [optional] 
+**discountable** | **Boolean** |  | [optional] 
+**image** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**info_texts** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] 
+**item_sequence** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**last_purchase_price** | **Float** |  | [optional] 
+**listed** | **Boolean** |  | [optional] 
+**listed_since** | **DateTime** |  | [optional] 
+**max_price** | **Float** |  | [optional] 
+**min_price** | **Float** |  | [optional] 
+**name** | **String** |  | [optional] 
+**packaging_quantity** | **Float** |  | [optional] 
+**packaging_required** | **Boolean** |  | [optional] 
+**packaging_unit** | **String** |  | [optional] 
+**personalization_required** | **Boolean** |  | [optional] 
+**price_changable** | **Boolean** |  | [optional] 
+**prices** | [**Array&lt;ProductPrice&gt;**](ProductPrice.md) |  | [optional] 
+**print_tickets_separately** | **Boolean** |  | [optional] 
+**production_type** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**recommended_retail_price** | **Float** |  | [optional] 
+**related_products** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**sector** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**serial_number_required** | **Boolean** |  | [optional] 
+**subproduct_presentation** | **String** |  | [optional] 
+**subproducts** | [**Array&lt;ProductSubproduct&gt;**](ProductSubproduct.md) |  | [optional] 
+**supplier_prices** | [**Array&lt;ProductSupplierPrice&gt;**](ProductSupplierPrice.md) |  | [optional] 
+**tags** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] 
+**ticket_definition** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**track_inventory** | **Boolean** |  | [optional] 
+**media_urls** | [**Array&lt;MediaUrl&gt;**](MediaUrl.md) |  | [optional] 
+**quantity_denomination** | **Float** |  | [optional] 
+**stock_return_unsellable** | **Boolean** |  | [optional] 
+
+## Code Sample
+
+```ruby
+require 'KoronaCloudClient'
+
+instance = KoronaCloudClient::Product.new(active: null,
+                                 id: null,
+                                 number: null,
+                                 revision: null,
+                                 alternative_sector: null,
+                                 assortment: null,
+                                 codes: null,
+                                 commodity_group: null,
+                                 conversion: null,
+                                 costs: null,
+                                 deactivated: null,
+                                 deposit: null,
+                                 descriptions: null,
+                                 discountable: null,
+                                 image: null,
+                                 info_texts: null,
+                                 item_sequence: null,
+                                 last_purchase_price: null,
+                                 listed: null,
+                                 listed_since: null,
+                                 max_price: 9999.99,
+                                 min_price: -9999.99,
+                                 name: null,
+                                 packaging_quantity: null,
+                                 packaging_required: null,
+                                 packaging_unit: null,
+                                 personalization_required: null,
+                                 price_changable: null,
+                                 prices: null,
+                                 print_tickets_separately: null,
+                                 production_type: null,
+                                 recommended_retail_price: null,
+                                 related_products: null,
+                                 sector: null,
+                                 serial_number_required: null,
+                                 subproduct_presentation: null,
+                                 subproducts: null,
+                                 supplier_prices: null,
+                                 tags: null,
+                                 ticket_definition: null,
+                                 track_inventory: null,
+                                 media_urls: null,
+                                 quantity_denomination: null,
+                                 stock_return_unsellable: null)
+```
+
+
