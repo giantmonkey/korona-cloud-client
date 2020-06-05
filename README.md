@@ -1,3 +1,6 @@
+# gemifiied KORONA.cloud API client
+Based on OpenAPI definition file https://128.koronacloud.com/web/api/v3/swagger.json
+
 # generate gem with openapi-generator (was swagger-codegen)
 ```
 brew install openapi-generator
