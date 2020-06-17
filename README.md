@@ -17,9 +17,13 @@ gem push korona-cloud-client-1.0.0.gem
 
 # usage in a project
 ```
-# FIXME: adapt this to new Namespace
-config = KoronaEntryClient::Configuration.new {|config| config.host = 'korona3.de'; config.base_path = 'entry_mk/services/v1/rxb/' }
-client  =  KoronaEntryClient::ApiClient.new(config)
-api     = KoronaEntryClient::TicketsApi.new(client)
-api.get_tickets('', 0, 1, {locked: true})
+config = KoronaCloudClient::Configuration.new do |config|
+  config.username = '<KORONA_API_USERNAME>'
+  config.password = '<KORONA_API_PASSWORD>'
+  config.host     = '<HOST>.koronacloud.com'
+end
+
+api_client    = KoronaCloudClient::ApiClient.new config
+products_api  = KoronaCloudClient::ProductsApi.new api_client
+products      = products_api.get_products('<ACCOUNT_ID>')
 ```
