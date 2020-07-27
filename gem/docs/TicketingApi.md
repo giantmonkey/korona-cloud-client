@@ -4,14 +4,17 @@ All URIs are relative to *https://www.koronacloud.com/web/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_entry_gates**](TicketingApi.md#add_entry_gates) | **POST** /accounts/{koronaAccountId}/entryGates | adds a batch of new entry gates
 [**add_events**](TicketingApi.md#add_events) | **POST** /accounts/{koronaAccountId}/events | adds a batch of new events
-[**add_or_update_attendances**](TicketingApi.md#add_or_update_attendances) | **POST** /accounts/{koronaAccountId}/attendance | updates/adds attendances
+[**add_or_update_attendances**](TicketingApi.md#add_or_update_attendances) | **POST** /accounts/{koronaAccountId}/attendances | updates/adds attendances
 [**add_ticket_definitions**](TicketingApi.md#add_ticket_definitions) | **POST** /accounts/{koronaAccountId}/ticketDefinitions | adds a batch of new ticket definitions
-[**cancel_attendance**](TicketingApi.md#cancel_attendance) | **DELETE** /accounts/{koronaAccountId}/attendance/{attendanceId} | cancel the attendance
+[**cancel_attendance**](TicketingApi.md#cancel_attendance) | **DELETE** /accounts/{koronaAccountId}/attendances/{attendanceId} | cancel the attendance
+[**delete_entry_gates**](TicketingApi.md#delete_entry_gates) | **DELETE** /accounts/{koronaAccountId}/entryGates | deletes a batch of entry gates
 [**delete_event**](TicketingApi.md#delete_event) | **DELETE** /accounts/{koronaAccountId}/events/{eventId} | deletes the single event
 [**delete_ticket_definition**](TicketingApi.md#delete_ticket_definition) | **DELETE** /accounts/{koronaAccountId}/ticketDefinitions/{ticketDefinitionId} | deletes the single ticket definition
 [**delete_ticket_definitions**](TicketingApi.md#delete_ticket_definitions) | **DELETE** /accounts/{koronaAccountId}/ticketDefinitions | deletes a batch of ticket definitions
-[**get_attendances**](TicketingApi.md#get_attendances) | **GET** /accounts/{koronaAccountId}/attendance | lists all attendances
+[**get_attendance**](TicketingApi.md#get_attendance) | **GET** /accounts/{koronaAccountId}/attendances/{attendanceId} | returns the single attendance
+[**get_attendances**](TicketingApi.md#get_attendances) | **GET** /accounts/{koronaAccountId}/attendances | lists all attendances
 [**get_entry_gate**](TicketingApi.md#get_entry_gate) | **GET** /accounts/{koronaAccountId}/entryGates/{entryGateId} | returns the single entry gate
 [**get_entry_gates**](TicketingApi.md#get_entry_gates) | **GET** /accounts/{koronaAccountId}/entryGates | lists all entry gates
 [**get_event**](TicketingApi.md#get_event) | **GET** /accounts/{koronaAccountId}/events/{eventId} | returns the single event
@@ -21,11 +24,69 @@ Method | HTTP request | Description
 [**get_tickets**](TicketingApi.md#get_tickets) | **GET** /accounts/{koronaAccountId}/tickets | lists all tickets
 [**lock_ticket**](TicketingApi.md#lock_ticket) | **DELETE** /accounts/{koronaAccountId}/tickets/{ticketNumber} | locks the single ticket
 [**unlock_ticket**](TicketingApi.md#unlock_ticket) | **POST** /accounts/{koronaAccountId}/tickets/{ticketNumber} | unlocks the single ticket
+[**update_entry_gates**](TicketingApi.md#update_entry_gates) | **PATCH** /accounts/{koronaAccountId}/entryGates | updates a batch of entry gates
 [**update_event**](TicketingApi.md#update_event) | **PATCH** /accounts/{koronaAccountId}/events/{eventId} | updates the single event
 [**update_events**](TicketingApi.md#update_events) | **PATCH** /accounts/{koronaAccountId}/events | updates a batch of events
 [**update_ticket**](TicketingApi.md#update_ticket) | **PATCH** /accounts/{koronaAccountId}/tickets/{ticketNumber} | updates the single ticket
 [**update_ticket_definitions**](TicketingApi.md#update_ticket_definitions) | **PATCH** /accounts/{koronaAccountId}/ticketDefinitions | updates a batch of ticket definitions
 
+
+
+## add_entry_gates
+
+> Array&lt;AddOrUpdateResult&gt; add_entry_gates(korona_account_id, body, opts)
+
+adds a batch of new entry gates
+
+### Example
+
+```ruby
+# load the gem
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::TicketingApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+body = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of new entry gates
+opts = {
+  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+}
+
+begin
+  #adds a batch of new entry gates
+  result = api_instance.add_entry_gates(korona_account_id, body, opts)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Exception when calling TicketingApi->add_entry_gates: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **korona_account_id** | **String**| account id of the KORONA.cloud account | 
+ **body** | [**Array&lt;EntryGate&gt;**](EntryGate.md)| array of new entry gates | 
+ **upsert** | **Boolean**| when set to true, updates the object instead of generating a already-exists-error | [optional] 
+
+### Return type
+
+[**Array&lt;AddOrUpdateResult&gt;**](AddOrUpdateResult.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## add_events
@@ -247,6 +308,59 @@ nil (empty response body)
 - **Accept**: application/json
 
 
+## delete_entry_gates
+
+> Array&lt;AddOrUpdateResult&gt; delete_entry_gates(korona_account_id, body)
+
+deletes a batch of entry gates
+
+### Example
+
+```ruby
+# load the gem
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::TicketingApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+body = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
+
+begin
+  #deletes a batch of entry gates
+  result = api_instance.delete_entry_gates(korona_account_id, body)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Exception when calling TicketingApi->delete_entry_gates: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **korona_account_id** | **String**| account id of the KORONA.cloud account | 
+ **body** | [**Array&lt;EntryGate&gt;**](EntryGate.md)| array of existing entry gates (id or number required) | 
+
+### Return type
+
+[**Array&lt;AddOrUpdateResult&gt;**](AddOrUpdateResult.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## delete_event
 
 > delete_event(korona_account_id, event_id)
@@ -401,6 +515,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_attendance
+
+> Attendance get_attendance(korona_account_id, attendance_id)
+
+returns the single attendance
+
+### Example
+
+```ruby
+# load the gem
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::TicketingApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+attendance_id = 'attendance_id_example' # String | id of the related object (important: id should match the uuid-format)
+
+begin
+  #returns the single attendance
+  result = api_instance.get_attendance(korona_account_id, attendance_id)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Exception when calling TicketingApi->get_attendance: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **korona_account_id** | **String**| account id of the KORONA.cloud account | 
+ **attendance_id** | **String**| id of the related object (important: id should match the uuid-format) | 
+
+### Return type
+
+[**Attendance**](Attendance.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -991,6 +1158,59 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_entry_gates
+
+> Array&lt;AddOrUpdateResult&gt; update_entry_gates(korona_account_id, body)
+
+updates a batch of entry gates
+
+### Example
+
+```ruby
+# load the gem
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::TicketingApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+body = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
+
+begin
+  #updates a batch of entry gates
+  result = api_instance.update_entry_gates(korona_account_id, body)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Exception when calling TicketingApi->update_entry_gates: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **korona_account_id** | **String**| account id of the KORONA.cloud account | 
+ **body** | [**Array&lt;EntryGate&gt;**](EntryGate.md)| array of existing entry gates (id or number required) | 
+
+### Return type
+
+[**Array&lt;AddOrUpdateResult&gt;**](AddOrUpdateResult.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

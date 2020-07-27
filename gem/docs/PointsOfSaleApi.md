@@ -278,7 +278,8 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 point_of_sale_id = 'point_of_sale_id_example' # String | id of the related object (important: id should match the uuid-format)
 receipt_id = 'receipt_id_example' # String | the id of the receipt
 opts = {
-  coupling_id: 'coupling_id_example' # String | the coupling-id of the device. It can be set to check whether your coupling-id is correct or not (works only, if point of sale is external).
+  coupling_id: 'coupling_id_example', # String | the coupling-id of the device. It can be set to check whether your coupling-id is correct or not (works only, if point of sale is external).
+  voided_items: true # Boolean | when set to true, voided items will be returned
 }
 
 begin
@@ -299,6 +300,7 @@ Name | Type | Description  | Notes
  **point_of_sale_id** | **String**| id of the related object (important: id should match the uuid-format) | 
  **receipt_id** | **String**| the id of the receipt | 
  **coupling_id** | **String**| the coupling-id of the device. It can be set to check whether your coupling-id is correct or not (works only, if point of sale is external). | [optional] 
+ **voided_items** | **Boolean**| when set to true, voided items will be returned | [optional] 
 
 ### Return type
 
@@ -346,7 +348,8 @@ opts = {
   max_create_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | max (inclusive) create time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
   number: 'number_example', # String | number of the related object
   min_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  max_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  max_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  voided_items: true # Boolean | when set to true, voided items will be returned
 }
 
 begin
@@ -376,6 +379,7 @@ Name | Type | Description  | Notes
  **number** | **String**| number of the related object | [optional] 
  **min_booking_time** | **DateTime**| min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
  **max_booking_time** | **DateTime**| max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
+ **voided_items** | **Boolean**| when set to true, voided items will be returned | [optional] 
 
 ### Return type
 

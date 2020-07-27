@@ -12,12 +12,17 @@ Name | Type | Description | Notes
 **deactivated** | **Boolean** |  | [optional] 
 **email** | **String** |  | [optional] 
 **firstname** | **String** |  | [optional] 
-**gender** | **String** |  | [optional] 
-**login_code** | **String** | contains the md5 hash of the cashiers login code | [optional] 
-**login_password** | **String** | contains the md5 hash of the cashiers login password | [optional] 
-**permissions** | **Array&lt;String&gt;** |  | [optional] 
-**role** | **String** |  | [optional] 
 **surname** | **String** |  | [optional] 
+**gender** | **String** |  | [optional] 
+**login_code** | **String** | by default, the md5 hash of the cashiers login code. on GET requests this can be changed via the &#x60;displayCashierCredentials&#x3D;(HASH|PLAIN|NONE)&#x60; parameter, on POST and PATCH it is always assumed to be &#x60;PLAIN&#x60; text. | [optional] 
+**login_password** | **String** | by default, the md5 hash of the cashiers login password. on GET requests this can be changed via the &#x60;displayCashierCredentials&#x3D;(HASH|PLAIN|NONE)&#x60; parameter, on POST and PATCH it is always assumed to be &#x60;PLAIN&#x60; text. | [optional] 
+**permissions** | **Array&lt;String&gt;** |  | [optional] [readonly] 
+**role** | **String** |  | [optional] [readonly] 
+**bonus_points** | **Integer** |  | [optional] 
+**background_color** | **Integer** |  | [optional] 
+**cashier_role** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**create_time** | **Date** |  | [optional] [readonly] 
+**last_receipt_time** | **Date** |  | [optional] [readonly] 
 
 ## Code Sample
 
@@ -32,12 +37,17 @@ instance = KoronaCloudClient::Cashier.new(active: null,
                                  deactivated: null,
                                  email: null,
                                  firstname: null,
+                                 surname: null,
                                  gender: null,
                                  login_code: null,
                                  login_password: null,
                                  permissions: null,
                                  role: null,
-                                 surname: null)
+                                 bonus_points: null,
+                                 background_color: null,
+                                 cashier_role: null,
+                                 create_time: null,
+                                 last_receipt_time: null)
 ```
 
 

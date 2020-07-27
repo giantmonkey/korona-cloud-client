@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **serial_numbers** | **Array&lt;String&gt;** |  | [optional] 
 **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] 
 **delivery_date** | **DateTime** |  | [optional] 
+**attendance** | [**ModelReference**](ModelReference.md) |  | [optional] 
 
 ## Code Sample
 
@@ -35,7 +36,8 @@ instance = KoronaCloudClient::ReceiptItem.new(booking_time: null,
                                  sector: null,
                                  serial_numbers: null,
                                  total: null,
-                                 delivery_date: null)
+                                 delivery_date: null,
+                                 attendance: null)
 ```
 
 

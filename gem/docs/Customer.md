@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **tax_id** | **String** |  | [optional] 
 **privacy_policy_accepted** | **Boolean** |  | [optional] 
 **marketing_contact_permitted** | **Boolean** |  | [optional] 
+**create_time** | **Date** |  | [optional] [readonly] 
+**last_receipt_time** | **Date** |  | [optional] [readonly] 
 
 ## Code Sample
 
@@ -47,7 +49,9 @@ instance = KoronaCloudClient::Customer.new(active: null,
                                  phone: null,
                                  tax_id: null,
                                  privacy_policy_accepted: null,
-                                 marketing_contact_permitted: null)
+                                 marketing_contact_permitted: null,
+                                 create_time: null,
+                                 last_receipt_time: null)
 ```
 
 

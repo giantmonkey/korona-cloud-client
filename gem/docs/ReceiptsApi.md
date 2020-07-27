@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## get_receipt
 
-> Receipt get_receipt(korona_account_id, receipt_id)
+> Receipt get_receipt(korona_account_id, receipt_id, opts)
 
 returns the single receipt
 
@@ -30,10 +30,13 @@ end
 api_instance = KoronaCloudClient::ReceiptsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 receipt_id = 'receipt_id_example' # String | id of the receipt
+opts = {
+  voided_items: true # Boolean | when set to true, voided items will be returned
+}
 
 begin
   #returns the single receipt
-  result = api_instance.get_receipt(korona_account_id, receipt_id)
+  result = api_instance.get_receipt(korona_account_id, receipt_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Exception when calling ReceiptsApi->get_receipt: #{e}"
@@ -47,6 +50,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **korona_account_id** | **String**| account id of the KORONA.cloud account | 
  **receipt_id** | **String**| id of the receipt | 
+ **voided_items** | **Boolean**| when set to true, voided items will be returned | [optional] 
 
 ### Return type
 
@@ -94,7 +98,8 @@ opts = {
   max_create_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | max (inclusive) create time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
   number: 'number_example', # String | number of the related object
   min_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  max_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  max_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  voided_items: true # Boolean | when set to true, voided items will be returned
 }
 
 begin
@@ -124,6 +129,7 @@ Name | Type | Description  | Notes
  **number** | **String**| number of the related object | [optional] 
  **min_booking_time** | **DateTime**| min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
  **max_booking_time** | **DateTime**| max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
+ **voided_items** | **Boolean**| when set to true, voided items will be returned | [optional] 
 
 ### Return type
 

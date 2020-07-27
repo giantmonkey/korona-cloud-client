@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **arrival_date** | **DateTime** |  | [optional] 
 **booking_time** | **DateTime** |  | [optional] 
 **booking_user** | [**ModelReference**](ModelReference.md) |  | [optional] 
+**booking_api_user** | [**ModelReference**](ModelReference.md) |  | [optional] 
 **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] 
 **create_time** | **DateTime** |  | [optional] 
 **create_user** | [**ModelReference**](ModelReference.md) |  | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **source_organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] 
 **supplier** | [**ModelReference**](ModelReference.md) |  | [optional] 
 **comment** | **String** |  | [optional] 
+**custom_price_change** | **Float** |  | [optional] [readonly] 
 **status** | **String** |  | [optional] [readonly] 
 
 ## Code Sample
@@ -39,6 +41,7 @@ instance = KoronaCloudClient::StockReceipt.new(active: null,
                                  arrival_date: null,
                                  booking_time: null,
                                  booking_user: null,
+                                 booking_api_user: null,
                                  cashier: null,
                                  create_time: null,
                                  create_user: null,
@@ -53,6 +56,7 @@ instance = KoronaCloudClient::StockReceipt.new(active: null,
                                  source_organizational_unit: null,
                                  supplier: null,
                                  comment: null,
+                                 custom_price_change: null,
                                  status: null)
 ```
 

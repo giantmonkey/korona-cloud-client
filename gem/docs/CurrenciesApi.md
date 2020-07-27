@@ -4,9 +4,122 @@ All URIs are relative to *https://www.koronacloud.com/web/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_currencies**](CurrenciesApi.md#add_currencies) | **POST** /accounts/{koronaAccountId}/currencies | adds a batch of new currencies
+[**delete_currencies**](CurrenciesApi.md#delete_currencies) | **DELETE** /accounts/{koronaAccountId}/currencies | deletes a batch of currencies
 [**get_currencies**](CurrenciesApi.md#get_currencies) | **GET** /accounts/{koronaAccountId}/currencies | lists all currencies
 [**get_currency**](CurrenciesApi.md#get_currency) | **GET** /accounts/{koronaAccountId}/currencies/{currencyId} | returns the single currency
+[**update_currencies**](CurrenciesApi.md#update_currencies) | **PATCH** /accounts/{koronaAccountId}/currencies | updates a batch of currencies
 
+
+
+## add_currencies
+
+> Array&lt;AddOrUpdateResult&gt; add_currencies(korona_account_id, body, opts)
+
+adds a batch of new currencies
+
+### Example
+
+```ruby
+# load the gem
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::CurrenciesApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+body = [KoronaCloudClient::Currency.new] # Array<Currency> | array of new currencies
+opts = {
+  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+}
+
+begin
+  #adds a batch of new currencies
+  result = api_instance.add_currencies(korona_account_id, body, opts)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Exception when calling CurrenciesApi->add_currencies: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **korona_account_id** | **String**| account id of the KORONA.cloud account | 
+ **body** | [**Array&lt;Currency&gt;**](Currency.md)| array of new currencies | 
+ **upsert** | **Boolean**| when set to true, updates the object instead of generating a already-exists-error | [optional] 
+
+### Return type
+
+[**Array&lt;AddOrUpdateResult&gt;**](AddOrUpdateResult.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_currencies
+
+> Array&lt;AddOrUpdateResult&gt; delete_currencies(korona_account_id, body)
+
+deletes a batch of currencies
+
+### Example
+
+```ruby
+# load the gem
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::CurrenciesApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+body = [KoronaCloudClient::Currency.new] # Array<Currency> | array of existing currencies (id or number required)
+
+begin
+  #deletes a batch of currencies
+  result = api_instance.delete_currencies(korona_account_id, body)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Exception when calling CurrenciesApi->delete_currencies: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **korona_account_id** | **String**| account id of the KORONA.cloud account | 
+ **body** | [**Array&lt;Currency&gt;**](Currency.md)| array of existing currencies (id or number required) | 
+
+### Return type
+
+[**Array&lt;AddOrUpdateResult&gt;**](AddOrUpdateResult.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## get_currencies
@@ -124,5 +237,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_currencies
+
+> Array&lt;AddOrUpdateResult&gt; update_currencies(korona_account_id, body)
+
+updates a batch of currencies
+
+### Example
+
+```ruby
+# load the gem
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::CurrenciesApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+body = [KoronaCloudClient::Currency.new] # Array<Currency> | array of existing currencies (id or number required)
+
+begin
+  #updates a batch of currencies
+  result = api_instance.update_currencies(korona_account_id, body)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Exception when calling CurrenciesApi->update_currencies: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **korona_account_id** | **String**| account id of the KORONA.cloud account | 
+ **body** | [**Array&lt;Currency&gt;**](Currency.md)| array of existing currencies (id or number required) | 
+
+### Return type
+
+[**Array&lt;AddOrUpdateResult&gt;**](AddOrUpdateResult.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

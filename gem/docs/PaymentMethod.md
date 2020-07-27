@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **force_customer_number** | **Boolean** |  | [optional] 
 **force_print** | **Boolean** |  | [optional] 
 **name** | **String** |  | [optional] 
+**payment_service** | [**Service**](Service.md) |  | [optional] 
 **print_copies** | **Integer** |  | [optional] 
 **tag** | [**ModelReference**](ModelReference.md) |  | [optional] 
 **use_cash_drawer** | **Boolean** |  | [optional] 
@@ -32,6 +33,7 @@ instance = KoronaCloudClient::PaymentMethod.new(active: null,
                                  force_customer_number: null,
                                  force_print: null,
                                  name: null,
+                                 payment_service: null,
                                  print_copies: null,
                                  tag: null,
                                  use_cash_drawer: null,
