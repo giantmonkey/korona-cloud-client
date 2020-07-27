@@ -11,8 +11,9 @@ openapi-generator generate -i swagger.json -g ruby -o gem --package-name korona-
 # publish gem to rubygems
 ```
 cd gem
+# change version in lib/korona-cloud-client/version.rb e.g. to 1.0.2
 gem build korona-cloud-client.gemspec
-gem push korona-cloud-client-1.0.0.gem
+gem push korona-cloud-client-1.0.2.gem
 ```
 
 # usage in a project
