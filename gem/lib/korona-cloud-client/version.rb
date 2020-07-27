@@ -11,5 +11,5 @@ OpenAPI Generator version: 4.3.0
 =end
 
 module KoronaCloudClient
-  VERSION = '1.0.2'
+  VERSION = '1.0.3'
 end
