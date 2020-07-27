@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenAPI-Generator"]
   s.email       = ["support@combase.net"]
-  s.homepage    = "https://openapi-generator.tech"
+  s.homepage    = "https://github.com/giantmonkey/korona-cloud-client"
   s.summary     = "KORONA.cloud API v3 Ruby Gem"
   s.description = "Our api provides access to our cloud services"
   s.license     = "Unlicense"
