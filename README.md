@@ -1,4 +1,7 @@
 # gemifiied KORONA.cloud API client
+
+[![Gem Version](https://badge.fury.io/rb/korona-cloud-client.svg)](https://badge.fury.io/rb/korona-cloud-client)
+
 Based on OpenAPI definition file https://128.koronacloud.com/web/api/v3/swagger.json
 
 # generate gem with openapi-generator (was swagger-codegen)
