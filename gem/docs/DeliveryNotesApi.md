@@ -2,26 +2,25 @@
 
 All URIs are relative to *https://www.koronacloud.com/web/api/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**add_delivery_notes**](DeliveryNotesApi.md#add_delivery_notes) | **POST** /accounts/{koronaAccountId}/deliveryNotes | adds delivery notes
-[**book_delivery_note**](DeliveryNotesApi.md#book_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/book | book the single delivery note
-[**finalize_delivery_note**](DeliveryNotesApi.md#finalize_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/finalize | finalize the single delivery note
-[**get_delivery_note**](DeliveryNotesApi.md#get_delivery_note) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId} | returns a single delivery note
-[**get_delivery_notes**](DeliveryNotesApi.md#get_delivery_notes) | **GET** /accounts/{koronaAccountId}/deliveryNotes | lists all delivery notes
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**add_delivery_notes**](DeliveryNotesApi.md#add_delivery_notes) | **POST** /accounts/{koronaAccountId}/deliveryNotes | adds delivery notes |
+| [**book_delivery_note**](DeliveryNotesApi.md#book_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/book | book the single delivery note |
+| [**finalize_delivery_note**](DeliveryNotesApi.md#finalize_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/finalize | finalize the single delivery note |
+| [**get_delivery_note**](DeliveryNotesApi.md#get_delivery_note) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId} | returns a single delivery note |
+| [**get_delivery_notes**](DeliveryNotesApi.md#get_delivery_notes) | **GET** /accounts/{koronaAccountId}/deliveryNotes | lists all delivery notes |
 
 
 ## add_delivery_notes
 
-> Array&lt;AddOrUpdateResult&gt; add_delivery_notes(korona_account_id, body)
+> <Array<AddOrUpdateResult>> add_delivery_notes(korona_account_id, body)
 
 adds delivery notes
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'korona-cloud-client'
 # setup authorization
 KoronaCloudClient.configure do |config|
@@ -35,21 +34,38 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 body = [KoronaCloudClient::DeliveryNote.new] # Array<DeliveryNote> | data to add
 
 begin
-  #adds delivery notes
+  # adds delivery notes
   result = api_instance.add_delivery_notes(korona_account_id, body)
   p result
 rescue KoronaCloudClient::ApiError => e
-  puts "Exception when calling DeliveryNotesApi->add_delivery_notes: #{e}"
+  puts "Error when calling DeliveryNotesApi->add_delivery_notes: #{e}"
+end
+```
+
+#### Using the add_delivery_notes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_delivery_notes_with_http_info(korona_account_id, body)
+
+```ruby
+begin
+  # adds delivery notes
+  data, status_code, headers = api_instance.add_delivery_notes_with_http_info(korona_account_id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<AddOrUpdateResult>>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling DeliveryNotesApi->add_delivery_notes_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **korona_account_id** | **String**| account id of the KORONA.cloud account | 
- **body** | [**Array&lt;DeliveryNote&gt;**](DeliveryNote.md)| data to add | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **body** | [**Array&lt;DeliveryNote&gt;**](DeliveryNote.md) | data to add |  |
 
 ### Return type
 
@@ -71,10 +87,10 @@ Name | Type | Description  | Notes
 
 book the single delivery note
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'korona-cloud-client'
 # setup authorization
 KoronaCloudClient.configure do |config|
@@ -88,20 +104,37 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 delivery_note_id = 'delivery_note_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  #book the single delivery note
+  # book the single delivery note
   api_instance.book_delivery_note(korona_account_id, delivery_note_id)
 rescue KoronaCloudClient::ApiError => e
-  puts "Exception when calling DeliveryNotesApi->book_delivery_note: #{e}"
+  puts "Error when calling DeliveryNotesApi->book_delivery_note: #{e}"
+end
+```
+
+#### Using the book_delivery_note_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> book_delivery_note_with_http_info(korona_account_id, delivery_note_id)
+
+```ruby
+begin
+  # book the single delivery note
+  data, status_code, headers = api_instance.book_delivery_note_with_http_info(korona_account_id, delivery_note_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling DeliveryNotesApi->book_delivery_note_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **korona_account_id** | **String**| account id of the KORONA.cloud account | 
- **delivery_note_id** | **String**| id of the related object (important: id should match the uuid-format) | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **delivery_note_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
 
@@ -123,10 +156,10 @@ nil (empty response body)
 
 finalize the single delivery note
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'korona-cloud-client'
 # setup authorization
 KoronaCloudClient.configure do |config|
@@ -140,20 +173,37 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 delivery_note_id = 'delivery_note_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  #finalize the single delivery note
+  # finalize the single delivery note
   api_instance.finalize_delivery_note(korona_account_id, delivery_note_id)
 rescue KoronaCloudClient::ApiError => e
-  puts "Exception when calling DeliveryNotesApi->finalize_delivery_note: #{e}"
+  puts "Error when calling DeliveryNotesApi->finalize_delivery_note: #{e}"
+end
+```
+
+#### Using the finalize_delivery_note_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> finalize_delivery_note_with_http_info(korona_account_id, delivery_note_id)
+
+```ruby
+begin
+  # finalize the single delivery note
+  data, status_code, headers = api_instance.finalize_delivery_note_with_http_info(korona_account_id, delivery_note_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling DeliveryNotesApi->finalize_delivery_note_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **korona_account_id** | **String**| account id of the KORONA.cloud account | 
- **delivery_note_id** | **String**| id of the related object (important: id should match the uuid-format) | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **delivery_note_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
 
@@ -171,14 +221,14 @@ nil (empty response body)
 
 ## get_delivery_note
 
-> DeliveryNote get_delivery_note(korona_account_id, delivery_note_id)
+> <DeliveryNote> get_delivery_note(korona_account_id, delivery_note_id)
 
 returns a single delivery note
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'korona-cloud-client'
 # setup authorization
 KoronaCloudClient.configure do |config|
@@ -192,21 +242,38 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 delivery_note_id = 'delivery_note_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  #returns a single delivery note
+  # returns a single delivery note
   result = api_instance.get_delivery_note(korona_account_id, delivery_note_id)
   p result
 rescue KoronaCloudClient::ApiError => e
-  puts "Exception when calling DeliveryNotesApi->get_delivery_note: #{e}"
+  puts "Error when calling DeliveryNotesApi->get_delivery_note: #{e}"
+end
+```
+
+#### Using the get_delivery_note_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeliveryNote>, Integer, Hash)> get_delivery_note_with_http_info(korona_account_id, delivery_note_id)
+
+```ruby
+begin
+  # returns a single delivery note
+  data, status_code, headers = api_instance.get_delivery_note_with_http_info(korona_account_id, delivery_note_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeliveryNote>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling DeliveryNotesApi->get_delivery_note_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **korona_account_id** | **String**| account id of the KORONA.cloud account | 
- **delivery_note_id** | **String**| id of the related object (important: id should match the uuid-format) | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **delivery_note_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
 
@@ -224,14 +291,14 @@ Name | Type | Description  | Notes
 
 ## get_delivery_notes
 
-> ResultListDeliveryNote get_delivery_notes(korona_account_id, opts)
+> <ResultListDeliveryNote> get_delivery_notes(korona_account_id, opts)
 
 lists all delivery notes
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'korona-cloud-client'
 # setup authorization
 KoronaCloudClient.configure do |config|
@@ -246,12 +313,12 @@ opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
   sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
-  revision: 56, # Integer | last revision number, objects with a greater revision than this will be returned
+  revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
   include_deleted: true, # Boolean | indicates deleted objects should be loaded or not (default: false)
-  min_delivery_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | min (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  max_delivery_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | max (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  min_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  max_booking_time: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  min_delivery_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  max_delivery_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  min_booking_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  max_booking_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
   point_of_sale: 'point_of_sale_example', # String | point of sale
   organizational_unit: 'organizational_unit_example', # String | organizational unit
   customer: 'customer_example', # String | customer id to filter by
@@ -259,33 +326,50 @@ opts = {
 }
 
 begin
-  #lists all delivery notes
+  # lists all delivery notes
   result = api_instance.get_delivery_notes(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
-  puts "Exception when calling DeliveryNotesApi->get_delivery_notes: #{e}"
+  puts "Error when calling DeliveryNotesApi->get_delivery_notes: #{e}"
+end
+```
+
+#### Using the get_delivery_notes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ResultListDeliveryNote>, Integer, Hash)> get_delivery_notes_with_http_info(korona_account_id, opts)
+
+```ruby
+begin
+  # lists all delivery notes
+  data, status_code, headers = api_instance.get_delivery_notes_with_http_info(korona_account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ResultListDeliveryNote>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling DeliveryNotesApi->get_delivery_notes_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **korona_account_id** | **String**| account id of the KORONA.cloud account | 
- **page** | **Integer**| number of the page to fetch | [optional] 
- **size** | **Integer**| amount of objects to return per page | [optional] 
- **sort** | **String**| attribute to sort by (multiple separated by comma; max. 5) | [optional] 
- **revision** | **Integer**| last revision number, objects with a greater revision than this will be returned | [optional] 
- **include_deleted** | **Boolean**| indicates deleted objects should be loaded or not (default: false) | [optional] 
- **min_delivery_time** | **DateTime**| min (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
- **max_delivery_time** | **DateTime**| max (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
- **min_booking_time** | **DateTime**| min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
- **max_booking_time** | **DateTime**| max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] 
- **point_of_sale** | **String**| point of sale | [optional] 
- **organizational_unit** | **String**| organizational unit | [optional] 
- **customer** | **String**| customer id to filter by | [optional] 
- **number** | **String**| number of the related object | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **page** | **Integer** | number of the page to fetch | [optional] |
+| **size** | **Integer** | amount of objects to return per page | [optional] |
+| **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
+| **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
+| **include_deleted** | **Boolean** | indicates deleted objects should be loaded or not (default: false) | [optional] |
+| **min_delivery_time** | **Time** | min (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **max_delivery_time** | **Time** | max (inclusive) delivery time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **min_booking_time** | **Time** | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **max_booking_time** | **Time** | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **point_of_sale** | **String** | point of sale | [optional] |
+| **organizational_unit** | **String** | organizational unit | [optional] |
+| **customer** | **String** | customer id to filter by | [optional] |
+| **number** | **String** | number of the related object | [optional] |
 
 ### Return type
 

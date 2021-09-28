@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**latitude** | **Float** |  | [optional] 
-**longitude** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **latitude** | **Float** |  | [optional] |
+| **longitude** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::GeoLocation.new(latitude: null,
-                                 longitude: null)
+instance = KoronaCloudClient::GeoLocation.new(
+  latitude: null,
+  longitude: null
+)
 ```
-
 

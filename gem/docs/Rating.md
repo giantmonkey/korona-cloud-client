@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**assortment** | **Integer** |  | [optional] 
-**customers** | **Integer** |  | [optional] 
-**employees** | **Integer** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **assortment** | **Integer** |  | [optional] |
+| **customers** | **Integer** |  | [optional] |
+| **employees** | **Integer** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::Rating.new(assortment: null,
-                                 customers: null,
-                                 employees: null)
+instance = KoronaCloudClient::Rating.new(
+  assortment: null,
+  customers: null,
+  employees: null
+)
 ```
-
 

@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**address** | [**AddressInformation**](AddressInformation.md) |  | [optional] 
-**company** | **String** |  | [optional] 
-**identification** | [**CompanyIdentification**](CompanyIdentification.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **address** | [**AddressInformation**](AddressInformation.md) |  | [optional] |
+| **company** | **String** |  | [optional] |
+| **identification** | [**CompanyIdentification**](CompanyIdentification.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::ProductTransferInvolvedPartyInformationData.new(address: null,
-                                 company: null,
-                                 identification: null)
+instance = KoronaCloudClient::ProductTransferInvolvedPartyInformationData.new(
+  address: null,
+  company: null,
+  identification: null
+)
 ```
-
 

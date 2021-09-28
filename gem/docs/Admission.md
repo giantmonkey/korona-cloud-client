@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**daily** | **Integer** |  | [optional] 
-**total** | **Integer** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **daily** | **Integer** |  | [optional] |
+| **total** | **Integer** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::Admission.new(daily: null,
-                                 total: null)
+instance = KoronaCloudClient::Admission.new(
+  daily: null,
+  total: null
+)
 ```
-
 

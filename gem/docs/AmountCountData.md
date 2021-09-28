@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**amount** | **Float** |  | [optional] 
-**count** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **amount** | **Float** |  | [optional] |
+| **count** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::AmountCountData.new(amount: null,
-                                 count: null)
+instance = KoronaCloudClient::AmountCountData.new(
+  amount: null,
+  count: null
+)
 ```
-
 

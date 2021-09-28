@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**current** | **Integer** |  | [optional] 
-**limit** | **Integer** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **current** | **Integer** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::FiscalUnitStateUsageLevelValue.new(current: null,
-                                 limit: null)
+instance = KoronaCloudClient::FiscalUnitStateUsageLevelValue.new(
+  current: null,
+  limit: null
+)
 ```
-
 

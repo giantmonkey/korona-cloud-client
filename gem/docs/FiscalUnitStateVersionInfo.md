@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**api** | **String** |  | [optional] 
-**hardware** | **String** |  | [optional] 
-**software** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **api** | **String** |  | [optional] |
+| **hardware** | **String** |  | [optional] |
+| **software** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::FiscalUnitStateVersionInfo.new(api: null,
-                                 hardware: null,
-                                 software: null)
+instance = KoronaCloudClient::FiscalUnitStateVersionInfo.new(
+  api: null,
+  hardware: null,
+  software: null
+)
 ```
-
 

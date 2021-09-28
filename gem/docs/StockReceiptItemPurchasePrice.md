@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**actual** | **Float** |  | [optional] 
-**old** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **actual** | **Float** |  | [optional] |
+| **old** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::StockReceiptItemPurchasePrice.new(actual: null,
-                                 old: null)
+instance = KoronaCloudClient::StockReceiptItemPurchasePrice.new(
+  actual: null,
+  old: null
+)
 ```
-
 

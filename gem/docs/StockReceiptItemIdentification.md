@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**buyer** | **String** |  | [optional] 
-**product_code** | **String** |  | [optional] 
-**supplier** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **buyer** | **String** |  | [optional] |
+| **product_code** | **String** |  | [optional] |
+| **supplier** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::StockReceiptItemIdentification.new(buyer: null,
-                                 product_code: null,
-                                 supplier: null)
+instance = KoronaCloudClient::StockReceiptItemIdentification.new(
+  buyer: null,
+  product_code: null,
+  supplier: null
+)
 ```
-
 

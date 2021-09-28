@@ -2,24 +2,25 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**account** | [**ModelReference**](ModelReference.md) |  | [optional] 
-**indent** | **Integer** |  | [optional] 
-**product** | [**ModelReference**](ModelReference.md) |  | [optional] 
-**quantity** | **Float** |  | [optional] 
-**total** | [**TotalPrice**](TotalPrice.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **indent** | **Integer** |  | [optional] |
+| **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **quantity** | **Float** |  | [optional] |
+| **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::VoidedReceiptItem.new(account: null,
-                                 indent: null,
-                                 product: null,
-                                 quantity: null,
-                                 total: null)
+instance = KoronaCloudClient::VoidedReceiptItem.new(
+  account: null,
+  indent: null,
+  product: null,
+  quantity: null,
+  total: null
+)
 ```
-
 

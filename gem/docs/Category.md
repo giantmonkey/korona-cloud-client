@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** |  | [optional] 
-**product** | [**ModelReference**](ModelReference.md) |  | [optional] 
-**external_id** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** |  | [optional] |
+| **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **external_id** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::Category.new(name: null,
-                                 product: null,
-                                 external_id: null)
+instance = KoronaCloudClient::Category.new(
+  name: null,
+  product: null,
+  external_id: null
+)
 ```
-
 

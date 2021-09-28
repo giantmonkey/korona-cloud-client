@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**net_amount** | **Float** |  | [optional] 
-**sales_tax** | [**ModelReference**](ModelReference.md) |  | [optional] 
-**tax_amount** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **net_amount** | **Float** |  | [optional] |
+| **sales_tax** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **tax_amount** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::TaxSummary.new(net_amount: null,
-                                 sales_tax: null,
-                                 tax_amount: null)
+instance = KoronaCloudClient::TaxSummary.new(
+  net_amount: null,
+  sales_tax: null,
+  tax_amount: null
+)
 ```
-
 

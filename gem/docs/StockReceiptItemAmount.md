@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**expected** | **Float** |  | [optional] [readonly] 
-**received** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **expected** | **Float** |  | [optional] |
+| **received** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::StockReceiptItemAmount.new(expected: null,
-                                 received: null)
+instance = KoronaCloudClient::StockReceiptItemAmount.new(
+  expected: null,
+  received: null
+)
 ```
-
 

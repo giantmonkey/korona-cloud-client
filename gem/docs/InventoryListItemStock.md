@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**actual** | **Float** |  | [optional] 
-**nominal** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **actual** | **Float** |  | [optional] |
+| **nominal** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::InventoryListItemStock.new(actual: null,
-                                 nominal: null)
+instance = KoronaCloudClient::InventoryListItemStock.new(
+  actual: null,
+  nominal: null
+)
 ```
-
 

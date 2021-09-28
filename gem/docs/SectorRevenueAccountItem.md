@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**revenue_account** | [**ModelReference**](ModelReference.md) |  | [optional] 
-**economic_zone** | [**ModelReference**](ModelReference.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **revenue_account** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **economic_zone** | [**ModelReference**](ModelReference.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::SectorRevenueAccountItem.new(revenue_account: null,
-                                 economic_zone: null)
+instance = KoronaCloudClient::SectorRevenueAccountItem.new(
+  revenue_account: null,
+  economic_zone: null
+)
 ```
-
 

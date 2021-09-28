@@ -2,28 +2,29 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**amount** | [**StockReceiptItemAmount**](StockReceiptItemAmount.md) |  | [optional] 
-**identification** | [**StockReceiptItemIdentification**](StockReceiptItemIdentification.md) |  | [optional] 
-**index** | **Integer** |  | [optional] [readonly] 
-**product** | [**ModelReference**](ModelReference.md) |  | [optional] 
-**purchase_price** | [**StockReceiptItemPurchasePrice**](StockReceiptItemPurchasePrice.md) |  | [optional] 
-**revision** | **Integer** |  | [optional] [readonly] 
-**shelf_life** | **DateTime** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **amount** | [**StockReceiptItemAmount**](StockReceiptItemAmount.md) |  | [optional] |
+| **identification** | [**StockReceiptItemIdentification**](StockReceiptItemIdentification.md) |  | [optional] |
+| **index** | **Integer** |  | [optional][readonly] |
+| **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **purchase_price** | [**StockReceiptItemPurchasePrice**](StockReceiptItemPurchasePrice.md) |  | [optional] |
+| **revision** | **Integer** |  | [optional][readonly] |
+| **shelf_life** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::StockReceiptItem.new(amount: null,
-                                 identification: null,
-                                 index: null,
-                                 product: null,
-                                 purchase_price: null,
-                                 revision: null,
-                                 shelf_life: null)
+instance = KoronaCloudClient::StockReceiptItem.new(
+  amount: null,
+  identification: null,
+  index: null,
+  product: null,
+  purchase_price: null,
+  revision: null,
+  shelf_life: 2018-11-22T09:40:21+01:00
+)
 ```
-
 

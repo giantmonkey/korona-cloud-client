@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**from** | **String** |  | [optional] 
-**to** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **from** | **String** |  | [optional] |
+| **to** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::DayTimePeriod.new(from: null,
-                                 to: null)
+instance = KoronaCloudClient::DayTimePeriod.new(
+  from: null,
+  to: null
+)
 ```
-
 

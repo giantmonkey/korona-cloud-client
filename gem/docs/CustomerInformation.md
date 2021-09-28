@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**creator_name** | **String** |  | [optional] 
-**date** | **DateTime** |  | [optional] 
-**text** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **creator_name** | **String** |  | [optional] |
+| **date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **text** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::CustomerInformation.new(creator_name: null,
-                                 date: null,
-                                 text: null)
+instance = KoronaCloudClient::CustomerInformation.new(
+  creator_name: null,
+  date: 2018-11-22T09:40:21+01:00,
+  text: null
+)
 ```
-
 

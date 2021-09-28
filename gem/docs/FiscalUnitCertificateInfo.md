@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | **String** | log message certificate of the fiscal unit. Value can only be set on create and is not changable on update. | [optional] 
-**expiration_date** | **DateTime** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | **String** | log message certificate of the fiscal unit. Value can only be set on create and is not changeable on update. | [optional] |
+| **expiration_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::FiscalUnitCertificateInfo.new(data: null,
-                                 expiration_date: null)
+instance = KoronaCloudClient::FiscalUnitCertificateInfo.new(
+  data: null,
+  expiration_date: 2018-11-22T09:40:21+01:00
+)
 ```
-
 

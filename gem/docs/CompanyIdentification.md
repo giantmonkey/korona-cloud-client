@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**gln** | **String** |  | [optional] 
-**tax_id** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **gln** | **String** |  | [optional] |
+| **tax_id** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::CompanyIdentification.new(gln: null,
-                                 tax_id: null)
+instance = KoronaCloudClient::CompanyIdentification.new(
+  gln: null,
+  tax_id: null
+)
 ```
-
 

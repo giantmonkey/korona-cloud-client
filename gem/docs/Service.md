@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**parameter** | **String** |  | [optional] 
-**type** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **parameter** | **String** |  | [optional] |
+| **type** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::Service.new(parameter: null,
-                                 type: null)
+instance = KoronaCloudClient::Service.new(
+  parameter: null,
+  type: null
+)
 ```
-
 

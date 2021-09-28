@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**account** | [**ModelReference**](ModelReference.md) |  | [optional] 
-**amount** | **Float** |  | [optional] 
-**transactions** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **amount** | **Float** |  | [optional] |
+| **transactions** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::AccountSummary.new(account: null,
-                                 amount: null,
-                                 transactions: null)
+instance = KoronaCloudClient::AccountSummary.new(
+  account: null,
+  amount: null,
+  transactions: null
+)
 ```
-
 

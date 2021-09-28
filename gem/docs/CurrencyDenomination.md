@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | **String** |  | [optional] 
-**value** | **Float** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  | [optional] |
+| **value** | **Float** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::CurrencyDenomination.new(type: null,
-                                 value: null)
+instance = KoronaCloudClient::CurrencyDenomination.new(
+  type: null,
+  value: null
+)
 ```
-
 

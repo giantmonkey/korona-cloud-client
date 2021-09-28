@@ -2,22 +2,23 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**firstname** | **String** |  | [optional] 
-**lastname** | **String** |  | [optional] 
-**customer_number** | **String** |  | [optional] 
-**image** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **firstname** | **String** |  | [optional] |
+| **lastname** | **String** |  | [optional] |
+| **customer_number** | **String** |  | [optional] |
+| **image** | **String** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::TicketPersonalization.new(firstname: null,
-                                 lastname: null,
-                                 customer_number: null,
-                                 image: null)
+instance = KoronaCloudClient::TicketPersonalization.new(
+  firstname: null,
+  lastname: null,
+  customer_number: null,
+  image: null
+)
 ```
-
 

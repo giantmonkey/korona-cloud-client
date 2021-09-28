@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**week_day** | **String** |  | [optional] 
-**from** | **String** |  | [optional] 
-**to** | **String** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **week_day** | **String** |  | [optional] |
+| **from** | **String** | Format: HH:mm:ss | [optional] |
+| **to** | **String** | Format: HH:mm:ss | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'KoronaCloudClient'
+require 'korona-cloud-client'
 
-instance = KoronaCloudClient::OpeningHours.new(week_day: null,
-                                 from: 13:37,
-                                 to: 13:37)
+instance = KoronaCloudClient::OpeningHours.new(
+  week_day: null,
+  from: 13:37,
+  to: 13:37
+)
 ```
-
 
