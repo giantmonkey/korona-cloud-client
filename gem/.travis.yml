@@ -11,4 +11,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build korona-cloud-client.gemspec
-  - gem install ./korona-cloud-client-1.0.5.gem
+  - gem install ./korona-cloud-client-1.0.6.gem
