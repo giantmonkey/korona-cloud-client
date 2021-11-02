@@ -13,7 +13,6 @@
 | **successfully_checked** | **Boolean** |  | [optional] |
 | **summaries** | [**EndOfDayStatementSummary**](EndOfDayStatementSummary.md) |  | [optional] |
 | **z_count** | **Integer** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -29,8 +28,7 @@ instance = KoronaCloudClient::EndOfDayStatement.new(
   receipt_count: null,
   successfully_checked: null,
   summaries: null,
-  z_count: null,
-  number_length: null
+  z_count: null
 )
 ```
 

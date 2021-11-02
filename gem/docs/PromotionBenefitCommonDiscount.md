@@ -12,6 +12,7 @@
 | **type** | **String** |  | [optional] |
 | **unit_type** | **String** |  | [optional] |
 | **value** | **Float** |  | [optional] |
+| **max_iterations** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = KoronaCloudClient::PromotionBenefitCommonDiscount.new(
   target_tag: null,
   type: null,
   unit_type: null,
-  value: null
+  value: null,
+  max_iterations: null
 )
 ```
 

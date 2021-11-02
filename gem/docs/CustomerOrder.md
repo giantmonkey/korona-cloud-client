@@ -23,7 +23,6 @@
 | **point_of_sale** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **ready_for_pick_up** | **Boolean** |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -49,8 +48,7 @@ instance = KoronaCloudClient::CustomerOrder.new(
   pick_up_time: 2018-11-22T09:40:21+01:00,
   point_of_sale: null,
   ready_for_pick_up: null,
-  warehouse: null,
-  number_length: null
+  warehouse: null
 )
 ```
 

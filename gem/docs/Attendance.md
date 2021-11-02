@@ -14,7 +14,6 @@
 | **event** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **expiration_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **seats** | **Integer** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -31,8 +30,7 @@ instance = KoronaCloudClient::Attendance.new(
   creation_time: 2018-11-22T09:40:21+01:00,
   event: null,
   expiration_time: 2018-11-22T09:40:21+01:00,
-  seats: null,
-  number_length: null
+  seats: null
 )
 ```
 

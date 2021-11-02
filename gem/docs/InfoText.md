@@ -11,7 +11,6 @@
 | **text** | **String** |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **image** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -25,8 +24,7 @@ instance = KoronaCloudClient::InfoText.new(
   revision: null,
   text: null,
   type: null,
-  image: null,
-  number_length: null
+  image: null
 )
 ```
 

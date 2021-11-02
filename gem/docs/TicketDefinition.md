@@ -20,7 +20,6 @@
 | **validity_period_after_entrance** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
 | **validity_period_daily** | [**Interval**](Interval.md) |  | [optional] |
 | **validity_period_total** | [**Interval**](Interval.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -43,8 +42,7 @@ instance = KoronaCloudClient::TicketDefinition.new(
   validity_period_after_activation: null,
   validity_period_after_entrance: null,
   validity_period_daily: null,
-  validity_period_total: null,
-  number_length: null
+  validity_period_total: null
 )
 ```
 

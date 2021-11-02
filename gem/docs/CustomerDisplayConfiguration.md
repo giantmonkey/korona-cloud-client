@@ -11,17 +11,16 @@
 | **font_scale** | **Integer** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **booking_url** | **String** |  | [optional] |
-| **booking_image_id** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **booking_image_id** | **String** |  | [optional] |
 | **closed_url** | **String** |  | [optional] |
 | **closed_text** | **String** |  | [optional] |
-| **closed_image_id** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **closed_image_id** | **String** |  | [optional] |
 | **welcome_text** | **String** |  | [optional] |
 | **welcome_url** | **String** |  | [optional] |
-| **welcome_image_id** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **welcome_image_id** | **String** |  | [optional] |
 | **graphical_display** | **String** |  | [optional] |
 | **layout_type** | **String** |  | [optional] |
 | **theme_color** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -45,8 +44,7 @@ instance = KoronaCloudClient::CustomerDisplayConfiguration.new(
   welcome_image_id: null,
   graphical_display: null,
   layout_type: null,
-  theme_color: null,
-  number_length: null
+  theme_color: null
 )
 ```
 

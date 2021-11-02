@@ -18,7 +18,6 @@
 | **parent_organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **price_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **warehouse** | **Boolean** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -39,8 +38,7 @@ instance = KoronaCloudClient::OrganizationalUnit.new(
   opening_hours: null,
   parent_organizational_unit: null,
   price_group: null,
-  warehouse: null,
-  number_length: null
+  warehouse: null
 )
 ```
 

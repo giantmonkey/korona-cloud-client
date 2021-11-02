@@ -16,7 +16,6 @@
 | **start** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **tags** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **description** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -35,8 +34,7 @@ instance = KoronaCloudClient::Event.new(
   name: null,
   start: 2018-11-22T09:40:21+01:00,
   tags: null,
-  description: null,
-  number_length: null
+  description: null
 )
 ```
 

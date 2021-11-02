@@ -17,7 +17,6 @@
 | **revenue_account** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **show_transaction_on_customer_display** | **Boolean** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -37,8 +36,7 @@ instance = KoronaCloudClient::Account.new(
   requires_serial_number: null,
   revenue_account: null,
   type: null,
-  show_transaction_on_customer_display: null,
-  number_length: null
+  show_transaction_on_customer_display: null
 )
 ```
 

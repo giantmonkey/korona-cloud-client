@@ -34,7 +34,6 @@
 | **store_order** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **supplier** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **status** | **String** |  | [optional][readonly] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -71,8 +70,7 @@ instance = KoronaCloudClient::StockOrder.new(
   special_offer_code: null,
   store_order: null,
   supplier: null,
-  status: null,
-  number_length: null
+  status: null
 )
 ```
 

@@ -11,7 +11,6 @@
 | **currency** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **net_prices** | **Boolean** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -25,8 +24,7 @@ instance = KoronaCloudClient::PriceGroup.new(
   revision: null,
   currency: null,
   name: null,
-  net_prices: null,
-  number_length: null
+  net_prices: null
 )
 ```
 

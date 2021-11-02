@@ -11,7 +11,6 @@
 | **name** | **String** |  | [optional] |
 | **sales_taxes** | [**Array&lt;SectorSalesTaxItem&gt;**](SectorSalesTaxItem.md) |  | [optional] |
 | **revenue_accounts** | [**Array&lt;SectorRevenueAccountItem&gt;**](SectorRevenueAccountItem.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -25,8 +24,7 @@ instance = KoronaCloudClient::Sector.new(
   revision: null,
   name: null,
   sales_taxes: null,
-  revenue_accounts: null,
-  number_length: null
+  revenue_accounts: null
 )
 ```
 

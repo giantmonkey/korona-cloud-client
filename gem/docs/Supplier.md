@@ -17,7 +17,6 @@
 | **payment** | [**SupplierPaymentInformation**](SupplierPaymentInformation.md) |  | [optional] |
 | **return_address** | [**ProductTransferInvolvedPartyInformationData**](ProductTransferInvolvedPartyInformationData.md) |  | [optional] |
 | **delivery_conditions** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -37,8 +36,7 @@ instance = KoronaCloudClient::Supplier.new(
   name: null,
   payment: null,
   return_address: null,
-  delivery_conditions: null,
-  number_length: null
+  delivery_conditions: null
 )
 ```
 

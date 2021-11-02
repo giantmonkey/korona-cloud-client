@@ -10,7 +10,6 @@
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
 | **name** | **String** |  | [optional] |
 | **permissions** | **Array&lt;String&gt;** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -23,8 +22,7 @@ instance = KoronaCloudClient::UserRole.new(
   number: null,
   revision: null,
   name: null,
-  permissions: null,
-  number_length: null
+  permissions: null
 )
 ```
 

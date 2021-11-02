@@ -15,7 +15,6 @@
 | **name** | **String** |  | [optional] |
 | **price_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **validity_period** | [**PriceRuleValidityPeriod**](PriceRuleValidityPeriod.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -33,8 +32,7 @@ instance = KoronaCloudClient::PriceRule.new(
   discount_level: null,
   name: null,
   price_group: null,
-  validity_period: null,
-  number_length: null
+  validity_period: null
 )
 ```
 

@@ -38,6 +38,8 @@ docs/CommodityGroupSummary.md
 docs/CommodityGroupsApi.md
 docs/CompanyIdentification.md
 docs/Coupon.md
+docs/CouponPosition.md
+docs/CouponsApi.md
 docs/CreationTask.md
 docs/CurrenciesApi.md
 docs/Currency.md
@@ -70,6 +72,12 @@ docs/DeviceConfigurationVariablesApi.md
 docs/DeviceInformation.md
 docs/DeviceParameterItem.md
 docs/Discount.md
+docs/DispatchNotification.md
+docs/DispatchNotificationItem.md
+docs/DispatchNotificationItemAmount.md
+docs/DispatchNotificationItemContainer.md
+docs/DispatchNotificationItemIdentification.md
+docs/DispatchNotificationsApi.md
 docs/EconomicZone.md
 docs/EconomicZonesApi.md
 docs/EndOfDayStatement.md
@@ -157,6 +165,7 @@ docs/ProductionType.md
 docs/ProductionTypesApi.md
 docs/ProductsApi.md
 docs/Promotion.md
+docs/PromotionApplication.md
 docs/PromotionBenefit.md
 docs/PromotionBenefitCommonDiscount.md
 docs/PromotionBenefitExtendedDiscount.md
@@ -205,6 +214,7 @@ docs/ResultListCashier.md
 docs/ResultListCashierRole.md
 docs/ResultListCashierVerificationRequirement.md
 docs/ResultListCommodityGroup.md
+docs/ResultListCoupon.md
 docs/ResultListCreationTask.md
 docs/ResultListCurrency.md
 docs/ResultListCustomer.md
@@ -214,6 +224,8 @@ docs/ResultListCustomerOrder.md
 docs/ResultListDayRating.md
 docs/ResultListDeliveryNote.md
 docs/ResultListDeviceConfigurationVariable.md
+docs/ResultListDispatchNotification.md
+docs/ResultListDispatchNotificationItem.md
 docs/ResultListEconomicZone.md
 docs/ResultListEndOfDayStatement.md
 docs/ResultListEntryGate.md
@@ -332,6 +344,7 @@ lib/korona-cloud-client/api/cashier_roles_api.rb
 lib/korona-cloud-client/api/cashier_verification_requirement_api.rb
 lib/korona-cloud-client/api/cashiers_api.rb
 lib/korona-cloud-client/api/commodity_groups_api.rb
+lib/korona-cloud-client/api/coupons_api.rb
 lib/korona-cloud-client/api/currencies_api.rb
 lib/korona-cloud-client/api/customer_display_configurations_api.rb
 lib/korona-cloud-client/api/customer_groups_api.rb
@@ -339,6 +352,7 @@ lib/korona-cloud-client/api/customer_orders_api.rb
 lib/korona-cloud-client/api/customers_api.rb
 lib/korona-cloud-client/api/delivery_notes_api.rb
 lib/korona-cloud-client/api/device_configuration_variables_api.rb
+lib/korona-cloud-client/api/dispatch_notifications_api.rb
 lib/korona-cloud-client/api/economic_zones_api.rb
 lib/korona-cloud-client/api/external_system_calls_api.rb
 lib/korona-cloud-client/api/fiscal_units_api.rb
@@ -402,6 +416,7 @@ lib/korona-cloud-client/models/commodity_group.rb
 lib/korona-cloud-client/models/commodity_group_summary.rb
 lib/korona-cloud-client/models/company_identification.rb
 lib/korona-cloud-client/models/coupon.rb
+lib/korona-cloud-client/models/coupon_position.rb
 lib/korona-cloud-client/models/creation_task.rb
 lib/korona-cloud-client/models/currency.rb
 lib/korona-cloud-client/models/currency_denomination.rb
@@ -427,6 +442,11 @@ lib/korona-cloud-client/models/device_configuration_variable_value.rb
 lib/korona-cloud-client/models/device_information.rb
 lib/korona-cloud-client/models/device_parameter_item.rb
 lib/korona-cloud-client/models/discount.rb
+lib/korona-cloud-client/models/dispatch_notification.rb
+lib/korona-cloud-client/models/dispatch_notification_item.rb
+lib/korona-cloud-client/models/dispatch_notification_item_amount.rb
+lib/korona-cloud-client/models/dispatch_notification_item_container.rb
+lib/korona-cloud-client/models/dispatch_notification_item_identification.rb
 lib/korona-cloud-client/models/economic_zone.rb
 lib/korona-cloud-client/models/end_of_day_statement.rb
 lib/korona-cloud-client/models/end_of_day_statement_summary.rb
@@ -497,6 +517,7 @@ lib/korona-cloud-client/models/product_transfer_involved_party_information.rb
 lib/korona-cloud-client/models/product_transfer_involved_party_information_data.rb
 lib/korona-cloud-client/models/production_type.rb
 lib/korona-cloud-client/models/promotion.rb
+lib/korona-cloud-client/models/promotion_application.rb
 lib/korona-cloud-client/models/promotion_benefit.rb
 lib/korona-cloud-client/models/promotion_benefit_common_discount.rb
 lib/korona-cloud-client/models/promotion_benefit_extended_discount.rb
@@ -542,6 +563,7 @@ lib/korona-cloud-client/models/result_list_cashier.rb
 lib/korona-cloud-client/models/result_list_cashier_role.rb
 lib/korona-cloud-client/models/result_list_cashier_verification_requirement.rb
 lib/korona-cloud-client/models/result_list_commodity_group.rb
+lib/korona-cloud-client/models/result_list_coupon.rb
 lib/korona-cloud-client/models/result_list_creation_task.rb
 lib/korona-cloud-client/models/result_list_currency.rb
 lib/korona-cloud-client/models/result_list_customer.rb
@@ -551,6 +573,8 @@ lib/korona-cloud-client/models/result_list_customer_order.rb
 lib/korona-cloud-client/models/result_list_day_rating.rb
 lib/korona-cloud-client/models/result_list_delivery_note.rb
 lib/korona-cloud-client/models/result_list_device_configuration_variable.rb
+lib/korona-cloud-client/models/result_list_dispatch_notification.rb
+lib/korona-cloud-client/models/result_list_dispatch_notification_item.rb
 lib/korona-cloud-client/models/result_list_economic_zone.rb
 lib/korona-cloud-client/models/result_list_end_of_day_statement.rb
 lib/korona-cloud-client/models/result_list_entry_gate.rb
@@ -648,5 +672,4 @@ lib/korona-cloud-client/models/weather.rb
 lib/korona-cloud-client/version.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
-spec/models/promotion_benefit_extended_discount_position_selection_criteria_min_max_range_value_comperator_spec.rb
 spec/spec_helper.rb

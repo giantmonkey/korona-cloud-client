@@ -24,7 +24,6 @@
 | **cashier_role** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **create_time** | **Date** | Format: yyyy-MM-dd | [optional][readonly] |
 | **last_receipt_time** | **Date** | Format: yyyy-MM-dd | [optional][readonly] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -51,8 +50,7 @@ instance = KoronaCloudClient::Cashier.new(
   organizational_units: null,
   cashier_role: null,
   create_time: Thu Nov 22 01:00:00 CET 2018,
-  last_receipt_time: Thu Nov 22 01:00:00 CET 2018,
-  number_length: null
+  last_receipt_time: Thu Nov 22 01:00:00 CET 2018
 )
 ```
 

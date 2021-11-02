@@ -18,7 +18,6 @@
 | **request_timeout_millis** | **Integer** |  | [optional] |
 | **customer_display_url** | **String** |  | [optional] |
 | **deactivated** | **Boolean** |  | [optional][readonly] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -39,8 +38,7 @@ instance = KoronaCloudClient::ExternalSystemCall.new(
   connect_timeout_millis: null,
   request_timeout_millis: null,
   customer_display_url: null,
-  deactivated: null,
-  number_length: null
+  deactivated: null
 )
 ```
 

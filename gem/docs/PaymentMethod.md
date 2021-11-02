@@ -20,7 +20,6 @@
 | **revenue_account** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **attach_payment_terminal_data_to_receipt** | **Boolean** |  | [optional] |
 | **max_payment_sum** | **Float** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -43,8 +42,7 @@ instance = KoronaCloudClient::PaymentMethod.new(
   use_cash_drawer: null,
   revenue_account: null,
   attach_payment_terminal_data_to_receipt: null,
-  max_payment_sum: null,
-  number_length: null
+  max_payment_sum: null
 )
 ```
 

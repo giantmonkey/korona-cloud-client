@@ -20,7 +20,6 @@
 | **point_of_sale** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **signature** | [**Signature**](Signature.md) |  | [optional] |
 | **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -43,8 +42,7 @@ instance = KoronaCloudClient::DeliveryNote.new(
   organizational_unit: null,
   point_of_sale: null,
   signature: null,
-  total: null,
-  number_length: null
+  total: null
 )
 ```
 

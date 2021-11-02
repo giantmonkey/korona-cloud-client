@@ -27,7 +27,6 @@
 | **create_time** | **Date** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
 | **last_receipt_time** | **Date** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
 | **use_email_for_digital_receipt** | **Boolean** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -57,8 +56,7 @@ instance = KoronaCloudClient::Customer.new(
   marketing_contact_permitted: null,
   create_time: null,
   last_receipt_time: null,
-  use_email_for_digital_receipt: null,
-  number_length: null
+  use_email_for_digital_receipt: null
 )
 ```
 

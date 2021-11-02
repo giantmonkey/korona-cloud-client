@@ -18,7 +18,6 @@
 | **total** | [**PosBalanceTotal**](PosBalanceTotal.md) |  | [optional] |
 | **transaction_receipt_code** | **String** |  | [optional] |
 | **z_count** | **Integer** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -39,8 +38,7 @@ instance = KoronaCloudClient::PosBalance.new(
   items: null,
   total: null,
   transaction_receipt_code: null,
-  z_count: null,
-  number_length: null
+  z_count: null
 )
 ```
 

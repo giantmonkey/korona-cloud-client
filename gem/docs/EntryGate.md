@@ -11,7 +11,6 @@
 | **has_children** | **Boolean** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **parent_entry_gate** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -25,8 +24,7 @@ instance = KoronaCloudClient::EntryGate.new(
   revision: null,
   has_children: null,
   name: null,
-  parent_entry_gate: null,
-  number_length: null
+  parent_entry_gate: null
 )
 ```
 

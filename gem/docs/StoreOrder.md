@@ -17,7 +17,6 @@
 | **items_count** | **Integer** |  | [optional] |
 | **customer_order** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **pickup_date** | **Time** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -37,8 +36,7 @@ instance = KoronaCloudClient::StoreOrder.new(
   comment: null,
   items_count: null,
   customer_order: null,
-  pickup_date: null,
-  number_length: null
+  pickup_date: null
 )
 ```
 

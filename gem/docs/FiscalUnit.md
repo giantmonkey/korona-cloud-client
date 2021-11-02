@@ -23,7 +23,6 @@
 | **api_secret** | **String** |  | [optional] |
 | **remote_url** | **String** |  | [optional] |
 | **tss_client_uid** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -49,8 +48,7 @@ instance = KoronaCloudClient::FiscalUnit.new(
   api_key: null,
   api_secret: null,
   remote_url: null,
-  tss_client_uid: null,
-  number_length: null
+  tss_client_uid: null
 )
 ```
 

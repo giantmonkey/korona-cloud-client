@@ -23,7 +23,6 @@
 | **organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **product_filter** | **String** |  | [optional] |
 | **type** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -49,8 +48,7 @@ instance = KoronaCloudClient::Inventory.new(
   only_negative_product_stocks: null,
   organizational_units: null,
   product_filter: null,
-  type: null,
-  number_length: null
+  type: null
 )
 ```
 

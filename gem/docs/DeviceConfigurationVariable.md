@@ -9,7 +9,6 @@
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
 | **name** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -21,8 +20,7 @@ instance = KoronaCloudClient::DeviceConfigurationVariable.new(
   id: null,
   number: null,
   revision: null,
-  name: null,
-  number_length: null
+  name: null
 )
 ```
 

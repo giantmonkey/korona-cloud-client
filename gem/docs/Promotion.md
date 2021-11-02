@@ -18,7 +18,6 @@
 | **triggers** | [**Array&lt;PromotionTrigger&gt;**](PromotionTrigger.md) |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **validity** | [**PromotionValidity**](PromotionValidity.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -39,8 +38,7 @@ instance = KoronaCloudClient::Promotion.new(
   stamp: null,
   triggers: null,
   type: null,
-  validity: null,
-  number_length: null
+  validity: null
 )
 ```
 

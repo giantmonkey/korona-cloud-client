@@ -13,7 +13,6 @@
 | **included** | **Boolean** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **rates** | [**Array&lt;SalesTaxRate&gt;**](SalesTaxRate.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -29,8 +28,7 @@ instance = KoronaCloudClient::SalesTax.new(
   economic_zone: null,
   included: null,
   name: null,
-  rates: null,
-  number_length: null
+  rates: null
 )
 ```
 

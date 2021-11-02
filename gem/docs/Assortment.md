@@ -12,7 +12,6 @@
 | **description** | **String** |  | [optional] |
 | **last_clean_up** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
 | **name** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -27,8 +26,7 @@ instance = KoronaCloudClient::Assortment.new(
   cost_center: null,
   description: null,
   last_clean_up: 2018-11-22T09:40:21+01:00,
-  name: null,
-  number_length: null
+  name: null
 )
 ```
 

@@ -11,7 +11,6 @@
 | **name** | **String** |  | [optional] |
 | **buttons** | [**Array&lt;PosButton&gt;**](PosButton.md) |  | [optional] |
 | **size** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -25,8 +24,7 @@ instance = KoronaCloudClient::PosButtonLayout.new(
   revision: null,
   name: null,
   buttons: null,
-  size: null,
-  number_length: null
+  size: null
 )
 ```
 

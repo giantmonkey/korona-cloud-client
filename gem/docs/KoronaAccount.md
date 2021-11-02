@@ -15,7 +15,6 @@
 | **company** | **String** |  | [optional] |
 | **identification** | [**CompanyIdentification**](CompanyIdentification.md) |  | [optional] |
 | **test_mode** | **Boolean** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -33,8 +32,7 @@ instance = KoronaCloudClient::KoronaAccount.new(
   cloud_subscription: null,
   company: null,
   identification: null,
-  test_mode: null,
-  number_length: null
+  test_mode: null
 )
 ```
 

@@ -16,7 +16,6 @@
 | **name** | **String** |  | [optional] |
 | **system_currency** | **Boolean** |  | [optional] |
 | **symbol** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -35,8 +34,7 @@ instance = KoronaCloudClient::Currency.new(
   key: null,
   name: null,
   system_currency: null,
-  symbol: null,
-  number_length: null
+  symbol: null
 )
 ```
 

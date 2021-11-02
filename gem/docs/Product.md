@@ -50,7 +50,6 @@
 | **special_prices** | [**Array&lt;ProductSpecialPrice&gt;**](ProductSpecialPrice.md) |  | [optional] |
 | **verification_requirements** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **stock_return_unsellable** | **Boolean** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -103,8 +102,7 @@ instance = KoronaCloudClient::Product.new(
   quantity_denomination: null,
   special_prices: null,
   verification_requirements: null,
-  stock_return_unsellable: null,
-  number_length: null
+  stock_return_unsellable: null
 )
 ```
 

@@ -39,7 +39,6 @@
 | **use_alternative_sector** | **Boolean** |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **device_configuration_variable_values** | [**Array&lt;DeviceConfigurationVariableValue&gt;**](DeviceConfigurationVariableValue.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -81,8 +80,7 @@ instance = KoronaCloudClient::Pos.new(
   tip_account: null,
   use_alternative_sector: null,
   warehouse: null,
-  device_configuration_variable_values: null,
-  number_length: null
+  device_configuration_variable_values: null
 )
 ```
 

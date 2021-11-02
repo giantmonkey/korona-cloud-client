@@ -11,7 +11,6 @@
 | **key** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **parent_commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -25,8 +24,7 @@ instance = KoronaCloudClient::CommodityGroup.new(
   revision: null,
   key: null,
   name: null,
-  parent_commodity_group: null,
-  number_length: null
+  parent_commodity_group: null
 )
 ```
 

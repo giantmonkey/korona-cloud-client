@@ -39,8 +39,9 @@
 | **void_fiscal_transactions** | [**Array&lt;FiscalTransaction&gt;**](FiscalTransaction.md) |  | [optional] |
 | **voucher_transactions** | [**Array&lt;VoucherTransaction&gt;**](VoucherTransaction.md) |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **promotion_applications** | [**Array&lt;PromotionApplication&gt;**](PromotionApplication.md) |  | [optional] |
+| **coupon_positions** | [**Array&lt;CouponPosition&gt;**](CouponPosition.md) |  | [optional] |
 | **zcounter** | **Integer** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -83,8 +84,9 @@ instance = KoronaCloudClient::Receipt.new(
   void_fiscal_transactions: null,
   voucher_transactions: null,
   warehouse: null,
-  zcounter: null,
-  number_length: null
+  promotion_applications: null,
+  coupon_positions: null,
+  zcounter: null
 )
 ```
 

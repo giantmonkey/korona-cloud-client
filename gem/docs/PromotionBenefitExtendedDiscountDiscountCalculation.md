@@ -8,6 +8,8 @@
 | **operator** | **String** |  | [optional] |
 | **position_selection_criteria** | [**PromotionBenefitExtendedDiscountPositionSelectionCriteria**](PromotionBenefitExtendedDiscountPositionSelectionCriteria.md) |  | [optional] |
 | **reference** | **String** |  | [optional] |
+| **sum_reference** | **String** |  | [optional] |
+| **receipt_discount** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -18,7 +20,9 @@ instance = KoronaCloudClient::PromotionBenefitExtendedDiscountDiscountCalculatio
   operand: null,
   operator: null,
   position_selection_criteria: null,
-  reference: null
+  reference: null,
+  sum_reference: null,
+  receipt_discount: null
 )
 ```
 

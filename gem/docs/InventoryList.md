@@ -20,7 +20,6 @@
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **point_of_sale** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **status** | **String** |  | [optional][readonly] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -43,8 +42,7 @@ instance = KoronaCloudClient::InventoryList.new(
   modified_time: 2018-11-22T09:40:21+01:00,
   organizational_unit: null,
   point_of_sale: null,
-  status: null,
-  number_length: null
+  status: null
 )
 ```
 

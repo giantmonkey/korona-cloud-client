@@ -12,7 +12,6 @@
 | **page_layouts** | [**Array&lt;PosPageLayout&gt;**](PosPageLayout.md) |  | [optional] |
 | **quick_button_mode** | **Boolean** |  | [optional] |
 | **total_button** | [**PosButton**](PosButton.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -27,8 +26,7 @@ instance = KoronaCloudClient::PosPageLayoutConfiguration.new(
   name: null,
   page_layouts: null,
   quick_button_mode: null,
-  total_button: null,
-  number_length: null
+  total_button: null
 )
 ```
 

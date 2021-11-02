@@ -19,7 +19,6 @@
 | **required** | **Boolean** |  | [optional] |
 | **tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **validity** | [**Validity**](Validity.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -41,8 +40,7 @@ instance = KoronaCloudClient::AdditionalReceiptInfoType.new(
   organizational_units: null,
   required: null,
   tag: null,
-  validity: null,
-  number_length: null
+  validity: null
 )
 ```
 

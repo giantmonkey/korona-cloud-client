@@ -12,7 +12,6 @@
 | **valid_from** | **Time** | required; Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **valid_to** | **Time** | required; Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -27,8 +26,7 @@ instance = KoronaCloudClient::SpecialPriceConfiguration.new(
   name: null,
   valid_from: 2018-11-22T09:40:21+01:00,
   valid_to: 2018-11-22T09:40:21+01:00,
-  organizational_units: null,
-  number_length: null
+  organizational_units: null
 )
 ```
 

@@ -18,7 +18,6 @@
 | **receipt_number** | **String** |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **status** | **String** |  | [optional][readonly] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -39,8 +38,7 @@ instance = KoronaCloudClient::StockAdjustment.new(
   reason: null,
   receipt_number: null,
   warehouse: null,
-  status: null,
-  number_length: null
+  status: null
 )
 ```
 

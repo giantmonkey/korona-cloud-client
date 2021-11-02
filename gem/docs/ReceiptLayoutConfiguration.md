@@ -24,7 +24,6 @@
 | **deposit_summary** | **Boolean** |  | [optional] |
 | **show_optional_fiscal_data** | **Boolean** |  | [optional] |
 | **show_article_count** | **Boolean** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -51,8 +50,7 @@ instance = KoronaCloudClient::ReceiptLayoutConfiguration.new(
   show_tax_name: null,
   deposit_summary: null,
   show_optional_fiscal_data: null,
-  show_article_count: null,
-  number_length: null
+  show_article_count: null
 )
 ```
 

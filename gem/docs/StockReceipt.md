@@ -28,7 +28,6 @@
 | **comment** | **String** |  | [optional] |
 | **custom_price_change** | **Float** |  | [optional][readonly] |
 | **status** | **String** |  | [optional][readonly] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -59,8 +58,7 @@ instance = KoronaCloudClient::StockReceipt.new(
   supplier: null,
   comment: null,
   custom_price_change: null,
-  status: null,
-  number_length: null
+  status: null
 )
 ```
 

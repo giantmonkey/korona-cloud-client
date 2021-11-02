@@ -13,7 +13,6 @@
 | **trigger** | **String** |  | [optional] |
 | **sub_producer** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **external_system_call** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -29,8 +28,7 @@ instance = KoronaCloudClient::ProductionType.new(
   method: null,
   trigger: null,
   sub_producer: null,
-  external_system_call: null,
-  number_length: null
+  external_system_call: null
 )
 ```
 

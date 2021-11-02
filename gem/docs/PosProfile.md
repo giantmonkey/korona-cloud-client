@@ -45,7 +45,6 @@
 | **digital_signature** | **Boolean** |  | [optional] |
 | **automatic_customer_creation_from_customer_order** | **Boolean** |  | [optional] |
 | **master_data_refresh_interval** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -93,8 +92,7 @@ instance = KoronaCloudClient::PosProfile.new(
   digital_receipt: null,
   digital_signature: null,
   automatic_customer_creation_from_customer_order: null,
-  master_data_refresh_interval: null,
-  number_length: null
+  master_data_refresh_interval: null
 )
 ```
 

@@ -14,7 +14,6 @@
 | **answer_options** | **Array&lt;String&gt;** |  | [optional] |
 | **failure_text** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **number_length** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -31,8 +30,7 @@ instance = KoronaCloudClient::CashierVerificationRequirement.new(
   type: null,
   answer_options: null,
   failure_text: null,
-  name: null,
-  number_length: null
+  name: null
 )
 ```
 
