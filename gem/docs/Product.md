@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
+| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **alternative_sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **assortment** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **codes** | [**Array&lt;ProductCode&gt;**](ProductCode.md) |  | [optional] |
@@ -49,6 +49,7 @@
 | **quantity_denomination** | **Float** |  | [optional] |
 | **special_prices** | [**Array&lt;ProductSpecialPrice&gt;**](ProductSpecialPrice.md) |  | [optional] |
 | **verification_requirements** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **sales_lock** | **Boolean** |  | [optional] |
 | **stock_return_unsellable** | **Boolean** |  | [optional] |
 
 ## Example
@@ -59,8 +60,8 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::Product.new(
   active: null,
   id: null,
-  number: null,
   revision: null,
+  number: null,
   alternative_sector: null,
   assortment: null,
   codes: null,
@@ -102,6 +103,7 @@ instance = KoronaCloudClient::Product.new(
   quantity_denomination: null,
   special_prices: null,
   verification_requirements: null,
+  sales_lock: null,
   stock_return_unsellable: null
 )
 ```

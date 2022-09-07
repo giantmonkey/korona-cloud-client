@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **actual** | **Float** |  | [optional] |
-| **old** | **Float** |  | [optional] |
+| **old** | **Float** |  | [optional][readonly] |
 
 ## Example
 

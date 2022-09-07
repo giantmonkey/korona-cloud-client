@@ -4,12 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **coupon_number** | **String** |  | [optional] |
-| **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **coupon_numbers** | **Array&lt;String&gt;** |  | [optional] |
 | **type** | **String** |  | [optional] |
+| **commodity_groups** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **products** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **sectors** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **tags** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **_not** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -17,12 +18,13 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::PromotionBenefitExtendedDiscountPositionSelectionFilter.new(
-  commodity_group: null,
-  coupon_number: null,
-  product: null,
-  sector: null,
-  tag: null,
-  type: null
+  coupon_numbers: null,
+  type: null,
+  commodity_groups: null,
+  products: null,
+  sectors: null,
+  tags: null,
+  _not: null
 )
 ```
 

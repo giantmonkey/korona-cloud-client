@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
+| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **account_transactions** | [**Array&lt;AccountTransaction&gt;**](AccountTransaction.md) |  | [optional] |
 | **additional_info** | [**Array&lt;AdditionalInfo&gt;**](AdditionalInfo.md) |  | [optional] |
 | **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
@@ -20,6 +20,7 @@
 | **customer_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **deposit_amount** | **Float** |  | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
+| **reversal** | **Boolean** |  | [optional] |
 | **fiscal_transactions** | [**Array&lt;FiscalTransaction&gt;**](FiscalTransaction.md) |  | [optional] |
 | **geo_location** | [**GeoLocation**](GeoLocation.md) |  | [optional] |
 | **info_texts** | **Array&lt;String&gt;** |  | [optional] |
@@ -37,7 +38,8 @@
 | **voided** | **Boolean** |  | [optional] |
 | **voided_items** | [**Array&lt;VoidedReceiptItem&gt;**](VoidedReceiptItem.md) |  | [optional][readonly] |
 | **void_fiscal_transactions** | [**Array&lt;FiscalTransaction&gt;**](FiscalTransaction.md) |  | [optional] |
-| **voucher_transactions** | [**Array&lt;VoucherTransaction&gt;**](VoucherTransaction.md) |  | [optional] |
+| **voucher_transactions** | [**Array&lt;VoucherTransaction&gt;**](VoucherTransaction.md) | Deprecated, please use voucherTransactionReferences instead. | [optional][readonly] |
+| **voucher_transaction_references** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **promotion_applications** | [**Array&lt;PromotionApplication&gt;**](PromotionApplication.md) |  | [optional] |
 | **coupon_positions** | [**Array&lt;CouponPosition&gt;**](CouponPosition.md) |  | [optional] |
@@ -51,8 +53,8 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::Receipt.new(
   active: null,
   id: null,
-  number: null,
   revision: null,
+  number: null,
   account_transactions: null,
   additional_info: null,
   booking_time: 2018-11-22T09:40:21+01:00,
@@ -65,6 +67,7 @@ instance = KoronaCloudClient::Receipt.new(
   customer_group: null,
   deposit_amount: null,
   external_references: null,
+  reversal: null,
   fiscal_transactions: null,
   geo_location: null,
   info_texts: null,
@@ -83,6 +86,7 @@ instance = KoronaCloudClient::Receipt.new(
   voided_items: null,
   void_fiscal_transactions: null,
   voucher_transactions: null,
+  voucher_transaction_references: null,
   warehouse: null,
   promotion_applications: null,
   coupon_positions: null,

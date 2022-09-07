@@ -15,6 +15,7 @@
 | **tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **button_status** | **String** |  | [optional] |
 | **external_system_call** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **internal_system_call_type** | **String** |  | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = KoronaCloudClient::PosButtonFunction.new(
   type: null,
   tag: null,
   button_status: null,
-  external_system_call: null
+  external_system_call: null,
+  internal_system_call_type: null
 )
 ```
 

@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **parameter** | **String** |  | [optional] |
 | **type** | **String** |  | [optional] |
+| **processing_mode** | **String** |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::Service.new(
   parameter: null,
-  type: null
+  type: null,
+  processing_mode: null
 )
 ```
 

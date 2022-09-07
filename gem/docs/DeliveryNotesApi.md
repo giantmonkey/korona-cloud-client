@@ -8,6 +8,7 @@ All URIs are relative to *https://www.koronacloud.com/web/api/v3*
 | [**book_delivery_note**](DeliveryNotesApi.md#book_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/book | book the single delivery note |
 | [**finalize_delivery_note**](DeliveryNotesApi.md#finalize_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/finalize | finalize the single delivery note |
 | [**get_delivery_note**](DeliveryNotesApi.md#get_delivery_note) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId} | returns a single delivery note |
+| [**get_delivery_note_item**](DeliveryNotesApi.md#get_delivery_note_item) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/items/{deliveryNoteItemId} | returns a single delivery note item |
 | [**get_delivery_notes**](DeliveryNotesApi.md#get_delivery_notes) | **GET** /accounts/{koronaAccountId}/deliveryNotes | lists all delivery notes |
 
 
@@ -278,6 +279,78 @@ end
 ### Return type
 
 [**DeliveryNote**](DeliveryNote.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_delivery_note_item
+
+> <DeliveryNoteItem> get_delivery_note_item(korona_account_id, delivery_note_id, delivery_note_item_id)
+
+returns a single delivery note item
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::DeliveryNotesApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+delivery_note_id = 'delivery_note_id_example' # String | id of the related object (important: id should match the uuid-format)
+delivery_note_item_id = 'delivery_note_item_id_example' # String | id of the related object (important: id should match the uuid-format)
+
+begin
+  # returns a single delivery note item
+  result = api_instance.get_delivery_note_item(korona_account_id, delivery_note_id, delivery_note_item_id)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling DeliveryNotesApi->get_delivery_note_item: #{e}"
+end
+```
+
+#### Using the get_delivery_note_item_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeliveryNoteItem>, Integer, Hash)> get_delivery_note_item_with_http_info(korona_account_id, delivery_note_id, delivery_note_item_id)
+
+```ruby
+begin
+  # returns a single delivery note item
+  data, status_code, headers = api_instance.get_delivery_note_item_with_http_info(korona_account_id, delivery_note_id, delivery_note_item_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeliveryNoteItem>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling DeliveryNotesApi->get_delivery_note_item_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **delivery_note_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+| **delivery_note_item_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+
+### Return type
+
+[**DeliveryNoteItem**](DeliveryNoteItem.md)
 
 ### Authorization
 

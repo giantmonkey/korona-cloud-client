@@ -176,7 +176,7 @@ end
 
 api_instance = KoronaCloudClient::PromotionsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number  required)
+body = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number required)
 
 begin
   # deletes a batch of promotions
@@ -210,7 +210,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number  required) |  |
+| **body** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number required) |  |
 
 ### Return type
 
@@ -469,7 +469,7 @@ end
 
 api_instance = KoronaCloudClient::PromotionsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number  required)
+body = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number required)
 
 begin
   # updates a batch of promotions
@@ -503,7 +503,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number  required) |  |
+| **body** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number required) |  |
 
 ### Return type
 

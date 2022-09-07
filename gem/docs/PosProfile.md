@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
+| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **name** | **String** |  | [optional] |
 | **automatic_cashier_logout_interval** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
 | **auto_receipt_print** | **Boolean** |  | [optional] |
@@ -31,6 +31,7 @@
 | **external_system_calls_on_total_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **external_system_calls_on_void_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **external_system_calls_on_book_delivery_note** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_reverse_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **external_system_calls_on_login_cashier** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **external_system_calls_on_logout_cashier** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **designate_balance_difference** | **Boolean** |  | [optional] |
@@ -45,6 +46,11 @@
 | **digital_signature** | **Boolean** |  | [optional] |
 | **automatic_customer_creation_from_customer_order** | **Boolean** |  | [optional] |
 | **master_data_refresh_interval** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
+| **mandatory_return_reason** | **Boolean** |  | [optional] |
+| **restrict_to_one_parked_receipt** | **Boolean** |  | [optional] |
+| **automatic_cashier_logout_lock_cashier** | **Boolean** |  | [optional] |
+| **report_file** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **show_bank_notes_for_payment_denomination_only** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -54,8 +60,8 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::PosProfile.new(
   active: null,
   id: null,
-  number: null,
   revision: null,
+  number: null,
   name: null,
   automatic_cashier_logout_interval: null,
   auto_receipt_print: null,
@@ -79,6 +85,7 @@ instance = KoronaCloudClient::PosProfile.new(
   external_system_calls_on_total_receipt: null,
   external_system_calls_on_void_receipt: null,
   external_system_calls_on_book_delivery_note: null,
+  external_system_calls_on_reverse_receipt: null,
   external_system_calls_on_login_cashier: null,
   external_system_calls_on_logout_cashier: null,
   designate_balance_difference: null,
@@ -92,7 +99,12 @@ instance = KoronaCloudClient::PosProfile.new(
   digital_receipt: null,
   digital_signature: null,
   automatic_customer_creation_from_customer_order: null,
-  master_data_refresh_interval: null
+  master_data_refresh_interval: null,
+  mandatory_return_reason: null,
+  restrict_to_one_parked_receipt: null,
+  automatic_cashier_logout_lock_cashier: null,
+  report_file: null,
+  show_bank_notes_for_payment_denomination_only: null
 )
 ```
 

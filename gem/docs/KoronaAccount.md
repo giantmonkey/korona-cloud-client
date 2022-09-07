@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
+| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **active_package_details** | [**Array&lt;CloudSubscriptionDetails&gt;**](CloudSubscriptionDetails.md) |  | [optional] |
 | **active_packages** | **Array&lt;String&gt;** |  | [optional] |
 | **address** | [**AddressInformation**](AddressInformation.md) |  | [optional] |
@@ -15,6 +15,7 @@
 | **company** | **String** |  | [optional] |
 | **identification** | [**CompanyIdentification**](CompanyIdentification.md) |  | [optional] |
 | **test_mode** | **Boolean** |  | [optional] |
+| **default_time_zone** | **String** |  | [optional] |
 
 ## Example
 
@@ -24,15 +25,16 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::KoronaAccount.new(
   active: null,
   id: null,
-  number: null,
   revision: null,
+  number: null,
   active_package_details: null,
   active_packages: null,
   address: null,
   cloud_subscription: null,
   company: null,
   identification: null,
-  test_mode: null
+  test_mode: null,
+  default_time_zone: null
 )
 ```
 

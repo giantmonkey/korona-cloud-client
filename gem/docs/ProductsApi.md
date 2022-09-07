@@ -10,6 +10,7 @@ All URIs are relative to *https://www.koronacloud.com/web/api/v3*
 | [**get_product**](ProductsApi.md#get_product) | **GET** /accounts/{koronaAccountId}/products/{productId} | returns the single product |
 | [**get_product_stocks**](ProductsApi.md#get_product_stocks) | **GET** /accounts/{koronaAccountId}/products/{productId}/stocks | lists the product stocks in different warehouses (KORONA.retail required) |
 | [**get_products**](ProductsApi.md#get_products) | **GET** /accounts/{koronaAccountId}/products | lists all products |
+| [**remove_tag_from_product**](ProductsApi.md#remove_tag_from_product) | **DELETE** /accounts/{koronaAccountId}/products/{productId}/tags/{tagId} | removes the tag from the product |
 | [**update_product**](ProductsApi.md#update_product) | **PATCH** /accounts/{koronaAccountId}/products/{productId} | updates the single product |
 | [**update_products**](ProductsApi.md#update_products) | **PATCH** /accounts/{koronaAccountId}/products | updates a batch of products |
 
@@ -409,7 +410,8 @@ opts = {
   commodity_group: 'commodity_group_example', # String | commodity group id to filter by
   assortment: 'assortment_example', # String | assortment id to filter by
   tag: 'tag_example', # String | tag id to filter by
-  number: 'number_example' # String | number of the related object
+  number: 'number_example', # String | number of the related object
+  name: 'name_example' # String | name of the related object
 }
 
 begin
@@ -454,10 +456,82 @@ end
 | **assortment** | **String** | assortment id to filter by | [optional] |
 | **tag** | **String** | tag id to filter by | [optional] |
 | **number** | **String** | number of the related object | [optional] |
+| **name** | **String** | name of the related object | [optional] |
 
 ### Return type
 
 [**ResultListProduct**](ResultListProduct.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## remove_tag_from_product
+
+> remove_tag_from_product(korona_account_id, product_id, tag_id)
+
+removes the tag from the product
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::ProductsApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
+tag_id = 'tag_id_example' # String | id of the related object (important: id should match the uuid-format)
+
+begin
+  # removes the tag from the product
+  api_instance.remove_tag_from_product(korona_account_id, product_id, tag_id)
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling ProductsApi->remove_tag_from_product: #{e}"
+end
+```
+
+#### Using the remove_tag_from_product_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> remove_tag_from_product_with_http_info(korona_account_id, product_id, tag_id)
+
+```ruby
+begin
+  # removes the tag from the product
+  data, status_code, headers = api_instance.remove_tag_from_product_with_http_info(korona_account_id, product_id, tag_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling ProductsApi->remove_tag_from_product_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+| **tag_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

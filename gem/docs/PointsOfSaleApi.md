@@ -114,7 +114,7 @@ end
 api_instance = KoronaCloudClient::PointsOfSaleApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 point_of_sale_id = 'point_of_sale_id_example' # String | id of the related object (important: id should match the uuid-format)
-coupling_id = 'coupling_id_example' # String | the coupling-id of the device
+coupling_id = 'coupling_id_example' # String | the coupling-id of the device. It can be set to check whether your coupling-id is correct or not (works only, if point of sale is external).
 opts = {
   disable_receipt_number_prefix: true, # Boolean | prevents setting a prefix at the receipt number
   body: [KoronaCloudClient::Receipt.new] # Array<Receipt> | the receipts to add
@@ -153,7 +153,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **point_of_sale_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **coupling_id** | **String** | the coupling-id of the device |  |
+| **coupling_id** | **String** | the coupling-id of the device. It can be set to check whether your coupling-id is correct or not (works only, if point of sale is external). |  |
 | **disable_receipt_number_prefix** | **Boolean** | prevents setting a prefix at the receipt number | [optional] |
 | **body** | [**Array&lt;Receipt&gt;**](Receipt.md) | the receipts to add | [optional] |
 
@@ -429,6 +429,9 @@ opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
   sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
+  min_finish_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  max_finish_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  z_count: 789, # Integer | zCount
   revision: 789 # Integer | last revision number, objects with a greater revision than this will be returned
 }
 
@@ -469,6 +472,9 @@ end
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
+| **min_finish_time** | **Time** | min (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **max_finish_time** | **Time** | max (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **z_count** | **Integer** | zCount | [optional] |
 | **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
 
 ### Return type
@@ -596,7 +602,8 @@ opts = {
   number: 'number_example', # String | number of the related object
   min_booking_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
   max_booking_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  voided_items: true # Boolean | when set to true, voided items will included in response
+  voided_items: true, # Boolean | when set to true, voided items will included in response
+  order_number: 'order_number_example' # String | order number
 }
 
 begin
@@ -644,6 +651,7 @@ end
 | **min_booking_time** | **Time** | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
 | **max_booking_time** | **Time** | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
 | **voided_items** | **Boolean** | when set to true, voided items will included in response | [optional] |
+| **order_number** | **String** | order number | [optional] |
 
 ### Return type
 

@@ -481,6 +481,8 @@ opts = {
   target_organizational_unit: 'target_organizational_unit_example', # String | target organizational unit
   min_finish_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
   max_finish_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  min_pick_up_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) pick up time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  max_pick_up_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) pick up time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
   number: 'number_example' # String | number of the related object
 }
 
@@ -526,6 +528,8 @@ end
 | **target_organizational_unit** | **String** | target organizational unit | [optional] |
 | **min_finish_time** | **Time** | min (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
 | **max_finish_time** | **Time** | max (inclusive) finish time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **min_pick_up_time** | **Time** | min (inclusive) pick up time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **max_pick_up_time** | **Time** | max (inclusive) pick up time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
 | **number** | **String** | number of the related object | [optional] |
 
 ### Return type
@@ -544,7 +548,7 @@ end
 
 ## order_store_order
 
-> order_store_order(korona_account_id, store_order_id, opts)
+> order_store_order(korona_account_id, store_order_id, order_action, opts)
 
 orders and finalizes the store order
 
@@ -563,15 +567,15 @@ end
 api_instance = KoronaCloudClient::StoreOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
+order_action = 'ACCORDING_TO_SPECIFICATIONS' # String | type of order finalization. according to items speficiations (either each item must have a source, or those without are ignored and deleted) or regardless of items specifications (joint supplier or warehouse)
 opts = {
-  order_action: 'ACCORDING_TO_SPECIFICATIONS', # String | type of order finalization. according to items speficiations (either each item must have a source, or those without are ignored and deleted) or regardless of items specifications (joint supplier or warehouse)
   warehouse: 'warehouse_example', # String | warehouse (= organizational unit having warehouse flag)
   supplier: 'supplier_example' # String | supplier
 }
 
 begin
   # orders and finalizes the store order
-  api_instance.order_store_order(korona_account_id, store_order_id, opts)
+  api_instance.order_store_order(korona_account_id, store_order_id, order_action, opts)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->order_store_order: #{e}"
 end
@@ -581,12 +585,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> order_store_order_with_http_info(korona_account_id, store_order_id, opts)
+> <Array(nil, Integer, Hash)> order_store_order_with_http_info(korona_account_id, store_order_id, order_action, opts)
 
 ```ruby
 begin
   # orders and finalizes the store order
-  data, status_code, headers = api_instance.order_store_order_with_http_info(korona_account_id, store_order_id, opts)
+  data, status_code, headers = api_instance.order_store_order_with_http_info(korona_account_id, store_order_id, order_action, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -601,7 +605,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **order_action** | **String** | type of order finalization. according to items speficiations (either each item must have a source, or those without are ignored and deleted) or regardless of items specifications (joint supplier or warehouse) | [optional] |
+| **order_action** | **String** | type of order finalization. according to items speficiations (either each item must have a source, or those without are ignored and deleted) or regardless of items specifications (joint supplier or warehouse) |  |
 | **warehouse** | **String** | warehouse (&#x3D; organizational unit having warehouse flag) | [optional] |
 | **supplier** | **String** | supplier | [optional] |
 

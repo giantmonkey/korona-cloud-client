@@ -321,6 +321,7 @@ opts = {
   size: 56, # Integer | amount of objects to return per page
   sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
   revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
+  include_deleted: true, # Boolean | indicates deleted objects should be loaded or not (default: false)
   number: 'number_example' # String | number of the related object
 }
 
@@ -360,6 +361,7 @@ end
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
 | **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
+| **include_deleted** | **Boolean** | indicates deleted objects should be loaded or not (default: false) | [optional] |
 | **number** | **String** | number of the related object | [optional] |
 
 ### Return type

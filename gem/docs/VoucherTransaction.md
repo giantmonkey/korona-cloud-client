@@ -14,6 +14,7 @@
 | **voucher** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **voided** | **Boolean** |  | [optional] |
+| **voucher_configuration** | [**ModelReference**](ModelReference.md) |  | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = KoronaCloudClient::VoucherTransaction.new(
   user: null,
   voucher: null,
   external_references: null,
-  voided: null
+  voided: null,
+  voucher_configuration: null
 )
 ```
 

@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
+| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **activation_delay_after_purchase** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
 | **count_statistically** | **Boolean** |  | [optional] |
 | **entry_gates** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
@@ -29,8 +29,8 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::TicketDefinition.new(
   active: null,
   id: null,
-  number: null,
   revision: null,
+  number: null,
   activation_delay_after_purchase: null,
   count_statistically: null,
   entry_gates: null,

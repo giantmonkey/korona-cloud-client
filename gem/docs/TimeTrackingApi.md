@@ -4,17 +4,17 @@ All URIs are relative to *https://www.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_entities**](TimeTrackingApi.md#add_entities) | **POST** /accounts/{koronaAccountId}/timeTrackingEntities | adds a batch of new time tracking entities |
-| [**add_entries**](TimeTrackingApi.md#add_entries) | **POST** /accounts/{koronaAccountId}/timeTrackingEntries | adds a batch of new time tracking entries |
-| [**get_entities**](TimeTrackingApi.md#get_entities) | **GET** /accounts/{koronaAccountId}/timeTrackingEntities | lists time tracking entities |
-| [**get_entries**](TimeTrackingApi.md#get_entries) | **GET** /accounts/{koronaAccountId}/timeTrackingEntries | lists time tracking entries |
+| [**add_time_tracking_entities**](TimeTrackingApi.md#add_time_tracking_entities) | **POST** /accounts/{koronaAccountId}/timeTrackingEntities | adds a batch of new time tracking entities |
+| [**add_time_tracking_entries**](TimeTrackingApi.md#add_time_tracking_entries) | **POST** /accounts/{koronaAccountId}/timeTrackingEntries | adds a batch of new time tracking entries |
+| [**get_time_tracking_entities**](TimeTrackingApi.md#get_time_tracking_entities) | **GET** /accounts/{koronaAccountId}/timeTrackingEntities | lists time tracking entities |
 | [**get_time_tracking_entity**](TimeTrackingApi.md#get_time_tracking_entity) | **GET** /accounts/{koronaAccountId}/timeTrackingEntities/{timeTrackingEntityId} | returns a single time tracking entity |
+| [**get_time_tracking_entries**](TimeTrackingApi.md#get_time_tracking_entries) | **GET** /accounts/{koronaAccountId}/timeTrackingEntries | lists time tracking entries |
 | [**get_time_tracking_entry**](TimeTrackingApi.md#get_time_tracking_entry) | **GET** /accounts/{koronaAccountId}/timeTrackingEntries/{timeTrackingEntryId} | returns a single time tracking entry |
 
 
-## add_entities
+## add_time_tracking_entities
 
-> <Array<AddOrUpdateResult>> add_entities(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_time_tracking_entities(korona_account_id, body, opts)
 
 adds a batch of new time tracking entities
 
@@ -39,28 +39,28 @@ opts = {
 
 begin
   # adds a batch of new time tracking entities
-  result = api_instance.add_entities(korona_account_id, body, opts)
+  result = api_instance.add_time_tracking_entities(korona_account_id, body, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->add_entities: #{e}"
+  puts "Error when calling TimeTrackingApi->add_time_tracking_entities: #{e}"
 end
 ```
 
-#### Using the add_entities_with_http_info variant
+#### Using the add_time_tracking_entities_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_entities_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_time_tracking_entities_with_http_info(korona_account_id, body, opts)
 
 ```ruby
 begin
   # adds a batch of new time tracking entities
-  data, status_code, headers = api_instance.add_entities_with_http_info(korona_account_id, body, opts)
+  data, status_code, headers = api_instance.add_time_tracking_entities_with_http_info(korona_account_id, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
 rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->add_entities_with_http_info: #{e}"
+  puts "Error when calling TimeTrackingApi->add_time_tracking_entities_with_http_info: #{e}"
 end
 ```
 
@@ -86,9 +86,9 @@ end
 - **Accept**: application/json
 
 
-## add_entries
+## add_time_tracking_entries
 
-> <Array<AddOrUpdateResult>> add_entries(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_time_tracking_entries(korona_account_id, body, opts)
 
 adds a batch of new time tracking entries
 
@@ -113,28 +113,28 @@ opts = {
 
 begin
   # adds a batch of new time tracking entries
-  result = api_instance.add_entries(korona_account_id, body, opts)
+  result = api_instance.add_time_tracking_entries(korona_account_id, body, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->add_entries: #{e}"
+  puts "Error when calling TimeTrackingApi->add_time_tracking_entries: #{e}"
 end
 ```
 
-#### Using the add_entries_with_http_info variant
+#### Using the add_time_tracking_entries_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_entries_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_time_tracking_entries_with_http_info(korona_account_id, body, opts)
 
 ```ruby
 begin
   # adds a batch of new time tracking entries
-  data, status_code, headers = api_instance.add_entries_with_http_info(korona_account_id, body, opts)
+  data, status_code, headers = api_instance.add_time_tracking_entries_with_http_info(korona_account_id, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
 rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->add_entries_with_http_info: #{e}"
+  puts "Error when calling TimeTrackingApi->add_time_tracking_entries_with_http_info: #{e}"
 end
 ```
 
@@ -160,9 +160,9 @@ end
 - **Accept**: application/json
 
 
-## get_entities
+## get_time_tracking_entities
 
-> <ResultListTimeTrackingEntity> get_entities(korona_account_id, opts)
+> <ResultListTimeTrackingEntity> get_time_tracking_entities(korona_account_id, opts)
 
 lists time tracking entities
 
@@ -191,28 +191,28 @@ opts = {
 
 begin
   # lists time tracking entities
-  result = api_instance.get_entities(korona_account_id, opts)
+  result = api_instance.get_time_tracking_entities(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->get_entities: #{e}"
+  puts "Error when calling TimeTrackingApi->get_time_tracking_entities: #{e}"
 end
 ```
 
-#### Using the get_entities_with_http_info variant
+#### Using the get_time_tracking_entities_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResultListTimeTrackingEntity>, Integer, Hash)> get_entities_with_http_info(korona_account_id, opts)
+> <Array(<ResultListTimeTrackingEntity>, Integer, Hash)> get_time_tracking_entities_with_http_info(korona_account_id, opts)
 
 ```ruby
 begin
   # lists time tracking entities
-  data, status_code, headers = api_instance.get_entities_with_http_info(korona_account_id, opts)
+  data, status_code, headers = api_instance.get_time_tracking_entities_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ResultListTimeTrackingEntity>
 rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->get_entities_with_http_info: #{e}"
+  puts "Error when calling TimeTrackingApi->get_time_tracking_entities_with_http_info: #{e}"
 end
 ```
 
@@ -231,96 +231,6 @@ end
 ### Return type
 
 [**ResultListTimeTrackingEntity**](ResultListTimeTrackingEntity.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_entries
-
-> <ResultListTimeTrackingEntry> get_entries(korona_account_id, opts)
-
-lists time tracking entries
-
-### Examples
-
-```ruby
-require 'time'
-require 'korona-cloud-client'
-# setup authorization
-KoronaCloudClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = KoronaCloudClient::TimeTrackingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-opts = {
-  page: 56, # Integer | number of the page to fetch
-  size: 56, # Integer | amount of objects to return per page
-  sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
-  revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
-  time_tracking_entity: 'time_tracking_entity_example', # String | time tracking entity id to filter by
-  cashier: 'cashier_example', # String | cashier id to filter by
-  organizational_unit: 'organizational_unit_example', # String | organizational unit
-  min_timestamp: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  max_timestamp: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  include_deleted: true # Boolean | indicates deleted objects should be loaded or not (default: false)
-}
-
-begin
-  # lists time tracking entries
-  result = api_instance.get_entries(korona_account_id, opts)
-  p result
-rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->get_entries: #{e}"
-end
-```
-
-#### Using the get_entries_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ResultListTimeTrackingEntry>, Integer, Hash)> get_entries_with_http_info(korona_account_id, opts)
-
-```ruby
-begin
-  # lists time tracking entries
-  data, status_code, headers = api_instance.get_entries_with_http_info(korona_account_id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ResultListTimeTrackingEntry>
-rescue KoronaCloudClient::ApiError => e
-  puts "Error when calling TimeTrackingApi->get_entries_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **page** | **Integer** | number of the page to fetch | [optional] |
-| **size** | **Integer** | amount of objects to return per page | [optional] |
-| **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
-| **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
-| **time_tracking_entity** | **String** | time tracking entity id to filter by | [optional] |
-| **cashier** | **String** | cashier id to filter by | [optional] |
-| **organizational_unit** | **String** | organizational unit | [optional] |
-| **min_timestamp** | **Time** | min (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
-| **max_timestamp** | **Time** | max (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
-| **include_deleted** | **Boolean** | indicates deleted objects should be loaded or not (default: false) | [optional] |
-
-### Return type
-
-[**ResultListTimeTrackingEntry**](ResultListTimeTrackingEntry.md)
 
 ### Authorization
 
@@ -391,6 +301,96 @@ end
 ### Return type
 
 [**TimeTrackingEntity**](TimeTrackingEntity.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_time_tracking_entries
+
+> <ResultListTimeTrackingEntry> get_time_tracking_entries(korona_account_id, opts)
+
+lists time tracking entries
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::TimeTrackingApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+opts = {
+  page: 56, # Integer | number of the page to fetch
+  size: 56, # Integer | amount of objects to return per page
+  sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
+  revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
+  time_tracking_entity: 'time_tracking_entity_example', # String | time tracking entity id to filter by
+  cashier: 'cashier_example', # String | cashier id to filter by
+  organizational_unit: 'organizational_unit_example', # String | organizational unit
+  min_timestamp: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  max_timestamp: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  include_deleted: true # Boolean | indicates deleted objects should be loaded or not (default: false)
+}
+
+begin
+  # lists time tracking entries
+  result = api_instance.get_time_tracking_entries(korona_account_id, opts)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling TimeTrackingApi->get_time_tracking_entries: #{e}"
+end
+```
+
+#### Using the get_time_tracking_entries_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ResultListTimeTrackingEntry>, Integer, Hash)> get_time_tracking_entries_with_http_info(korona_account_id, opts)
+
+```ruby
+begin
+  # lists time tracking entries
+  data, status_code, headers = api_instance.get_time_tracking_entries_with_http_info(korona_account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ResultListTimeTrackingEntry>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling TimeTrackingApi->get_time_tracking_entries_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **page** | **Integer** | number of the page to fetch | [optional] |
+| **size** | **Integer** | amount of objects to return per page | [optional] |
+| **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
+| **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
+| **time_tracking_entity** | **String** | time tracking entity id to filter by | [optional] |
+| **cashier** | **String** | cashier id to filter by | [optional] |
+| **organizational_unit** | **String** | organizational unit | [optional] |
+| **min_timestamp** | **Time** | min (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **max_timestamp** | **Time** | max (inclusive) timestamp (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **include_deleted** | **Boolean** | indicates deleted objects should be loaded or not (default: false) | [optional] |
+
+### Return type
+
+[**ResultListTimeTrackingEntry**](ResultListTimeTrackingEntry.md)
 
 ### Authorization
 

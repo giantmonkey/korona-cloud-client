@@ -24,7 +24,9 @@
 | **recognition_number** | **String** | the number referencing the product was typed/scanned to create the receipt item | [optional] |
 | **type** | **String** |  | [optional] |
 | **voucher_transaction** | [**VoucherTransaction**](VoucherTransaction.md) |  | [optional] |
+| **voucher_transaction_reference** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **special_price_configuration** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **return_reason** | [**ReceiptItemReturnReason**](ReceiptItemReturnReason.md) |  | [optional] |
 
 ## Example
 
@@ -52,7 +54,9 @@ instance = KoronaCloudClient::ReceiptItem.new(
   recognition_number: null,
   type: null,
   voucher_transaction: null,
-  special_price_configuration: null
+  voucher_transaction_reference: null,
+  special_price_configuration: null,
+  return_reason: null
 )
 ```
 

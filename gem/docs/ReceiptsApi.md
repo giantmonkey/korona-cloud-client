@@ -5,6 +5,7 @@ All URIs are relative to *https://www.koronacloud.com/web/api/v3*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**get_receipt**](ReceiptsApi.md#get_receipt) | **GET** /accounts/{koronaAccountId}/receipts/{receiptId} | returns the single receipt |
+| [**get_receipt_item**](ReceiptsApi.md#get_receipt_item) | **GET** /accounts/{koronaAccountId}/receipts/{receiptId}/items/{receiptItemId} | returns the single receipt item |
 | [**get_receipts**](ReceiptsApi.md#get_receipts) | **GET** /accounts/{koronaAccountId}/receipts | lists all receipts |
 
 
@@ -28,7 +29,7 @@ end
 
 api_instance = KoronaCloudClient::ReceiptsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-receipt_id = 'receipt_id_example' # String | id of the receipt
+receipt_id = 'receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
 opts = {
   voided_items: true # Boolean | when set to true, voided items will included in response
 }
@@ -65,12 +66,84 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **receipt_id** | **String** | id of the receipt |  |
+| **receipt_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **voided_items** | **Boolean** | when set to true, voided items will included in response | [optional] |
 
 ### Return type
 
 [**Receipt**](Receipt.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_receipt_item
+
+> <ReceiptItem> get_receipt_item(korona_account_id, receipt_id, receipt_item_id)
+
+returns the single receipt item
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::ReceiptsApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+receipt_id = 'receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
+receipt_item_id = 'receipt_item_id_example' # String | id of the related object (important: id should match the uuid-format)
+
+begin
+  # returns the single receipt item
+  result = api_instance.get_receipt_item(korona_account_id, receipt_id, receipt_item_id)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling ReceiptsApi->get_receipt_item: #{e}"
+end
+```
+
+#### Using the get_receipt_item_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ReceiptItem>, Integer, Hash)> get_receipt_item_with_http_info(korona_account_id, receipt_id, receipt_item_id)
+
+```ruby
+begin
+  # returns the single receipt item
+  data, status_code, headers = api_instance.get_receipt_item_with_http_info(korona_account_id, receipt_id, receipt_item_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ReceiptItem>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling ReceiptsApi->get_receipt_item_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **receipt_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+| **receipt_item_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+
+### Return type
+
+[**ReceiptItem**](ReceiptItem.md)
 
 ### Authorization
 
@@ -115,7 +188,8 @@ opts = {
   number: 'number_example', # String | number of the related object
   min_booking_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
   max_booking_time: Time.parse('2013-10-20T19:20:30+01:00'), # Time | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
-  voided_items: true # Boolean | when set to true, voided items will included in response
+  voided_items: true, # Boolean | when set to true, voided items will included in response
+  order_number: 'order_number_example' # String | order number
 }
 
 begin
@@ -163,6 +237,7 @@ end
 | **min_booking_time** | **Time** | min (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
 | **max_booking_time** | **Time** | max (inclusive) booking time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
 | **voided_items** | **Boolean** | when set to true, voided items will included in response | [optional] |
+| **order_number** | **String** | order number | [optional] |
 
 ### Return type
 

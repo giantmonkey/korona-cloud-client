@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
+| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **container_mode** | **Boolean** |  | [optional] |
 | **contra_account** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **coupled** | **Boolean** |  | [optional][readonly] |
@@ -39,6 +39,7 @@
 | **use_alternative_sector** | **Boolean** |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **device_configuration_variable_values** | [**Array&lt;DeviceConfigurationVariableValue&gt;**](DeviceConfigurationVariableValue.md) |  | [optional] |
+| **type** | **String** |  | [optional] |
 
 ## Example
 
@@ -48,8 +49,8 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::Pos.new(
   active: null,
   id: null,
-  number: null,
   revision: null,
+  number: null,
   container_mode: null,
   contra_account: null,
   coupled: null,
@@ -80,7 +81,8 @@ instance = KoronaCloudClient::Pos.new(
   tip_account: null,
   use_alternative_sector: null,
   warehouse: null,
-  device_configuration_variable_values: null
+  device_configuration_variable_values: null,
+  type: null
 )
 ```
 
