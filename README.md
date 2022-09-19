@@ -15,6 +15,7 @@ npm install @openapitools/openapi-generator-cli -g
 openapi-generator-cli version-manager list
 ```
 ### 3. generate the gem code
+```
 npx @openapitools/openapi-generator-cli generate -i swagger.json -g ruby -o gem --package-name korona-cloud-client -p gemName=korona-cloud-client -p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemRequiredRubyVersion=2.3.8 -p gemVersion=1.0.10
 ```
 
