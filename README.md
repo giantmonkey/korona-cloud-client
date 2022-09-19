@@ -4,19 +4,38 @@
 
 Based on OpenAPI definition file https://128.koronacloud.com/web/api/v3/swagger.json
 
-# generate gem with openapi-generator (was swagger-codegen)
+# Generate gem with openapi-generator (was swagger-codegen)
+## The openapi-generator-cli way (tm)
+### 1. install the generator
+```
+npm install @openapitools/openapi-generator-cli -g
+```
+### 2. select version (optional)
+```
+openapi-generator-cli version-manager list
+```
+### 3. generate the gem code
+npx @openapitools/openapi-generator-cli generate -i swagger.json -g ruby -o gem --package-name korona-cloud-client -p gemName=korona-cloud-client -p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemRequiredRubyVersion=2.3.8 -p gemVersion=1.0.10
+```
+
+## The homebrew way (tm) (deprecated)
 update the gem version before running this:
 ```
 brew install openapi-generator
-openapi-generator generate -i swagger.json -g ruby -o gem --package-name korona-cloud-client -p gemName=korona-cloud-client -p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemVersion=1.0.2
+openapi-generator generate -i swagger.json -g ruby -o gem --package-name korona-cloud-client -p gemName=korona-cloud-client -p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemVersion=1.0.10
 ```
 (all ruby options:  [https://openapi-generator.tech/docs/generators/ruby/](https://openapi-generator.tech/docs/generators/ruby/) )
 
-# publish gem to rubygems
+# Publish gem to rubygems
+## fix the overlong file path for a spec file and build gem
 ```
 cd gem
+mv spec/models/promotion_benefit_extended_discount_position_selection_criteria_min_max_range_value_comperator_spec.rb spec/models/promotion_benefit_extended_discount_position_selection_comperator_spec.rb
 gem build korona-cloud-client.gemspec
-gem push korona-cloud-client-1.0.2.gem
+```
+## push to rubygems
+```
+gem push korona-cloud-client-1.0.10.gem
 ```
 
 # usage in a project
