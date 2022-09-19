@@ -16,14 +16,17 @@ openapi-generator-cli version-manager list
 ```
 ### 3. generate the gem code
 ```
-npx @openapitools/openapi-generator-cli generate -i swagger.json -g ruby -o gem --package-name korona-cloud-client -p gemName=korona-cloud-client -p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemRequiredRubyVersion=2.3.8 -p gemVersion=1.0.10
+npx @openapitools/openapi-generator-cli generate -i swagger.json -g ruby -o gem \
+--package-name korona-cloud-client -p gemName=korona-cloud-client -p gemVersion=1.0.10 \
+-p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemRequiredRubyVersion=2.3.8
 ```
 
 ## The homebrew way (tm) (deprecated)
 update the gem version before running this:
 ```
 brew install openapi-generator
-openapi-generator generate -i swagger.json -g ruby -o gem --package-name korona-cloud-client -p gemName=korona-cloud-client -p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemVersion=1.0.10
+openapi-generator generate -i swagger.json -g ruby -o gem --package-name korona-cloud-client \
+-p gemName=korona-cloud-client -p gemHomepage=https://github.com/giantmonkey/korona-cloud-client -p gemVersion=1.0.10
 ```
 (all ruby options:  [https://openapi-generator.tech/docs/generators/ruby/](https://openapi-generator.tech/docs/generators/ruby/) )
 
