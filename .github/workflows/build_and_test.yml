@@ -30,6 +30,7 @@ jobs:
         run: |
           cd gem
           gem update
+          gem uninstall psych -a || true
           bundle install
           bundle exec rspec
           bundle exec rake build
