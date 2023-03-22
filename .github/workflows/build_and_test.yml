@@ -1,6 +1,6 @@
 name: Tests
 
-on: [push] # without pull_request for the moment
+on: [push, pull_request] # without pull_request for the moment
 
 defaults:
   run:
@@ -17,7 +17,7 @@ jobs:
       matrix:
         ruby: ['2.3', '2.4', '2.5', '2.6', '2.7', '3.0']
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
@@ -29,6 +29,8 @@ jobs:
       - name: Setup & run specs
         run: |
           cd gem
+          gem update
+          bundle install
           bundle exec rspec
           bundle exec rake build
           bundle exec rake install
