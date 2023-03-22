@@ -9,8 +9,6 @@ defaults:
 jobs:
   specs:
     name: 'run-specs'
-    # skip on [ci skip] and do not run 2 on push and interal PR
-    if: (contains(github.event.commits[0].message, '[ci skip]') == false) &&  (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository)
     continue-on-error: ${{ matrix.allow_failure || false }}
     strategy:
       fail-fast: false
@@ -28,9 +26,9 @@ jobs:
 
       - name: Setup & run specs
         run: |
+          set -o pipefail
           cd gem
           gem update
-          gem uninstall psych -a || true
           bundle install
           bundle exec rspec
           bundle exec rake build
