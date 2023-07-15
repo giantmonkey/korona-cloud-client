@@ -1,0 +1,35 @@
+name: Tests
+
+on: [push, pull_request] # without pull_request for the moment
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  specs:
+    name: 'run-specs'
+    continue-on-error: ${{ matrix.allow_failure || false }}
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ['2.3', '2.4', '2.5', '2.6', '2.7', '3.0']
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: Setup & run specs
+        run: |
+          set -o pipefail
+          cd gem
+          gem update
+          bundle install
+          bundle exec rspec
+          bundle exec rake build
+          bundle exec rake install
