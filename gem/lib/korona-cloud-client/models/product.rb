@@ -487,7 +487,7 @@ module KoronaCloudClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      packaging_unit_validator = EnumAttributeValidator.new('String', ["CUBIC_INCH", "CUBIC_METER", "FLUID_OUNCE", "GALLON_FL", "GRAM", "ONE_HUNDRED_METERS", "INCH", "KILOGRAM", "LITER", "CENTIMETER", "METER", "MILLILITER", "OUNCE", "POUND", "SQUARE_INCH", "SQUARE_METER"])
+      packaging_unit_validator = EnumAttributeValidator.new('String', ["CUBIC_INCH", "CUBIC_METER", "FLUID_OUNCE", "GALLON_FL", "GRAM", "ONE_HUNDRED_METERS", "INCH", "KILOGRAM", "LITER", "CENTIMETER", "METER", "MILLILITER", "OUNCE", "POUND", "SQUARE_INCH", "SQUARE_METER", "PORTION", "PIECE", "CARTON"])
       return false unless packaging_unit_validator.valid?(@packaging_unit)
       subproduct_presentation_validator = EnumAttributeValidator.new('String', ["DEFAULT", "HIDE_ALL", "HIDE_PRICES", "HIDE_QUANTITIES"])
       return false unless subproduct_presentation_validator.valid?(@subproduct_presentation)
