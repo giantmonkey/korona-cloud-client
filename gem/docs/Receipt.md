@@ -10,10 +10,10 @@
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **account_transactions** | [**Array&lt;AccountTransaction&gt;**](AccountTransaction.md) |  | [optional] |
 | **additional_info** | [**Array&lt;AdditionalInfo&gt;**](AdditionalInfo.md) |  | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **cancelled** | **Boolean** |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **creation_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **creation_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **currency** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **reversed_receipt** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **customer** | [**ModelReference**](ModelReference.md) |  | [optional] |
@@ -36,13 +36,14 @@
 | **signature** | [**Signature**](Signature.md) |  | [optional] |
 | **total** | [**ReceiptTotal**](ReceiptTotal.md) |  | [optional] |
 | **voided** | **Boolean** |  | [optional] |
-| **voided_items** | [**Array&lt;VoidedReceiptItem&gt;**](VoidedReceiptItem.md) |  | [optional][readonly] |
-| **void_fiscal_transactions** | [**Array&lt;FiscalTransaction&gt;**](FiscalTransaction.md) |  | [optional] |
-| **voucher_transactions** | [**Array&lt;VoucherTransaction&gt;**](VoucherTransaction.md) | Deprecated, please use voucherTransactionReferences instead. | [optional][readonly] |
+| **voided_items** | [**Array&lt;VoidedReceiptItem&gt;**](VoidedReceiptItem.md) |  | [optional] |
+| **void_fiscal_transactions** | **Object** |  | [optional] |
+| **voucher_transactions** | [**Array&lt;VoucherTransactionOld&gt;**](VoucherTransactionOld.md) |  | [optional] |
 | **voucher_transaction_references** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **promotion_applications** | [**Array&lt;PromotionApplication&gt;**](PromotionApplication.md) |  | [optional] |
 | **coupon_positions** | [**Array&lt;CouponPosition&gt;**](CouponPosition.md) |  | [optional] |
+| **digital_receipt_info** | [**DigitalReceiptInfo**](DigitalReceiptInfo.md) |  | [optional] |
 | **zcounter** | **Integer** |  | [optional] |
 
 ## Example
@@ -90,6 +91,7 @@ instance = KoronaCloudClient::Receipt.new(
   warehouse: null,
   promotion_applications: null,
   coupon_positions: null,
+  digital_receipt_info: null,
   zcounter: null
 )
 ```

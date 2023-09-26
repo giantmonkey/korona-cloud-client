@@ -1,17 +1,19 @@
 # KoronaCloudClient::ReceiptsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_receipt**](ReceiptsApi.md#get_receipt) | **GET** /accounts/{koronaAccountId}/receipts/{receiptId} | returns the single receipt |
-| [**get_receipt_item**](ReceiptsApi.md#get_receipt_item) | **GET** /accounts/{koronaAccountId}/receipts/{receiptId}/items/{receiptItemId} | returns the single receipt item |
-| [**get_receipts**](ReceiptsApi.md#get_receipts) | **GET** /accounts/{koronaAccountId}/receipts | lists all receipts |
+| [**get_receipt**](ReceiptsApi.md#get_receipt) | **GET** /accounts/{koronaAccountId}/receipts/{receiptId} |  |
+| [**get_receipt_item**](ReceiptsApi.md#get_receipt_item) | **GET** /accounts/{koronaAccountId}/receipts/{receiptId}/items/{receiptItemId} |  |
+| [**get_receipts**](ReceiptsApi.md#get_receipts) | **GET** /accounts/{koronaAccountId}/receipts |  |
 
 
 ## get_receipt
 
 > <Receipt> get_receipt(korona_account_id, receipt_id, opts)
+
+
 
 returns the single receipt
 
@@ -35,7 +37,7 @@ opts = {
 }
 
 begin
-  # returns the single receipt
+  
   result = api_instance.get_receipt(korona_account_id, receipt_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -51,7 +53,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single receipt
+  
   data, status_code, headers = api_instance.get_receipt_with_http_info(korona_account_id, receipt_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -87,6 +89,8 @@ end
 
 > <ReceiptItem> get_receipt_item(korona_account_id, receipt_id, receipt_item_id)
 
+
+
 returns the single receipt item
 
 ### Examples
@@ -107,7 +111,7 @@ receipt_id = 'receipt_id_example' # String | id of the related object (important
 receipt_item_id = 'receipt_item_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single receipt item
+  
   result = api_instance.get_receipt_item(korona_account_id, receipt_id, receipt_item_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -123,7 +127,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single receipt item
+  
   data, status_code, headers = api_instance.get_receipt_item_with_http_info(korona_account_id, receipt_id, receipt_item_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -159,6 +163,8 @@ end
 
 > <ResultListReceipt> get_receipts(korona_account_id, opts)
 
+
+
 lists all receipts
 
 ### Examples
@@ -193,7 +199,7 @@ opts = {
 }
 
 begin
-  # lists all receipts
+  
   result = api_instance.get_receipts(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -209,7 +215,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all receipts
+  
   data, status_code, headers = api_instance.get_receipts_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

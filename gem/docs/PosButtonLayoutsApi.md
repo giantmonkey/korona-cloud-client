@@ -1,21 +1,23 @@
 # KoronaCloudClient::PosButtonLayoutsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_pos_button_layouts**](PosButtonLayoutsApi.md#add_pos_button_layouts) | **POST** /accounts/{koronaAccountId}/posButtonLayouts | adds a batch of new pos button layouts |
-| [**delete_pos_button_layout**](PosButtonLayoutsApi.md#delete_pos_button_layout) | **DELETE** /accounts/{koronaAccountId}/posButtonLayouts/{posButtonLayoutId} | deletes the single pos botton layout |
-| [**delete_pos_button_layouts**](PosButtonLayoutsApi.md#delete_pos_button_layouts) | **DELETE** /accounts/{koronaAccountId}/posButtonLayouts | deletes a batch of pos button layouts |
-| [**get_pos_button_layout**](PosButtonLayoutsApi.md#get_pos_button_layout) | **GET** /accounts/{koronaAccountId}/posButtonLayouts/{posButtonLayoutId} | returns the single pos button layout |
-| [**get_pos_button_layouts**](PosButtonLayoutsApi.md#get_pos_button_layouts) | **GET** /accounts/{koronaAccountId}/posButtonLayouts | lists all pos button layouts |
-| [**update_pos_button_layout**](PosButtonLayoutsApi.md#update_pos_button_layout) | **PATCH** /accounts/{koronaAccountId}/posButtonLayouts/{posButtonLayoutId} | updates the single pos button layout |
-| [**update_pos_button_layouts**](PosButtonLayoutsApi.md#update_pos_button_layouts) | **PATCH** /accounts/{koronaAccountId}/posButtonLayouts | updates a batch of pos button layouts |
+| [**add_pos_button_layouts**](PosButtonLayoutsApi.md#add_pos_button_layouts) | **POST** /accounts/{koronaAccountId}/posButtonLayouts |  |
+| [**delete_pos_button_layout**](PosButtonLayoutsApi.md#delete_pos_button_layout) | **DELETE** /accounts/{koronaAccountId}/posButtonLayouts/{posButtonLayoutId} |  |
+| [**delete_pos_button_layouts**](PosButtonLayoutsApi.md#delete_pos_button_layouts) | **DELETE** /accounts/{koronaAccountId}/posButtonLayouts |  |
+| [**get_pos_button_layout**](PosButtonLayoutsApi.md#get_pos_button_layout) | **GET** /accounts/{koronaAccountId}/posButtonLayouts/{posButtonLayoutId} |  |
+| [**get_pos_button_layouts**](PosButtonLayoutsApi.md#get_pos_button_layouts) | **GET** /accounts/{koronaAccountId}/posButtonLayouts |  |
+| [**update_pos_button_layout**](PosButtonLayoutsApi.md#update_pos_button_layout) | **PATCH** /accounts/{koronaAccountId}/posButtonLayouts/{posButtonLayoutId} |  |
+| [**update_pos_button_layouts**](PosButtonLayoutsApi.md#update_pos_button_layouts) | **PATCH** /accounts/{koronaAccountId}/posButtonLayouts |  |
 
 
 ## add_pos_button_layouts
 
-> <Array<AddOrUpdateResult>> add_pos_button_layouts(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_pos_button_layouts(korona_account_id, pos_button_layout, opts)
+
+
 
 adds a batch of new pos button layouts
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::PosButtonLayoutsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosButtonLayout.new] # Array<PosButtonLayout> | array of new pos button layouts
+pos_button_layout = [KoronaCloudClient::PosButtonLayout.new] # Array<PosButtonLayout> | array of new pos button layouts
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new pos button layouts
-  result = api_instance.add_pos_button_layouts(korona_account_id, body, opts)
+  
+  result = api_instance.add_pos_button_layouts(korona_account_id, pos_button_layout, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosButtonLayoutsApi->add_pos_button_layouts: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_pos_button_layouts_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_pos_button_layouts_with_http_info(korona_account_id, pos_button_layout, opts)
 
 ```ruby
 begin
-  # adds a batch of new pos button layouts
-  data, status_code, headers = api_instance.add_pos_button_layouts_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_pos_button_layouts_with_http_info(korona_account_id, pos_button_layout, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosButtonLayout&gt;**](PosButtonLayout.md) | array of new pos button layouts |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **pos_button_layout** | [**Array&lt;PosButtonLayout&gt;**](PosButtonLayout.md) | array of new pos button layouts |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_pos_button_layout
 
 > delete_pos_button_layout(korona_account_id, pos_button_layout_id)
+
+
 
 deletes the single pos botton layout
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 pos_button_layout_id = 'pos_button_layout_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single pos botton layout
+  
   api_instance.delete_pos_button_layout(korona_account_id, pos_button_layout_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosButtonLayoutsApi->delete_pos_button_layout: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single pos botton layout
+  
   data, status_code, headers = api_instance.delete_pos_button_layout_with_http_info(korona_account_id, pos_button_layout_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_pos_button_layouts
 
-> <Array<AddOrUpdateResult>> delete_pos_button_layouts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_pos_button_layouts(korona_account_id, pos_button_layout)
+
+
 
 deletes a batch of pos button layouts
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::PosButtonLayoutsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosButtonLayout.new] # Array<PosButtonLayout> | array of existing pos button layouts (id or number required)
+pos_button_layout = [KoronaCloudClient::PosButtonLayout.new] # Array<PosButtonLayout> | array of existing pos button layouts (id or number required)
 
 begin
-  # deletes a batch of pos button layouts
-  result = api_instance.delete_pos_button_layouts(korona_account_id, body)
+  
+  result = api_instance.delete_pos_button_layouts(korona_account_id, pos_button_layout)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosButtonLayoutsApi->delete_pos_button_layouts: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_pos_button_layouts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_pos_button_layouts_with_http_info(korona_account_id, pos_button_layout)
 
 ```ruby
 begin
-  # deletes a batch of pos button layouts
-  data, status_code, headers = api_instance.delete_pos_button_layouts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_pos_button_layouts_with_http_info(korona_account_id, pos_button_layout)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosButtonLayout&gt;**](PosButtonLayout.md) | array of existing pos button layouts (id or number required) |  |
+| **pos_button_layout** | [**Array&lt;PosButtonLayout&gt;**](PosButtonLayout.md) | array of existing pos button layouts (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_pos_button_layout
 
 > <PosButtonLayout> get_pos_button_layout(korona_account_id, pos_button_layout_id)
+
+
 
 returns the single pos button layout
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 pos_button_layout_id = 'pos_button_layout_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single pos button layout
+  
   result = api_instance.get_pos_button_layout(korona_account_id, pos_button_layout_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single pos button layout
+  
   data, status_code, headers = api_instance.get_pos_button_layout_with_http_info(korona_account_id, pos_button_layout_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListPosButtonLayout> get_pos_button_layouts(korona_account_id, opts)
 
+
+
 lists all pos button layouts
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all pos button layouts
+  
   result = api_instance.get_pos_button_layouts(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all pos button layouts
+  
   data, status_code, headers = api_instance.get_pos_button_layouts_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_pos_button_layout
 
-> update_pos_button_layout(korona_account_id, pos_button_layout_id, body)
+> update_pos_button_layout(korona_account_id, pos_button_layout_id, pos_button_layout)
 
-updates the single pos button layout
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single pos button layout; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::PosButtonLayoutsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 pos_button_layout_id = 'pos_button_layout_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::PosButtonLayout.new # PosButtonLayout | the properties to update of the pos button layout
+pos_button_layout = KoronaCloudClient::PosButtonLayout.new # PosButtonLayout | the properties to update of the pos button layout
 
 begin
-  # updates the single pos button layout
-  api_instance.update_pos_button_layout(korona_account_id, pos_button_layout_id, body)
+  
+  api_instance.update_pos_button_layout(korona_account_id, pos_button_layout_id, pos_button_layout)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosButtonLayoutsApi->update_pos_button_layout: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_pos_button_layout_with_http_info(korona_account_id, pos_button_layout_id, body)
+> <Array(nil, Integer, Hash)> update_pos_button_layout_with_http_info(korona_account_id, pos_button_layout_id, pos_button_layout)
 
 ```ruby
 begin
-  # updates the single pos button layout
-  data, status_code, headers = api_instance.update_pos_button_layout_with_http_info(korona_account_id, pos_button_layout_id, body)
+  
+  data, status_code, headers = api_instance.update_pos_button_layout_with_http_info(korona_account_id, pos_button_layout_id, pos_button_layout)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **pos_button_layout_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**PosButtonLayout**](PosButtonLayout.md) | the properties to update of the pos button layout |  |
+| **pos_button_layout** | [**PosButtonLayout**](PosButtonLayout.md) | the properties to update of the pos button layout |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_pos_button_layouts
 
-> <Array<AddOrUpdateResult>> update_pos_button_layouts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_pos_button_layouts(korona_account_id, pos_button_layout)
 
-updates a batch of pos button layouts
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of pos button layouts; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::PosButtonLayoutsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosButtonLayout.new] # Array<PosButtonLayout> | an array of existing pos button layouts
+pos_button_layout = [KoronaCloudClient::PosButtonLayout.new] # Array<PosButtonLayout> | an array of existing pos button layouts
 
 begin
-  # updates a batch of pos button layouts
-  result = api_instance.update_pos_button_layouts(korona_account_id, body)
+  
+  result = api_instance.update_pos_button_layouts(korona_account_id, pos_button_layout)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosButtonLayoutsApi->update_pos_button_layouts: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_pos_button_layouts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_pos_button_layouts_with_http_info(korona_account_id, pos_button_layout)
 
 ```ruby
 begin
-  # updates a batch of pos button layouts
-  data, status_code, headers = api_instance.update_pos_button_layouts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_pos_button_layouts_with_http_info(korona_account_id, pos_button_layout)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosButtonLayout&gt;**](PosButtonLayout.md) | an array of existing pos button layouts |  |
+| **pos_button_layout** | [**Array&lt;PosButtonLayout&gt;**](PosButtonLayout.md) | an array of existing pos button layouts |  |
 
 ### Return type
 

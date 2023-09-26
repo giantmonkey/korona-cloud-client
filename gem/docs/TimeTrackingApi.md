@@ -1,20 +1,22 @@
 # KoronaCloudClient::TimeTrackingApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_time_tracking_entities**](TimeTrackingApi.md#add_time_tracking_entities) | **POST** /accounts/{koronaAccountId}/timeTrackingEntities | adds a batch of new time tracking entities |
-| [**add_time_tracking_entries**](TimeTrackingApi.md#add_time_tracking_entries) | **POST** /accounts/{koronaAccountId}/timeTrackingEntries | adds a batch of new time tracking entries |
-| [**get_time_tracking_entities**](TimeTrackingApi.md#get_time_tracking_entities) | **GET** /accounts/{koronaAccountId}/timeTrackingEntities | lists time tracking entities |
-| [**get_time_tracking_entity**](TimeTrackingApi.md#get_time_tracking_entity) | **GET** /accounts/{koronaAccountId}/timeTrackingEntities/{timeTrackingEntityId} | returns a single time tracking entity |
-| [**get_time_tracking_entries**](TimeTrackingApi.md#get_time_tracking_entries) | **GET** /accounts/{koronaAccountId}/timeTrackingEntries | lists time tracking entries |
-| [**get_time_tracking_entry**](TimeTrackingApi.md#get_time_tracking_entry) | **GET** /accounts/{koronaAccountId}/timeTrackingEntries/{timeTrackingEntryId} | returns a single time tracking entry |
+| [**add_time_tracking_entities**](TimeTrackingApi.md#add_time_tracking_entities) | **POST** /accounts/{koronaAccountId}/timeTrackingEntities |  |
+| [**add_time_tracking_entries**](TimeTrackingApi.md#add_time_tracking_entries) | **POST** /accounts/{koronaAccountId}/timeTrackingEntries |  |
+| [**get_time_tracking_entities**](TimeTrackingApi.md#get_time_tracking_entities) | **GET** /accounts/{koronaAccountId}/timeTrackingEntities |  |
+| [**get_time_tracking_entity**](TimeTrackingApi.md#get_time_tracking_entity) | **GET** /accounts/{koronaAccountId}/timeTrackingEntities/{timeTrackingEntityId} |  |
+| [**get_time_tracking_entries**](TimeTrackingApi.md#get_time_tracking_entries) | **GET** /accounts/{koronaAccountId}/timeTrackingEntries |  |
+| [**get_time_tracking_entry**](TimeTrackingApi.md#get_time_tracking_entry) | **GET** /accounts/{koronaAccountId}/timeTrackingEntries/{timeTrackingEntryId} |  |
 
 
 ## add_time_tracking_entities
 
-> <Array<AddOrUpdateResult>> add_time_tracking_entities(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_time_tracking_entities(korona_account_id, time_tracking_entity, opts)
+
+
 
 adds a batch of new time tracking entities
 
@@ -32,14 +34,15 @@ end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::TimeTrackingEntity.new] # Array<TimeTrackingEntity> | array of new time tracking entities
+time_tracking_entity = [KoronaCloudClient::TimeTrackingEntity.new] # Array<TimeTrackingEntity> | array of new time tracking entities
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new time tracking entities
-  result = api_instance.add_time_tracking_entities(korona_account_id, body, opts)
+  
+  result = api_instance.add_time_tracking_entities(korona_account_id, time_tracking_entity, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TimeTrackingApi->add_time_tracking_entities: #{e}"
@@ -50,12 +53,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_time_tracking_entities_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_time_tracking_entities_with_http_info(korona_account_id, time_tracking_entity, opts)
 
 ```ruby
 begin
-  # adds a batch of new time tracking entities
-  data, status_code, headers = api_instance.add_time_tracking_entities_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_time_tracking_entities_with_http_info(korona_account_id, time_tracking_entity, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -69,8 +72,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;TimeTrackingEntity&gt;**](TimeTrackingEntity.md) | array of new time tracking entities |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **time_tracking_entity** | [**Array&lt;TimeTrackingEntity&gt;**](TimeTrackingEntity.md) | array of new time tracking entities |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -88,7 +92,9 @@ end
 
 ## add_time_tracking_entries
 
-> <Array<AddOrUpdateResult>> add_time_tracking_entries(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_time_tracking_entries(korona_account_id, time_tracking_entry, opts)
+
+
 
 adds a batch of new time tracking entries
 
@@ -106,14 +112,15 @@ end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::TimeTrackingEntry.new] # Array<TimeTrackingEntry> | array of new time tracking entries
+time_tracking_entry = [KoronaCloudClient::TimeTrackingEntry.new] # Array<TimeTrackingEntry> | array of new time tracking entries
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new time tracking entries
-  result = api_instance.add_time_tracking_entries(korona_account_id, body, opts)
+  
+  result = api_instance.add_time_tracking_entries(korona_account_id, time_tracking_entry, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TimeTrackingApi->add_time_tracking_entries: #{e}"
@@ -124,12 +131,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_time_tracking_entries_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_time_tracking_entries_with_http_info(korona_account_id, time_tracking_entry, opts)
 
 ```ruby
 begin
-  # adds a batch of new time tracking entries
-  data, status_code, headers = api_instance.add_time_tracking_entries_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_time_tracking_entries_with_http_info(korona_account_id, time_tracking_entry, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -143,8 +150,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;TimeTrackingEntry&gt;**](TimeTrackingEntry.md) | array of new time tracking entries |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **time_tracking_entry** | [**Array&lt;TimeTrackingEntry&gt;**](TimeTrackingEntry.md) | array of new time tracking entries |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -163,6 +171,8 @@ end
 ## get_time_tracking_entities
 
 > <ResultListTimeTrackingEntity> get_time_tracking_entities(korona_account_id, opts)
+
+
 
 lists time tracking entities
 
@@ -190,7 +200,7 @@ opts = {
 }
 
 begin
-  # lists time tracking entities
+  
   result = api_instance.get_time_tracking_entities(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -206,7 +216,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists time tracking entities
+  
   data, status_code, headers = api_instance.get_time_tracking_entities_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -246,6 +256,8 @@ end
 
 > <TimeTrackingEntity> get_time_tracking_entity(korona_account_id, time_tracking_entity_id)
 
+
+
 returns a single time tracking entity
 
 ### Examples
@@ -265,7 +277,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 time_tracking_entity_id = 'time_tracking_entity_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single time tracking entity
+  
   result = api_instance.get_time_tracking_entity(korona_account_id, time_tracking_entity_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -281,7 +293,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single time tracking entity
+  
   data, status_code, headers = api_instance.get_time_tracking_entity_with_http_info(korona_account_id, time_tracking_entity_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -316,6 +328,8 @@ end
 
 > <ResultListTimeTrackingEntry> get_time_tracking_entries(korona_account_id, opts)
 
+
+
 lists time tracking entries
 
 ### Examples
@@ -346,7 +360,7 @@ opts = {
 }
 
 begin
-  # lists time tracking entries
+  
   result = api_instance.get_time_tracking_entries(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -362,7 +376,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists time tracking entries
+  
   data, status_code, headers = api_instance.get_time_tracking_entries_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -406,6 +420,8 @@ end
 
 > <TimeTrackingEntry> get_time_tracking_entry(korona_account_id, time_tracking_entry_id)
 
+
+
 returns a single time tracking entry
 
 ### Examples
@@ -425,7 +441,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 time_tracking_entry_id = 'time_tracking_entry_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single time tracking entry
+  
   result = api_instance.get_time_tracking_entry(korona_account_id, time_tracking_entry_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -441,7 +457,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single time tracking entry
+  
   data, status_code, headers = api_instance.get_time_tracking_entry_with_http_info(korona_account_id, time_tracking_entry_id)
   p status_code # => 2xx
   p headers # => { ... }

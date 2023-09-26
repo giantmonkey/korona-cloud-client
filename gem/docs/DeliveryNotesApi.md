@@ -1,20 +1,22 @@
 # KoronaCloudClient::DeliveryNotesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_delivery_notes**](DeliveryNotesApi.md#add_delivery_notes) | **POST** /accounts/{koronaAccountId}/deliveryNotes | adds delivery notes |
-| [**book_delivery_note**](DeliveryNotesApi.md#book_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/book | book the single delivery note |
-| [**finalize_delivery_note**](DeliveryNotesApi.md#finalize_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/finalize | finalize the single delivery note |
-| [**get_delivery_note**](DeliveryNotesApi.md#get_delivery_note) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId} | returns a single delivery note |
-| [**get_delivery_note_item**](DeliveryNotesApi.md#get_delivery_note_item) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/items/{deliveryNoteItemId} | returns a single delivery note item |
-| [**get_delivery_notes**](DeliveryNotesApi.md#get_delivery_notes) | **GET** /accounts/{koronaAccountId}/deliveryNotes | lists all delivery notes |
+| [**add_delivery_notes**](DeliveryNotesApi.md#add_delivery_notes) | **POST** /accounts/{koronaAccountId}/deliveryNotes |  |
+| [**book_delivery_note**](DeliveryNotesApi.md#book_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/book |  |
+| [**finalize_delivery_note**](DeliveryNotesApi.md#finalize_delivery_note) | **PATCH** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/finalize |  |
+| [**get_delivery_note**](DeliveryNotesApi.md#get_delivery_note) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId} |  |
+| [**get_delivery_note_item**](DeliveryNotesApi.md#get_delivery_note_item) | **GET** /accounts/{koronaAccountId}/deliveryNotes/{deliveryNoteId}/items/{deliveryNoteItemId} |  |
+| [**get_delivery_notes**](DeliveryNotesApi.md#get_delivery_notes) | **GET** /accounts/{koronaAccountId}/deliveryNotes |  |
 
 
 ## add_delivery_notes
 
-> <Array<AddOrUpdateResult>> add_delivery_notes(korona_account_id, body)
+> <Array<AddOrUpdateResult>> add_delivery_notes(korona_account_id, delivery_note)
+
+
 
 adds delivery notes
 
@@ -32,11 +34,11 @@ end
 
 api_instance = KoronaCloudClient::DeliveryNotesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::DeliveryNote.new] # Array<DeliveryNote> | data to add
+delivery_note = [KoronaCloudClient::DeliveryNote.new] # Array<DeliveryNote> | data to add
 
 begin
-  # adds delivery notes
-  result = api_instance.add_delivery_notes(korona_account_id, body)
+  
+  result = api_instance.add_delivery_notes(korona_account_id, delivery_note)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DeliveryNotesApi->add_delivery_notes: #{e}"
@@ -47,12 +49,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_delivery_notes_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_delivery_notes_with_http_info(korona_account_id, delivery_note)
 
 ```ruby
 begin
-  # adds delivery notes
-  data, status_code, headers = api_instance.add_delivery_notes_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.add_delivery_notes_with_http_info(korona_account_id, delivery_note)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -66,7 +68,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;DeliveryNote&gt;**](DeliveryNote.md) | data to add |  |
+| **delivery_note** | [**Array&lt;DeliveryNote&gt;**](DeliveryNote.md) | data to add |  |
 
 ### Return type
 
@@ -85,6 +87,8 @@ end
 ## book_delivery_note
 
 > book_delivery_note(korona_account_id, delivery_note_id)
+
+
 
 book the single delivery note
 
@@ -105,7 +109,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 delivery_note_id = 'delivery_note_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # book the single delivery note
+  
   api_instance.book_delivery_note(korona_account_id, delivery_note_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DeliveryNotesApi->book_delivery_note: #{e}"
@@ -120,7 +124,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # book the single delivery note
+  
   data, status_code, headers = api_instance.book_delivery_note_with_http_info(korona_account_id, delivery_note_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -155,6 +159,8 @@ nil (empty response body)
 
 > finalize_delivery_note(korona_account_id, delivery_note_id)
 
+
+
 finalize the single delivery note
 
 ### Examples
@@ -174,7 +180,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 delivery_note_id = 'delivery_note_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # finalize the single delivery note
+  
   api_instance.finalize_delivery_note(korona_account_id, delivery_note_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DeliveryNotesApi->finalize_delivery_note: #{e}"
@@ -189,7 +195,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # finalize the single delivery note
+  
   data, status_code, headers = api_instance.finalize_delivery_note_with_http_info(korona_account_id, delivery_note_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -224,6 +230,8 @@ nil (empty response body)
 
 > <DeliveryNote> get_delivery_note(korona_account_id, delivery_note_id)
 
+
+
 returns a single delivery note
 
 ### Examples
@@ -243,7 +251,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 delivery_note_id = 'delivery_note_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single delivery note
+  
   result = api_instance.get_delivery_note(korona_account_id, delivery_note_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -259,7 +267,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single delivery note
+  
   data, status_code, headers = api_instance.get_delivery_note_with_http_info(korona_account_id, delivery_note_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -294,6 +302,8 @@ end
 
 > <DeliveryNoteItem> get_delivery_note_item(korona_account_id, delivery_note_id, delivery_note_item_id)
 
+
+
 returns a single delivery note item
 
 ### Examples
@@ -314,7 +324,7 @@ delivery_note_id = 'delivery_note_id_example' # String | id of the related objec
 delivery_note_item_id = 'delivery_note_item_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single delivery note item
+  
   result = api_instance.get_delivery_note_item(korona_account_id, delivery_note_id, delivery_note_item_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -330,7 +340,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single delivery note item
+  
   data, status_code, headers = api_instance.get_delivery_note_item_with_http_info(korona_account_id, delivery_note_id, delivery_note_item_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -366,6 +376,8 @@ end
 
 > <ResultListDeliveryNote> get_delivery_notes(korona_account_id, opts)
 
+
+
 lists all delivery notes
 
 ### Examples
@@ -399,7 +411,7 @@ opts = {
 }
 
 begin
-  # lists all delivery notes
+  
   result = api_instance.get_delivery_notes(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -415,7 +427,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all delivery notes
+  
   data, status_code, headers = api_instance.get_delivery_notes_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

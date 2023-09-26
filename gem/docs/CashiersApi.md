@@ -1,21 +1,23 @@
 # KoronaCloudClient::CashiersApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_cashiers**](CashiersApi.md#add_cashiers) | **POST** /accounts/{koronaAccountId}/cashiers | adds a batch of new cashiers |
-| [**delete_cashier**](CashiersApi.md#delete_cashier) | **DELETE** /accounts/{koronaAccountId}/cashiers/{cashierId} | deletes the single cashier |
-| [**delete_cashiers**](CashiersApi.md#delete_cashiers) | **DELETE** /accounts/{koronaAccountId}/cashiers | deletes a batch of cashiers |
-| [**get_cashier**](CashiersApi.md#get_cashier) | **GET** /accounts/{koronaAccountId}/cashiers/{cashierId} | returns the single cashier |
-| [**get_cashiers**](CashiersApi.md#get_cashiers) | **GET** /accounts/{koronaAccountId}/cashiers | lists all cashiers |
-| [**update_cashier**](CashiersApi.md#update_cashier) | **PATCH** /accounts/{koronaAccountId}/cashiers/{cashierId} | updates the single cashier |
-| [**update_cashiers**](CashiersApi.md#update_cashiers) | **PATCH** /accounts/{koronaAccountId}/cashiers | updates a batch of cashiers |
+| [**add_cashiers**](CashiersApi.md#add_cashiers) | **POST** /accounts/{koronaAccountId}/cashiers |  |
+| [**delete_cashier**](CashiersApi.md#delete_cashier) | **DELETE** /accounts/{koronaAccountId}/cashiers/{cashierId} |  |
+| [**delete_cashiers**](CashiersApi.md#delete_cashiers) | **DELETE** /accounts/{koronaAccountId}/cashiers |  |
+| [**get_cashier**](CashiersApi.md#get_cashier) | **GET** /accounts/{koronaAccountId}/cashiers/{cashierId} |  |
+| [**get_cashiers**](CashiersApi.md#get_cashiers) | **GET** /accounts/{koronaAccountId}/cashiers |  |
+| [**update_cashier**](CashiersApi.md#update_cashier) | **PATCH** /accounts/{koronaAccountId}/cashiers/{cashierId} |  |
+| [**update_cashiers**](CashiersApi.md#update_cashiers) | **PATCH** /accounts/{koronaAccountId}/cashiers |  |
 
 
 ## add_cashiers
 
-> <Array<AddOrUpdateResult>> add_cashiers(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_cashiers(korona_account_id, cashier, opts)
+
+
 
 adds a batch of new cashiers
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::CashiersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Cashier.new] # Array<Cashier> | array of new cashiers
+cashier = [KoronaCloudClient::Cashier.new] # Array<Cashier> | array of new cashiers
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new cashiers
-  result = api_instance.add_cashiers(korona_account_id, body, opts)
+  
+  result = api_instance.add_cashiers(korona_account_id, cashier, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashiersApi->add_cashiers: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_cashiers_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_cashiers_with_http_info(korona_account_id, cashier, opts)
 
 ```ruby
 begin
-  # adds a batch of new cashiers
-  data, status_code, headers = api_instance.add_cashiers_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_cashiers_with_http_info(korona_account_id, cashier, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Cashier&gt;**](Cashier.md) | array of new cashiers |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **cashier** | [**Array&lt;Cashier&gt;**](Cashier.md) | array of new cashiers |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_cashier
 
 > delete_cashier(korona_account_id, cashier_id)
+
+
 
 deletes the single cashier
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 cashier_id = 'cashier_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single cashier
+  
   api_instance.delete_cashier(korona_account_id, cashier_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashiersApi->delete_cashier: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single cashier
+  
   data, status_code, headers = api_instance.delete_cashier_with_http_info(korona_account_id, cashier_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_cashiers
 
-> <Array<AddOrUpdateResult>> delete_cashiers(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_cashiers(korona_account_id, cashier)
+
+
 
 deletes a batch of cashiers
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::CashiersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Cashier.new] # Array<Cashier> | array of existing cashiers (id or number required)
+cashier = [KoronaCloudClient::Cashier.new] # Array<Cashier> | array of existing cashiers (id or number required)
 
 begin
-  # deletes a batch of cashiers
-  result = api_instance.delete_cashiers(korona_account_id, body)
+  
+  result = api_instance.delete_cashiers(korona_account_id, cashier)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashiersApi->delete_cashiers: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_cashiers_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_cashiers_with_http_info(korona_account_id, cashier)
 
 ```ruby
 begin
-  # deletes a batch of cashiers
-  data, status_code, headers = api_instance.delete_cashiers_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_cashiers_with_http_info(korona_account_id, cashier)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Cashier&gt;**](Cashier.md) | array of existing cashiers (id or number required) |  |
+| **cashier** | [**Array&lt;Cashier&gt;**](Cashier.md) | array of existing cashiers (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_cashier
 
 > <Cashier> get_cashier(korona_account_id, cashier_id, opts)
+
+
 
 returns the single cashier
 
@@ -252,7 +262,7 @@ opts = {
 }
 
 begin
-  # returns the single cashier
+  
   result = api_instance.get_cashier(korona_account_id, cashier_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -268,7 +278,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single cashier
+  
   data, status_code, headers = api_instance.get_cashier_with_http_info(korona_account_id, cashier_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -304,6 +314,8 @@ end
 
 > <ResultListCashier> get_cashiers(korona_account_id, opts)
 
+
+
 lists all cashiers
 
 ### Examples
@@ -331,7 +343,7 @@ opts = {
 }
 
 begin
-  # lists all cashiers
+  
   result = api_instance.get_cashiers(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -347,7 +359,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all cashiers
+  
   data, status_code, headers = api_instance.get_cashiers_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -386,11 +398,11 @@ end
 
 ## update_cashier
 
-> update_cashier(korona_account_id, cashier_id, body)
+> update_cashier(korona_account_id, cashier_id, cashier)
 
-updates the single cashier
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single cashier; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -407,11 +419,11 @@ end
 api_instance = KoronaCloudClient::CashiersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 cashier_id = 'cashier_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::Cashier.new # Cashier | the properties to update of the cashier
+cashier = KoronaCloudClient::Cashier.new # Cashier | the properties to update of the cashier
 
 begin
-  # updates the single cashier
-  api_instance.update_cashier(korona_account_id, cashier_id, body)
+  
+  api_instance.update_cashier(korona_account_id, cashier_id, cashier)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashiersApi->update_cashier: #{e}"
 end
@@ -421,12 +433,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_cashier_with_http_info(korona_account_id, cashier_id, body)
+> <Array(nil, Integer, Hash)> update_cashier_with_http_info(korona_account_id, cashier_id, cashier)
 
 ```ruby
 begin
-  # updates the single cashier
-  data, status_code, headers = api_instance.update_cashier_with_http_info(korona_account_id, cashier_id, body)
+  
+  data, status_code, headers = api_instance.update_cashier_with_http_info(korona_account_id, cashier_id, cashier)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -441,7 +453,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **cashier_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Cashier**](Cashier.md) | the properties to update of the cashier |  |
+| **cashier** | [**Cashier**](Cashier.md) | the properties to update of the cashier |  |
 
 ### Return type
 
@@ -459,11 +471,11 @@ nil (empty response body)
 
 ## update_cashiers
 
-> <Array<AddOrUpdateResult>> update_cashiers(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_cashiers(korona_account_id, cashier)
 
-updates a batch of cashiers
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of cashiers; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -479,11 +491,11 @@ end
 
 api_instance = KoronaCloudClient::CashiersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Cashier.new] # Array<Cashier> | an array of existing cashiers
+cashier = [KoronaCloudClient::Cashier.new] # Array<Cashier> | an array of existing cashiers
 
 begin
-  # updates a batch of cashiers
-  result = api_instance.update_cashiers(korona_account_id, body)
+  
+  result = api_instance.update_cashiers(korona_account_id, cashier)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashiersApi->update_cashiers: #{e}"
@@ -494,12 +506,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_cashiers_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_cashiers_with_http_info(korona_account_id, cashier)
 
 ```ruby
 begin
-  # updates a batch of cashiers
-  data, status_code, headers = api_instance.update_cashiers_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_cashiers_with_http_info(korona_account_id, cashier)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -513,7 +525,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Cashier&gt;**](Cashier.md) | an array of existing cashiers |  |
+| **cashier** | [**Array&lt;Cashier&gt;**](Cashier.md) | an array of existing cashiers |  |
 
 ### Return type
 

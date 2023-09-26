@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **shelf_life** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **shelf_life** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **amount** | [**DispatchNotificationItemAmount**](DispatchNotificationItemAmount.md) |  | [optional] |
 | **identification** | [**DispatchNotificationItemIdentification**](DispatchNotificationItemIdentification.md) |  | [optional] |
 | **index** | **Integer** |  | [optional][readonly] |

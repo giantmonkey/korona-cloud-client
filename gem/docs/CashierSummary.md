@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cancelled_items** | [**AmountCountData**](AmountCountData.md) |  | [optional] |
-| **cancelled_receipts** | [**AmountCountData**](AmountCountData.md) |  | [optional] |
+| **cancelled_items** | [**CashierSummaryAmountCountData**](CashierSummaryAmountCountData.md) |  | [optional] |
+| **cancelled_receipts** | [**CashierSummaryAmountCountData**](CashierSummaryAmountCountData.md) |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **receipts** | [**AmountCountData**](AmountCountData.md) |  | [optional] |
-| **returns** | [**AmountCountData**](AmountCountData.md) |  | [optional] |
-| **voided_receipts** | [**AmountCountData**](AmountCountData.md) |  | [optional] |
+| **receipts** | [**CashierSummaryAmountCountData**](CashierSummaryAmountCountData.md) |  | [optional] |
+| **returns** | [**CashierSummaryAmountCountData**](CashierSummaryAmountCountData.md) |  | [optional] |
+| **voided_receipts** | [**CashierSummaryAmountCountData**](CashierSummaryAmountCountData.md) |  | [optional] |
 
 ## Example
 

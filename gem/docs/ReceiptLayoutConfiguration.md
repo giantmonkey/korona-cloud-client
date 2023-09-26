@@ -11,7 +11,9 @@
 | **name** | **String** |  | [optional] |
 | **show_product_numbers** | **Boolean** |  | [optional] |
 | **show_receipt_number_barcode** | **Boolean** |  | [optional] |
+| **footer_logo** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **footer_logo_number** | **Integer** |  | [optional] |
+| **header_logo** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **header_logo_number** | **Integer** |  | [optional] |
 | **show_recommended_retail_price_threshold** | **Integer** |  | [optional] |
 | **item_grouping** | **String** |  | [optional] |
@@ -22,8 +24,9 @@
 | **show_prices_on_delivery_notes** | **Boolean** |  | [optional] |
 | **show_tax_name** | **Boolean** |  | [optional] |
 | **deposit_summary** | **Boolean** |  | [optional] |
-| **show_optional_fiscal_data** | **Boolean** |  | [optional] |
 | **show_article_count** | **Boolean** |  | [optional] |
+| **fiscal_data_format** | **String** |  | [optional] |
+| **show_optional_fiscal_data** | **Boolean** | use new property fiscalDataFormat, value corresponds to the following mapping false equals TEXT &amp; true equals TEXT_AND_QR_CODE | [optional] |
 
 ## Example
 
@@ -38,7 +41,9 @@ instance = KoronaCloudClient::ReceiptLayoutConfiguration.new(
   name: null,
   show_product_numbers: null,
   show_receipt_number_barcode: null,
+  footer_logo: null,
   footer_logo_number: null,
+  header_logo: null,
   header_logo_number: null,
   show_recommended_retail_price_threshold: null,
   item_grouping: null,
@@ -49,8 +54,9 @@ instance = KoronaCloudClient::ReceiptLayoutConfiguration.new(
   show_prices_on_delivery_notes: null,
   show_tax_name: null,
   deposit_summary: null,
-  show_optional_fiscal_data: null,
-  show_article_count: null
+  show_article_count: null,
+  fiscal_data_format: null,
+  show_optional_fiscal_data: null
 )
 ```
 

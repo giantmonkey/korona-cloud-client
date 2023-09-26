@@ -1,19 +1,21 @@
 # KoronaCloudClient::SalesTaxesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_sales_taxes**](SalesTaxesApi.md#add_sales_taxes) | **POST** /accounts/{koronaAccountId}/salesTaxes | adds a batch of new sales taxes |
-| [**delete_sales_taxes**](SalesTaxesApi.md#delete_sales_taxes) | **DELETE** /accounts/{koronaAccountId}/salesTaxes | deletes a batch of sales taxes |
-| [**get_sales_tax**](SalesTaxesApi.md#get_sales_tax) | **GET** /accounts/{koronaAccountId}/salesTaxes/{salesTaxId} | returns the single sales tax |
-| [**get_sales_taxes**](SalesTaxesApi.md#get_sales_taxes) | **GET** /accounts/{koronaAccountId}/salesTaxes | lists all sales taxes |
-| [**update_sales_taxes**](SalesTaxesApi.md#update_sales_taxes) | **PATCH** /accounts/{koronaAccountId}/salesTaxes | updates a batch of sales taxes |
+| [**add_sales_taxes**](SalesTaxesApi.md#add_sales_taxes) | **POST** /accounts/{koronaAccountId}/salesTaxes |  |
+| [**delete_sales_taxes**](SalesTaxesApi.md#delete_sales_taxes) | **DELETE** /accounts/{koronaAccountId}/salesTaxes |  |
+| [**get_sales_tax**](SalesTaxesApi.md#get_sales_tax) | **GET** /accounts/{koronaAccountId}/salesTaxes/{salesTaxId} |  |
+| [**get_sales_taxes**](SalesTaxesApi.md#get_sales_taxes) | **GET** /accounts/{koronaAccountId}/salesTaxes |  |
+| [**update_sales_taxes**](SalesTaxesApi.md#update_sales_taxes) | **PATCH** /accounts/{koronaAccountId}/salesTaxes |  |
 
 
 ## add_sales_taxes
 
-> <Array<AddOrUpdateResult>> add_sales_taxes(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_sales_taxes(korona_account_id, sales_tax, opts)
+
+
 
 adds a batch of new sales taxes
 
@@ -31,14 +33,15 @@ end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of new sectors
+sales_tax = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of new sectors
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new sales taxes
-  result = api_instance.add_sales_taxes(korona_account_id, body, opts)
+  
+  result = api_instance.add_sales_taxes(korona_account_id, sales_tax, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling SalesTaxesApi->add_sales_taxes: #{e}"
@@ -49,12 +52,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_sales_taxes_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_sales_taxes_with_http_info(korona_account_id, sales_tax, opts)
 
 ```ruby
 begin
-  # adds a batch of new sales taxes
-  data, status_code, headers = api_instance.add_sales_taxes_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_sales_taxes_with_http_info(korona_account_id, sales_tax, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -68,8 +71,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of new sectors |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **sales_tax** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of new sectors |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -87,7 +91,9 @@ end
 
 ## delete_sales_taxes
 
-> <Array<AddOrUpdateResult>> delete_sales_taxes(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_sales_taxes(korona_account_id, sales_tax)
+
+
 
 deletes a batch of sales taxes
 
@@ -105,11 +111,11 @@ end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of existing sales taxes (id or number required)
+sales_tax = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of existing sales taxes (id or number required)
 
 begin
-  # deletes a batch of sales taxes
-  result = api_instance.delete_sales_taxes(korona_account_id, body)
+  
+  result = api_instance.delete_sales_taxes(korona_account_id, sales_tax)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling SalesTaxesApi->delete_sales_taxes: #{e}"
@@ -120,12 +126,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_sales_taxes_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_sales_taxes_with_http_info(korona_account_id, sales_tax)
 
 ```ruby
 begin
-  # deletes a batch of sales taxes
-  data, status_code, headers = api_instance.delete_sales_taxes_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_sales_taxes_with_http_info(korona_account_id, sales_tax)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -139,7 +145,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of existing sales taxes (id or number required) |  |
+| **sales_tax** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of existing sales taxes (id or number required) |  |
 
 ### Return type
 
@@ -158,6 +164,8 @@ end
 ## get_sales_tax
 
 > <SalesTax> get_sales_tax(korona_account_id, sales_tax_id)
+
+
 
 returns the single sales tax
 
@@ -178,7 +186,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 sales_tax_id = 'sales_tax_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single sales tax
+  
   result = api_instance.get_sales_tax(korona_account_id, sales_tax_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -194,7 +202,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single sales tax
+  
   data, status_code, headers = api_instance.get_sales_tax_with_http_info(korona_account_id, sales_tax_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -229,6 +237,8 @@ end
 
 > <ResultListSalesTax> get_sales_taxes(korona_account_id, opts)
 
+
+
 lists all sales taxes
 
 ### Examples
@@ -255,7 +265,7 @@ opts = {
 }
 
 begin
-  # lists all sales taxes
+  
   result = api_instance.get_sales_taxes(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -271,7 +281,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all sales taxes
+  
   data, status_code, headers = api_instance.get_sales_taxes_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -309,7 +319,9 @@ end
 
 ## update_sales_taxes
 
-> <Array<AddOrUpdateResult>> update_sales_taxes(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_sales_taxes(korona_account_id, sales_tax)
+
+
 
 updates a batch of sales taxes
 
@@ -327,11 +339,11 @@ end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of existing sales taxes (id or number required)
+sales_tax = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of existing sales taxes (id or number required)
 
 begin
-  # updates a batch of sales taxes
-  result = api_instance.update_sales_taxes(korona_account_id, body)
+  
+  result = api_instance.update_sales_taxes(korona_account_id, sales_tax)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling SalesTaxesApi->update_sales_taxes: #{e}"
@@ -342,12 +354,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_sales_taxes_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_sales_taxes_with_http_info(korona_account_id, sales_tax)
 
 ```ruby
 begin
-  # updates a batch of sales taxes
-  data, status_code, headers = api_instance.update_sales_taxes_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_sales_taxes_with_http_info(korona_account_id, sales_tax)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -361,7 +373,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of existing sales taxes (id or number required) |  |
+| **sales_tax** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of existing sales taxes (id or number required) |  |
 
 ### Return type
 

@@ -1,41 +1,43 @@
 # KoronaCloudClient::TicketingApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_creation_task**](TicketingApi.md#add_creation_task) | **POST** /accounts/{koronaAccountId}/ticketCreation | adds a creation task |
-| [**add_entry_gates**](TicketingApi.md#add_entry_gates) | **POST** /accounts/{koronaAccountId}/entryGates | adds a batch of new entry gates |
-| [**add_events**](TicketingApi.md#add_events) | **POST** /accounts/{koronaAccountId}/events | adds a batch of new events |
-| [**add_or_update_attendances**](TicketingApi.md#add_or_update_attendances) | **POST** /accounts/{koronaAccountId}/attendances | updates/adds attendances |
-| [**add_ticket_definitions**](TicketingApi.md#add_ticket_definitions) | **POST** /accounts/{koronaAccountId}/ticketDefinitions | adds a batch of new ticket definitions |
-| [**cancel_attendance**](TicketingApi.md#cancel_attendance) | **DELETE** /accounts/{koronaAccountId}/attendances/{attendanceId} | cancel the attendance |
-| [**delete_entry_gates**](TicketingApi.md#delete_entry_gates) | **DELETE** /accounts/{koronaAccountId}/entryGates | deletes a batch of entry gates |
-| [**delete_event**](TicketingApi.md#delete_event) | **DELETE** /accounts/{koronaAccountId}/events/{eventId} | deletes the single event |
-| [**delete_ticket_definition**](TicketingApi.md#delete_ticket_definition) | **DELETE** /accounts/{koronaAccountId}/ticketDefinitions/{ticketDefinitionId} | deletes the single ticket definition |
-| [**delete_ticket_definitions**](TicketingApi.md#delete_ticket_definitions) | **DELETE** /accounts/{koronaAccountId}/ticketDefinitions | deletes a batch of ticket definitions |
-| [**get_attendance**](TicketingApi.md#get_attendance) | **GET** /accounts/{koronaAccountId}/attendances/{attendanceId} | returns the single attendance |
-| [**get_attendances**](TicketingApi.md#get_attendances) | **GET** /accounts/{koronaAccountId}/attendances | lists all attendances |
-| [**get_creation_tasks**](TicketingApi.md#get_creation_tasks) | **GET** /accounts/{koronaAccountId}/ticketCreation | creation tasks, personalization will always be empty for technical reasons |
-| [**get_entry_gate**](TicketingApi.md#get_entry_gate) | **GET** /accounts/{koronaAccountId}/entryGates/{entryGateId} | returns the single entry gate |
-| [**get_entry_gates**](TicketingApi.md#get_entry_gates) | **GET** /accounts/{koronaAccountId}/entryGates | lists all entry gates |
-| [**get_event**](TicketingApi.md#get_event) | **GET** /accounts/{koronaAccountId}/events/{eventId} | returns the single event |
-| [**get_events**](TicketingApi.md#get_events) | **GET** /accounts/{koronaAccountId}/events | lists all events |
-| [**get_ticket_definition**](TicketingApi.md#get_ticket_definition) | **GET** /accounts/{koronaAccountId}/ticketDefinitions/{ticketDefinitionId} | returns the single ticket definition |
-| [**get_ticket_definitions**](TicketingApi.md#get_ticket_definitions) | **GET** /accounts/{koronaAccountId}/ticketDefinitions | lists all ticket definitions |
-| [**get_tickets**](TicketingApi.md#get_tickets) | **GET** /accounts/{koronaAccountId}/tickets | lists all tickets |
-| [**lock_ticket**](TicketingApi.md#lock_ticket) | **DELETE** /accounts/{koronaAccountId}/tickets/{ticketNumber} | locks the single ticket |
-| [**unlock_ticket**](TicketingApi.md#unlock_ticket) | **POST** /accounts/{koronaAccountId}/tickets/{ticketNumber} | unlocks the single ticket |
-| [**update_entry_gates**](TicketingApi.md#update_entry_gates) | **PATCH** /accounts/{koronaAccountId}/entryGates | updates a batch of entry gates |
-| [**update_event**](TicketingApi.md#update_event) | **PATCH** /accounts/{koronaAccountId}/events/{eventId} | updates the single event |
-| [**update_events**](TicketingApi.md#update_events) | **PATCH** /accounts/{koronaAccountId}/events | updates a batch of events |
-| [**update_ticket**](TicketingApi.md#update_ticket) | **PATCH** /accounts/{koronaAccountId}/tickets/{ticketNumber} | updates the single ticket |
-| [**update_ticket_definitions**](TicketingApi.md#update_ticket_definitions) | **PATCH** /accounts/{koronaAccountId}/ticketDefinitions | updates a batch of ticket definitions |
+| [**add_creation_task**](TicketingApi.md#add_creation_task) | **POST** /accounts/{koronaAccountId}/ticketCreation |  |
+| [**add_entry_gates**](TicketingApi.md#add_entry_gates) | **POST** /accounts/{koronaAccountId}/entryGates |  |
+| [**add_events**](TicketingApi.md#add_events) | **POST** /accounts/{koronaAccountId}/events |  |
+| [**add_or_update_attendances**](TicketingApi.md#add_or_update_attendances) | **POST** /accounts/{koronaAccountId}/attendances |  |
+| [**add_ticket_definitions**](TicketingApi.md#add_ticket_definitions) | **POST** /accounts/{koronaAccountId}/ticketDefinitions |  |
+| [**cancel_attendance**](TicketingApi.md#cancel_attendance) | **DELETE** /accounts/{koronaAccountId}/attendances/{attendanceId} |  |
+| [**delete_entry_gates**](TicketingApi.md#delete_entry_gates) | **DELETE** /accounts/{koronaAccountId}/entryGates |  |
+| [**delete_event**](TicketingApi.md#delete_event) | **DELETE** /accounts/{koronaAccountId}/events/{eventId} |  |
+| [**delete_ticket_definition**](TicketingApi.md#delete_ticket_definition) | **DELETE** /accounts/{koronaAccountId}/ticketDefinitions/{ticketDefinitionId} |  |
+| [**delete_ticket_definitions**](TicketingApi.md#delete_ticket_definitions) | **DELETE** /accounts/{koronaAccountId}/ticketDefinitions |  |
+| [**get_attendance**](TicketingApi.md#get_attendance) | **GET** /accounts/{koronaAccountId}/attendances/{attendanceId} |  |
+| [**get_attendances**](TicketingApi.md#get_attendances) | **GET** /accounts/{koronaAccountId}/attendances |  |
+| [**get_creation_tasks**](TicketingApi.md#get_creation_tasks) | **GET** /accounts/{koronaAccountId}/ticketCreation |  |
+| [**get_entry_gate**](TicketingApi.md#get_entry_gate) | **GET** /accounts/{koronaAccountId}/entryGates/{entryGateId} |  |
+| [**get_entry_gates**](TicketingApi.md#get_entry_gates) | **GET** /accounts/{koronaAccountId}/entryGates |  |
+| [**get_event**](TicketingApi.md#get_event) | **GET** /accounts/{koronaAccountId}/events/{eventId} |  |
+| [**get_events**](TicketingApi.md#get_events) | **GET** /accounts/{koronaAccountId}/events |  |
+| [**get_ticket_definition**](TicketingApi.md#get_ticket_definition) | **GET** /accounts/{koronaAccountId}/ticketDefinitions/{ticketDefinitionId} |  |
+| [**get_ticket_definitions**](TicketingApi.md#get_ticket_definitions) | **GET** /accounts/{koronaAccountId}/ticketDefinitions |  |
+| [**get_tickets**](TicketingApi.md#get_tickets) | **GET** /accounts/{koronaAccountId}/tickets |  |
+| [**lock_ticket**](TicketingApi.md#lock_ticket) | **DELETE** /accounts/{koronaAccountId}/tickets/{ticketNumber} |  |
+| [**unlock_ticket**](TicketingApi.md#unlock_ticket) | **POST** /accounts/{koronaAccountId}/tickets/{ticketNumber} |  |
+| [**update_entry_gates**](TicketingApi.md#update_entry_gates) | **PATCH** /accounts/{koronaAccountId}/entryGates |  |
+| [**update_event**](TicketingApi.md#update_event) | **PATCH** /accounts/{koronaAccountId}/events/{eventId} |  |
+| [**update_events**](TicketingApi.md#update_events) | **PATCH** /accounts/{koronaAccountId}/events |  |
+| [**update_ticket**](TicketingApi.md#update_ticket) | **PATCH** /accounts/{koronaAccountId}/tickets/{ticketNumber} |  |
+| [**update_ticket_definitions**](TicketingApi.md#update_ticket_definitions) | **PATCH** /accounts/{koronaAccountId}/ticketDefinitions |  |
 
 
 ## add_creation_task
 
-> <AddOrUpdateResult> add_creation_task(korona_account_id, body)
+> <AddOrUpdateResult> add_creation_task(korona_account_id, creation_task)
+
+
 
 adds a creation task
 
@@ -53,11 +55,11 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = KoronaCloudClient::CreationTask.new # CreationTask | a single ticket creation task
+creation_task = KoronaCloudClient::CreationTask.new # CreationTask | a single ticket creation task
 
 begin
-  # adds a creation task
-  result = api_instance.add_creation_task(korona_account_id, body)
+  
+  result = api_instance.add_creation_task(korona_account_id, creation_task)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->add_creation_task: #{e}"
@@ -68,12 +70,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AddOrUpdateResult>, Integer, Hash)> add_creation_task_with_http_info(korona_account_id, body)
+> <Array(<AddOrUpdateResult>, Integer, Hash)> add_creation_task_with_http_info(korona_account_id, creation_task)
 
 ```ruby
 begin
-  # adds a creation task
-  data, status_code, headers = api_instance.add_creation_task_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.add_creation_task_with_http_info(korona_account_id, creation_task)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AddOrUpdateResult>
@@ -87,7 +89,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**CreationTask**](CreationTask.md) | a single ticket creation task |  |
+| **creation_task** | [**CreationTask**](CreationTask.md) | a single ticket creation task |  |
 
 ### Return type
 
@@ -105,7 +107,9 @@ end
 
 ## add_entry_gates
 
-> <Array<AddOrUpdateResult>> add_entry_gates(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_entry_gates(korona_account_id, entry_gate, opts)
+
+
 
 adds a batch of new entry gates
 
@@ -123,14 +127,15 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of new entry gates
+entry_gate = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of new entry gates
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new entry gates
-  result = api_instance.add_entry_gates(korona_account_id, body, opts)
+  
+  result = api_instance.add_entry_gates(korona_account_id, entry_gate, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->add_entry_gates: #{e}"
@@ -141,12 +146,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_entry_gates_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_entry_gates_with_http_info(korona_account_id, entry_gate, opts)
 
 ```ruby
 begin
-  # adds a batch of new entry gates
-  data, status_code, headers = api_instance.add_entry_gates_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_entry_gates_with_http_info(korona_account_id, entry_gate, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -160,8 +165,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of new entry gates |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **entry_gate** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of new entry gates |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -179,7 +185,9 @@ end
 
 ## add_events
 
-> <Array<AddOrUpdateResult>> add_events(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_events(korona_account_id, event, opts)
+
+
 
 adds a batch of new events
 
@@ -188,23 +196,18 @@ adds a batch of new events
 ```ruby
 require 'time'
 require 'korona-cloud-client'
-# setup authorization
-KoronaCloudClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Event.new] # Array<Event> | an array of new events
+event = [KoronaCloudClient::Event.new] # Array<Event> | an array of new events
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new events
-  result = api_instance.add_events(korona_account_id, body, opts)
+  
+  result = api_instance.add_events(korona_account_id, event, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->add_events: #{e}"
@@ -215,12 +218,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_events_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_events_with_http_info(korona_account_id, event, opts)
 
 ```ruby
 begin
-  # adds a batch of new events
-  data, status_code, headers = api_instance.add_events_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_events_with_http_info(korona_account_id, event, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -234,8 +237,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Event&gt;**](Event.md) | an array of new events |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **event** | [**Array&lt;Event&gt;**](Event.md) | an array of new events |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -243,7 +247,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -253,7 +257,9 @@ end
 
 ## add_or_update_attendances
 
-> <Array<AddOrUpdateResult>> add_or_update_attendances(korona_account_id, body)
+> <Array<AddOrUpdateResult>> add_or_update_attendances(korona_account_id, attendance)
+
+
 
 updates/adds attendances
 
@@ -271,11 +277,11 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Attendance.new] # Array<Attendance> | an array of attendances
+attendance = [KoronaCloudClient::Attendance.new] # Array<Attendance> | an array of attendances
 
 begin
-  # updates/adds attendances
-  result = api_instance.add_or_update_attendances(korona_account_id, body)
+  
+  result = api_instance.add_or_update_attendances(korona_account_id, attendance)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->add_or_update_attendances: #{e}"
@@ -286,12 +292,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_or_update_attendances_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_or_update_attendances_with_http_info(korona_account_id, attendance)
 
 ```ruby
 begin
-  # updates/adds attendances
-  data, status_code, headers = api_instance.add_or_update_attendances_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.add_or_update_attendances_with_http_info(korona_account_id, attendance)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -305,7 +311,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Attendance&gt;**](Attendance.md) | an array of attendances |  |
+| **attendance** | [**Array&lt;Attendance&gt;**](Attendance.md) | an array of attendances |  |
 
 ### Return type
 
@@ -323,7 +329,9 @@ end
 
 ## add_ticket_definitions
 
-> <Array<AddOrUpdateResult>> add_ticket_definitions(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_ticket_definitions(korona_account_id, ticket_definition, opts)
+
+
 
 adds a batch of new ticket definitions
 
@@ -341,14 +349,15 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of new ticket definitions
+ticket_definition = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of new ticket definitions
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new ticket definitions
-  result = api_instance.add_ticket_definitions(korona_account_id, body, opts)
+  
+  result = api_instance.add_ticket_definitions(korona_account_id, ticket_definition, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->add_ticket_definitions: #{e}"
@@ -359,12 +368,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_ticket_definitions_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_ticket_definitions_with_http_info(korona_account_id, ticket_definition, opts)
 
 ```ruby
 begin
-  # adds a batch of new ticket definitions
-  data, status_code, headers = api_instance.add_ticket_definitions_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_ticket_definitions_with_http_info(korona_account_id, ticket_definition, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -378,8 +387,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of new ticket definitions |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **ticket_definition** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of new ticket definitions |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -398,6 +408,8 @@ end
 ## cancel_attendance
 
 > cancel_attendance(korona_account_id, attendance_id)
+
+
 
 cancel the attendance
 
@@ -418,7 +430,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 attendance_id = 'attendance_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # cancel the attendance
+  
   api_instance.cancel_attendance(korona_account_id, attendance_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->cancel_attendance: #{e}"
@@ -433,7 +445,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # cancel the attendance
+  
   data, status_code, headers = api_instance.cancel_attendance_with_http_info(korona_account_id, attendance_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -466,7 +478,9 @@ nil (empty response body)
 
 ## delete_entry_gates
 
-> <Array<AddOrUpdateResult>> delete_entry_gates(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_entry_gates(korona_account_id, entry_gate)
+
+
 
 deletes a batch of entry gates
 
@@ -484,11 +498,11 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
+entry_gate = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
 
 begin
-  # deletes a batch of entry gates
-  result = api_instance.delete_entry_gates(korona_account_id, body)
+  
+  result = api_instance.delete_entry_gates(korona_account_id, entry_gate)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->delete_entry_gates: #{e}"
@@ -499,12 +513,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_entry_gates_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_entry_gates_with_http_info(korona_account_id, entry_gate)
 
 ```ruby
 begin
-  # deletes a batch of entry gates
-  data, status_code, headers = api_instance.delete_entry_gates_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_entry_gates_with_http_info(korona_account_id, entry_gate)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -518,7 +532,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of existing entry gates (id or number required) |  |
+| **entry_gate** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of existing entry gates (id or number required) |  |
 
 ### Return type
 
@@ -538,6 +552,8 @@ end
 
 > delete_event(korona_account_id, event_id)
 
+
+
 deletes the single event
 
 ### Examples
@@ -545,19 +561,13 @@ deletes the single event
 ```ruby
 require 'time'
 require 'korona-cloud-client'
-# setup authorization
-KoronaCloudClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 event_id = 'event_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single event
+  
   api_instance.delete_event(korona_account_id, event_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->delete_event: #{e}"
@@ -572,7 +582,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single event
+  
   data, status_code, headers = api_instance.delete_event_with_http_info(korona_account_id, event_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -595,7 +605,7 @@ nil (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -606,6 +616,8 @@ nil (empty response body)
 ## delete_ticket_definition
 
 > delete_ticket_definition(korona_account_id, ticket_definition_id)
+
+
 
 deletes the single ticket definition
 
@@ -626,7 +638,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 ticket_definition_id = 'ticket_definition_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single ticket definition
+  
   api_instance.delete_ticket_definition(korona_account_id, ticket_definition_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->delete_ticket_definition: #{e}"
@@ -641,7 +653,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single ticket definition
+  
   data, status_code, headers = api_instance.delete_ticket_definition_with_http_info(korona_account_id, ticket_definition_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -674,7 +686,9 @@ nil (empty response body)
 
 ## delete_ticket_definitions
 
-> <Array<AddOrUpdateResult>> delete_ticket_definitions(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_ticket_definitions(korona_account_id, ticket_definition)
+
+
 
 deletes a batch of ticket definitions
 
@@ -692,11 +706,11 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of existing ticket definitions (id or number required)
+ticket_definition = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of existing ticket definitions (id or number required)
 
 begin
-  # deletes a batch of ticket definitions
-  result = api_instance.delete_ticket_definitions(korona_account_id, body)
+  
+  result = api_instance.delete_ticket_definitions(korona_account_id, ticket_definition)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->delete_ticket_definitions: #{e}"
@@ -707,12 +721,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_ticket_definitions_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_ticket_definitions_with_http_info(korona_account_id, ticket_definition)
 
 ```ruby
 begin
-  # deletes a batch of ticket definitions
-  data, status_code, headers = api_instance.delete_ticket_definitions_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_ticket_definitions_with_http_info(korona_account_id, ticket_definition)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -726,7 +740,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of existing ticket definitions (id or number required) |  |
+| **ticket_definition** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of existing ticket definitions (id or number required) |  |
 
 ### Return type
 
@@ -745,6 +759,8 @@ end
 ## get_attendance
 
 > <Attendance> get_attendance(korona_account_id, attendance_id)
+
+
 
 returns the single attendance
 
@@ -765,7 +781,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 attendance_id = 'attendance_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single attendance
+  
   result = api_instance.get_attendance(korona_account_id, attendance_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -781,7 +797,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single attendance
+  
   data, status_code, headers = api_instance.get_attendance_with_http_info(korona_account_id, attendance_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -816,6 +832,8 @@ end
 
 > <ResultListAttendance> get_attendances(korona_account_id, opts)
 
+
+
 lists all attendances
 
 ### Examples
@@ -841,7 +859,7 @@ opts = {
 }
 
 begin
-  # lists all attendances
+  
   result = api_instance.get_attendances(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -857,7 +875,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all attendances
+  
   data, status_code, headers = api_instance.get_attendances_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -896,6 +914,8 @@ end
 
 > <ResultListCreationTask> get_creation_tasks(korona_account_id, opts)
 
+
+
 creation tasks, personalization will always be empty for technical reasons
 
 ### Examples
@@ -919,7 +939,7 @@ opts = {
 }
 
 begin
-  # creation tasks, personalization will always be empty for technical reasons
+  
   result = api_instance.get_creation_tasks(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -935,7 +955,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # creation tasks, personalization will always be empty for technical reasons
+  
   data, status_code, headers = api_instance.get_creation_tasks_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -972,6 +992,8 @@ end
 
 > <EntryGate> get_entry_gate(korona_account_id, entry_gate_id)
 
+
+
 returns the single entry gate
 
 ### Examples
@@ -991,7 +1013,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 entry_gate_id = 'entry_gate_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single entry gate
+  
   result = api_instance.get_entry_gate(korona_account_id, entry_gate_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -1007,7 +1029,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single entry gate
+  
   data, status_code, headers = api_instance.get_entry_gate_with_http_info(korona_account_id, entry_gate_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1042,6 +1064,8 @@ end
 
 > <ResultListEntryGate> get_entry_gates(korona_account_id, opts)
 
+
+
 lists all entry gates
 
 ### Examples
@@ -1068,7 +1092,7 @@ opts = {
 }
 
 begin
-  # lists all entry gates
+  
   result = api_instance.get_entry_gates(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -1084,7 +1108,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all entry gates
+  
   data, status_code, headers = api_instance.get_entry_gates_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1124,6 +1148,8 @@ end
 
 > <Event> get_event(korona_account_id, event_id)
 
+
+
 returns the single event
 
 ### Examples
@@ -1131,19 +1157,13 @@ returns the single event
 ```ruby
 require 'time'
 require 'korona-cloud-client'
-# setup authorization
-KoronaCloudClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 event_id = 'event_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single event
+  
   result = api_instance.get_event(korona_account_id, event_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -1159,7 +1179,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single event
+  
   data, status_code, headers = api_instance.get_event_with_http_info(korona_account_id, event_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1182,7 +1202,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1194,6 +1214,8 @@ end
 
 > <ResultListEvent> get_events(korona_account_id, opts)
 
+
+
 lists all events
 
 ### Examples
@@ -1201,12 +1223,6 @@ lists all events
 ```ruby
 require 'time'
 require 'korona-cloud-client'
-# setup authorization
-KoronaCloudClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
@@ -1221,7 +1237,7 @@ opts = {
 }
 
 begin
-  # lists all events
+  
   result = api_instance.get_events(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -1237,7 +1253,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all events
+  
   data, status_code, headers = api_instance.get_events_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1266,7 +1282,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1277,6 +1293,8 @@ end
 ## get_ticket_definition
 
 > <TicketDefinition> get_ticket_definition(korona_account_id, ticket_definition_id)
+
+
 
 returns the single ticket definition
 
@@ -1297,7 +1315,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 ticket_definition_id = 'ticket_definition_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single ticket definition
+  
   result = api_instance.get_ticket_definition(korona_account_id, ticket_definition_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -1313,7 +1331,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single ticket definition
+  
   data, status_code, headers = api_instance.get_ticket_definition_with_http_info(korona_account_id, ticket_definition_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1348,6 +1366,8 @@ end
 
 > <ResultListTicketDefinition> get_ticket_definitions(korona_account_id, opts)
 
+
+
 lists all ticket definitions
 
 ### Examples
@@ -1373,7 +1393,7 @@ opts = {
 }
 
 begin
-  # lists all ticket definitions
+  
   result = api_instance.get_ticket_definitions(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -1389,7 +1409,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all ticket definitions
+  
   data, status_code, headers = api_instance.get_ticket_definitions_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1428,6 +1448,8 @@ end
 
 > <ResultListTicket> get_tickets(korona_account_id, page, size, opts)
 
+
+
 lists all tickets
 
 ### Examples
@@ -1458,7 +1480,7 @@ opts = {
 }
 
 begin
-  # lists all tickets
+  
   result = api_instance.get_tickets(korona_account_id, page, size, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -1474,7 +1496,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all tickets
+  
   data, status_code, headers = api_instance.get_tickets_with_http_info(korona_account_id, page, size, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1518,6 +1540,8 @@ end
 
 > lock_ticket(korona_account_id, ticket_number)
 
+
+
 locks the single ticket
 
 ### Examples
@@ -1537,7 +1561,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 ticket_number = 'ticket_number_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # locks the single ticket
+  
   api_instance.lock_ticket(korona_account_id, ticket_number)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->lock_ticket: #{e}"
@@ -1552,7 +1576,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # locks the single ticket
+  
   data, status_code, headers = api_instance.lock_ticket_with_http_info(korona_account_id, ticket_number)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1587,6 +1611,8 @@ nil (empty response body)
 
 > unlock_ticket(korona_account_id, ticket_number)
 
+
+
 unlocks the single ticket
 
 ### Examples
@@ -1606,7 +1632,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 ticket_number = 'ticket_number_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # unlocks the single ticket
+  
   api_instance.unlock_ticket(korona_account_id, ticket_number)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->unlock_ticket: #{e}"
@@ -1621,7 +1647,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # unlocks the single ticket
+  
   data, status_code, headers = api_instance.unlock_ticket_with_http_info(korona_account_id, ticket_number)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1654,7 +1680,9 @@ nil (empty response body)
 
 ## update_entry_gates
 
-> <Array<AddOrUpdateResult>> update_entry_gates(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_entry_gates(korona_account_id, entry_gate)
+
+
 
 updates a batch of entry gates
 
@@ -1672,11 +1700,11 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
+entry_gate = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
 
 begin
-  # updates a batch of entry gates
-  result = api_instance.update_entry_gates(korona_account_id, body)
+  
+  result = api_instance.update_entry_gates(korona_account_id, entry_gate)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->update_entry_gates: #{e}"
@@ -1687,12 +1715,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_entry_gates_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_entry_gates_with_http_info(korona_account_id, entry_gate)
 
 ```ruby
 begin
-  # updates a batch of entry gates
-  data, status_code, headers = api_instance.update_entry_gates_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_entry_gates_with_http_info(korona_account_id, entry_gate)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -1706,7 +1734,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of existing entry gates (id or number required) |  |
+| **entry_gate** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of existing entry gates (id or number required) |  |
 
 ### Return type
 
@@ -1724,7 +1752,9 @@ end
 
 ## update_event
 
-> update_event(korona_account_id, event_id, body)
+> update_event(korona_account_id, event_id, event)
+
+
 
 updates the single event
 
@@ -1733,21 +1763,15 @@ updates the single event
 ```ruby
 require 'time'
 require 'korona-cloud-client'
-# setup authorization
-KoronaCloudClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 event_id = 'event_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::Event.new # Event | the properties to update of the event
+event = KoronaCloudClient::Event.new # Event | the properties to update of the event
 
 begin
-  # updates the single event
-  api_instance.update_event(korona_account_id, event_id, body)
+  
+  api_instance.update_event(korona_account_id, event_id, event)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->update_event: #{e}"
 end
@@ -1757,12 +1781,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_event_with_http_info(korona_account_id, event_id, body)
+> <Array(nil, Integer, Hash)> update_event_with_http_info(korona_account_id, event_id, event)
 
 ```ruby
 begin
-  # updates the single event
-  data, status_code, headers = api_instance.update_event_with_http_info(korona_account_id, event_id, body)
+  
+  data, status_code, headers = api_instance.update_event_with_http_info(korona_account_id, event_id, event)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -1777,7 +1801,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **event_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Event**](Event.md) | the properties to update of the event |  |
+| **event** | [**Event**](Event.md) | the properties to update of the event |  |
 
 ### Return type
 
@@ -1785,7 +1809,7 @@ nil (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1795,31 +1819,25 @@ nil (empty response body)
 
 ## update_events
 
-> <Array<AddOrUpdateResult>> update_events(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_events(korona_account_id, event)
 
-updates a batch of events
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of events; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
 ```ruby
 require 'time'
 require 'korona-cloud-client'
-# setup authorization
-KoronaCloudClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Event.new] # Array<Event> | an array of existing events
+event = [KoronaCloudClient::Event.new] # Array<Event> | an array of existing events
 
 begin
-  # updates a batch of events
-  result = api_instance.update_events(korona_account_id, body)
+  
+  result = api_instance.update_events(korona_account_id, event)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->update_events: #{e}"
@@ -1830,12 +1848,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_events_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_events_with_http_info(korona_account_id, event)
 
 ```ruby
 begin
-  # updates a batch of events
-  data, status_code, headers = api_instance.update_events_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_events_with_http_info(korona_account_id, event)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -1849,7 +1867,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Event&gt;**](Event.md) | an array of existing events |  |
+| **event** | [**Array&lt;Event&gt;**](Event.md) | an array of existing events |  |
 
 ### Return type
 
@@ -1857,7 +1875,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1868,6 +1886,8 @@ end
 ## update_ticket
 
 > update_ticket(korona_account_id, ticket_number, opts)
+
+
 
 updates the single ticket
 
@@ -1893,7 +1913,7 @@ opts = {
 }
 
 begin
-  # updates the single ticket
+  
   api_instance.update_ticket(korona_account_id, ticket_number, opts)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->update_ticket: #{e}"
@@ -1908,7 +1928,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # updates the single ticket
+  
   data, status_code, headers = api_instance.update_ticket_with_http_info(korona_account_id, ticket_number, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1944,7 +1964,9 @@ nil (empty response body)
 
 ## update_ticket_definitions
 
-> <Array<AddOrUpdateResult>> update_ticket_definitions(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_ticket_definitions(korona_account_id, ticket_definition)
+
+
 
 updates a batch of ticket definitions
 
@@ -1962,11 +1984,11 @@ end
 
 api_instance = KoronaCloudClient::TicketingApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of existing ticket definitions (id or number required)
+ticket_definition = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of existing ticket definitions (id or number required)
 
 begin
-  # updates a batch of ticket definitions
-  result = api_instance.update_ticket_definitions(korona_account_id, body)
+  
+  result = api_instance.update_ticket_definitions(korona_account_id, ticket_definition)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TicketingApi->update_ticket_definitions: #{e}"
@@ -1977,12 +1999,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_ticket_definitions_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_ticket_definitions_with_http_info(korona_account_id, ticket_definition)
 
 ```ruby
 begin
-  # updates a batch of ticket definitions
-  data, status_code, headers = api_instance.update_ticket_definitions_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_ticket_definitions_with_http_info(korona_account_id, ticket_definition)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -1996,7 +2018,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of existing ticket definitions (id or number required) |  |
+| **ticket_definition** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of existing ticket definitions (id or number required) |  |
 
 ### Return type
 

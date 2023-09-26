@@ -23,6 +23,8 @@
 | **balance** | **Boolean** |  | [optional] |
 | **change_due** | **Boolean** |  | [optional] |
 | **category** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **payout** | **Boolean** |  | [optional] |
+| **minimum_receipt_amount** | **Float** |  | [optional] |
 
 ## Example
 
@@ -48,7 +50,9 @@ instance = KoronaCloudClient::PaymentMethod.new(
   max_payment_sum: null,
   balance: null,
   change_due: null,
-  category: null
+  category: null,
+  payout: null,
+  minimum_receipt_amount: null
 )
 ```
 

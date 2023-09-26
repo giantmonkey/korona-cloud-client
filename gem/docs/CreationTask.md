@@ -7,7 +7,7 @@
 | **entry_id** | **Integer** |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **user** | **String** |  | [optional] |
-| **creation_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **creation_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **ticket_number_start** | **String** |  | [optional] |
 | **quantity** | **Integer** |  | [optional] |
 | **created** | **Integer** |  | [optional] |

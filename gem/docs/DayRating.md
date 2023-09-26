@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **comment** | **String** |  | [optional] |
-| **date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **id** | **String** |  | [optional][readonly] |
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **rating** | [**Rating**](Rating.md) |  | [optional] |

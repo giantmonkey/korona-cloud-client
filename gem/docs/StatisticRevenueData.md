@@ -4,9 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **current_period** | [**PeriodRevenueData**](PeriodRevenueData.md) |  | [optional] |
-| **previous_period** | [**PeriodRevenueData**](PeriodRevenueData.md) |  | [optional] |
+| **net_value** | **Float** |  | [optional] |
+| **gross_value** | **Float** |  | [optional] |
+| **average_net_value** | **Float** |  | [optional] |
+| **average_gross_value** | **Float** |  | [optional] |
+| **customers_total** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -14,9 +16,11 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::StatisticRevenueData.new(
-  organizational_unit: null,
-  current_period: null,
-  previous_period: null
+  net_value: null,
+  gross_value: null,
+  average_net_value: null,
+  average_gross_value: null,
+  customers_total: null
 )
 ```
 

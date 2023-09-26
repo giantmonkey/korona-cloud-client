@@ -1,19 +1,21 @@
 # KoronaCloudClient::CurrenciesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_currencies**](CurrenciesApi.md#add_currencies) | **POST** /accounts/{koronaAccountId}/currencies | adds a batch of new currencies |
-| [**delete_currencies**](CurrenciesApi.md#delete_currencies) | **DELETE** /accounts/{koronaAccountId}/currencies | deletes a batch of currencies |
-| [**get_currencies**](CurrenciesApi.md#get_currencies) | **GET** /accounts/{koronaAccountId}/currencies | lists all currencies |
-| [**get_currency**](CurrenciesApi.md#get_currency) | **GET** /accounts/{koronaAccountId}/currencies/{currencyId} | returns the single currency |
-| [**update_currencies**](CurrenciesApi.md#update_currencies) | **PATCH** /accounts/{koronaAccountId}/currencies | updates a batch of currencies |
+| [**add_currencies**](CurrenciesApi.md#add_currencies) | **POST** /accounts/{koronaAccountId}/currencies |  |
+| [**delete_currencies**](CurrenciesApi.md#delete_currencies) | **DELETE** /accounts/{koronaAccountId}/currencies |  |
+| [**get_currencies**](CurrenciesApi.md#get_currencies) | **GET** /accounts/{koronaAccountId}/currencies |  |
+| [**get_currency**](CurrenciesApi.md#get_currency) | **GET** /accounts/{koronaAccountId}/currencies/{currencyId} |  |
+| [**update_currencies**](CurrenciesApi.md#update_currencies) | **PATCH** /accounts/{koronaAccountId}/currencies |  |
 
 
 ## add_currencies
 
-> <Array<AddOrUpdateResult>> add_currencies(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_currencies(korona_account_id, currency, opts)
+
+
 
 adds a batch of new currencies
 
@@ -31,14 +33,15 @@ end
 
 api_instance = KoronaCloudClient::CurrenciesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Currency.new] # Array<Currency> | array of new currencies
+currency = [KoronaCloudClient::Currency.new] # Array<Currency> | array of new currencies
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new currencies
-  result = api_instance.add_currencies(korona_account_id, body, opts)
+  
+  result = api_instance.add_currencies(korona_account_id, currency, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CurrenciesApi->add_currencies: #{e}"
@@ -49,12 +52,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_currencies_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_currencies_with_http_info(korona_account_id, currency, opts)
 
 ```ruby
 begin
-  # adds a batch of new currencies
-  data, status_code, headers = api_instance.add_currencies_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_currencies_with_http_info(korona_account_id, currency, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -68,8 +71,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Currency&gt;**](Currency.md) | array of new currencies |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **currency** | [**Array&lt;Currency&gt;**](Currency.md) | array of new currencies |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -87,7 +91,9 @@ end
 
 ## delete_currencies
 
-> <Array<AddOrUpdateResult>> delete_currencies(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_currencies(korona_account_id, currency)
+
+
 
 deletes a batch of currencies
 
@@ -105,11 +111,11 @@ end
 
 api_instance = KoronaCloudClient::CurrenciesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Currency.new] # Array<Currency> | array of existing currencies (id or number required)
+currency = [KoronaCloudClient::Currency.new] # Array<Currency> | array of existing currencies (id or number required)
 
 begin
-  # deletes a batch of currencies
-  result = api_instance.delete_currencies(korona_account_id, body)
+  
+  result = api_instance.delete_currencies(korona_account_id, currency)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CurrenciesApi->delete_currencies: #{e}"
@@ -120,12 +126,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_currencies_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_currencies_with_http_info(korona_account_id, currency)
 
 ```ruby
 begin
-  # deletes a batch of currencies
-  data, status_code, headers = api_instance.delete_currencies_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_currencies_with_http_info(korona_account_id, currency)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -139,7 +145,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Currency&gt;**](Currency.md) | array of existing currencies (id or number required) |  |
+| **currency** | [**Array&lt;Currency&gt;**](Currency.md) | array of existing currencies (id or number required) |  |
 
 ### Return type
 
@@ -158,6 +164,8 @@ end
 ## get_currencies
 
 > <ResultListCurrency> get_currencies(korona_account_id, opts)
+
+
 
 lists all currencies
 
@@ -185,7 +193,7 @@ opts = {
 }
 
 begin
-  # lists all currencies
+  
   result = api_instance.get_currencies(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -201,7 +209,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all currencies
+  
   data, status_code, headers = api_instance.get_currencies_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -241,6 +249,8 @@ end
 
 > <Currency> get_currency(korona_account_id, currency_id)
 
+
+
 returns the single currency
 
 ### Examples
@@ -260,7 +270,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 currency_id = 'currency_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single currency
+  
   result = api_instance.get_currency(korona_account_id, currency_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -276,7 +286,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single currency
+  
   data, status_code, headers = api_instance.get_currency_with_http_info(korona_account_id, currency_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -309,7 +319,9 @@ end
 
 ## update_currencies
 
-> <Array<AddOrUpdateResult>> update_currencies(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_currencies(korona_account_id, currency)
+
+
 
 updates a batch of currencies
 
@@ -327,11 +339,11 @@ end
 
 api_instance = KoronaCloudClient::CurrenciesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Currency.new] # Array<Currency> | array of existing currencies (id or number required)
+currency = [KoronaCloudClient::Currency.new] # Array<Currency> | array of existing currencies (id or number required)
 
 begin
-  # updates a batch of currencies
-  result = api_instance.update_currencies(korona_account_id, body)
+  
+  result = api_instance.update_currencies(korona_account_id, currency)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CurrenciesApi->update_currencies: #{e}"
@@ -342,12 +354,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_currencies_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_currencies_with_http_info(korona_account_id, currency)
 
 ```ruby
 begin
-  # updates a batch of currencies
-  data, status_code, headers = api_instance.update_currencies_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_currencies_with_http_info(korona_account_id, currency)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -361,7 +373,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Currency&gt;**](Currency.md) | array of existing currencies (id or number required) |  |
+| **currency** | [**Array&lt;Currency&gt;**](Currency.md) | array of existing currencies (id or number required) |  |
 
 ### Return type
 

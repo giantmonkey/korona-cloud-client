@@ -1,21 +1,23 @@
 # KoronaCloudClient::ContraAccountsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_contra_accounts**](ContraAccountsApi.md#add_contra_accounts) | **POST** /accounts/{koronaAccountId}/contraAccounts | adds a batch of new contra accounts |
-| [**delete_contra_account**](ContraAccountsApi.md#delete_contra_account) | **DELETE** /accounts/{koronaAccountId}/contraAccounts/{contraAccountId} | deletes the single contra account |
-| [**delete_contra_accounts**](ContraAccountsApi.md#delete_contra_accounts) | **DELETE** /accounts/{koronaAccountId}/contraAccounts | deletes a batch of contra accounts |
-| [**get_contra_account**](ContraAccountsApi.md#get_contra_account) | **GET** /accounts/{koronaAccountId}/contraAccounts/{contraAccountId} | returns a single contra account |
-| [**get_contra_accounts**](ContraAccountsApi.md#get_contra_accounts) | **GET** /accounts/{koronaAccountId}/contraAccounts | lists all contra accounts |
-| [**update_contra_account**](ContraAccountsApi.md#update_contra_account) | **PATCH** /accounts/{koronaAccountId}/contraAccounts/{contraAccountId} | updates the single contra account |
-| [**update_contra_accounts**](ContraAccountsApi.md#update_contra_accounts) | **PATCH** /accounts/{koronaAccountId}/contraAccounts | updates a batch of contra accounts |
+| [**add_contra_accounts**](ContraAccountsApi.md#add_contra_accounts) | **POST** /accounts/{koronaAccountId}/contraAccounts |  |
+| [**delete_contra_account**](ContraAccountsApi.md#delete_contra_account) | **DELETE** /accounts/{koronaAccountId}/contraAccounts/{contraAccountId} |  |
+| [**delete_contra_accounts**](ContraAccountsApi.md#delete_contra_accounts) | **DELETE** /accounts/{koronaAccountId}/contraAccounts |  |
+| [**get_contra_account**](ContraAccountsApi.md#get_contra_account) | **GET** /accounts/{koronaAccountId}/contraAccounts/{contraAccountId} |  |
+| [**get_contra_accounts**](ContraAccountsApi.md#get_contra_accounts) | **GET** /accounts/{koronaAccountId}/contraAccounts |  |
+| [**update_contra_account**](ContraAccountsApi.md#update_contra_account) | **PATCH** /accounts/{koronaAccountId}/contraAccounts/{contraAccountId} |  |
+| [**update_contra_accounts**](ContraAccountsApi.md#update_contra_accounts) | **PATCH** /accounts/{koronaAccountId}/contraAccounts |  |
 
 
 ## add_contra_accounts
 
-> <Array<AddOrUpdateResult>> add_contra_accounts(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_contra_accounts(korona_account_id, contra_account, opts)
+
+
 
 adds a batch of new contra accounts
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::ContraAccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ContraAccount.new] # Array<ContraAccount> | array of new contra accounts
+contra_account = [KoronaCloudClient::ContraAccount.new] # Array<ContraAccount> | array of new contra accounts
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new contra accounts
-  result = api_instance.add_contra_accounts(korona_account_id, body, opts)
+  
+  result = api_instance.add_contra_accounts(korona_account_id, contra_account, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ContraAccountsApi->add_contra_accounts: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_contra_accounts_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_contra_accounts_with_http_info(korona_account_id, contra_account, opts)
 
 ```ruby
 begin
-  # adds a batch of new contra accounts
-  data, status_code, headers = api_instance.add_contra_accounts_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_contra_accounts_with_http_info(korona_account_id, contra_account, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ContraAccount&gt;**](ContraAccount.md) | array of new contra accounts |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **contra_account** | [**Array&lt;ContraAccount&gt;**](ContraAccount.md) | array of new contra accounts |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_contra_account
 
 > delete_contra_account(korona_account_id, contra_account_id)
+
+
 
 deletes the single contra account
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 contra_account_id = 'contra_account_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single contra account
+  
   api_instance.delete_contra_account(korona_account_id, contra_account_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ContraAccountsApi->delete_contra_account: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single contra account
+  
   data, status_code, headers = api_instance.delete_contra_account_with_http_info(korona_account_id, contra_account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_contra_accounts
 
-> <Array<AddOrUpdateResult>> delete_contra_accounts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_contra_accounts(korona_account_id, contra_account)
+
+
 
 deletes a batch of contra accounts
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::ContraAccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ContraAccount.new] # Array<ContraAccount> | array of existing contra accounts (id or number required)
+contra_account = [KoronaCloudClient::ContraAccount.new] # Array<ContraAccount> | array of existing contra accounts (id or number required)
 
 begin
-  # deletes a batch of contra accounts
-  result = api_instance.delete_contra_accounts(korona_account_id, body)
+  
+  result = api_instance.delete_contra_accounts(korona_account_id, contra_account)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ContraAccountsApi->delete_contra_accounts: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_contra_accounts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_contra_accounts_with_http_info(korona_account_id, contra_account)
 
 ```ruby
 begin
-  # deletes a batch of contra accounts
-  data, status_code, headers = api_instance.delete_contra_accounts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_contra_accounts_with_http_info(korona_account_id, contra_account)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ContraAccount&gt;**](ContraAccount.md) | array of existing contra accounts (id or number required) |  |
+| **contra_account** | [**Array&lt;ContraAccount&gt;**](ContraAccount.md) | array of existing contra accounts (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_contra_account
 
 > <ContraAccount> get_contra_account(korona_account_id, contra_account_id)
+
+
 
 returns a single contra account
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 contra_account_id = 'contra_account_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single contra account
+  
   result = api_instance.get_contra_account(korona_account_id, contra_account_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single contra account
+  
   data, status_code, headers = api_instance.get_contra_account_with_http_info(korona_account_id, contra_account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListContraAccount> get_contra_accounts(korona_account_id, opts)
 
+
+
 lists all contra accounts
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all contra accounts
+  
   result = api_instance.get_contra_accounts(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all contra accounts
+  
   data, status_code, headers = api_instance.get_contra_accounts_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_contra_account
 
-> update_contra_account(korona_account_id, contra_account_id, body)
+> update_contra_account(korona_account_id, contra_account_id, contra_account)
 
-updates the single contra account
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single contra account; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::ContraAccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 contra_account_id = 'contra_account_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::ContraAccount.new # ContraAccount | the properties to update of the contra account
+contra_account = KoronaCloudClient::ContraAccount.new # ContraAccount | the properties to update of the contra account
 
 begin
-  # updates the single contra account
-  api_instance.update_contra_account(korona_account_id, contra_account_id, body)
+  
+  api_instance.update_contra_account(korona_account_id, contra_account_id, contra_account)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ContraAccountsApi->update_contra_account: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_contra_account_with_http_info(korona_account_id, contra_account_id, body)
+> <Array(nil, Integer, Hash)> update_contra_account_with_http_info(korona_account_id, contra_account_id, contra_account)
 
 ```ruby
 begin
-  # updates the single contra account
-  data, status_code, headers = api_instance.update_contra_account_with_http_info(korona_account_id, contra_account_id, body)
+  
+  data, status_code, headers = api_instance.update_contra_account_with_http_info(korona_account_id, contra_account_id, contra_account)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **contra_account_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**ContraAccount**](ContraAccount.md) | the properties to update of the contra account |  |
+| **contra_account** | [**ContraAccount**](ContraAccount.md) | the properties to update of the contra account |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_contra_accounts
 
-> <Array<AddOrUpdateResult>> update_contra_accounts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_contra_accounts(korona_account_id, contra_account)
 
-updates a batch of contra accounts
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of contra accounts; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::ContraAccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ContraAccount.new] # Array<ContraAccount> | an array of existing contra accounts
+contra_account = [KoronaCloudClient::ContraAccount.new] # Array<ContraAccount> | an array of existing contra accounts
 
 begin
-  # updates a batch of contra accounts
-  result = api_instance.update_contra_accounts(korona_account_id, body)
+  
+  result = api_instance.update_contra_accounts(korona_account_id, contra_account)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ContraAccountsApi->update_contra_accounts: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_contra_accounts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_contra_accounts_with_http_info(korona_account_id, contra_account)
 
 ```ruby
 begin
-  # updates a batch of contra accounts
-  data, status_code, headers = api_instance.update_contra_accounts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_contra_accounts_with_http_info(korona_account_id, contra_account)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ContraAccount&gt;**](ContraAccount.md) | an array of existing contra accounts |  |
+| **contra_account** | [**Array&lt;ContraAccount&gt;**](ContraAccount.md) | an array of existing contra accounts |  |
 
 ### Return type
 

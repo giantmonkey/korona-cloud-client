@@ -19,6 +19,7 @@
 | **price_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **warehouse** | **Boolean** |  | [optional] |
 | **org_from_order** | **Boolean** |  | [optional] |
+| **receipt_share_secret** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -40,7 +41,8 @@ instance = KoronaCloudClient::OrganizationalUnit.new(
   parent_organizational_unit: null,
   price_group: null,
   warehouse: null,
-  org_from_order: null
+  org_from_order: null,
+  receipt_share_secret: null
 )
 ```
 

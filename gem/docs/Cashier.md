@@ -16,14 +16,15 @@
 | **gender** | **String** |  | [optional] |
 | **login_code** | **String** | by default, the md5 hash of the cashiers login code. on GET requests this can be changed via the &#x60;displayCashierCredentials&#x3D;(HASH|PLAIN|NONE)&#x60; parameter, on POST and PATCH it is always assumed to be &#x60;PLAIN&#x60; text. | [optional] |
 | **login_password** | **String** | by default, the md5 hash of the cashiers login password. on GET requests this can be changed via the &#x60;displayCashierCredentials&#x3D;(HASH|PLAIN|NONE)&#x60; parameter, on POST and PATCH it is always assumed to be &#x60;PLAIN&#x60; text. | [optional] |
-| **permissions** | **Array&lt;String&gt;** |  | [optional][readonly] |
+| **permissions** | **Array&lt;String&gt;** |  | [optional] |
 | **role** | **String** |  | [optional][readonly] |
 | **bonus_points** | **Integer** |  | [optional] |
 | **background_color** | **Integer** |  | [optional] |
 | **organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **cashier_role** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **create_time** | **Date** | Format: yyyy-MM-dd | [optional][readonly] |
-| **last_receipt_time** | **Date** | Format: yyyy-MM-dd | [optional][readonly] |
+| **create_time** | **Date** | yyyy-MM-dd | [optional][readonly] |
+| **last_receipt_time** | **Date** | yyyy-MM-dd | [optional][readonly] |
+| **organizational_unit_specific_numbers** | [**Array&lt;OrganizationalUnitSpecificNumber&gt;**](OrganizationalUnitSpecificNumber.md) |  | [optional] |
 
 ## Example
 
@@ -49,8 +50,9 @@ instance = KoronaCloudClient::Cashier.new(
   background_color: null,
   organizational_units: null,
   cashier_role: null,
-  create_time: Thu Nov 22 01:00:00 CET 2018,
-  last_receipt_time: Thu Nov 22 01:00:00 CET 2018
+  create_time: 2018-11-22,
+  last_receipt_time: 2018-11-22,
+  organizational_unit_specific_numbers: null
 )
 ```
 

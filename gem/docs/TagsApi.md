@@ -1,21 +1,23 @@
 # KoronaCloudClient::TagsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_tags**](TagsApi.md#add_tags) | **POST** /accounts/{koronaAccountId}/tags | adds a batch of new tags |
-| [**delete_tag**](TagsApi.md#delete_tag) | **DELETE** /accounts/{koronaAccountId}/tags/{tagId} | deletes the single tag |
-| [**delete_tags**](TagsApi.md#delete_tags) | **DELETE** /accounts/{koronaAccountId}/tags | deletes a batch of tags |
-| [**get_tag**](TagsApi.md#get_tag) | **GET** /accounts/{koronaAccountId}/tags/{tagId} | returns the single tag |
-| [**get_tags**](TagsApi.md#get_tags) | **GET** /accounts/{koronaAccountId}/tags | lists all tags |
-| [**update_tag**](TagsApi.md#update_tag) | **PATCH** /accounts/{koronaAccountId}/tags/{tagId} | updates the single tag |
-| [**update_tags**](TagsApi.md#update_tags) | **PATCH** /accounts/{koronaAccountId}/tags | updates a batch of tags |
+| [**add_tags**](TagsApi.md#add_tags) | **POST** /accounts/{koronaAccountId}/tags |  |
+| [**delete_tag**](TagsApi.md#delete_tag) | **DELETE** /accounts/{koronaAccountId}/tags/{tagId} |  |
+| [**delete_tags**](TagsApi.md#delete_tags) | **DELETE** /accounts/{koronaAccountId}/tags |  |
+| [**get_tag**](TagsApi.md#get_tag) | **GET** /accounts/{koronaAccountId}/tags/{tagId} |  |
+| [**get_tags**](TagsApi.md#get_tags) | **GET** /accounts/{koronaAccountId}/tags |  |
+| [**update_tag**](TagsApi.md#update_tag) | **PATCH** /accounts/{koronaAccountId}/tags/{tagId} |  |
+| [**update_tags**](TagsApi.md#update_tags) | **PATCH** /accounts/{koronaAccountId}/tags |  |
 
 
 ## add_tags
 
-> <Array<AddOrUpdateResult>> add_tags(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_tags(korona_account_id, tag, opts)
+
+
 
 adds a batch of new tags
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::TagsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Tag.new] # Array<Tag> | array of new tags
+tag = [KoronaCloudClient::Tag.new] # Array<Tag> | array of new tags
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new tags
-  result = api_instance.add_tags(korona_account_id, body, opts)
+  
+  result = api_instance.add_tags(korona_account_id, tag, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TagsApi->add_tags: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_tags_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_tags_with_http_info(korona_account_id, tag, opts)
 
 ```ruby
 begin
-  # adds a batch of new tags
-  data, status_code, headers = api_instance.add_tags_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_tags_with_http_info(korona_account_id, tag, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Tag&gt;**](Tag.md) | array of new tags |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **tag** | [**Array&lt;Tag&gt;**](Tag.md) | array of new tags |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_tag
 
 > delete_tag(korona_account_id, tag_id)
+
+
 
 deletes the single tag
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 tag_id = 'tag_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single tag
+  
   api_instance.delete_tag(korona_account_id, tag_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TagsApi->delete_tag: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single tag
+  
   data, status_code, headers = api_instance.delete_tag_with_http_info(korona_account_id, tag_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_tags
 
-> <Array<AddOrUpdateResult>> delete_tags(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_tags(korona_account_id, tag)
+
+
 
 deletes a batch of tags
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::TagsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Tag.new] # Array<Tag> | array of existing tags (id or number required)
+tag = [KoronaCloudClient::Tag.new] # Array<Tag> | array of existing tags (id or number required)
 
 begin
-  # deletes a batch of tags
-  result = api_instance.delete_tags(korona_account_id, body)
+  
+  result = api_instance.delete_tags(korona_account_id, tag)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TagsApi->delete_tags: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_tags_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_tags_with_http_info(korona_account_id, tag)
 
 ```ruby
 begin
-  # deletes a batch of tags
-  data, status_code, headers = api_instance.delete_tags_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_tags_with_http_info(korona_account_id, tag)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Tag&gt;**](Tag.md) | array of existing tags (id or number required) |  |
+| **tag** | [**Array&lt;Tag&gt;**](Tag.md) | array of existing tags (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_tag
 
 > <Tag> get_tag(korona_account_id, tag_id)
+
+
 
 returns the single tag
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 tag_id = 'tag_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single tag
+  
   result = api_instance.get_tag(korona_account_id, tag_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single tag
+  
   data, status_code, headers = api_instance.get_tag_with_http_info(korona_account_id, tag_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListTag> get_tags(korona_account_id, opts)
 
+
+
 lists all tags
 
 ### Examples
@@ -321,11 +333,12 @@ opts = {
   size: 56, # Integer | amount of objects to return per page
   sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
   revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
-  include_deleted: true # Boolean | indicates deleted objects should be loaded or not (default: false)
+  include_deleted: true, # Boolean | indicates deleted objects should be loaded or not (default: false)
+  number: 'number_example' # String | number of the related object
 }
 
 begin
-  # lists all tags
+  
   result = api_instance.get_tags(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -341,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all tags
+  
   data, status_code, headers = api_instance.get_tags_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -361,6 +374,7 @@ end
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
 | **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
 | **include_deleted** | **Boolean** | indicates deleted objects should be loaded or not (default: false) | [optional] |
+| **number** | **String** | number of the related object | [optional] |
 
 ### Return type
 
@@ -378,7 +392,9 @@ end
 
 ## update_tag
 
-> update_tag(korona_account_id, tag_id, body)
+> update_tag(korona_account_id, tag_id, tag)
+
+
 
 updates the single tag
 
@@ -397,11 +413,11 @@ end
 api_instance = KoronaCloudClient::TagsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 tag_id = 'tag_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::Tag.new # Tag | the properties to update of the tag
+tag = KoronaCloudClient::Tag.new # Tag | the properties to update of the tag
 
 begin
-  # updates the single tag
-  api_instance.update_tag(korona_account_id, tag_id, body)
+  
+  api_instance.update_tag(korona_account_id, tag_id, tag)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TagsApi->update_tag: #{e}"
 end
@@ -411,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_tag_with_http_info(korona_account_id, tag_id, body)
+> <Array(nil, Integer, Hash)> update_tag_with_http_info(korona_account_id, tag_id, tag)
 
 ```ruby
 begin
-  # updates the single tag
-  data, status_code, headers = api_instance.update_tag_with_http_info(korona_account_id, tag_id, body)
+  
+  data, status_code, headers = api_instance.update_tag_with_http_info(korona_account_id, tag_id, tag)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -431,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **tag_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Tag**](Tag.md) | the properties to update of the tag |  |
+| **tag** | [**Tag**](Tag.md) | the properties to update of the tag |  |
 
 ### Return type
 
@@ -449,7 +465,9 @@ nil (empty response body)
 
 ## update_tags
 
-> <Array<AddOrUpdateResult>> update_tags(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_tags(korona_account_id, tag)
+
+
 
 updates a batch of tags
 
@@ -467,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::TagsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Tag.new] # Array<Tag> | array of existing tags (id or number required)
+tag = [KoronaCloudClient::Tag.new] # Array<Tag> | array of existing tags (id or number required)
 
 begin
-  # updates a batch of tags
-  result = api_instance.update_tags(korona_account_id, body)
+  
+  result = api_instance.update_tags(korona_account_id, tag)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling TagsApi->update_tags: #{e}"
@@ -482,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_tags_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_tags_with_http_info(korona_account_id, tag)
 
 ```ruby
 begin
-  # updates a batch of tags
-  data, status_code, headers = api_instance.update_tags_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_tags_with_http_info(korona_account_id, tag)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -501,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Tag&gt;**](Tag.md) | array of existing tags (id or number required) |  |
+| **tag** | [**Array&lt;Tag&gt;**](Tag.md) | array of existing tags (id or number required) |  |
 
 ### Return type
 

@@ -5,8 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **current_period** | [**PeriodListTopSeller**](PeriodListTopSeller.md) |  | [optional] |
-| **previous_period** | [**PeriodListTopSeller**](PeriodListTopSeller.md) |  | [optional] |
+| **current_period** | [**PeriodRevenueDataListStatisticTopSeller**](PeriodRevenueDataListStatisticTopSeller.md) |  | [optional] |
+| **previous_period** | [**PeriodRevenueDataListStatisticTopSeller**](PeriodRevenueDataListStatisticTopSeller.md) |  | [optional] |
 
 ## Example
 

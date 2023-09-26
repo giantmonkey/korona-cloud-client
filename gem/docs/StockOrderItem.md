@@ -13,7 +13,7 @@
 | **container_size** | **Float** |  | [optional] |
 | **item_price** | **Float** |  | [optional] |
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **delivery_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **delivery_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **received_quantity** | **Float** |  | [optional] |
 | **revision** | **Integer** |  | [optional] |
 

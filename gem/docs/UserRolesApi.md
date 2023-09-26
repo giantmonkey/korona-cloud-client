@@ -1,21 +1,23 @@
 # KoronaCloudClient::UserRolesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_user_roles**](UserRolesApi.md#add_user_roles) | **POST** /accounts/{koronaAccountId}/userRoles | adds a batch of new user roles |
-| [**delete_user_role**](UserRolesApi.md#delete_user_role) | **DELETE** /accounts/{koronaAccountId}/userRoles/{userRoleId} | deletes the single user role |
-| [**delete_user_roles**](UserRolesApi.md#delete_user_roles) | **DELETE** /accounts/{koronaAccountId}/userRoles | deletes a batch of user roles |
-| [**get_user_role**](UserRolesApi.md#get_user_role) | **GET** /accounts/{koronaAccountId}/userRoles/{userRoleId} | returns the single user role |
-| [**get_user_roles**](UserRolesApi.md#get_user_roles) | **GET** /accounts/{koronaAccountId}/userRoles | lists all user roles |
-| [**update_user_role**](UserRolesApi.md#update_user_role) | **PATCH** /accounts/{koronaAccountId}/userRoles/{userRoleId} | updates the single user role |
-| [**update_user_roles**](UserRolesApi.md#update_user_roles) | **PATCH** /accounts/{koronaAccountId}/userRoles | updates a batch of user roles |
+| [**add_user_roles**](UserRolesApi.md#add_user_roles) | **POST** /accounts/{koronaAccountId}/userRoles |  |
+| [**delete_user_role**](UserRolesApi.md#delete_user_role) | **DELETE** /accounts/{koronaAccountId}/userRoles/{userRoleId} |  |
+| [**delete_user_roles**](UserRolesApi.md#delete_user_roles) | **DELETE** /accounts/{koronaAccountId}/userRoles |  |
+| [**get_user_role**](UserRolesApi.md#get_user_role) | **GET** /accounts/{koronaAccountId}/userRoles/{userRoleId} |  |
+| [**get_user_roles**](UserRolesApi.md#get_user_roles) | **GET** /accounts/{koronaAccountId}/userRoles |  |
+| [**update_user_role**](UserRolesApi.md#update_user_role) | **PATCH** /accounts/{koronaAccountId}/userRoles/{userRoleId} |  |
+| [**update_user_roles**](UserRolesApi.md#update_user_roles) | **PATCH** /accounts/{koronaAccountId}/userRoles |  |
 
 
 ## add_user_roles
 
-> <Array<AddOrUpdateResult>> add_user_roles(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_user_roles(korona_account_id, user_role, opts)
+
+
 
 adds a batch of new user roles
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::UserRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::UserRole.new] # Array<UserRole> | an array of new user roles
+user_role = [KoronaCloudClient::UserRole.new] # Array<UserRole> | an array of new user roles
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new user roles
-  result = api_instance.add_user_roles(korona_account_id, body, opts)
+  
+  result = api_instance.add_user_roles(korona_account_id, user_role, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling UserRolesApi->add_user_roles: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_user_roles_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_user_roles_with_http_info(korona_account_id, user_role, opts)
 
 ```ruby
 begin
-  # adds a batch of new user roles
-  data, status_code, headers = api_instance.add_user_roles_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_user_roles_with_http_info(korona_account_id, user_role, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;UserRole&gt;**](UserRole.md) | an array of new user roles |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **user_role** | [**Array&lt;UserRole&gt;**](UserRole.md) | an array of new user roles |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_user_role
 
 > delete_user_role(korona_account_id, user_role_id)
+
+
 
 deletes the single user role
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 user_role_id = 'user_role_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single user role
+  
   api_instance.delete_user_role(korona_account_id, user_role_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling UserRolesApi->delete_user_role: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single user role
+  
   data, status_code, headers = api_instance.delete_user_role_with_http_info(korona_account_id, user_role_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_user_roles
 
-> <Array<AddOrUpdateResult>> delete_user_roles(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_user_roles(korona_account_id, user_role)
+
+
 
 deletes a batch of user roles
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::UserRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::UserRole.new] # Array<UserRole> | array of existing user roles
+user_role = [KoronaCloudClient::UserRole.new] # Array<UserRole> | array of existing user roles
 
 begin
-  # deletes a batch of user roles
-  result = api_instance.delete_user_roles(korona_account_id, body)
+  
+  result = api_instance.delete_user_roles(korona_account_id, user_role)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling UserRolesApi->delete_user_roles: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_user_roles_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_user_roles_with_http_info(korona_account_id, user_role)
 
 ```ruby
 begin
-  # deletes a batch of user roles
-  data, status_code, headers = api_instance.delete_user_roles_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_user_roles_with_http_info(korona_account_id, user_role)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;UserRole&gt;**](UserRole.md) | array of existing user roles |  |
+| **user_role** | [**Array&lt;UserRole&gt;**](UserRole.md) | array of existing user roles |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_user_role
 
 > <UserRole> get_user_role(korona_account_id, user_role_id)
+
+
 
 returns the single user role
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 user_role_id = 'user_role_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single user role
+  
   result = api_instance.get_user_role(korona_account_id, user_role_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single user role
+  
   data, status_code, headers = api_instance.get_user_role_with_http_info(korona_account_id, user_role_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListUserRole> get_user_roles(korona_account_id, opts)
 
+
+
 lists all user roles
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all user roles
+  
   result = api_instance.get_user_roles(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all user roles
+  
   data, status_code, headers = api_instance.get_user_roles_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_user_role
 
-> update_user_role(korona_account_id, user_role_id, body)
+> update_user_role(korona_account_id, user_role_id, user_role)
+
+
 
 updates the single user role
 
@@ -399,11 +413,11 @@ end
 api_instance = KoronaCloudClient::UserRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 user_role_id = 'user_role_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::UserRole.new # UserRole | the properties to update of the user role
+user_role = KoronaCloudClient::UserRole.new # UserRole | the properties to update of the user role
 
 begin
-  # updates the single user role
-  api_instance.update_user_role(korona_account_id, user_role_id, body)
+  
+  api_instance.update_user_role(korona_account_id, user_role_id, user_role)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling UserRolesApi->update_user_role: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_user_role_with_http_info(korona_account_id, user_role_id, body)
+> <Array(nil, Integer, Hash)> update_user_role_with_http_info(korona_account_id, user_role_id, user_role)
 
 ```ruby
 begin
-  # updates the single user role
-  data, status_code, headers = api_instance.update_user_role_with_http_info(korona_account_id, user_role_id, body)
+  
+  data, status_code, headers = api_instance.update_user_role_with_http_info(korona_account_id, user_role_id, user_role)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **user_role_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**UserRole**](UserRole.md) | the properties to update of the user role |  |
+| **user_role** | [**UserRole**](UserRole.md) | the properties to update of the user role |  |
 
 ### Return type
 
@@ -451,7 +465,9 @@ nil (empty response body)
 
 ## update_user_roles
 
-> <Array<AddOrUpdateResult>> update_user_roles(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_user_roles(korona_account_id, user_role)
+
+
 
 updates a batch of user roles
 
@@ -469,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::UserRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::UserRole.new] # Array<UserRole> | array of existing user roles
+user_role = [KoronaCloudClient::UserRole.new] # Array<UserRole> | array of existing user roles
 
 begin
-  # updates a batch of user roles
-  result = api_instance.update_user_roles(korona_account_id, body)
+  
+  result = api_instance.update_user_roles(korona_account_id, user_role)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling UserRolesApi->update_user_roles: #{e}"
@@ -484,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_user_roles_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_user_roles_with_http_info(korona_account_id, user_role)
 
 ```ruby
 begin
-  # updates a batch of user roles
-  data, status_code, headers = api_instance.update_user_roles_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_user_roles_with_http_info(korona_account_id, user_role)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -503,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;UserRole&gt;**](UserRole.md) | array of existing user roles |  |
+| **user_role** | [**Array&lt;UserRole&gt;**](UserRole.md) | array of existing user roles |  |
 
 ### Return type
 

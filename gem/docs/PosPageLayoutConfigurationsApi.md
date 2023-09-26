@@ -1,21 +1,23 @@
 # KoronaCloudClient::PosPageLayoutConfigurationsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#add_pos_page_layout_configurations) | **POST** /accounts/{koronaAccountId}/posPageLayoutConfigurations | adds a batch of new pos page layout configurations |
-| [**delete_pos_page_layout_configuration**](PosPageLayoutConfigurationsApi.md#delete_pos_page_layout_configuration) | **DELETE** /accounts/{koronaAccountId}/posPageLayoutConfigurations/{posPageLayoutConfigurationId} | deletes the single pos page layout configuration |
-| [**delete_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#delete_pos_page_layout_configurations) | **DELETE** /accounts/{koronaAccountId}/posPageLayoutConfigurations | deletes a batch of pos page layout configurations |
-| [**get_pos_page_layout_configuration**](PosPageLayoutConfigurationsApi.md#get_pos_page_layout_configuration) | **GET** /accounts/{koronaAccountId}/posPageLayoutConfigurations/{posPageLayoutConfigurationId} | returns the single pos page layout configuration |
-| [**get_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#get_pos_page_layout_configurations) | **GET** /accounts/{koronaAccountId}/posPageLayoutConfigurations | lists all pos page layout configurations |
-| [**update_pos_page_layout_configuration**](PosPageLayoutConfigurationsApi.md#update_pos_page_layout_configuration) | **PATCH** /accounts/{koronaAccountId}/posPageLayoutConfigurations/{posPageLayoutConfigurationId} | updates the single pos page layout configuration |
-| [**update_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#update_pos_page_layout_configurations) | **PATCH** /accounts/{koronaAccountId}/posPageLayoutConfigurations | updates a batch of pos page layout configurations |
+| [**add_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#add_pos_page_layout_configurations) | **POST** /accounts/{koronaAccountId}/posPageLayoutConfigurations |  |
+| [**delete_pos_page_layout_configuration**](PosPageLayoutConfigurationsApi.md#delete_pos_page_layout_configuration) | **DELETE** /accounts/{koronaAccountId}/posPageLayoutConfigurations/{posPageLayoutConfigurationId} |  |
+| [**delete_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#delete_pos_page_layout_configurations) | **DELETE** /accounts/{koronaAccountId}/posPageLayoutConfigurations |  |
+| [**get_pos_page_layout_configuration**](PosPageLayoutConfigurationsApi.md#get_pos_page_layout_configuration) | **GET** /accounts/{koronaAccountId}/posPageLayoutConfigurations/{posPageLayoutConfigurationId} |  |
+| [**get_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#get_pos_page_layout_configurations) | **GET** /accounts/{koronaAccountId}/posPageLayoutConfigurations |  |
+| [**update_pos_page_layout_configuration**](PosPageLayoutConfigurationsApi.md#update_pos_page_layout_configuration) | **PATCH** /accounts/{koronaAccountId}/posPageLayoutConfigurations/{posPageLayoutConfigurationId} |  |
+| [**update_pos_page_layout_configurations**](PosPageLayoutConfigurationsApi.md#update_pos_page_layout_configurations) | **PATCH** /accounts/{koronaAccountId}/posPageLayoutConfigurations |  |
 
 
 ## add_pos_page_layout_configurations
 
-> <Array<AddOrUpdateResult>> add_pos_page_layout_configurations(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_pos_page_layout_configurations(korona_account_id, pos_page_layout_configuration, opts)
+
+
 
 adds a batch of new pos page layout configurations
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | array of new pos page layout configurations
+pos_page_layout_configuration = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | array of new pos page layout configurations
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new pos page layout configurations
-  result = api_instance.add_pos_page_layout_configurations(korona_account_id, body, opts)
+  
+  result = api_instance.add_pos_page_layout_configurations(korona_account_id, pos_page_layout_configuration, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosPageLayoutConfigurationsApi->add_pos_page_layout_configurations: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_pos_page_layout_configurations_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_pos_page_layout_configurations_with_http_info(korona_account_id, pos_page_layout_configuration, opts)
 
 ```ruby
 begin
-  # adds a batch of new pos page layout configurations
-  data, status_code, headers = api_instance.add_pos_page_layout_configurations_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_pos_page_layout_configurations_with_http_info(korona_account_id, pos_page_layout_configuration, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | array of new pos page layout configurations |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **pos_page_layout_configuration** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | array of new pos page layout configurations |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_pos_page_layout_configuration
 
 > delete_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id)
+
+
 
 deletes the single pos page layout configuration
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 pos_page_layout_configuration_id = 'pos_page_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single pos page layout configuration
+  
   api_instance.delete_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosPageLayoutConfigurationsApi->delete_pos_page_layout_configuration: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single pos page layout configuration
+  
   data, status_code, headers = api_instance.delete_pos_page_layout_configuration_with_http_info(korona_account_id, pos_page_layout_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_pos_page_layout_configurations
 
-> <Array<AddOrUpdateResult>> delete_pos_page_layout_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_pos_page_layout_configurations(korona_account_id, pos_page_layout_configuration)
+
+
 
 deletes a batch of pos page layout configurations
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | array of existing pos page layout configurations (id or number required)
+pos_page_layout_configuration = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | array of existing pos page layout configurations (id or number required)
 
 begin
-  # deletes a batch of pos page layout configurations
-  result = api_instance.delete_pos_page_layout_configurations(korona_account_id, body)
+  
+  result = api_instance.delete_pos_page_layout_configurations(korona_account_id, pos_page_layout_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosPageLayoutConfigurationsApi->delete_pos_page_layout_configurations: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_pos_page_layout_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_pos_page_layout_configurations_with_http_info(korona_account_id, pos_page_layout_configuration)
 
 ```ruby
 begin
-  # deletes a batch of pos page layout configurations
-  data, status_code, headers = api_instance.delete_pos_page_layout_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_pos_page_layout_configurations_with_http_info(korona_account_id, pos_page_layout_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | array of existing pos page layout configurations (id or number required) |  |
+| **pos_page_layout_configuration** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | array of existing pos page layout configurations (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_pos_page_layout_configuration
 
 > <PosPageLayoutConfiguration> get_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id)
+
+
 
 returns the single pos page layout configuration
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 pos_page_layout_configuration_id = 'pos_page_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single pos page layout configuration
+  
   result = api_instance.get_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single pos page layout configuration
+  
   data, status_code, headers = api_instance.get_pos_page_layout_configuration_with_http_info(korona_account_id, pos_page_layout_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListPosPageLayoutConfiguration> get_pos_page_layout_configurations(korona_account_id, opts)
 
+
+
 lists all pos page layout configurations
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all pos page layout configurations
+  
   result = api_instance.get_pos_page_layout_configurations(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all pos page layout configurations
+  
   data, status_code, headers = api_instance.get_pos_page_layout_configurations_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_pos_page_layout_configuration
 
-> update_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id, body)
+> update_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id, pos_page_layout_configuration)
 
-updates the single pos page layout configuration
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single pos page layout configuration; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 pos_page_layout_configuration_id = 'pos_page_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::PosPageLayoutConfiguration.new # PosPageLayoutConfiguration | the properties to update of the pos page layout configuration
+pos_page_layout_configuration = KoronaCloudClient::PosPageLayoutConfiguration.new # PosPageLayoutConfiguration | the properties to update of the pos page layout configuration
 
 begin
-  # updates the single pos page layout configuration
-  api_instance.update_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id, body)
+  
+  api_instance.update_pos_page_layout_configuration(korona_account_id, pos_page_layout_configuration_id, pos_page_layout_configuration)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosPageLayoutConfigurationsApi->update_pos_page_layout_configuration: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_pos_page_layout_configuration_with_http_info(korona_account_id, pos_page_layout_configuration_id, body)
+> <Array(nil, Integer, Hash)> update_pos_page_layout_configuration_with_http_info(korona_account_id, pos_page_layout_configuration_id, pos_page_layout_configuration)
 
 ```ruby
 begin
-  # updates the single pos page layout configuration
-  data, status_code, headers = api_instance.update_pos_page_layout_configuration_with_http_info(korona_account_id, pos_page_layout_configuration_id, body)
+  
+  data, status_code, headers = api_instance.update_pos_page_layout_configuration_with_http_info(korona_account_id, pos_page_layout_configuration_id, pos_page_layout_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **pos_page_layout_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**PosPageLayoutConfiguration**](PosPageLayoutConfiguration.md) | the properties to update of the pos page layout configuration |  |
+| **pos_page_layout_configuration** | [**PosPageLayoutConfiguration**](PosPageLayoutConfiguration.md) | the properties to update of the pos page layout configuration |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_pos_page_layout_configurations
 
-> <Array<AddOrUpdateResult>> update_pos_page_layout_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_pos_page_layout_configurations(korona_account_id, pos_page_layout_configuration)
 
-updates a batch of pos page layout configurations
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of pos page layout configurations; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | an array of existing pos page layout configurations
+pos_page_layout_configuration = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | an array of existing pos page layout configurations
 
 begin
-  # updates a batch of pos page layout configurations
-  result = api_instance.update_pos_page_layout_configurations(korona_account_id, body)
+  
+  result = api_instance.update_pos_page_layout_configurations(korona_account_id, pos_page_layout_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosPageLayoutConfigurationsApi->update_pos_page_layout_configurations: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_pos_page_layout_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_pos_page_layout_configurations_with_http_info(korona_account_id, pos_page_layout_configuration)
 
 ```ruby
 begin
-  # updates a batch of pos page layout configurations
-  data, status_code, headers = api_instance.update_pos_page_layout_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_pos_page_layout_configurations_with_http_info(korona_account_id, pos_page_layout_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | an array of existing pos page layout configurations |  |
+| **pos_page_layout_configuration** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | an array of existing pos page layout configurations |  |
 
 ### Return type
 

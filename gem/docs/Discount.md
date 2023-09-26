@@ -4,11 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **coupons** | [**Array&lt;Coupon&gt;**](Coupon.md) |  | [optional][readonly] |
+| **coupons** | [**Array&lt;Coupon&gt;**](Coupon.md) |  | [optional] |
 | **label** | **String** |  | [optional] |
 | **promotion** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **receipt_discount** | **Boolean** |  | [optional] |
 | **value** | **Float** |  | [optional] |
+| **level** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = KoronaCloudClient::Discount.new(
   label: null,
   promotion: null,
   receipt_discount: null,
-  value: null
+  value: null,
+  level: null
 )
 ```
 

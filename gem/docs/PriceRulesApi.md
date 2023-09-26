@@ -1,21 +1,23 @@
 # KoronaCloudClient::PriceRulesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_price_rules**](PriceRulesApi.md#add_price_rules) | **POST** /accounts/{koronaAccountId}/priceRules | adds a batch of new price rules |
-| [**delete_price_rule**](PriceRulesApi.md#delete_price_rule) | **DELETE** /accounts/{koronaAccountId}/priceRules/{priceRuleId} | deletes the single price rule |
-| [**delete_price_rules**](PriceRulesApi.md#delete_price_rules) | **DELETE** /accounts/{koronaAccountId}/priceRules | deletes a batch of price rules |
-| [**get_price_rule**](PriceRulesApi.md#get_price_rule) | **GET** /accounts/{koronaAccountId}/priceRules/{priceRuleId} | returns the single price rule |
-| [**get_price_rules**](PriceRulesApi.md#get_price_rules) | **GET** /accounts/{koronaAccountId}/priceRules | lists all price rules |
-| [**update_price_rule**](PriceRulesApi.md#update_price_rule) | **PATCH** /accounts/{koronaAccountId}/priceRules/{priceRuleId} | updates the single price rule |
-| [**update_price_rules**](PriceRulesApi.md#update_price_rules) | **PATCH** /accounts/{koronaAccountId}/priceRules | updates a batch of price rules |
+| [**add_price_rules**](PriceRulesApi.md#add_price_rules) | **POST** /accounts/{koronaAccountId}/priceRules |  |
+| [**delete_price_rule**](PriceRulesApi.md#delete_price_rule) | **DELETE** /accounts/{koronaAccountId}/priceRules/{priceRuleId} |  |
+| [**delete_price_rules**](PriceRulesApi.md#delete_price_rules) | **DELETE** /accounts/{koronaAccountId}/priceRules |  |
+| [**get_price_rule**](PriceRulesApi.md#get_price_rule) | **GET** /accounts/{koronaAccountId}/priceRules/{priceRuleId} |  |
+| [**get_price_rules**](PriceRulesApi.md#get_price_rules) | **GET** /accounts/{koronaAccountId}/priceRules |  |
+| [**update_price_rule**](PriceRulesApi.md#update_price_rule) | **PATCH** /accounts/{koronaAccountId}/priceRules/{priceRuleId} |  |
+| [**update_price_rules**](PriceRulesApi.md#update_price_rules) | **PATCH** /accounts/{koronaAccountId}/priceRules |  |
 
 
 ## add_price_rules
 
-> <Array<AddOrUpdateResult>> add_price_rules(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_price_rules(korona_account_id, price_rule, opts)
+
+
 
 adds a batch of new price rules
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::PriceRulesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PriceRule.new] # Array<PriceRule> | array of new price rules
+price_rule = [KoronaCloudClient::PriceRule.new] # Array<PriceRule> | array of new price rules
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new price rules
-  result = api_instance.add_price_rules(korona_account_id, body, opts)
+  
+  result = api_instance.add_price_rules(korona_account_id, price_rule, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceRulesApi->add_price_rules: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_price_rules_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_price_rules_with_http_info(korona_account_id, price_rule, opts)
 
 ```ruby
 begin
-  # adds a batch of new price rules
-  data, status_code, headers = api_instance.add_price_rules_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_price_rules_with_http_info(korona_account_id, price_rule, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PriceRule&gt;**](PriceRule.md) | array of new price rules |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **price_rule** | [**Array&lt;PriceRule&gt;**](PriceRule.md) | array of new price rules |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_price_rule
 
 > delete_price_rule(korona_account_id, price_rule_id)
+
+
 
 deletes the single price rule
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 price_rule_id = 'price_rule_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single price rule
+  
   api_instance.delete_price_rule(korona_account_id, price_rule_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceRulesApi->delete_price_rule: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single price rule
+  
   data, status_code, headers = api_instance.delete_price_rule_with_http_info(korona_account_id, price_rule_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_price_rules
 
-> <Array<AddOrUpdateResult>> delete_price_rules(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_price_rules(korona_account_id, price_rule)
+
+
 
 deletes a batch of price rules
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::PriceRulesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PriceRule.new] # Array<PriceRule> | array of existing price rules (id or number required)
+price_rule = [KoronaCloudClient::PriceRule.new] # Array<PriceRule> | array of existing price rules (id or number required)
 
 begin
-  # deletes a batch of price rules
-  result = api_instance.delete_price_rules(korona_account_id, body)
+  
+  result = api_instance.delete_price_rules(korona_account_id, price_rule)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceRulesApi->delete_price_rules: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_price_rules_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_price_rules_with_http_info(korona_account_id, price_rule)
 
 ```ruby
 begin
-  # deletes a batch of price rules
-  data, status_code, headers = api_instance.delete_price_rules_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_price_rules_with_http_info(korona_account_id, price_rule)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PriceRule&gt;**](PriceRule.md) | array of existing price rules (id or number required) |  |
+| **price_rule** | [**Array&lt;PriceRule&gt;**](PriceRule.md) | array of existing price rules (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_price_rule
 
 > <PriceRule> get_price_rule(korona_account_id, price_rule_id)
+
+
 
 returns the single price rule
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 price_rule_id = 'price_rule_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single price rule
+  
   result = api_instance.get_price_rule(korona_account_id, price_rule_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single price rule
+  
   data, status_code, headers = api_instance.get_price_rule_with_http_info(korona_account_id, price_rule_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListPriceRule> get_price_rules(korona_account_id, opts)
 
+
+
 lists all price rules
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all price rules
+  
   result = api_instance.get_price_rules(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all price rules
+  
   data, status_code, headers = api_instance.get_price_rules_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_price_rule
 
-> update_price_rule(korona_account_id, price_rule_id, body)
+> update_price_rule(korona_account_id, price_rule_id, price_rule)
+
+
 
 updates the single price rule
 
@@ -399,11 +413,11 @@ end
 api_instance = KoronaCloudClient::PriceRulesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 price_rule_id = 'price_rule_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::PriceRule.new # PriceRule | the properties to update of the price rule
+price_rule = KoronaCloudClient::PriceRule.new # PriceRule | the properties to update of the price rule
 
 begin
-  # updates the single price rule
-  api_instance.update_price_rule(korona_account_id, price_rule_id, body)
+  
+  api_instance.update_price_rule(korona_account_id, price_rule_id, price_rule)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceRulesApi->update_price_rule: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_price_rule_with_http_info(korona_account_id, price_rule_id, body)
+> <Array(nil, Integer, Hash)> update_price_rule_with_http_info(korona_account_id, price_rule_id, price_rule)
 
 ```ruby
 begin
-  # updates the single price rule
-  data, status_code, headers = api_instance.update_price_rule_with_http_info(korona_account_id, price_rule_id, body)
+  
+  data, status_code, headers = api_instance.update_price_rule_with_http_info(korona_account_id, price_rule_id, price_rule)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **price_rule_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**PriceRule**](PriceRule.md) | the properties to update of the price rule |  |
+| **price_rule** | [**PriceRule**](PriceRule.md) | the properties to update of the price rule |  |
 
 ### Return type
 
@@ -451,7 +465,9 @@ nil (empty response body)
 
 ## update_price_rules
 
-> <Array<AddOrUpdateResult>> update_price_rules(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_price_rules(korona_account_id, price_rule)
+
+
 
 updates a batch of price rules
 
@@ -469,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::PriceRulesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PriceRule.new] # Array<PriceRule> | array of existing price rules (id or number required)
+price_rule = [KoronaCloudClient::PriceRule.new] # Array<PriceRule> | array of existing price rules (id or number required)
 
 begin
-  # updates a batch of price rules
-  result = api_instance.update_price_rules(korona_account_id, body)
+  
+  result = api_instance.update_price_rules(korona_account_id, price_rule)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceRulesApi->update_price_rules: #{e}"
@@ -484,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_price_rules_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_price_rules_with_http_info(korona_account_id, price_rule)
 
 ```ruby
 begin
-  # updates a batch of price rules
-  data, status_code, headers = api_instance.update_price_rules_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_price_rules_with_http_info(korona_account_id, price_rule)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -503,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PriceRule&gt;**](PriceRule.md) | array of existing price rules (id or number required) |  |
+| **price_rule** | [**Array&lt;PriceRule&gt;**](PriceRule.md) | array of existing price rules (id or number required) |  |
 
 ### Return type
 

@@ -1,19 +1,21 @@
 # KoronaCloudClient::InfoTextsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_info_texts**](InfoTextsApi.md#add_info_texts) | **POST** /accounts/{koronaAccountId}/infoTexts | adds a batch of new info texts |
-| [**delete_info_texts**](InfoTextsApi.md#delete_info_texts) | **DELETE** /accounts/{koronaAccountId}/infoTexts | deletes a batch of info texts |
-| [**get_info_text**](InfoTextsApi.md#get_info_text) | **GET** /accounts/{koronaAccountId}/infoTexts/{infoTextId} | returns the single info text |
-| [**get_info_texts**](InfoTextsApi.md#get_info_texts) | **GET** /accounts/{koronaAccountId}/infoTexts | lists all info texts |
-| [**update_info_texts**](InfoTextsApi.md#update_info_texts) | **PATCH** /accounts/{koronaAccountId}/infoTexts | updates a batch of info texts |
+| [**add_info_texts**](InfoTextsApi.md#add_info_texts) | **POST** /accounts/{koronaAccountId}/infoTexts |  |
+| [**delete_info_texts**](InfoTextsApi.md#delete_info_texts) | **DELETE** /accounts/{koronaAccountId}/infoTexts |  |
+| [**get_info_text**](InfoTextsApi.md#get_info_text) | **GET** /accounts/{koronaAccountId}/infoTexts/{infoTextId} |  |
+| [**get_info_texts**](InfoTextsApi.md#get_info_texts) | **GET** /accounts/{koronaAccountId}/infoTexts |  |
+| [**update_info_texts**](InfoTextsApi.md#update_info_texts) | **PATCH** /accounts/{koronaAccountId}/infoTexts |  |
 
 
 ## add_info_texts
 
-> <Array<AddOrUpdateResult>> add_info_texts(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_info_texts(korona_account_id, info_text, opts)
+
+
 
 adds a batch of new info texts
 
@@ -31,14 +33,15 @@ end
 
 api_instance = KoronaCloudClient::InfoTextsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::InfoText.new] # Array<InfoText> | array of new info texts
+info_text = [KoronaCloudClient::InfoText.new] # Array<InfoText> | array of new info texts
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new info texts
-  result = api_instance.add_info_texts(korona_account_id, body, opts)
+  
+  result = api_instance.add_info_texts(korona_account_id, info_text, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling InfoTextsApi->add_info_texts: #{e}"
@@ -49,12 +52,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_info_texts_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_info_texts_with_http_info(korona_account_id, info_text, opts)
 
 ```ruby
 begin
-  # adds a batch of new info texts
-  data, status_code, headers = api_instance.add_info_texts_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_info_texts_with_http_info(korona_account_id, info_text, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -68,8 +71,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;InfoText&gt;**](InfoText.md) | array of new info texts |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **info_text** | [**Array&lt;InfoText&gt;**](InfoText.md) | array of new info texts |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -87,7 +91,9 @@ end
 
 ## delete_info_texts
 
-> <Array<AddOrUpdateResult>> delete_info_texts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_info_texts(korona_account_id, info_text)
+
+
 
 deletes a batch of info texts
 
@@ -105,11 +111,11 @@ end
 
 api_instance = KoronaCloudClient::InfoTextsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::InfoText.new] # Array<InfoText> | array of existing info texts (id or number required)
+info_text = [KoronaCloudClient::InfoText.new] # Array<InfoText> | array of existing info texts (id or number required)
 
 begin
-  # deletes a batch of info texts
-  result = api_instance.delete_info_texts(korona_account_id, body)
+  
+  result = api_instance.delete_info_texts(korona_account_id, info_text)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling InfoTextsApi->delete_info_texts: #{e}"
@@ -120,12 +126,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_info_texts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_info_texts_with_http_info(korona_account_id, info_text)
 
 ```ruby
 begin
-  # deletes a batch of info texts
-  data, status_code, headers = api_instance.delete_info_texts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_info_texts_with_http_info(korona_account_id, info_text)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -139,7 +145,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;InfoText&gt;**](InfoText.md) | array of existing info texts (id or number required) |  |
+| **info_text** | [**Array&lt;InfoText&gt;**](InfoText.md) | array of existing info texts (id or number required) |  |
 
 ### Return type
 
@@ -158,6 +164,8 @@ end
 ## get_info_text
 
 > <InfoText> get_info_text(korona_account_id, info_text_id)
+
+
 
 returns the single info text
 
@@ -178,7 +186,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 info_text_id = 'info_text_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single info text
+  
   result = api_instance.get_info_text(korona_account_id, info_text_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -194,7 +202,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single info text
+  
   data, status_code, headers = api_instance.get_info_text_with_http_info(korona_account_id, info_text_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -229,6 +237,8 @@ end
 
 > <ResultListInfoText> get_info_texts(korona_account_id, opts)
 
+
+
 lists all info texts
 
 ### Examples
@@ -255,7 +265,7 @@ opts = {
 }
 
 begin
-  # lists all info texts
+  
   result = api_instance.get_info_texts(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -271,7 +281,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all info texts
+  
   data, status_code, headers = api_instance.get_info_texts_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -309,7 +319,9 @@ end
 
 ## update_info_texts
 
-> <Array<AddOrUpdateResult>> update_info_texts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_info_texts(korona_account_id, info_text)
+
+
 
 updates a batch of info texts
 
@@ -327,11 +339,11 @@ end
 
 api_instance = KoronaCloudClient::InfoTextsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::InfoText.new] # Array<InfoText> | array of existing info texts (id or number required)
+info_text = [KoronaCloudClient::InfoText.new] # Array<InfoText> | array of existing info texts (id or number required)
 
 begin
-  # updates a batch of info texts
-  result = api_instance.update_info_texts(korona_account_id, body)
+  
+  result = api_instance.update_info_texts(korona_account_id, info_text)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling InfoTextsApi->update_info_texts: #{e}"
@@ -342,12 +354,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_info_texts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_info_texts_with_http_info(korona_account_id, info_text)
 
 ```ruby
 begin
-  # updates a batch of info texts
-  data, status_code, headers = api_instance.update_info_texts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_info_texts_with_http_info(korona_account_id, info_text)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -361,7 +373,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;InfoText&gt;**](InfoText.md) | array of existing info texts (id or number required) |  |
+| **info_text** | [**Array&lt;InfoText&gt;**](InfoText.md) | array of existing info texts (id or number required) |  |
 
 ### Return type
 

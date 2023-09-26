@@ -10,7 +10,7 @@
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **cost_center** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **description** | **String** |  | [optional] |
-| **last_clean_up** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
+| **last_clean_up** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
 | **name** | **String** |  | [optional] |
 
 ## Example

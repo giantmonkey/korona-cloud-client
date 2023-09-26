@@ -8,9 +8,9 @@
 | **personalization** | [**TicketPersonalization**](TicketPersonalization.md) |  | [optional] |
 | **ticket_number** | **String** |  | [optional] |
 | **duplicate** | **Boolean** |  | [optional] |
-| **creation_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **creation_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **locked** | **Boolean** |  | [optional] |
-| **locked_to** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **locked_to** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 
 ## Example
 

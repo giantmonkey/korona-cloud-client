@@ -1,21 +1,23 @@
 # KoronaCloudClient::AdditionalReceiptInfoTypesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#add_additional_receipt_info_types) | **POST** /accounts/{koronaAccountId}/additionalReceiptInfoTypes | adds a batch of new additional receipt infos |
-| [**delete_additional_receipt_info_type**](AdditionalReceiptInfoTypesApi.md#delete_additional_receipt_info_type) | **DELETE** /accounts/{koronaAccountId}/additionalReceiptInfoTypes/{additionalReceiptInfoTypeId} | deletes the single additional receipt info type |
-| [**delete_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#delete_additional_receipt_info_types) | **DELETE** /accounts/{koronaAccountId}/additionalReceiptInfoTypes | deletes a batch of additional receipt info types |
-| [**get_additional_receipt_info_type**](AdditionalReceiptInfoTypesApi.md#get_additional_receipt_info_type) | **GET** /accounts/{koronaAccountId}/additionalReceiptInfoTypes/{additionalReceiptInfoTypeId} | returns the single additional receipt info type |
-| [**get_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#get_additional_receipt_info_types) | **GET** /accounts/{koronaAccountId}/additionalReceiptInfoTypes | lists all additional receipt info types |
-| [**update_additional_receipt_info_type**](AdditionalReceiptInfoTypesApi.md#update_additional_receipt_info_type) | **PATCH** /accounts/{koronaAccountId}/additionalReceiptInfoTypes/{additionalReceiptInfoTypeId} | updates the single additional receipt info type |
-| [**update_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#update_additional_receipt_info_types) | **PATCH** /accounts/{koronaAccountId}/additionalReceiptInfoTypes | updates a batch of additional receipt info types |
+| [**add_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#add_additional_receipt_info_types) | **POST** /accounts/{koronaAccountId}/additionalReceiptInfoTypes |  |
+| [**delete_additional_receipt_info_type**](AdditionalReceiptInfoTypesApi.md#delete_additional_receipt_info_type) | **DELETE** /accounts/{koronaAccountId}/additionalReceiptInfoTypes/{additionalReceiptInfoTypeId} |  |
+| [**delete_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#delete_additional_receipt_info_types) | **DELETE** /accounts/{koronaAccountId}/additionalReceiptInfoTypes |  |
+| [**get_additional_receipt_info_type**](AdditionalReceiptInfoTypesApi.md#get_additional_receipt_info_type) | **GET** /accounts/{koronaAccountId}/additionalReceiptInfoTypes/{additionalReceiptInfoTypeId} |  |
+| [**get_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#get_additional_receipt_info_types) | **GET** /accounts/{koronaAccountId}/additionalReceiptInfoTypes |  |
+| [**update_additional_receipt_info_type**](AdditionalReceiptInfoTypesApi.md#update_additional_receipt_info_type) | **PATCH** /accounts/{koronaAccountId}/additionalReceiptInfoTypes/{additionalReceiptInfoTypeId} |  |
+| [**update_additional_receipt_info_types**](AdditionalReceiptInfoTypesApi.md#update_additional_receipt_info_types) | **PATCH** /accounts/{koronaAccountId}/additionalReceiptInfoTypes |  |
 
 
 ## add_additional_receipt_info_types
 
-> <Array<AddOrUpdateResult>> add_additional_receipt_info_types(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_additional_receipt_info_types(korona_account_id, additional_receipt_info_type, opts)
+
+
 
 adds a batch of new additional receipt infos
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::AdditionalReceiptInfoTypesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::AdditionalReceiptInfoType.new] # Array<AdditionalReceiptInfoType> | array of new additional receipt infos
+additional_receipt_info_type = [KoronaCloudClient::AdditionalReceiptInfoType.new] # Array<AdditionalReceiptInfoType> | array of new additional receipt infos
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new additional receipt infos
-  result = api_instance.add_additional_receipt_info_types(korona_account_id, body, opts)
+  
+  result = api_instance.add_additional_receipt_info_types(korona_account_id, additional_receipt_info_type, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AdditionalReceiptInfoTypesApi->add_additional_receipt_info_types: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_additional_receipt_info_types_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_additional_receipt_info_types_with_http_info(korona_account_id, additional_receipt_info_type, opts)
 
 ```ruby
 begin
-  # adds a batch of new additional receipt infos
-  data, status_code, headers = api_instance.add_additional_receipt_info_types_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_additional_receipt_info_types_with_http_info(korona_account_id, additional_receipt_info_type, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;AdditionalReceiptInfoType&gt;**](AdditionalReceiptInfoType.md) | array of new additional receipt infos |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **additional_receipt_info_type** | [**Array&lt;AdditionalReceiptInfoType&gt;**](AdditionalReceiptInfoType.md) | array of new additional receipt infos |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_additional_receipt_info_type
 
 > delete_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id)
+
+
 
 deletes the single additional receipt info type
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 additional_receipt_info_type_id = 'additional_receipt_info_type_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single additional receipt info type
+  
   api_instance.delete_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AdditionalReceiptInfoTypesApi->delete_additional_receipt_info_type: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single additional receipt info type
+  
   data, status_code, headers = api_instance.delete_additional_receipt_info_type_with_http_info(korona_account_id, additional_receipt_info_type_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_additional_receipt_info_types
 
-> <Array<AddOrUpdateResult>> delete_additional_receipt_info_types(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_additional_receipt_info_types(korona_account_id, additional_receipt_info_type)
+
+
 
 deletes a batch of additional receipt info types
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::AdditionalReceiptInfoTypesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::AdditionalReceiptInfoType.new] # Array<AdditionalReceiptInfoType> | array of existing additional receipt infos (id or number required)
+additional_receipt_info_type = [KoronaCloudClient::AdditionalReceiptInfoType.new] # Array<AdditionalReceiptInfoType> | array of existing additional receipt infos (id or number required)
 
 begin
-  # deletes a batch of additional receipt info types
-  result = api_instance.delete_additional_receipt_info_types(korona_account_id, body)
+  
+  result = api_instance.delete_additional_receipt_info_types(korona_account_id, additional_receipt_info_type)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AdditionalReceiptInfoTypesApi->delete_additional_receipt_info_types: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_additional_receipt_info_types_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_additional_receipt_info_types_with_http_info(korona_account_id, additional_receipt_info_type)
 
 ```ruby
 begin
-  # deletes a batch of additional receipt info types
-  data, status_code, headers = api_instance.delete_additional_receipt_info_types_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_additional_receipt_info_types_with_http_info(korona_account_id, additional_receipt_info_type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;AdditionalReceiptInfoType&gt;**](AdditionalReceiptInfoType.md) | array of existing additional receipt infos (id or number required) |  |
+| **additional_receipt_info_type** | [**Array&lt;AdditionalReceiptInfoType&gt;**](AdditionalReceiptInfoType.md) | array of existing additional receipt infos (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_additional_receipt_info_type
 
 > <AdditionalReceiptInfoType> get_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id)
+
+
 
 returns the single additional receipt info type
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 additional_receipt_info_type_id = 'additional_receipt_info_type_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single additional receipt info type
+  
   result = api_instance.get_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single additional receipt info type
+  
   data, status_code, headers = api_instance.get_additional_receipt_info_type_with_http_info(korona_account_id, additional_receipt_info_type_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListAdditionalReceiptInfoType> get_additional_receipt_info_types(korona_account_id, opts)
 
+
+
 lists all additional receipt info types
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all additional receipt info types
+  
   result = api_instance.get_additional_receipt_info_types(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all additional receipt info types
+  
   data, status_code, headers = api_instance.get_additional_receipt_info_types_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_additional_receipt_info_type
 
-> update_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id, body)
+> update_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id, additional_receipt_info_type)
 
-updates the single additional receipt info type
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single additional receipt info type; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::AdditionalReceiptInfoTypesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 additional_receipt_info_type_id = 'additional_receipt_info_type_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::AdditionalReceiptInfoType.new # AdditionalReceiptInfoType | the object to update
+additional_receipt_info_type = KoronaCloudClient::AdditionalReceiptInfoType.new # AdditionalReceiptInfoType | the object to update
 
 begin
-  # updates the single additional receipt info type
-  api_instance.update_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id, body)
+  
+  api_instance.update_additional_receipt_info_type(korona_account_id, additional_receipt_info_type_id, additional_receipt_info_type)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AdditionalReceiptInfoTypesApi->update_additional_receipt_info_type: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_additional_receipt_info_type_with_http_info(korona_account_id, additional_receipt_info_type_id, body)
+> <Array(nil, Integer, Hash)> update_additional_receipt_info_type_with_http_info(korona_account_id, additional_receipt_info_type_id, additional_receipt_info_type)
 
 ```ruby
 begin
-  # updates the single additional receipt info type
-  data, status_code, headers = api_instance.update_additional_receipt_info_type_with_http_info(korona_account_id, additional_receipt_info_type_id, body)
+  
+  data, status_code, headers = api_instance.update_additional_receipt_info_type_with_http_info(korona_account_id, additional_receipt_info_type_id, additional_receipt_info_type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **additional_receipt_info_type_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**AdditionalReceiptInfoType**](AdditionalReceiptInfoType.md) | the object to update |  |
+| **additional_receipt_info_type** | [**AdditionalReceiptInfoType**](AdditionalReceiptInfoType.md) | the object to update |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_additional_receipt_info_types
 
-> <Array<AddOrUpdateResult>> update_additional_receipt_info_types(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_additional_receipt_info_types(korona_account_id, additional_receipt_info_type)
 
-updates a batch of additional receipt info types
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of additional receipt info types; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::AdditionalReceiptInfoTypesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::AdditionalReceiptInfoType.new] # Array<AdditionalReceiptInfoType> | an array of existing additional receipt infos
+additional_receipt_info_type = [KoronaCloudClient::AdditionalReceiptInfoType.new] # Array<AdditionalReceiptInfoType> | an array of existing additional receipt infos
 
 begin
-  # updates a batch of additional receipt info types
-  result = api_instance.update_additional_receipt_info_types(korona_account_id, body)
+  
+  result = api_instance.update_additional_receipt_info_types(korona_account_id, additional_receipt_info_type)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AdditionalReceiptInfoTypesApi->update_additional_receipt_info_types: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_additional_receipt_info_types_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_additional_receipt_info_types_with_http_info(korona_account_id, additional_receipt_info_type)
 
 ```ruby
 begin
-  # updates a batch of additional receipt info types
-  data, status_code, headers = api_instance.update_additional_receipt_info_types_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_additional_receipt_info_types_with_http_info(korona_account_id, additional_receipt_info_type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;AdditionalReceiptInfoType&gt;**](AdditionalReceiptInfoType.md) | an array of existing additional receipt infos |  |
+| **additional_receipt_info_type** | [**Array&lt;AdditionalReceiptInfoType&gt;**](AdditionalReceiptInfoType.md) | an array of existing additional receipt infos |  |
 
 ### Return type
 

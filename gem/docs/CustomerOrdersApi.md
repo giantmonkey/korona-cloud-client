@@ -1,20 +1,22 @@
 # KoronaCloudClient::CustomerOrdersApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_customer_orders**](CustomerOrdersApi.md#add_customer_orders) | **POST** /accounts/{koronaAccountId}/customerOrders | adds a batch of new customer orders |
-| [**delete_customer_order**](CustomerOrdersApi.md#delete_customer_order) | **DELETE** /accounts/{koronaAccountId}/customerOrders/{customerOrderId} | deletes the single customer order |
-| [**get_customer_order**](CustomerOrdersApi.md#get_customer_order) | **GET** /accounts/{koronaAccountId}/customerOrders/{customerOrderId} | returns the single customer order |
-| [**get_customer_orders**](CustomerOrdersApi.md#get_customer_orders) | **GET** /accounts/{koronaAccountId}/customerOrders | lists all customer orders |
-| [**update_customer_order**](CustomerOrdersApi.md#update_customer_order) | **PATCH** /accounts/{koronaAccountId}/customerOrders/{customerOrderId} | updates the single customer order |
-| [**update_customer_orders**](CustomerOrdersApi.md#update_customer_orders) | **PATCH** /accounts/{koronaAccountId}/customerOrders | updates a batch of customer orders |
+| [**add_customer_orders**](CustomerOrdersApi.md#add_customer_orders) | **POST** /accounts/{koronaAccountId}/customerOrders |  |
+| [**delete_customer_order**](CustomerOrdersApi.md#delete_customer_order) | **DELETE** /accounts/{koronaAccountId}/customerOrders/{customerOrderId} |  |
+| [**get_customer_order**](CustomerOrdersApi.md#get_customer_order) | **GET** /accounts/{koronaAccountId}/customerOrders/{customerOrderId} |  |
+| [**get_customer_orders**](CustomerOrdersApi.md#get_customer_orders) | **GET** /accounts/{koronaAccountId}/customerOrders |  |
+| [**update_customer_order**](CustomerOrdersApi.md#update_customer_order) | **PATCH** /accounts/{koronaAccountId}/customerOrders/{customerOrderId} |  |
+| [**update_customer_orders**](CustomerOrdersApi.md#update_customer_orders) | **PATCH** /accounts/{koronaAccountId}/customerOrders |  |
 
 
 ## add_customer_orders
 
-> <Array<AddOrUpdateResult>> add_customer_orders(korona_account_id, body)
+> <Array<AddOrUpdateResult>> add_customer_orders(korona_account_id, customer_order)
+
+
 
 adds a batch of new customer orders
 
@@ -32,11 +34,11 @@ end
 
 api_instance = KoronaCloudClient::CustomerOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerOrder.new] # Array<CustomerOrder> | array of new customer orders
+customer_order = [KoronaCloudClient::CustomerOrder.new] # Array<CustomerOrder> | array of new customer orders
 
 begin
-  # adds a batch of new customer orders
-  result = api_instance.add_customer_orders(korona_account_id, body)
+  
+  result = api_instance.add_customer_orders(korona_account_id, customer_order)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerOrdersApi->add_customer_orders: #{e}"
@@ -47,12 +49,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_customer_orders_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_customer_orders_with_http_info(korona_account_id, customer_order)
 
 ```ruby
 begin
-  # adds a batch of new customer orders
-  data, status_code, headers = api_instance.add_customer_orders_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.add_customer_orders_with_http_info(korona_account_id, customer_order)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -66,7 +68,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerOrder&gt;**](CustomerOrder.md) | array of new customer orders |  |
+| **customer_order** | [**Array&lt;CustomerOrder&gt;**](CustomerOrder.md) | array of new customer orders |  |
 
 ### Return type
 
@@ -85,6 +87,8 @@ end
 ## delete_customer_order
 
 > delete_customer_order(korona_account_id, customer_order_id, opts)
+
+
 
 deletes the single customer order
 
@@ -108,7 +112,7 @@ opts = {
 }
 
 begin
-  # deletes the single customer order
+  
   api_instance.delete_customer_order(korona_account_id, customer_order_id, opts)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerOrdersApi->delete_customer_order: #{e}"
@@ -123,7 +127,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single customer order
+  
   data, status_code, headers = api_instance.delete_customer_order_with_http_info(korona_account_id, customer_order_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -159,6 +163,8 @@ nil (empty response body)
 
 > <CustomerOrder> get_customer_order(korona_account_id, customer_order_id)
 
+
+
 returns the single customer order
 
 ### Examples
@@ -178,7 +184,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 customer_order_id = 'customer_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single customer order
+  
   result = api_instance.get_customer_order(korona_account_id, customer_order_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -194,7 +200,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single customer order
+  
   data, status_code, headers = api_instance.get_customer_order_with_http_info(korona_account_id, customer_order_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -228,6 +234,8 @@ end
 ## get_customer_orders
 
 > <ResultListCustomerOrder> get_customer_orders(korona_account_id, opts)
+
+
 
 lists all customer orders
 
@@ -263,7 +271,7 @@ opts = {
 }
 
 begin
-  # lists all customer orders
+  
   result = api_instance.get_customer_orders(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -279,7 +287,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all customer orders
+  
   data, status_code, headers = api_instance.get_customer_orders_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -325,7 +333,9 @@ end
 
 ## update_customer_order
 
-> update_customer_order(korona_account_id, customer_order_id, body)
+> update_customer_order(korona_account_id, customer_order_id, customer_order)
+
+
 
 updates the single customer order
 
@@ -344,11 +354,11 @@ end
 api_instance = KoronaCloudClient::CustomerOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 customer_order_id = 'customer_order_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::CustomerOrder.new # CustomerOrder | the properties to update of the customer order
+customer_order = KoronaCloudClient::CustomerOrder.new # CustomerOrder | the properties to update of the customer order
 
 begin
-  # updates the single customer order
-  api_instance.update_customer_order(korona_account_id, customer_order_id, body)
+  
+  api_instance.update_customer_order(korona_account_id, customer_order_id, customer_order)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerOrdersApi->update_customer_order: #{e}"
 end
@@ -358,12 +368,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_customer_order_with_http_info(korona_account_id, customer_order_id, body)
+> <Array(nil, Integer, Hash)> update_customer_order_with_http_info(korona_account_id, customer_order_id, customer_order)
 
 ```ruby
 begin
-  # updates the single customer order
-  data, status_code, headers = api_instance.update_customer_order_with_http_info(korona_account_id, customer_order_id, body)
+  
+  data, status_code, headers = api_instance.update_customer_order_with_http_info(korona_account_id, customer_order_id, customer_order)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -378,7 +388,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **customer_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**CustomerOrder**](CustomerOrder.md) | the properties to update of the customer order |  |
+| **customer_order** | [**CustomerOrder**](CustomerOrder.md) | the properties to update of the customer order |  |
 
 ### Return type
 
@@ -396,11 +406,11 @@ nil (empty response body)
 
 ## update_customer_orders
 
-> <Array<AddOrUpdateResult>> update_customer_orders(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_customer_orders(korona_account_id, customer_order)
 
-updates a batch of customer orders
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of customer orders; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -416,11 +426,11 @@ end
 
 api_instance = KoronaCloudClient::CustomerOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerOrder.new] # Array<CustomerOrder> | an array of existing customer orders
+customer_order = [KoronaCloudClient::CustomerOrder.new] # Array<CustomerOrder> | an array of existing customer orders
 
 begin
-  # updates a batch of customer orders
-  result = api_instance.update_customer_orders(korona_account_id, body)
+  
+  result = api_instance.update_customer_orders(korona_account_id, customer_order)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerOrdersApi->update_customer_orders: #{e}"
@@ -431,12 +441,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_customer_orders_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_customer_orders_with_http_info(korona_account_id, customer_order)
 
 ```ruby
 begin
-  # updates a batch of customer orders
-  data, status_code, headers = api_instance.update_customer_orders_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_customer_orders_with_http_info(korona_account_id, customer_order)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -450,7 +460,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerOrder&gt;**](CustomerOrder.md) | an array of existing customer orders |  |
+| **customer_order** | [**Array&lt;CustomerOrder&gt;**](CustomerOrder.md) | an array of existing customer orders |  |
 
 ### Return type
 

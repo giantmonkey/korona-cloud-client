@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **change_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **change_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **new_actual** | **Float** |  | [optional] |
 | **old_actual** | **Float** |  | [optional] |
 | **payment_method** | [**ModelReference**](ModelReference.md) |  | [optional] |

@@ -1,19 +1,21 @@
 # KoronaCloudClient::PriceGroupsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_price_groups**](PriceGroupsApi.md#add_price_groups) | **POST** /accounts/{koronaAccountId}/priceGroups | adds a batch of new price groups |
-| [**delete_price_groups**](PriceGroupsApi.md#delete_price_groups) | **DELETE** /accounts/{koronaAccountId}/priceGroups | deletes a batch of price groups |
-| [**get_price_group**](PriceGroupsApi.md#get_price_group) | **GET** /accounts/{koronaAccountId}/priceGroups/{priceGroupId} | returns the single price group |
-| [**get_price_groups**](PriceGroupsApi.md#get_price_groups) | **GET** /accounts/{koronaAccountId}/priceGroups | lists all price groups |
-| [**update_price_groups**](PriceGroupsApi.md#update_price_groups) | **PATCH** /accounts/{koronaAccountId}/priceGroups | updates a batch of price groups |
+| [**add_price_groups**](PriceGroupsApi.md#add_price_groups) | **POST** /accounts/{koronaAccountId}/priceGroups |  |
+| [**delete_price_groups**](PriceGroupsApi.md#delete_price_groups) | **DELETE** /accounts/{koronaAccountId}/priceGroups |  |
+| [**get_price_group**](PriceGroupsApi.md#get_price_group) | **GET** /accounts/{koronaAccountId}/priceGroups/{priceGroupId} |  |
+| [**get_price_groups**](PriceGroupsApi.md#get_price_groups) | **GET** /accounts/{koronaAccountId}/priceGroups |  |
+| [**update_price_groups**](PriceGroupsApi.md#update_price_groups) | **PATCH** /accounts/{koronaAccountId}/priceGroups |  |
 
 
 ## add_price_groups
 
-> <Array<AddOrUpdateResult>> add_price_groups(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_price_groups(korona_account_id, price_group, opts)
+
+
 
 adds a batch of new price groups
 
@@ -31,14 +33,15 @@ end
 
 api_instance = KoronaCloudClient::PriceGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PriceGroup.new] # Array<PriceGroup> | array of new price groups
+price_group = [KoronaCloudClient::PriceGroup.new] # Array<PriceGroup> | array of new price groups
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new price groups
-  result = api_instance.add_price_groups(korona_account_id, body, opts)
+  
+  result = api_instance.add_price_groups(korona_account_id, price_group, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceGroupsApi->add_price_groups: #{e}"
@@ -49,12 +52,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_price_groups_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_price_groups_with_http_info(korona_account_id, price_group, opts)
 
 ```ruby
 begin
-  # adds a batch of new price groups
-  data, status_code, headers = api_instance.add_price_groups_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_price_groups_with_http_info(korona_account_id, price_group, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -68,8 +71,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PriceGroup&gt;**](PriceGroup.md) | array of new price groups |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **price_group** | [**Array&lt;PriceGroup&gt;**](PriceGroup.md) | array of new price groups |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -87,7 +91,9 @@ end
 
 ## delete_price_groups
 
-> <Array<AddOrUpdateResult>> delete_price_groups(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_price_groups(korona_account_id, price_group)
+
+
 
 deletes a batch of price groups
 
@@ -105,11 +111,11 @@ end
 
 api_instance = KoronaCloudClient::PriceGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PriceGroup.new] # Array<PriceGroup> | array of existing price groups (id or number required)
+price_group = [KoronaCloudClient::PriceGroup.new] # Array<PriceGroup> | array of existing price groups (id or number required)
 
 begin
-  # deletes a batch of price groups
-  result = api_instance.delete_price_groups(korona_account_id, body)
+  
+  result = api_instance.delete_price_groups(korona_account_id, price_group)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceGroupsApi->delete_price_groups: #{e}"
@@ -120,12 +126,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_price_groups_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_price_groups_with_http_info(korona_account_id, price_group)
 
 ```ruby
 begin
-  # deletes a batch of price groups
-  data, status_code, headers = api_instance.delete_price_groups_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_price_groups_with_http_info(korona_account_id, price_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -139,7 +145,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PriceGroup&gt;**](PriceGroup.md) | array of existing price groups (id or number required) |  |
+| **price_group** | [**Array&lt;PriceGroup&gt;**](PriceGroup.md) | array of existing price groups (id or number required) |  |
 
 ### Return type
 
@@ -158,6 +164,8 @@ end
 ## get_price_group
 
 > <PriceGroup> get_price_group(korona_account_id, price_group_id)
+
+
 
 returns the single price group
 
@@ -178,7 +186,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 price_group_id = 'price_group_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single price group
+  
   result = api_instance.get_price_group(korona_account_id, price_group_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -194,7 +202,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single price group
+  
   data, status_code, headers = api_instance.get_price_group_with_http_info(korona_account_id, price_group_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -229,6 +237,8 @@ end
 
 > <ResultListPriceGroup> get_price_groups(korona_account_id, opts)
 
+
+
 lists all price groups
 
 ### Examples
@@ -255,7 +265,7 @@ opts = {
 }
 
 begin
-  # lists all price groups
+  
   result = api_instance.get_price_groups(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -271,7 +281,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all price groups
+  
   data, status_code, headers = api_instance.get_price_groups_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -309,7 +319,9 @@ end
 
 ## update_price_groups
 
-> <Array<AddOrUpdateResult>> update_price_groups(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_price_groups(korona_account_id, price_group)
+
+
 
 updates a batch of price groups
 
@@ -327,11 +339,11 @@ end
 
 api_instance = KoronaCloudClient::PriceGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PriceGroup.new] # Array<PriceGroup> | array of existing price groups (id or number required)
+price_group = [KoronaCloudClient::PriceGroup.new] # Array<PriceGroup> | array of existing price groups (id or number required)
 
 begin
-  # updates a batch of price groups
-  result = api_instance.update_price_groups(korona_account_id, body)
+  
+  result = api_instance.update_price_groups(korona_account_id, price_group)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PriceGroupsApi->update_price_groups: #{e}"
@@ -342,12 +354,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_price_groups_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_price_groups_with_http_info(korona_account_id, price_group)
 
 ```ruby
 begin
-  # updates a batch of price groups
-  data, status_code, headers = api_instance.update_price_groups_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_price_groups_with_http_info(korona_account_id, price_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -361,7 +373,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PriceGroup&gt;**](PriceGroup.md) | array of existing price groups (id or number required) |  |
+| **price_group** | [**Array&lt;PriceGroup&gt;**](PriceGroup.md) | array of existing price groups (id or number required) |  |
 
 ### Return type
 

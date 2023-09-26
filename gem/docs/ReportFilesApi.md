@@ -1,21 +1,23 @@
 # KoronaCloudClient::ReportFilesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_report_files**](ReportFilesApi.md#add_report_files) | **POST** /accounts/{koronaAccountId}/reportFiles | adds a batch of new report files |
-| [**delete_report_file**](ReportFilesApi.md#delete_report_file) | **DELETE** /accounts/{koronaAccountId}/reportFiles/{reportFileId} | deletes the single report file |
-| [**delete_report_files**](ReportFilesApi.md#delete_report_files) | **DELETE** /accounts/{koronaAccountId}/reportFiles | deletes a batch of report files |
-| [**get_report_file**](ReportFilesApi.md#get_report_file) | **GET** /accounts/{koronaAccountId}/reportFiles/{reportFileId} | returns the single report file |
-| [**get_report_files**](ReportFilesApi.md#get_report_files) | **GET** /accounts/{koronaAccountId}/reportFiles | lists all report files |
-| [**update_report_file**](ReportFilesApi.md#update_report_file) | **PATCH** /accounts/{koronaAccountId}/reportFiles/{reportFileId} | updates the single report file |
-| [**update_report_files**](ReportFilesApi.md#update_report_files) | **PATCH** /accounts/{koronaAccountId}/reportFiles | updates a batch of report files |
+| [**add_report_files**](ReportFilesApi.md#add_report_files) | **POST** /accounts/{koronaAccountId}/reportFiles |  |
+| [**delete_report_file**](ReportFilesApi.md#delete_report_file) | **DELETE** /accounts/{koronaAccountId}/reportFiles/{reportFileId} |  |
+| [**delete_report_files**](ReportFilesApi.md#delete_report_files) | **DELETE** /accounts/{koronaAccountId}/reportFiles |  |
+| [**get_report_file**](ReportFilesApi.md#get_report_file) | **GET** /accounts/{koronaAccountId}/reportFiles/{reportFileId} |  |
+| [**get_report_files**](ReportFilesApi.md#get_report_files) | **GET** /accounts/{koronaAccountId}/reportFiles |  |
+| [**update_report_file**](ReportFilesApi.md#update_report_file) | **PATCH** /accounts/{koronaAccountId}/reportFiles/{reportFileId} |  |
+| [**update_report_files**](ReportFilesApi.md#update_report_files) | **PATCH** /accounts/{koronaAccountId}/reportFiles |  |
 
 
 ## add_report_files
 
-> <Array<AddOrUpdateResult>> add_report_files(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_report_files(korona_account_id, report_file, opts)
+
+
 
 adds a batch of new report files
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::ReportFilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ReportFile.new] # Array<ReportFile> | array of new report files
+report_file = [KoronaCloudClient::ReportFile.new] # Array<ReportFile> | array of new report files
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new report files
-  result = api_instance.add_report_files(korona_account_id, body, opts)
+  
+  result = api_instance.add_report_files(korona_account_id, report_file, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReportFilesApi->add_report_files: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_report_files_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_report_files_with_http_info(korona_account_id, report_file, opts)
 
 ```ruby
 begin
-  # adds a batch of new report files
-  data, status_code, headers = api_instance.add_report_files_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_report_files_with_http_info(korona_account_id, report_file, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ReportFile&gt;**](ReportFile.md) | array of new report files |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **report_file** | [**Array&lt;ReportFile&gt;**](ReportFile.md) | array of new report files |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_report_file
 
 > delete_report_file(korona_account_id, report_file_id)
+
+
 
 deletes the single report file
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 report_file_id = 'report_file_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single report file
+  
   api_instance.delete_report_file(korona_account_id, report_file_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReportFilesApi->delete_report_file: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single report file
+  
   data, status_code, headers = api_instance.delete_report_file_with_http_info(korona_account_id, report_file_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_report_files
 
-> <Array<AddOrUpdateResult>> delete_report_files(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_report_files(korona_account_id, report_file)
+
+
 
 deletes a batch of report files
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::ReportFilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ReportFile.new] # Array<ReportFile> | array of existing Report Files (id or number required)
+report_file = [KoronaCloudClient::ReportFile.new] # Array<ReportFile> | array of existing Report Files (id or number required)
 
 begin
-  # deletes a batch of report files
-  result = api_instance.delete_report_files(korona_account_id, body)
+  
+  result = api_instance.delete_report_files(korona_account_id, report_file)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReportFilesApi->delete_report_files: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_report_files_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_report_files_with_http_info(korona_account_id, report_file)
 
 ```ruby
 begin
-  # deletes a batch of report files
-  data, status_code, headers = api_instance.delete_report_files_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_report_files_with_http_info(korona_account_id, report_file)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ReportFile&gt;**](ReportFile.md) | array of existing Report Files (id or number required) |  |
+| **report_file** | [**Array&lt;ReportFile&gt;**](ReportFile.md) | array of existing Report Files (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_report_file
 
 > <ReportFile> get_report_file(korona_account_id, report_file_id)
+
+
 
 returns the single report file
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 report_file_id = 'report_file_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single report file
+  
   result = api_instance.get_report_file(korona_account_id, report_file_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single report file
+  
   data, status_code, headers = api_instance.get_report_file_with_http_info(korona_account_id, report_file_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListReportFile> get_report_files(korona_account_id, opts)
 
+
+
 lists all report files
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all report files
+  
   result = api_instance.get_report_files(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all report files
+  
   data, status_code, headers = api_instance.get_report_files_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_report_file
 
-> update_report_file(korona_account_id, report_file_id, body)
+> update_report_file(korona_account_id, report_file_id, report_file)
+
+
 
 updates the single report file
 
@@ -399,11 +413,11 @@ end
 api_instance = KoronaCloudClient::ReportFilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 report_file_id = 'report_file_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::ReportFile.new # ReportFile | the properties to update of the report file
+report_file = KoronaCloudClient::ReportFile.new # ReportFile | the properties to update of the report file
 
 begin
-  # updates the single report file
-  api_instance.update_report_file(korona_account_id, report_file_id, body)
+  
+  api_instance.update_report_file(korona_account_id, report_file_id, report_file)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReportFilesApi->update_report_file: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_report_file_with_http_info(korona_account_id, report_file_id, body)
+> <Array(nil, Integer, Hash)> update_report_file_with_http_info(korona_account_id, report_file_id, report_file)
 
 ```ruby
 begin
-  # updates the single report file
-  data, status_code, headers = api_instance.update_report_file_with_http_info(korona_account_id, report_file_id, body)
+  
+  data, status_code, headers = api_instance.update_report_file_with_http_info(korona_account_id, report_file_id, report_file)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **report_file_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**ReportFile**](ReportFile.md) | the properties to update of the report file |  |
+| **report_file** | [**ReportFile**](ReportFile.md) | the properties to update of the report file |  |
 
 ### Return type
 
@@ -451,7 +465,9 @@ nil (empty response body)
 
 ## update_report_files
 
-> <Array<AddOrUpdateResult>> update_report_files(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_report_files(korona_account_id, report_file)
+
+
 
 updates a batch of report files
 
@@ -469,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::ReportFilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ReportFile.new] # Array<ReportFile> | array of existing report files (id or number required)
+report_file = [KoronaCloudClient::ReportFile.new] # Array<ReportFile> | array of existing report files (id or number required)
 
 begin
-  # updates a batch of report files
-  result = api_instance.update_report_files(korona_account_id, body)
+  
+  result = api_instance.update_report_files(korona_account_id, report_file)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReportFilesApi->update_report_files: #{e}"
@@ -484,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_report_files_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_report_files_with_http_info(korona_account_id, report_file)
 
 ```ruby
 begin
-  # updates a batch of report files
-  data, status_code, headers = api_instance.update_report_files_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_report_files_with_http_info(korona_account_id, report_file)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -503,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ReportFile&gt;**](ReportFile.md) | array of existing report files (id or number required) |  |
+| **report_file** | [**Array&lt;ReportFile&gt;**](ReportFile.md) | array of existing report files (id or number required) |  |
 
 ### Return type
 

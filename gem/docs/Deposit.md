@@ -8,7 +8,7 @@
 | **amount** | **Float** |  | [optional] |
 | **receipt_number** | **String** |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **create_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 
 ## Example
 

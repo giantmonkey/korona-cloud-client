@@ -5,8 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **week_day** | **String** |  | [optional] |
-| **from** | **String** | Format: HH:mm:ss | [optional] |
-| **to** | **String** | Format: HH:mm:ss | [optional] |
+| **from** | **String** | HH:mm:ss | [optional] |
+| **to** | **String** | HH:mm:ss | [optional] |
 
 ## Example
 

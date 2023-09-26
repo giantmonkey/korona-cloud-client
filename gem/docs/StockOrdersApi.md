@@ -1,19 +1,21 @@
 # KoronaCloudClient::StockOrdersApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**book_stock_order**](StockOrdersApi.md#book_stock_order) | **PATCH** /accounts/{koronaAccountId}/stockOrders/{stockOrderId}/book | book the single stock order |
-| [**finalize_stock_order**](StockOrdersApi.md#finalize_stock_order) | **PATCH** /accounts/{koronaAccountId}/stockOrders/{stockOrderId}/finalize | finalize the single stock order |
-| [**get_stock_order**](StockOrdersApi.md#get_stock_order) | **GET** /accounts/{koronaAccountId}/stockOrders/{stockOrderId} | returns a single stock order |
-| [**get_stock_order_items**](StockOrdersApi.md#get_stock_order_items) | **GET** /accounts/{koronaAccountId}/stockOrders/{stockOrderId}/items | lists all stock order items |
-| [**get_stock_orders**](StockOrdersApi.md#get_stock_orders) | **GET** /accounts/{koronaAccountId}/stockOrders | lists all stock orders |
+| [**book_stock_order**](StockOrdersApi.md#book_stock_order) | **PATCH** /accounts/{koronaAccountId}/stockOrders/{stockOrderId}/book |  |
+| [**finalize_stock_order**](StockOrdersApi.md#finalize_stock_order) | **PATCH** /accounts/{koronaAccountId}/stockOrders/{stockOrderId}/finalize |  |
+| [**get_stock_order**](StockOrdersApi.md#get_stock_order) | **GET** /accounts/{koronaAccountId}/stockOrders/{stockOrderId} |  |
+| [**get_stock_order_items**](StockOrdersApi.md#get_stock_order_items) | **GET** /accounts/{koronaAccountId}/stockOrders/{stockOrderId}/items |  |
+| [**get_stock_orders**](StockOrdersApi.md#get_stock_orders) | **GET** /accounts/{koronaAccountId}/stockOrders |  |
 
 
 ## book_stock_order
 
 > book_stock_order(korona_account_id, stock_order_id)
+
+
 
 book the single stock order
 
@@ -34,7 +36,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 stock_order_id = 'stock_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # book the single stock order
+  
   api_instance.book_stock_order(korona_account_id, stock_order_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockOrdersApi->book_stock_order: #{e}"
@@ -49,7 +51,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # book the single stock order
+  
   data, status_code, headers = api_instance.book_stock_order_with_http_info(korona_account_id, stock_order_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -84,6 +86,8 @@ nil (empty response body)
 
 > finalize_stock_order(korona_account_id, stock_order_id)
 
+
+
 finalize the single stock order
 
 ### Examples
@@ -103,7 +107,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 stock_order_id = 'stock_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # finalize the single stock order
+  
   api_instance.finalize_stock_order(korona_account_id, stock_order_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockOrdersApi->finalize_stock_order: #{e}"
@@ -118,7 +122,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # finalize the single stock order
+  
   data, status_code, headers = api_instance.finalize_stock_order_with_http_info(korona_account_id, stock_order_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -153,6 +157,8 @@ nil (empty response body)
 
 > <StockOrder> get_stock_order(korona_account_id, stock_order_id, opts)
 
+
+
 returns a single stock order
 
 ### Examples
@@ -175,7 +181,7 @@ opts = {
 }
 
 begin
-  # returns a single stock order
+  
   result = api_instance.get_stock_order(korona_account_id, stock_order_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -191,7 +197,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single stock order
+  
   data, status_code, headers = api_instance.get_stock_order_with_http_info(korona_account_id, stock_order_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -227,6 +233,8 @@ end
 
 > <ResultListStockOrderItem> get_stock_order_items(korona_account_id, stock_order_id, opts)
 
+
+
 lists all stock order items
 
 ### Examples
@@ -252,7 +260,7 @@ opts = {
 }
 
 begin
-  # lists all stock order items
+  
   result = api_instance.get_stock_order_items(korona_account_id, stock_order_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -268,7 +276,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all stock order items
+  
   data, status_code, headers = api_instance.get_stock_order_items_with_http_info(korona_account_id, stock_order_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -307,6 +315,8 @@ end
 
 > <ResultListStockOrder> get_stock_orders(korona_account_id, opts)
 
+
+
 lists all stock orders
 
 ### Examples
@@ -342,7 +352,7 @@ opts = {
 }
 
 begin
-  # lists all stock orders
+  
   result = api_instance.get_stock_orders(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -358,7 +368,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all stock orders
+  
   data, status_code, headers = api_instance.get_stock_orders_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **status** | **String** |  | [optional] |
-| **valid_to** | **Time** |  | [optional] |
+| **valid_to** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 
 ## Example
 

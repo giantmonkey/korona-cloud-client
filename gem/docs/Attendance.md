@@ -10,9 +10,9 @@
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **category_name** | **String** |  | [optional] |
 | **category_id** | **String** |  | [optional] |
-| **creation_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **creation_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **event** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **expiration_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **expiration_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **seats** | **Integer** |  | [optional] |
 
 ## Example

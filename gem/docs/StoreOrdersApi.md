@@ -1,25 +1,27 @@
 # KoronaCloudClient::StoreOrdersApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_store_order_items**](StoreOrdersApi.md#add_store_order_items) | **POST** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items | adds store order items |
-| [**add_store_orders**](StoreOrdersApi.md#add_store_orders) | **POST** /accounts/{koronaAccountId}/storeOrders | adds store orders |
-| [**delete_store_order_item**](StoreOrdersApi.md#delete_store_order_item) | **DELETE** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items/{productId} | deletes the single store order item |
-| [**get_store_order**](StoreOrdersApi.md#get_store_order) | **GET** /accounts/{koronaAccountId}/storeOrders/{storeOrderId} | returns a single store order |
-| [**get_store_order_item**](StoreOrdersApi.md#get_store_order_item) | **GET** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items/{productId} | returns the single store order item |
-| [**get_store_order_items**](StoreOrdersApi.md#get_store_order_items) | **GET** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items | lists all store order items |
-| [**get_store_orders**](StoreOrdersApi.md#get_store_orders) | **GET** /accounts/{koronaAccountId}/storeOrders | lists all store orders |
-| [**order_store_order**](StoreOrdersApi.md#order_store_order) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/order | orders and finalizes the store order |
-| [**update_store_order**](StoreOrdersApi.md#update_store_order) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId} | updates the single store order |
-| [**update_store_order_item**](StoreOrdersApi.md#update_store_order_item) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items/{productId} | updates the single store order item |
-| [**update_store_order_items**](StoreOrdersApi.md#update_store_order_items) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items | updates store order items |
+| [**add_store_order_items**](StoreOrdersApi.md#add_store_order_items) | **POST** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items |  |
+| [**add_store_orders**](StoreOrdersApi.md#add_store_orders) | **POST** /accounts/{koronaAccountId}/storeOrders |  |
+| [**delete_store_order_item**](StoreOrdersApi.md#delete_store_order_item) | **DELETE** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items/{productId} |  |
+| [**get_store_order**](StoreOrdersApi.md#get_store_order) | **GET** /accounts/{koronaAccountId}/storeOrders/{storeOrderId} |  |
+| [**get_store_order_item**](StoreOrdersApi.md#get_store_order_item) | **GET** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items/{productId} |  |
+| [**get_store_order_items**](StoreOrdersApi.md#get_store_order_items) | **GET** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items |  |
+| [**get_store_orders**](StoreOrdersApi.md#get_store_orders) | **GET** /accounts/{koronaAccountId}/storeOrders |  |
+| [**order_store_order**](StoreOrdersApi.md#order_store_order) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/order |  |
+| [**update_store_order**](StoreOrdersApi.md#update_store_order) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId} |  |
+| [**update_store_order_item**](StoreOrdersApi.md#update_store_order_item) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items/{productId} |  |
+| [**update_store_order_items**](StoreOrdersApi.md#update_store_order_items) | **PATCH** /accounts/{koronaAccountId}/storeOrders/{storeOrderId}/items |  |
 
 
 ## add_store_order_items
 
-> <Array<AddOrUpdateResult>> add_store_order_items(korona_account_id, store_order_id, body)
+> <Array<AddOrUpdateResult>> add_store_order_items(korona_account_id, store_order_id, store_order_item)
+
+
 
 adds store order items
 
@@ -38,11 +40,11 @@ end
 api_instance = KoronaCloudClient::StoreOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::StoreOrderItem.new] # Array<StoreOrderItem> | data to add
+store_order_item = [KoronaCloudClient::StoreOrderItem.new] # Array<StoreOrderItem> | data to add
 
 begin
-  # adds store order items
-  result = api_instance.add_store_order_items(korona_account_id, store_order_id, body)
+  
+  result = api_instance.add_store_order_items(korona_account_id, store_order_id, store_order_item)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->add_store_order_items: #{e}"
@@ -53,12 +55,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_store_order_items_with_http_info(korona_account_id, store_order_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_store_order_items_with_http_info(korona_account_id, store_order_id, store_order_item)
 
 ```ruby
 begin
-  # adds store order items
-  data, status_code, headers = api_instance.add_store_order_items_with_http_info(korona_account_id, store_order_id, body)
+  
+  data, status_code, headers = api_instance.add_store_order_items_with_http_info(korona_account_id, store_order_id, store_order_item)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -73,7 +75,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;StoreOrderItem&gt;**](StoreOrderItem.md) | data to add |  |
+| **store_order_item** | [**Array&lt;StoreOrderItem&gt;**](StoreOrderItem.md) | data to add |  |
 
 ### Return type
 
@@ -91,7 +93,9 @@ end
 
 ## add_store_orders
 
-> <Array<AddOrUpdateResult>> add_store_orders(korona_account_id, body)
+> <Array<AddOrUpdateResult>> add_store_orders(korona_account_id, store_order)
+
+
 
 adds store orders
 
@@ -109,11 +113,11 @@ end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::StoreOrder.new] # Array<StoreOrder> | data to add
+store_order = [KoronaCloudClient::StoreOrder.new] # Array<StoreOrder> | data to add
 
 begin
-  # adds store orders
-  result = api_instance.add_store_orders(korona_account_id, body)
+  
+  result = api_instance.add_store_orders(korona_account_id, store_order)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->add_store_orders: #{e}"
@@ -124,12 +128,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_store_orders_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_store_orders_with_http_info(korona_account_id, store_order)
 
 ```ruby
 begin
-  # adds store orders
-  data, status_code, headers = api_instance.add_store_orders_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.add_store_orders_with_http_info(korona_account_id, store_order)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -143,7 +147,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;StoreOrder&gt;**](StoreOrder.md) | data to add |  |
+| **store_order** | [**Array&lt;StoreOrder&gt;**](StoreOrder.md) | data to add |  |
 
 ### Return type
 
@@ -162,6 +166,8 @@ end
 ## delete_store_order_item
 
 > delete_store_order_item(korona_account_id, store_order_id, product_id)
+
+
 
 deletes the single store order item
 
@@ -183,7 +189,7 @@ store_order_id = 'store_order_id_example' # String | id of the related object (i
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single store order item
+  
   api_instance.delete_store_order_item(korona_account_id, store_order_id, product_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->delete_store_order_item: #{e}"
@@ -198,7 +204,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single store order item
+  
   data, status_code, headers = api_instance.delete_store_order_item_with_http_info(korona_account_id, store_order_id, product_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -234,6 +240,8 @@ nil (empty response body)
 
 > <StoreOrder> get_store_order(korona_account_id, store_order_id)
 
+
+
 returns a single store order
 
 ### Examples
@@ -253,7 +261,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single store order
+  
   result = api_instance.get_store_order(korona_account_id, store_order_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -269,7 +277,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single store order
+  
   data, status_code, headers = api_instance.get_store_order_with_http_info(korona_account_id, store_order_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -304,6 +312,8 @@ end
 
 > <StoreOrderItem> get_store_order_item(korona_account_id, store_order_id, product_id)
 
+
+
 returns the single store order item
 
 ### Examples
@@ -324,7 +334,7 @@ store_order_id = 'store_order_id_example' # String | id of the related object (i
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single store order item
+  
   result = api_instance.get_store_order_item(korona_account_id, store_order_id, product_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -340,7 +350,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single store order item
+  
   data, status_code, headers = api_instance.get_store_order_item_with_http_info(korona_account_id, store_order_id, product_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -376,6 +386,8 @@ end
 
 > <ResultListStoreOrderItem> get_store_order_items(korona_account_id, store_order_id, opts)
 
+
+
 lists all store order items
 
 ### Examples
@@ -395,12 +407,11 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 opts = {
   page: 56, # Integer | number of the page to fetch
-  size: 56, # Integer | amount of objects to return per page
-  sort: 'sort_example' # String | attribute to sort by (multiple separated by comma; max. 5)
+  size: 56 # Integer | amount of objects to return per page
 }
 
 begin
-  # lists all store order items
+  
   result = api_instance.get_store_order_items(korona_account_id, store_order_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -416,7 +427,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all store order items
+  
   data, status_code, headers = api_instance.get_store_order_items_with_http_info(korona_account_id, store_order_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -434,7 +445,6 @@ end
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
-| **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
 
 ### Return type
 
@@ -453,6 +463,8 @@ end
 ## get_store_orders
 
 > <ResultListStoreOrder> get_store_orders(korona_account_id, opts)
+
+
 
 lists all store orders
 
@@ -487,7 +499,7 @@ opts = {
 }
 
 begin
-  # lists all store orders
+  
   result = api_instance.get_store_orders(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -503,7 +515,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all store orders
+  
   data, status_code, headers = api_instance.get_store_orders_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -550,6 +562,8 @@ end
 
 > order_store_order(korona_account_id, store_order_id, order_action, opts)
 
+
+
 orders and finalizes the store order
 
 ### Examples
@@ -574,7 +588,7 @@ opts = {
 }
 
 begin
-  # orders and finalizes the store order
+  
   api_instance.order_store_order(korona_account_id, store_order_id, order_action, opts)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->order_store_order: #{e}"
@@ -589,7 +603,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # orders and finalizes the store order
+  
   data, status_code, headers = api_instance.order_store_order_with_http_info(korona_account_id, store_order_id, order_action, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -625,7 +639,9 @@ nil (empty response body)
 
 ## update_store_order
 
-> update_store_order(korona_account_id, store_order_id, body)
+> update_store_order(korona_account_id, store_order_id, store_order)
+
+
 
 updates the single store order
 
@@ -644,11 +660,11 @@ end
 api_instance = KoronaCloudClient::StoreOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::StoreOrder.new # StoreOrder | data to update
+store_order = KoronaCloudClient::StoreOrder.new # StoreOrder | data to update
 
 begin
-  # updates the single store order
-  api_instance.update_store_order(korona_account_id, store_order_id, body)
+  
+  api_instance.update_store_order(korona_account_id, store_order_id, store_order)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->update_store_order: #{e}"
 end
@@ -658,12 +674,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_store_order_with_http_info(korona_account_id, store_order_id, body)
+> <Array(nil, Integer, Hash)> update_store_order_with_http_info(korona_account_id, store_order_id, store_order)
 
 ```ruby
 begin
-  # updates the single store order
-  data, status_code, headers = api_instance.update_store_order_with_http_info(korona_account_id, store_order_id, body)
+  
+  data, status_code, headers = api_instance.update_store_order_with_http_info(korona_account_id, store_order_id, store_order)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -678,7 +694,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**StoreOrder**](StoreOrder.md) | data to update |  |
+| **store_order** | [**StoreOrder**](StoreOrder.md) | data to update |  |
 
 ### Return type
 
@@ -696,7 +712,9 @@ nil (empty response body)
 
 ## update_store_order_item
 
-> update_store_order_item(korona_account_id, store_order_id, product_id, body)
+> update_store_order_item(korona_account_id, store_order_id, product_id, store_order_item)
+
+
 
 updates the single store order item
 
@@ -716,11 +734,11 @@ api_instance = KoronaCloudClient::StoreOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::StoreOrderItem.new # StoreOrderItem | data to update
+store_order_item = KoronaCloudClient::StoreOrderItem.new # StoreOrderItem | data to update
 
 begin
-  # updates the single store order item
-  api_instance.update_store_order_item(korona_account_id, store_order_id, product_id, body)
+  
+  api_instance.update_store_order_item(korona_account_id, store_order_id, product_id, store_order_item)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->update_store_order_item: #{e}"
 end
@@ -730,12 +748,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_store_order_item_with_http_info(korona_account_id, store_order_id, product_id, body)
+> <Array(nil, Integer, Hash)> update_store_order_item_with_http_info(korona_account_id, store_order_id, product_id, store_order_item)
 
 ```ruby
 begin
-  # updates the single store order item
-  data, status_code, headers = api_instance.update_store_order_item_with_http_info(korona_account_id, store_order_id, product_id, body)
+  
+  data, status_code, headers = api_instance.update_store_order_item_with_http_info(korona_account_id, store_order_id, product_id, store_order_item)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -751,7 +769,7 @@ end
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**StoreOrderItem**](StoreOrderItem.md) | data to update |  |
+| **store_order_item** | [**StoreOrderItem**](StoreOrderItem.md) | data to update |  |
 
 ### Return type
 
@@ -769,7 +787,9 @@ nil (empty response body)
 
 ## update_store_order_items
 
-> <Array<AddOrUpdateResult>> update_store_order_items(korona_account_id, store_order_id, body)
+> <Array<AddOrUpdateResult>> update_store_order_items(korona_account_id, store_order_id, store_order_item)
+
+
 
 updates store order items
 
@@ -788,11 +808,11 @@ end
 api_instance = KoronaCloudClient::StoreOrdersApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::StoreOrderItem.new] # Array<StoreOrderItem> | data to update
+store_order_item = [KoronaCloudClient::StoreOrderItem.new] # Array<StoreOrderItem> | data to update
 
 begin
-  # updates store order items
-  result = api_instance.update_store_order_items(korona_account_id, store_order_id, body)
+  
+  result = api_instance.update_store_order_items(korona_account_id, store_order_id, store_order_item)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StoreOrdersApi->update_store_order_items: #{e}"
@@ -803,12 +823,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_store_order_items_with_http_info(korona_account_id, store_order_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_store_order_items_with_http_info(korona_account_id, store_order_id, store_order_item)
 
 ```ruby
 begin
-  # updates store order items
-  data, status_code, headers = api_instance.update_store_order_items_with_http_info(korona_account_id, store_order_id, body)
+  
+  data, status_code, headers = api_instance.update_store_order_items_with_http_info(korona_account_id, store_order_id, store_order_item)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -823,7 +843,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;StoreOrderItem&gt;**](StoreOrderItem.md) | data to update |  |
+| **store_order_item** | [**Array&lt;StoreOrderItem&gt;**](StoreOrderItem.md) | data to update |  |
 
 ### Return type
 

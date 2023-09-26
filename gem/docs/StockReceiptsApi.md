@@ -1,25 +1,27 @@
 # KoronaCloudClient::StockReceiptsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_stock_receipt_items**](StockReceiptsApi.md#add_stock_receipt_items) | **POST** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items | adds stock-receipt items |
-| [**add_stock_receipts**](StockReceiptsApi.md#add_stock_receipts) | **POST** /accounts/{koronaAccountId}/stockReceipts | adds stock-receipts |
-| [**book_stock_receipt**](StockReceiptsApi.md#book_stock_receipt) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/book | book the single stock-receipt |
-| [**delete_stock_receipt_item**](StockReceiptsApi.md#delete_stock_receipt_item) | **DELETE** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items/{productId} | deletes the single stock-receipt item |
-| [**get_stock_receipt**](StockReceiptsApi.md#get_stock_receipt) | **GET** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId} | returns the single stock-receipt |
-| [**get_stock_receipt_item**](StockReceiptsApi.md#get_stock_receipt_item) | **GET** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items/{productId} | returns the single stock-receipt item |
-| [**get_stock_receipt_items**](StockReceiptsApi.md#get_stock_receipt_items) | **GET** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items | lists all stock-receipt items |
-| [**get_stock_receipts**](StockReceiptsApi.md#get_stock_receipts) | **GET** /accounts/{koronaAccountId}/stockReceipts | lists all stock-receipts |
-| [**update_stock_receipt**](StockReceiptsApi.md#update_stock_receipt) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId} | updates the single stock-receipt |
-| [**update_stock_receipt_item**](StockReceiptsApi.md#update_stock_receipt_item) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items/{productId} | updates the single stock-receipt item |
-| [**update_stock_receipt_items**](StockReceiptsApi.md#update_stock_receipt_items) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items | updates stock-receipt items |
+| [**add_stock_receipt_items**](StockReceiptsApi.md#add_stock_receipt_items) | **POST** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items |  |
+| [**add_stock_receipts**](StockReceiptsApi.md#add_stock_receipts) | **POST** /accounts/{koronaAccountId}/stockReceipts |  |
+| [**book_stock_receipt**](StockReceiptsApi.md#book_stock_receipt) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/book |  |
+| [**delete_stock_receipt_item**](StockReceiptsApi.md#delete_stock_receipt_item) | **DELETE** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items/{productId} |  |
+| [**get_stock_receipt**](StockReceiptsApi.md#get_stock_receipt) | **GET** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId} |  |
+| [**get_stock_receipt_item**](StockReceiptsApi.md#get_stock_receipt_item) | **GET** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items/{productId} |  |
+| [**get_stock_receipt_items**](StockReceiptsApi.md#get_stock_receipt_items) | **GET** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items |  |
+| [**get_stock_receipts**](StockReceiptsApi.md#get_stock_receipts) | **GET** /accounts/{koronaAccountId}/stockReceipts |  |
+| [**update_stock_receipt**](StockReceiptsApi.md#update_stock_receipt) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId} |  |
+| [**update_stock_receipt_item**](StockReceiptsApi.md#update_stock_receipt_item) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items/{productId} |  |
+| [**update_stock_receipt_items**](StockReceiptsApi.md#update_stock_receipt_items) | **PATCH** /accounts/{koronaAccountId}/stockReceipts/{stockReceiptId}/items |  |
 
 
 ## add_stock_receipt_items
 
-> <Array<AddOrUpdateResult>> add_stock_receipt_items(korona_account_id, stock_receipt_id, body)
+> <Array<AddOrUpdateResult>> add_stock_receipt_items(korona_account_id, stock_receipt_id, stock_receipt_item)
+
+
 
 adds stock-receipt items
 
@@ -38,11 +40,11 @@ end
 api_instance = KoronaCloudClient::StockReceiptsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 stock_receipt_id = 'stock_receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::StockReceiptItem.new] # Array<StockReceiptItem> | data to add
+stock_receipt_item = [KoronaCloudClient::StockReceiptItem.new] # Array<StockReceiptItem> | data to add
 
 begin
-  # adds stock-receipt items
-  result = api_instance.add_stock_receipt_items(korona_account_id, stock_receipt_id, body)
+  
+  result = api_instance.add_stock_receipt_items(korona_account_id, stock_receipt_id, stock_receipt_item)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockReceiptsApi->add_stock_receipt_items: #{e}"
@@ -53,12 +55,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, stock_receipt_item)
 
 ```ruby
 begin
-  # adds stock-receipt items
-  data, status_code, headers = api_instance.add_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, body)
+  
+  data, status_code, headers = api_instance.add_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, stock_receipt_item)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -73,7 +75,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **stock_receipt_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;StockReceiptItem&gt;**](StockReceiptItem.md) | data to add |  |
+| **stock_receipt_item** | [**Array&lt;StockReceiptItem&gt;**](StockReceiptItem.md) | data to add |  |
 
 ### Return type
 
@@ -91,7 +93,9 @@ end
 
 ## add_stock_receipts
 
-> <Array<AddOrUpdateResult>> add_stock_receipts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> add_stock_receipts(korona_account_id, stock_receipt)
+
+
 
 adds stock-receipts
 
@@ -109,11 +113,11 @@ end
 
 api_instance = KoronaCloudClient::StockReceiptsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::StockReceipt.new] # Array<StockReceipt> | data to add
+stock_receipt = [KoronaCloudClient::StockReceipt.new] # Array<StockReceipt> | data to add
 
 begin
-  # adds stock-receipts
-  result = api_instance.add_stock_receipts(korona_account_id, body)
+  
+  result = api_instance.add_stock_receipts(korona_account_id, stock_receipt)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockReceiptsApi->add_stock_receipts: #{e}"
@@ -124,12 +128,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_stock_receipts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_stock_receipts_with_http_info(korona_account_id, stock_receipt)
 
 ```ruby
 begin
-  # adds stock-receipts
-  data, status_code, headers = api_instance.add_stock_receipts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.add_stock_receipts_with_http_info(korona_account_id, stock_receipt)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -143,7 +147,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;StockReceipt&gt;**](StockReceipt.md) | data to add |  |
+| **stock_receipt** | [**Array&lt;StockReceipt&gt;**](StockReceipt.md) | data to add |  |
 
 ### Return type
 
@@ -162,6 +166,8 @@ end
 ## book_stock_receipt
 
 > book_stock_receipt(korona_account_id, stock_receipt_id)
+
+
 
 book the single stock-receipt
 
@@ -182,7 +188,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 stock_receipt_id = 'stock_receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # book the single stock-receipt
+  
   api_instance.book_stock_receipt(korona_account_id, stock_receipt_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockReceiptsApi->book_stock_receipt: #{e}"
@@ -197,7 +203,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # book the single stock-receipt
+  
   data, status_code, headers = api_instance.book_stock_receipt_with_http_info(korona_account_id, stock_receipt_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -232,6 +238,8 @@ nil (empty response body)
 
 > delete_stock_receipt_item(korona_account_id, stock_receipt_id, product_id)
 
+
+
 deletes the single stock-receipt item
 
 ### Examples
@@ -252,7 +260,7 @@ stock_receipt_id = 'stock_receipt_id_example' # String | id of the related objec
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single stock-receipt item
+  
   api_instance.delete_stock_receipt_item(korona_account_id, stock_receipt_id, product_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockReceiptsApi->delete_stock_receipt_item: #{e}"
@@ -267,7 +275,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single stock-receipt item
+  
   data, status_code, headers = api_instance.delete_stock_receipt_item_with_http_info(korona_account_id, stock_receipt_id, product_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -303,6 +311,8 @@ nil (empty response body)
 
 > <StockReceipt> get_stock_receipt(korona_account_id, stock_receipt_id)
 
+
+
 returns the single stock-receipt
 
 ### Examples
@@ -322,7 +332,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 stock_receipt_id = 'stock_receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single stock-receipt
+  
   result = api_instance.get_stock_receipt(korona_account_id, stock_receipt_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -338,7 +348,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single stock-receipt
+  
   data, status_code, headers = api_instance.get_stock_receipt_with_http_info(korona_account_id, stock_receipt_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -373,6 +383,8 @@ end
 
 > <StockReceiptItem> get_stock_receipt_item(korona_account_id, stock_receipt_id, product_id)
 
+
+
 returns the single stock-receipt item
 
 ### Examples
@@ -393,7 +405,7 @@ stock_receipt_id = 'stock_receipt_id_example' # String | id of the related objec
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single stock-receipt item
+  
   result = api_instance.get_stock_receipt_item(korona_account_id, stock_receipt_id, product_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -409,7 +421,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single stock-receipt item
+  
   data, status_code, headers = api_instance.get_stock_receipt_item_with_http_info(korona_account_id, stock_receipt_id, product_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -445,6 +457,8 @@ end
 
 > <ResultListStockReceiptItem> get_stock_receipt_items(korona_account_id, stock_receipt_id, opts)
 
+
+
 lists all stock-receipt items
 
 ### Examples
@@ -470,7 +484,7 @@ opts = {
 }
 
 begin
-  # lists all stock-receipt items
+  
   result = api_instance.get_stock_receipt_items(korona_account_id, stock_receipt_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -486,7 +500,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all stock-receipt items
+  
   data, status_code, headers = api_instance.get_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -525,6 +539,8 @@ end
 
 > <ResultListStockReceipt> get_stock_receipts(korona_account_id, opts)
 
+
+
 lists all stock-receipts
 
 ### Examples
@@ -558,7 +574,7 @@ opts = {
 }
 
 begin
-  # lists all stock-receipts
+  
   result = api_instance.get_stock_receipts(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -574,7 +590,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all stock-receipts
+  
   data, status_code, headers = api_instance.get_stock_receipts_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -619,7 +635,9 @@ end
 
 ## update_stock_receipt
 
-> update_stock_receipt(korona_account_id, stock_receipt_id, body)
+> update_stock_receipt(korona_account_id, stock_receipt_id, stock_receipt)
+
+
 
 updates the single stock-receipt
 
@@ -638,11 +656,11 @@ end
 api_instance = KoronaCloudClient::StockReceiptsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 stock_receipt_id = 'stock_receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::StockReceipt.new # StockReceipt | data to update
+stock_receipt = KoronaCloudClient::StockReceipt.new # StockReceipt | data to update
 
 begin
-  # updates the single stock-receipt
-  api_instance.update_stock_receipt(korona_account_id, stock_receipt_id, body)
+  
+  api_instance.update_stock_receipt(korona_account_id, stock_receipt_id, stock_receipt)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockReceiptsApi->update_stock_receipt: #{e}"
 end
@@ -652,12 +670,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_stock_receipt_with_http_info(korona_account_id, stock_receipt_id, body)
+> <Array(nil, Integer, Hash)> update_stock_receipt_with_http_info(korona_account_id, stock_receipt_id, stock_receipt)
 
 ```ruby
 begin
-  # updates the single stock-receipt
-  data, status_code, headers = api_instance.update_stock_receipt_with_http_info(korona_account_id, stock_receipt_id, body)
+  
+  data, status_code, headers = api_instance.update_stock_receipt_with_http_info(korona_account_id, stock_receipt_id, stock_receipt)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -672,7 +690,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **stock_receipt_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**StockReceipt**](StockReceipt.md) | data to update |  |
+| **stock_receipt** | [**StockReceipt**](StockReceipt.md) | data to update |  |
 
 ### Return type
 
@@ -690,7 +708,9 @@ nil (empty response body)
 
 ## update_stock_receipt_item
 
-> update_stock_receipt_item(korona_account_id, stock_receipt_id, product_id, body)
+> update_stock_receipt_item(korona_account_id, stock_receipt_id, product_id, stock_receipt_item)
+
+
 
 updates the single stock-receipt item
 
@@ -710,11 +730,11 @@ api_instance = KoronaCloudClient::StockReceiptsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 stock_receipt_id = 'stock_receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::StockReceiptItem.new # StockReceiptItem | data to update
+stock_receipt_item = KoronaCloudClient::StockReceiptItem.new # StockReceiptItem | data to update
 
 begin
-  # updates the single stock-receipt item
-  api_instance.update_stock_receipt_item(korona_account_id, stock_receipt_id, product_id, body)
+  
+  api_instance.update_stock_receipt_item(korona_account_id, stock_receipt_id, product_id, stock_receipt_item)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockReceiptsApi->update_stock_receipt_item: #{e}"
 end
@@ -724,12 +744,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_stock_receipt_item_with_http_info(korona_account_id, stock_receipt_id, product_id, body)
+> <Array(nil, Integer, Hash)> update_stock_receipt_item_with_http_info(korona_account_id, stock_receipt_id, product_id, stock_receipt_item)
 
 ```ruby
 begin
-  # updates the single stock-receipt item
-  data, status_code, headers = api_instance.update_stock_receipt_item_with_http_info(korona_account_id, stock_receipt_id, product_id, body)
+  
+  data, status_code, headers = api_instance.update_stock_receipt_item_with_http_info(korona_account_id, stock_receipt_id, product_id, stock_receipt_item)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -745,7 +765,7 @@ end
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **stock_receipt_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**StockReceiptItem**](StockReceiptItem.md) | data to update |  |
+| **stock_receipt_item** | [**StockReceiptItem**](StockReceiptItem.md) | data to update |  |
 
 ### Return type
 
@@ -763,7 +783,9 @@ nil (empty response body)
 
 ## update_stock_receipt_items
 
-> <Array<AddOrUpdateResult>> update_stock_receipt_items(korona_account_id, stock_receipt_id, body)
+> <Array<AddOrUpdateResult>> update_stock_receipt_items(korona_account_id, stock_receipt_id, stock_receipt_item)
+
+
 
 updates stock-receipt items
 
@@ -782,11 +804,11 @@ end
 api_instance = KoronaCloudClient::StockReceiptsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 stock_receipt_id = 'stock_receipt_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::StockReceiptItem.new] # Array<StockReceiptItem> | data to update
+stock_receipt_item = [KoronaCloudClient::StockReceiptItem.new] # Array<StockReceiptItem> | data to update
 
 begin
-  # updates stock-receipt items
-  result = api_instance.update_stock_receipt_items(korona_account_id, stock_receipt_id, body)
+  
+  result = api_instance.update_stock_receipt_items(korona_account_id, stock_receipt_id, stock_receipt_item)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling StockReceiptsApi->update_stock_receipt_items: #{e}"
@@ -797,12 +819,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, stock_receipt_item)
 
 ```ruby
 begin
-  # updates stock-receipt items
-  data, status_code, headers = api_instance.update_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, body)
+  
+  data, status_code, headers = api_instance.update_stock_receipt_items_with_http_info(korona_account_id, stock_receipt_id, stock_receipt_item)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -817,7 +839,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **stock_receipt_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;StockReceiptItem&gt;**](StockReceiptItem.md) | data to update |  |
+| **stock_receipt_item** | [**Array&lt;StockReceiptItem&gt;**](StockReceiptItem.md) | data to update |  |
 
 ### Return type
 

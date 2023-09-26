@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **error_description** | **String** |  | [optional] |
 | **failed** | **Boolean** |  | [optional] |
-| **finish_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **first_process_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **finish_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **first_process_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **fiscal_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **number** | **Integer** |  | [optional] |
 | **print_link** | **String** |  | [optional] |
@@ -17,7 +17,7 @@
 | **process_type** | **String** |  | [optional] |
 | **signature** | **String** |  | [optional] |
 | **signature_counter** | **Integer** |  | [optional] |
-| **start_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **start_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 
 ## Example
 

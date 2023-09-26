@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **from** | **String** | Pattern: ^([0-1][0-9]|2[0-3])(\\:[0-5][0-9]){2,2}$ | [optional] |
-| **to** | **String** | Pattern: ^([0-1][0-9]|2[0-3])(\\:[0-5][0-9]){2,2}$ | [optional] |
+| **from** | **String** | HH:mm:ss | [optional] |
+| **to** | **String** | HH:mm:ss | [optional] |
 
 ## Example
 

@@ -1,19 +1,21 @@
 # KoronaCloudClient::CashierVerificationRequirementsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#add_cashier_verification_requirements) | **POST** /accounts/{koronaAccountId}/cashierVerificationRequirements | adds a batch of new cashier verification requirements |
-| [**delete_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#delete_cashier_verification_requirements) | **DELETE** /accounts/{koronaAccountId}/cashierVerificationRequirements | deletes a batch of cashier verification requirements |
-| [**get_cashier_verification_requirement**](CashierVerificationRequirementsApi.md#get_cashier_verification_requirement) | **GET** /accounts/{koronaAccountId}/cashierVerificationRequirements/{cashierVerificationRequirementId} | returns the single cashier verification requirement |
-| [**get_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#get_cashier_verification_requirements) | **GET** /accounts/{koronaAccountId}/cashierVerificationRequirements | lists all cashier verification requirements |
-| [**update_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#update_cashier_verification_requirements) | **PATCH** /accounts/{koronaAccountId}/cashierVerificationRequirements | updates a batch of cashier verification requirements |
+| [**add_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#add_cashier_verification_requirements) | **POST** /accounts/{koronaAccountId}/cashierVerificationRequirements |  |
+| [**delete_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#delete_cashier_verification_requirements) | **DELETE** /accounts/{koronaAccountId}/cashierVerificationRequirements |  |
+| [**get_cashier_verification_requirement**](CashierVerificationRequirementsApi.md#get_cashier_verification_requirement) | **GET** /accounts/{koronaAccountId}/cashierVerificationRequirements/{cashierVerificationRequirementId} |  |
+| [**get_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#get_cashier_verification_requirements) | **GET** /accounts/{koronaAccountId}/cashierVerificationRequirements |  |
+| [**update_cashier_verification_requirements**](CashierVerificationRequirementsApi.md#update_cashier_verification_requirements) | **PATCH** /accounts/{koronaAccountId}/cashierVerificationRequirements |  |
 
 
 ## add_cashier_verification_requirements
 
-> <Array<AddOrUpdateResult>> add_cashier_verification_requirements(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_cashier_verification_requirements(korona_account_id, cashier_verification_requirement, opts)
+
+
 
 adds a batch of new cashier verification requirements
 
@@ -31,14 +33,15 @@ end
 
 api_instance = KoronaCloudClient::CashierVerificationRequirementsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CashierVerificationRequirement.new] # Array<CashierVerificationRequirement> | array of new cashier verification requirements
+cashier_verification_requirement = [KoronaCloudClient::CashierVerificationRequirement.new] # Array<CashierVerificationRequirement> | array of new cashier verification requirements
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new cashier verification requirements
-  result = api_instance.add_cashier_verification_requirements(korona_account_id, body, opts)
+  
+  result = api_instance.add_cashier_verification_requirements(korona_account_id, cashier_verification_requirement, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierVerificationRequirementsApi->add_cashier_verification_requirements: #{e}"
@@ -49,12 +52,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_cashier_verification_requirements_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_cashier_verification_requirements_with_http_info(korona_account_id, cashier_verification_requirement, opts)
 
 ```ruby
 begin
-  # adds a batch of new cashier verification requirements
-  data, status_code, headers = api_instance.add_cashier_verification_requirements_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_cashier_verification_requirements_with_http_info(korona_account_id, cashier_verification_requirement, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -68,8 +71,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CashierVerificationRequirement&gt;**](CashierVerificationRequirement.md) | array of new cashier verification requirements |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **cashier_verification_requirement** | [**Array&lt;CashierVerificationRequirement&gt;**](CashierVerificationRequirement.md) | array of new cashier verification requirements |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -87,7 +91,9 @@ end
 
 ## delete_cashier_verification_requirements
 
-> <Array<AddOrUpdateResult>> delete_cashier_verification_requirements(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_cashier_verification_requirements(korona_account_id, cashier_verification_requirement)
+
+
 
 deletes a batch of cashier verification requirements
 
@@ -105,11 +111,11 @@ end
 
 api_instance = KoronaCloudClient::CashierVerificationRequirementsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CashierVerificationRequirement.new] # Array<CashierVerificationRequirement> | array of existing cashier verification requirements (id or number required)
+cashier_verification_requirement = [KoronaCloudClient::CashierVerificationRequirement.new] # Array<CashierVerificationRequirement> | array of existing cashier verification requirements (id or number required)
 
 begin
-  # deletes a batch of cashier verification requirements
-  result = api_instance.delete_cashier_verification_requirements(korona_account_id, body)
+  
+  result = api_instance.delete_cashier_verification_requirements(korona_account_id, cashier_verification_requirement)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierVerificationRequirementsApi->delete_cashier_verification_requirements: #{e}"
@@ -120,12 +126,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_cashier_verification_requirements_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_cashier_verification_requirements_with_http_info(korona_account_id, cashier_verification_requirement)
 
 ```ruby
 begin
-  # deletes a batch of cashier verification requirements
-  data, status_code, headers = api_instance.delete_cashier_verification_requirements_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_cashier_verification_requirements_with_http_info(korona_account_id, cashier_verification_requirement)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -139,7 +145,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CashierVerificationRequirement&gt;**](CashierVerificationRequirement.md) | array of existing cashier verification requirements (id or number required) |  |
+| **cashier_verification_requirement** | [**Array&lt;CashierVerificationRequirement&gt;**](CashierVerificationRequirement.md) | array of existing cashier verification requirements (id or number required) |  |
 
 ### Return type
 
@@ -158,6 +164,8 @@ end
 ## get_cashier_verification_requirement
 
 > <CashierVerificationRequirement> get_cashier_verification_requirement(korona_account_id, cashier_verification_requirement_id)
+
+
 
 returns the single cashier verification requirement
 
@@ -178,7 +186,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 cashier_verification_requirement_id = 'cashier_verification_requirement_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single cashier verification requirement
+  
   result = api_instance.get_cashier_verification_requirement(korona_account_id, cashier_verification_requirement_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -194,7 +202,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single cashier verification requirement
+  
   data, status_code, headers = api_instance.get_cashier_verification_requirement_with_http_info(korona_account_id, cashier_verification_requirement_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -229,6 +237,8 @@ end
 
 > <ResultListCashierVerificationRequirement> get_cashier_verification_requirements(korona_account_id, opts)
 
+
+
 lists all cashier verification requirements
 
 ### Examples
@@ -255,7 +265,7 @@ opts = {
 }
 
 begin
-  # lists all cashier verification requirements
+  
   result = api_instance.get_cashier_verification_requirements(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -271,7 +281,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all cashier verification requirements
+  
   data, status_code, headers = api_instance.get_cashier_verification_requirements_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -309,7 +319,9 @@ end
 
 ## update_cashier_verification_requirements
 
-> <Array<AddOrUpdateResult>> update_cashier_verification_requirements(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_cashier_verification_requirements(korona_account_id, cashier_verification_requirement)
+
+
 
 updates a batch of cashier verification requirements
 
@@ -327,11 +339,11 @@ end
 
 api_instance = KoronaCloudClient::CashierVerificationRequirementsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CashierVerificationRequirement.new] # Array<CashierVerificationRequirement> | array of existing cashier verification requirements (id or number required)
+cashier_verification_requirement = [KoronaCloudClient::CashierVerificationRequirement.new] # Array<CashierVerificationRequirement> | array of existing cashier verification requirements (id or number required)
 
 begin
-  # updates a batch of cashier verification requirements
-  result = api_instance.update_cashier_verification_requirements(korona_account_id, body)
+  
+  result = api_instance.update_cashier_verification_requirements(korona_account_id, cashier_verification_requirement)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierVerificationRequirementsApi->update_cashier_verification_requirements: #{e}"
@@ -342,12 +354,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_cashier_verification_requirements_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_cashier_verification_requirements_with_http_info(korona_account_id, cashier_verification_requirement)
 
 ```ruby
 begin
-  # updates a batch of cashier verification requirements
-  data, status_code, headers = api_instance.update_cashier_verification_requirements_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_cashier_verification_requirements_with_http_info(korona_account_id, cashier_verification_requirement)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -361,7 +373,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CashierVerificationRequirement&gt;**](CashierVerificationRequirement.md) | array of existing cashier verification requirements (id or number required) |  |
+| **cashier_verification_requirement** | [**Array&lt;CashierVerificationRequirement&gt;**](CashierVerificationRequirement.md) | array of existing cashier verification requirements (id or number required) |  |
 
 ### Return type
 

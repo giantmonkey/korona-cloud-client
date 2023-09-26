@@ -27,13 +27,15 @@
 | **auto_reset_quick_access_pad** | **Boolean** |  | [optional] |
 | **easy_repeat_product_enabled** | **Boolean** |  | [optional] |
 | **external_system_calls_on_book_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_reject_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_total_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_void_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_book_delivery_note** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_reverse_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_login_cashier** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_logout_cashier** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_reject_receipt** | **Object** |  | [optional] |
+| **external_system_calls_on_total_receipt** | **Object** |  | [optional] |
+| **external_system_calls_on_void_receipt** | **Object** |  | [optional] |
+| **external_system_calls_on_book_delivery_note** | **Object** |  | [optional] |
+| **external_system_calls_on_reverse_receipt** | **Object** |  | [optional] |
+| **external_system_calls_on_login_cashier** | **Object** |  | [optional] |
+| **external_system_calls_on_logout_cashier** | **Object** |  | [optional] |
+| **external_system_calls_on_book_first_sale** | **Object** |  | [optional] |
+| **external_system_calls_on_open_non_empty_receipt** | **Object** |  | [optional] |
 | **designate_balance_difference** | **Boolean** |  | [optional] |
 | **end_of_day_report_enabled** | **Boolean** |  | [optional] |
 | **unknown_number_action** | **String** |  | [optional] |
@@ -88,6 +90,8 @@ instance = KoronaCloudClient::PosProfile.new(
   external_system_calls_on_reverse_receipt: null,
   external_system_calls_on_login_cashier: null,
   external_system_calls_on_logout_cashier: null,
+  external_system_calls_on_book_first_sale: null,
+  external_system_calls_on_open_non_empty_receipt: null,
   designate_balance_difference: null,
   end_of_day_report_enabled: null,
   unknown_number_action: null,

@@ -8,7 +8,7 @@
 | **redeemed** | **Boolean** |  | [optional] |
 | **auto_generated** | **Boolean** |  | [optional] |
 | **selected_by_promotions** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **triggered_by_promotions** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **triggered_by_promotions** | **Object** |  | [optional] |
 | **coupon_number** | **String** |  | [optional] |
 
 ## Example

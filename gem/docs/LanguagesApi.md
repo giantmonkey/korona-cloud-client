@@ -1,21 +1,23 @@
 # KoronaCloudClient::LanguagesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_languages**](LanguagesApi.md#add_languages) | **POST** /accounts/{koronaAccountId}/languages | adds a batch of new languages |
-| [**delete_language**](LanguagesApi.md#delete_language) | **DELETE** /accounts/{koronaAccountId}/languages/{languageId} | deletes the single language |
-| [**delete_languages**](LanguagesApi.md#delete_languages) | **DELETE** /accounts/{koronaAccountId}/languages | deletes a batch of languages |
-| [**get_language**](LanguagesApi.md#get_language) | **GET** /accounts/{koronaAccountId}/languages/{languageId} | returns a single language |
-| [**get_languages**](LanguagesApi.md#get_languages) | **GET** /accounts/{koronaAccountId}/languages | lists all languages |
-| [**update_language**](LanguagesApi.md#update_language) | **PATCH** /accounts/{koronaAccountId}/languages/{languageId} | updates the single language |
-| [**update_languages**](LanguagesApi.md#update_languages) | **PATCH** /accounts/{koronaAccountId}/languages | updates a batch of languages |
+| [**add_languages**](LanguagesApi.md#add_languages) | **POST** /accounts/{koronaAccountId}/languages |  |
+| [**delete_language**](LanguagesApi.md#delete_language) | **DELETE** /accounts/{koronaAccountId}/languages/{languageId} |  |
+| [**delete_languages**](LanguagesApi.md#delete_languages) | **DELETE** /accounts/{koronaAccountId}/languages |  |
+| [**get_language**](LanguagesApi.md#get_language) | **GET** /accounts/{koronaAccountId}/languages/{languageId} |  |
+| [**get_languages**](LanguagesApi.md#get_languages) | **GET** /accounts/{koronaAccountId}/languages |  |
+| [**update_language**](LanguagesApi.md#update_language) | **PATCH** /accounts/{koronaAccountId}/languages/{languageId} |  |
+| [**update_languages**](LanguagesApi.md#update_languages) | **PATCH** /accounts/{koronaAccountId}/languages |  |
 
 
 ## add_languages
 
-> <Array<AddOrUpdateResult>> add_languages(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_languages(korona_account_id, language, opts)
+
+
 
 adds a batch of new languages
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::LanguagesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::LanguageResource.new] # Array<LanguageResource> | array of new languages
+language = [KoronaCloudClient::Language.new] # Array<Language> | array of new languages
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new languages
-  result = api_instance.add_languages(korona_account_id, body, opts)
+  
+  result = api_instance.add_languages(korona_account_id, language, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling LanguagesApi->add_languages: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_languages_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_languages_with_http_info(korona_account_id, language, opts)
 
 ```ruby
 begin
-  # adds a batch of new languages
-  data, status_code, headers = api_instance.add_languages_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_languages_with_http_info(korona_account_id, language, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;LanguageResource&gt;**](LanguageResource.md) | array of new languages |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **language** | [**Array&lt;Language&gt;**](Language.md) | array of new languages |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_language
 
 > delete_language(korona_account_id, language_id)
+
+
 
 deletes the single language
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 language_id = 'language_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single language
+  
   api_instance.delete_language(korona_account_id, language_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling LanguagesApi->delete_language: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single language
+  
   data, status_code, headers = api_instance.delete_language_with_http_info(korona_account_id, language_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_languages
 
-> <Array<AddOrUpdateResult>> delete_languages(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_languages(korona_account_id, language)
+
+
 
 deletes a batch of languages
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::LanguagesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::LanguageResource.new] # Array<LanguageResource> | array of existing languages (id or number required)
+language = [KoronaCloudClient::Language.new] # Array<Language> | array of existing languages (id or number required)
 
 begin
-  # deletes a batch of languages
-  result = api_instance.delete_languages(korona_account_id, body)
+  
+  result = api_instance.delete_languages(korona_account_id, language)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling LanguagesApi->delete_languages: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_languages_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_languages_with_http_info(korona_account_id, language)
 
 ```ruby
 begin
-  # deletes a batch of languages
-  data, status_code, headers = api_instance.delete_languages_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_languages_with_http_info(korona_account_id, language)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;LanguageResource&gt;**](LanguageResource.md) | array of existing languages (id or number required) |  |
+| **language** | [**Array&lt;Language&gt;**](Language.md) | array of existing languages (id or number required) |  |
 
 ### Return type
 
@@ -228,7 +236,9 @@ end
 
 ## get_language
 
-> <LanguageResource> get_language(korona_account_id, language_id)
+> <Language> get_language(korona_account_id, language_id)
+
+
 
 returns a single language
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 language_id = 'language_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single language
+  
   result = api_instance.get_language(korona_account_id, language_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -261,15 +271,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<LanguageResource>, Integer, Hash)> get_language_with_http_info(korona_account_id, language_id)
+> <Array(<Language>, Integer, Hash)> get_language_with_http_info(korona_account_id, language_id)
 
 ```ruby
 begin
-  # returns a single language
+  
   data, status_code, headers = api_instance.get_language_with_http_info(korona_account_id, language_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <LanguageResource>
+  p data # => <Language>
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling LanguagesApi->get_language_with_http_info: #{e}"
 end
@@ -284,7 +294,7 @@ end
 
 ### Return type
 
-[**LanguageResource**](LanguageResource.md)
+[**Language**](Language.md)
 
 ### Authorization
 
@@ -298,7 +308,9 @@ end
 
 ## get_languages
 
-> <ResultListLanguageResource> get_languages(korona_account_id, opts)
+> <ResultListLanguage> get_languages(korona_account_id, opts)
+
+
 
 lists all languages
 
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all languages
+  
   result = api_instance.get_languages(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -338,15 +350,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResultListLanguageResource>, Integer, Hash)> get_languages_with_http_info(korona_account_id, opts)
+> <Array(<ResultListLanguage>, Integer, Hash)> get_languages_with_http_info(korona_account_id, opts)
 
 ```ruby
 begin
-  # lists all languages
+  
   data, status_code, headers = api_instance.get_languages_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResultListLanguageResource>
+  p data # => <ResultListLanguage>
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling LanguagesApi->get_languages_with_http_info: #{e}"
 end
@@ -366,7 +378,7 @@ end
 
 ### Return type
 
-[**ResultListLanguageResource**](ResultListLanguageResource.md)
+[**ResultListLanguage**](ResultListLanguage.md)
 
 ### Authorization
 
@@ -380,11 +392,11 @@ end
 
 ## update_language
 
-> update_language(korona_account_id, language_id, body)
+> update_language(korona_account_id, language_id, language)
 
-updates the single language
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single language; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::LanguagesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 language_id = 'language_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::LanguageResource.new # LanguageResource | the properties to update of the language
+language = KoronaCloudClient::Language.new # Language | the properties to update of the language
 
 begin
-  # updates the single language
-  api_instance.update_language(korona_account_id, language_id, body)
+  
+  api_instance.update_language(korona_account_id, language_id, language)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling LanguagesApi->update_language: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_language_with_http_info(korona_account_id, language_id, body)
+> <Array(nil, Integer, Hash)> update_language_with_http_info(korona_account_id, language_id, language)
 
 ```ruby
 begin
-  # updates the single language
-  data, status_code, headers = api_instance.update_language_with_http_info(korona_account_id, language_id, body)
+  
+  data, status_code, headers = api_instance.update_language_with_http_info(korona_account_id, language_id, language)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **language_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**LanguageResource**](LanguageResource.md) | the properties to update of the language |  |
+| **language** | [**Language**](Language.md) | the properties to update of the language |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_languages
 
-> <Array<AddOrUpdateResult>> update_languages(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_languages(korona_account_id, language)
 
-updates a batch of languages
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of languages; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::LanguagesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::LanguageResource.new] # Array<LanguageResource> | an array of existing languages
+language = [KoronaCloudClient::Language.new] # Array<Language> | an array of existing languages
 
 begin
-  # updates a batch of languages
-  result = api_instance.update_languages(korona_account_id, body)
+  
+  result = api_instance.update_languages(korona_account_id, language)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling LanguagesApi->update_languages: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_languages_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_languages_with_http_info(korona_account_id, language)
 
 ```ruby
 begin
-  # updates a batch of languages
-  data, status_code, headers = api_instance.update_languages_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_languages_with_http_info(korona_account_id, language)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;LanguageResource&gt;**](LanguageResource.md) | an array of existing languages |  |
+| **language** | [**Array&lt;Language&gt;**](Language.md) | an array of existing languages |  |
 
 ### Return type
 

@@ -9,6 +9,8 @@
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **revision** | **Integer** |  | [optional][readonly] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **bin_location** | **String** |  | [optional] |
+| **listed** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -20,7 +22,9 @@ instance = KoronaCloudClient::ProductStock.new(
   average_purchase_price: null,
   product: null,
   revision: null,
-  warehouse: null
+  warehouse: null,
+  bin_location: null,
+  listed: null
 )
 ```
 

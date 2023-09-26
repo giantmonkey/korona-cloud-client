@@ -12,6 +12,7 @@
 | **indent** | **Integer** |  | [optional] |
 | **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
 | **info_texts** | **Array&lt;String&gt;** |  | [optional] |
+| **id** | **String** |  | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = KoronaCloudClient::DeliveryNoteItem.new(
   commodity_group: null,
   indent: null,
   total: null,
-  info_texts: null
+  info_texts: null,
+  id: null
 )
 ```
 

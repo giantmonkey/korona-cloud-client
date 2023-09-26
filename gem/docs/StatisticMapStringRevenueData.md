@@ -5,8 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **current_period** | [**PeriodMapStringRevenueData**](PeriodMapStringRevenueData.md) |  | [optional] |
-| **previous_period** | [**PeriodMapStringRevenueData**](PeriodMapStringRevenueData.md) |  | [optional] |
+| **current_period** | [**PeriodRevenueDataMapStringStatisticRevenueData**](PeriodRevenueDataMapStringStatisticRevenueData.md) |  | [optional] |
+| **previous_period** | [**PeriodRevenueDataMapStringStatisticRevenueData**](PeriodRevenueDataMapStringStatisticRevenueData.md) |  | [optional] |
 
 ## Example
 

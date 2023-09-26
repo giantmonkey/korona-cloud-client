@@ -1,19 +1,21 @@
 # KoronaCloudClient::ProductionTypesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_production_types**](ProductionTypesApi.md#add_production_types) | **POST** /accounts/{koronaAccountId}/productionTypes | adds a batch of new production types |
-| [**delete_production_types**](ProductionTypesApi.md#delete_production_types) | **DELETE** /accounts/{koronaAccountId}/productionTypes | deletes a batch of production types |
-| [**get_production_type**](ProductionTypesApi.md#get_production_type) | **GET** /accounts/{koronaAccountId}/productionTypes/{productionTypeId} | returns the single production type |
-| [**get_production_types**](ProductionTypesApi.md#get_production_types) | **GET** /accounts/{koronaAccountId}/productionTypes | lists all production types |
-| [**update_production_types**](ProductionTypesApi.md#update_production_types) | **PATCH** /accounts/{koronaAccountId}/productionTypes | updates a batch of production types |
+| [**add_production_types**](ProductionTypesApi.md#add_production_types) | **POST** /accounts/{koronaAccountId}/productionTypes |  |
+| [**delete_production_types**](ProductionTypesApi.md#delete_production_types) | **DELETE** /accounts/{koronaAccountId}/productionTypes |  |
+| [**get_production_type**](ProductionTypesApi.md#get_production_type) | **GET** /accounts/{koronaAccountId}/productionTypes/{productionTypeId} |  |
+| [**get_production_types**](ProductionTypesApi.md#get_production_types) | **GET** /accounts/{koronaAccountId}/productionTypes |  |
+| [**update_production_types**](ProductionTypesApi.md#update_production_types) | **PATCH** /accounts/{koronaAccountId}/productionTypes |  |
 
 
 ## add_production_types
 
-> <Array<AddOrUpdateResult>> add_production_types(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_production_types(korona_account_id, production_type, opts)
+
+
 
 adds a batch of new production types
 
@@ -31,14 +33,15 @@ end
 
 api_instance = KoronaCloudClient::ProductionTypesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ProductionType.new] # Array<ProductionType> | array of new production types
+production_type = [KoronaCloudClient::ProductionType.new] # Array<ProductionType> | array of new production types
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new production types
-  result = api_instance.add_production_types(korona_account_id, body, opts)
+  
+  result = api_instance.add_production_types(korona_account_id, production_type, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ProductionTypesApi->add_production_types: #{e}"
@@ -49,12 +52,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_production_types_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_production_types_with_http_info(korona_account_id, production_type, opts)
 
 ```ruby
 begin
-  # adds a batch of new production types
-  data, status_code, headers = api_instance.add_production_types_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_production_types_with_http_info(korona_account_id, production_type, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -68,8 +71,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ProductionType&gt;**](ProductionType.md) | array of new production types |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **production_type** | [**Array&lt;ProductionType&gt;**](ProductionType.md) | array of new production types |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -87,7 +91,9 @@ end
 
 ## delete_production_types
 
-> <Array<AddOrUpdateResult>> delete_production_types(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_production_types(korona_account_id, production_type)
+
+
 
 deletes a batch of production types
 
@@ -105,11 +111,11 @@ end
 
 api_instance = KoronaCloudClient::ProductionTypesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ProductionType.new] # Array<ProductionType> | array of existing production types (id or number required)
+production_type = [KoronaCloudClient::ProductionType.new] # Array<ProductionType> | array of existing production types (id or number required)
 
 begin
-  # deletes a batch of production types
-  result = api_instance.delete_production_types(korona_account_id, body)
+  
+  result = api_instance.delete_production_types(korona_account_id, production_type)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ProductionTypesApi->delete_production_types: #{e}"
@@ -120,12 +126,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_production_types_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_production_types_with_http_info(korona_account_id, production_type)
 
 ```ruby
 begin
-  # deletes a batch of production types
-  data, status_code, headers = api_instance.delete_production_types_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_production_types_with_http_info(korona_account_id, production_type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -139,7 +145,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ProductionType&gt;**](ProductionType.md) | array of existing production types (id or number required) |  |
+| **production_type** | [**Array&lt;ProductionType&gt;**](ProductionType.md) | array of existing production types (id or number required) |  |
 
 ### Return type
 
@@ -158,6 +164,8 @@ end
 ## get_production_type
 
 > <ProductionType> get_production_type(korona_account_id, production_type_id)
+
+
 
 returns the single production type
 
@@ -178,7 +186,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 production_type_id = 'production_type_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single production type
+  
   result = api_instance.get_production_type(korona_account_id, production_type_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -194,7 +202,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single production type
+  
   data, status_code, headers = api_instance.get_production_type_with_http_info(korona_account_id, production_type_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -229,6 +237,8 @@ end
 
 > <ResultListProductionType> get_production_types(korona_account_id, opts)
 
+
+
 lists all production types
 
 ### Examples
@@ -255,7 +265,7 @@ opts = {
 }
 
 begin
-  # lists all production types
+  
   result = api_instance.get_production_types(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -271,7 +281,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all production types
+  
   data, status_code, headers = api_instance.get_production_types_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -309,7 +319,9 @@ end
 
 ## update_production_types
 
-> <Array<AddOrUpdateResult>> update_production_types(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_production_types(korona_account_id, production_type)
+
+
 
 updates a batch of production types
 
@@ -327,11 +339,11 @@ end
 
 api_instance = KoronaCloudClient::ProductionTypesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ProductionType.new] # Array<ProductionType> | array of existing production types (id or number required)
+production_type = [KoronaCloudClient::ProductionType.new] # Array<ProductionType> | array of existing production types (id or number required)
 
 begin
-  # updates a batch of production types
-  result = api_instance.update_production_types(korona_account_id, body)
+  
+  result = api_instance.update_production_types(korona_account_id, production_type)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ProductionTypesApi->update_production_types: #{e}"
@@ -342,12 +354,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_production_types_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_production_types_with_http_info(korona_account_id, production_type)
 
 ```ruby
 begin
-  # updates a batch of production types
-  data, status_code, headers = api_instance.update_production_types_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_production_types_with_http_info(korona_account_id, production_type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -361,7 +373,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ProductionType&gt;**](ProductionType.md) | array of existing production types (id or number required) |  |
+| **production_type** | [**Array&lt;ProductionType&gt;**](ProductionType.md) | array of existing production types (id or number required) |  |
 
 ### Return type
 

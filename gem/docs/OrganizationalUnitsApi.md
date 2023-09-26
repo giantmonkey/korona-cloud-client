@@ -1,30 +1,32 @@
 # KoronaCloudClient::OrganizationalUnitsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_organizational_unit_day_ratings**](OrganizationalUnitsApi.md#add_organizational_unit_day_ratings) | **POST** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings | adds a batch of new day ratings |
-| [**add_organizational_units**](OrganizationalUnitsApi.md#add_organizational_units) | **POST** /accounts/{koronaAccountId}/organizationalUnits | adds a batch of new organizational units |
-| [**delete_organizational_unit**](OrganizationalUnitsApi.md#delete_organizational_unit) | **DELETE** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId} | deletes the single organizational unit by its id |
-| [**delete_organizational_unit_day_rating**](OrganizationalUnitsApi.md#delete_organizational_unit_day_rating) | **DELETE** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings/{dayRatingIdOrDate} | deletes the single day rating by its id or date |
-| [**delete_organizational_units**](OrganizationalUnitsApi.md#delete_organizational_units) | **DELETE** /accounts/{koronaAccountId}/organizationalUnits | deletes a batch of organizational units |
-| [**get_organizational_unit**](OrganizationalUnitsApi.md#get_organizational_unit) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId} | returns the single organizational unit |
-| [**get_organizational_unit_day_rating**](OrganizationalUnitsApi.md#get_organizational_unit_day_rating) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings/{dayRatingIdOrDate} | returns the single day rating by its id or date |
-| [**get_organizational_unit_day_ratings**](OrganizationalUnitsApi.md#get_organizational_unit_day_ratings) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings | lists all organizational unit related day ratings |
-| [**get_organizational_unit_inventory_lists**](OrganizationalUnitsApi.md#get_organizational_unit_inventory_lists) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/inventoryLists | lists the inventory lists belonging to the organizational unit (KORONA.retail required) |
-| [**get_organizational_unit_product_stocks**](OrganizationalUnitsApi.md#get_organizational_unit_product_stocks) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/productStocks | lists the product stocks of the organizational unit, in case it contains a warehouse (KORONA.retail required) |
-| [**get_organizational_unit_stock_receipts**](OrganizationalUnitsApi.md#get_organizational_unit_stock_receipts) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/stockReceipts | lists the stock receipts belonging to the organizational unit (KORONA.retail required) |
-| [**get_organizational_units**](OrganizationalUnitsApi.md#get_organizational_units) | **GET** /accounts/{koronaAccountId}/organizationalUnits | lists all organizational units |
-| [**update_organizational_unit**](OrganizationalUnitsApi.md#update_organizational_unit) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId} | updates the organizational unit  |
-| [**update_organizational_unit_day_rating**](OrganizationalUnitsApi.md#update_organizational_unit_day_rating) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings/{dayRatingIdOrDate} | updates the day rating by its id or date |
-| [**update_organizational_unit_day_ratings**](OrganizationalUnitsApi.md#update_organizational_unit_day_ratings) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings | updates a batch of day ratings |
-| [**update_organizational_units**](OrganizationalUnitsApi.md#update_organizational_units) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits | updates a batch of organizational units |
+| [**add_organizational_unit_day_ratings**](OrganizationalUnitsApi.md#add_organizational_unit_day_ratings) | **POST** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings |  |
+| [**add_organizational_units**](OrganizationalUnitsApi.md#add_organizational_units) | **POST** /accounts/{koronaAccountId}/organizationalUnits |  |
+| [**delete_organizational_unit**](OrganizationalUnitsApi.md#delete_organizational_unit) | **DELETE** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId} |  |
+| [**delete_organizational_unit_day_rating**](OrganizationalUnitsApi.md#delete_organizational_unit_day_rating) | **DELETE** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings/{dayRatingIdOrDate} |  |
+| [**delete_organizational_units**](OrganizationalUnitsApi.md#delete_organizational_units) | **DELETE** /accounts/{koronaAccountId}/organizationalUnits |  |
+| [**get_organizational_unit**](OrganizationalUnitsApi.md#get_organizational_unit) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId} |  |
+| [**get_organizational_unit_day_rating**](OrganizationalUnitsApi.md#get_organizational_unit_day_rating) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings/{dayRatingIdOrDate} |  |
+| [**get_organizational_unit_day_ratings**](OrganizationalUnitsApi.md#get_organizational_unit_day_ratings) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings |  |
+| [**get_organizational_unit_inventory_lists**](OrganizationalUnitsApi.md#get_organizational_unit_inventory_lists) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/inventoryLists |  |
+| [**get_organizational_unit_product_stocks**](OrganizationalUnitsApi.md#get_organizational_unit_product_stocks) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/productStocks |  |
+| [**get_organizational_unit_stock_receipts**](OrganizationalUnitsApi.md#get_organizational_unit_stock_receipts) | **GET** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/stockReceipts |  |
+| [**get_organizational_units**](OrganizationalUnitsApi.md#get_organizational_units) | **GET** /accounts/{koronaAccountId}/organizationalUnits |  |
+| [**update_organizational_unit**](OrganizationalUnitsApi.md#update_organizational_unit) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId} |  |
+| [**update_organizational_unit_day_rating**](OrganizationalUnitsApi.md#update_organizational_unit_day_rating) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings/{dayRatingIdOrDate} |  |
+| [**update_organizational_unit_day_ratings**](OrganizationalUnitsApi.md#update_organizational_unit_day_ratings) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits/{organizationalUnitId}/dayRatings |  |
+| [**update_organizational_units**](OrganizationalUnitsApi.md#update_organizational_units) | **PATCH** /accounts/{koronaAccountId}/organizationalUnits |  |
 
 
 ## add_organizational_unit_day_ratings
 
-> <Array<AddOrUpdateResult>> add_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, body)
+> <Array<AddOrUpdateResult>> add_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, day_rating)
+
+
 
 adds a batch of new day ratings
 
@@ -43,11 +45,11 @@ end
 api_instance = KoronaCloudClient::OrganizationalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 organizational_unit_id = 'organizational_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::DayRating.new] # Array<DayRating> | an array of new day ratings
+day_rating = [KoronaCloudClient::DayRating.new] # Array<DayRating> | an array of new day ratings
 
 begin
-  # adds a batch of new day ratings
-  result = api_instance.add_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, body)
+  
+  result = api_instance.add_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, day_rating)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->add_organizational_unit_day_ratings: #{e}"
@@ -58,12 +60,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, day_rating)
 
 ```ruby
 begin
-  # adds a batch of new day ratings
-  data, status_code, headers = api_instance.add_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, body)
+  
+  data, status_code, headers = api_instance.add_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, day_rating)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -78,7 +80,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **organizational_unit_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;DayRating&gt;**](DayRating.md) | an array of new day ratings |  |
+| **day_rating** | [**Array&lt;DayRating&gt;**](DayRating.md) | an array of new day ratings |  |
 
 ### Return type
 
@@ -96,7 +98,9 @@ end
 
 ## add_organizational_units
 
-> <Array<AddOrUpdateResult>> add_organizational_units(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_organizational_units(korona_account_id, organizational_unit, opts)
+
+
 
 adds a batch of new organizational units
 
@@ -114,14 +118,15 @@ end
 
 api_instance = KoronaCloudClient::OrganizationalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'})] # Array<OrganizationalUnit> | an array of new organizational units
+organizational_unit = [KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'})] # Array<OrganizationalUnit> | an array of new organizational units
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new organizational units
-  result = api_instance.add_organizational_units(korona_account_id, body, opts)
+  
+  result = api_instance.add_organizational_units(korona_account_id, organizational_unit, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->add_organizational_units: #{e}"
@@ -132,12 +137,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_organizational_units_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_organizational_units_with_http_info(korona_account_id, organizational_unit, opts)
 
 ```ruby
 begin
-  # adds a batch of new organizational units
-  data, status_code, headers = api_instance.add_organizational_units_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_organizational_units_with_http_info(korona_account_id, organizational_unit, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -151,8 +156,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;OrganizationalUnit&gt;**](OrganizationalUnit.md) | an array of new organizational units |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **organizational_unit** | [**Array&lt;OrganizationalUnit&gt;**](OrganizationalUnit.md) | an array of new organizational units |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -171,6 +177,8 @@ end
 ## delete_organizational_unit
 
 > delete_organizational_unit(korona_account_id, organizational_unit_id)
+
+
 
 deletes the single organizational unit by its id
 
@@ -191,7 +199,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 organizational_unit_id = 'organizational_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single organizational unit by its id
+  
   api_instance.delete_organizational_unit(korona_account_id, organizational_unit_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->delete_organizational_unit: #{e}"
@@ -206,7 +214,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single organizational unit by its id
+  
   data, status_code, headers = api_instance.delete_organizational_unit_with_http_info(korona_account_id, organizational_unit_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -241,6 +249,8 @@ nil (empty response body)
 
 > delete_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date)
 
+
+
 deletes the single day rating by its id or date
 
 ### Examples
@@ -261,7 +271,7 @@ organizational_unit_id = 'organizational_unit_id_example' # String | id of the r
 day_rating_id_or_date = 'day_rating_id_or_date_example' # String | the id or date (YYYY-MM-DD) of the day rating
 
 begin
-  # deletes the single day rating by its id or date
+  
   api_instance.delete_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->delete_organizational_unit_day_rating: #{e}"
@@ -276,7 +286,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single day rating by its id or date
+  
   data, status_code, headers = api_instance.delete_organizational_unit_day_rating_with_http_info(korona_account_id, organizational_unit_id, day_rating_id_or_date)
   p status_code # => 2xx
   p headers # => { ... }
@@ -310,7 +320,9 @@ nil (empty response body)
 
 ## delete_organizational_units
 
-> <Array<AddOrUpdateResult>> delete_organizational_units(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_organizational_units(korona_account_id, organizational_unit)
+
+
 
 deletes a batch of organizational units
 
@@ -328,11 +340,11 @@ end
 
 api_instance = KoronaCloudClient::OrganizationalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'})] # Array<OrganizationalUnit> | array of existing organizational units (id or number required)
+organizational_unit = [KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'})] # Array<OrganizationalUnit> | array of existing organizational units (id or number required)
 
 begin
-  # deletes a batch of organizational units
-  result = api_instance.delete_organizational_units(korona_account_id, body)
+  
+  result = api_instance.delete_organizational_units(korona_account_id, organizational_unit)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->delete_organizational_units: #{e}"
@@ -343,12 +355,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_organizational_units_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_organizational_units_with_http_info(korona_account_id, organizational_unit)
 
 ```ruby
 begin
-  # deletes a batch of organizational units
-  data, status_code, headers = api_instance.delete_organizational_units_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_organizational_units_with_http_info(korona_account_id, organizational_unit)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -362,7 +374,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;OrganizationalUnit&gt;**](OrganizationalUnit.md) | array of existing organizational units (id or number required) |  |
+| **organizational_unit** | [**Array&lt;OrganizationalUnit&gt;**](OrganizationalUnit.md) | array of existing organizational units (id or number required) |  |
 
 ### Return type
 
@@ -381,6 +393,8 @@ end
 ## get_organizational_unit
 
 > <OrganizationalUnit> get_organizational_unit(korona_account_id, organizational_unit_id)
+
+
 
 returns the single organizational unit
 
@@ -401,7 +415,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 organizational_unit_id = 'organizational_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single organizational unit
+  
   result = api_instance.get_organizational_unit(korona_account_id, organizational_unit_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -417,7 +431,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single organizational unit
+  
   data, status_code, headers = api_instance.get_organizational_unit_with_http_info(korona_account_id, organizational_unit_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -452,6 +466,8 @@ end
 
 > <DayRating> get_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date)
 
+
+
 returns the single day rating by its id or date
 
 ### Examples
@@ -472,7 +488,7 @@ organizational_unit_id = 'organizational_unit_id_example' # String | id of the r
 day_rating_id_or_date = 'day_rating_id_or_date_example' # String | the id or date (YYYY-MM-DD) of the day rating
 
 begin
-  # returns the single day rating by its id or date
+  
   result = api_instance.get_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -488,7 +504,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single day rating by its id or date
+  
   data, status_code, headers = api_instance.get_organizational_unit_day_rating_with_http_info(korona_account_id, organizational_unit_id, day_rating_id_or_date)
   p status_code # => 2xx
   p headers # => { ... }
@@ -524,6 +540,8 @@ end
 
 > <ResultListDayRating> get_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, opts)
 
+
+
 lists all organizational unit related day ratings
 
 ### Examples
@@ -548,7 +566,7 @@ opts = {
 }
 
 begin
-  # lists all organizational unit related day ratings
+  
   result = api_instance.get_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -564,7 +582,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all organizational unit related day ratings
+  
   data, status_code, headers = api_instance.get_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -602,6 +620,8 @@ end
 
 > <ResultListInventoryList> get_organizational_unit_inventory_lists(korona_account_id, organizational_unit_id, opts)
 
+
+
 lists the inventory lists belonging to the organizational unit (KORONA.retail required)
 
 ### Examples
@@ -633,7 +653,7 @@ opts = {
 }
 
 begin
-  # lists the inventory lists belonging to the organizational unit (KORONA.retail required)
+  
   result = api_instance.get_organizational_unit_inventory_lists(korona_account_id, organizational_unit_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -649,7 +669,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists the inventory lists belonging to the organizational unit (KORONA.retail required)
+  
   data, status_code, headers = api_instance.get_organizational_unit_inventory_lists_with_http_info(korona_account_id, organizational_unit_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -694,6 +714,8 @@ end
 
 > <ResultListProductStock> get_organizational_unit_product_stocks(korona_account_id, organizational_unit_id, opts)
 
+
+
 lists the product stocks of the organizational unit, in case it contains a warehouse (KORONA.retail required)
 
 ### Examples
@@ -719,7 +741,7 @@ opts = {
 }
 
 begin
-  # lists the product stocks of the organizational unit, in case it contains a warehouse (KORONA.retail required)
+  
   result = api_instance.get_organizational_unit_product_stocks(korona_account_id, organizational_unit_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -735,7 +757,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists the product stocks of the organizational unit, in case it contains a warehouse (KORONA.retail required)
+  
   data, status_code, headers = api_instance.get_organizational_unit_product_stocks_with_http_info(korona_account_id, organizational_unit_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -774,6 +796,8 @@ end
 
 > <ResultListStockReceipt> get_organizational_unit_stock_receipts(korona_account_id, organizational_unit_id, opts)
 
+
+
 lists the stock receipts belonging to the organizational unit (KORONA.retail required)
 
 ### Examples
@@ -807,7 +831,7 @@ opts = {
 }
 
 begin
-  # lists the stock receipts belonging to the organizational unit (KORONA.retail required)
+  
   result = api_instance.get_organizational_unit_stock_receipts(korona_account_id, organizational_unit_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -823,7 +847,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists the stock receipts belonging to the organizational unit (KORONA.retail required)
+  
   data, status_code, headers = api_instance.get_organizational_unit_stock_receipts_with_http_info(korona_account_id, organizational_unit_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -870,6 +894,8 @@ end
 
 > <ResultListOrganizationalUnit> get_organizational_units(korona_account_id, opts)
 
+
+
 lists all organizational units
 
 ### Examples
@@ -896,7 +922,7 @@ opts = {
 }
 
 begin
-  # lists all organizational units
+  
   result = api_instance.get_organizational_units(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -912,7 +938,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all organizational units
+  
   data, status_code, headers = api_instance.get_organizational_units_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -950,7 +976,9 @@ end
 
 ## update_organizational_unit
 
-> update_organizational_unit(korona_account_id, organizational_unit_id, body)
+> update_organizational_unit(korona_account_id, organizational_unit_id, organizational_unit)
+
+
 
 updates the organizational unit 
 
@@ -969,11 +997,11 @@ end
 api_instance = KoronaCloudClient::OrganizationalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 organizational_unit_id = 'organizational_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'}) # OrganizationalUnit | the properties to update of the organizational unit
+organizational_unit = KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'}) # OrganizationalUnit | the properties to update of the organizational unit
 
 begin
-  # updates the organizational unit 
-  api_instance.update_organizational_unit(korona_account_id, organizational_unit_id, body)
+  
+  api_instance.update_organizational_unit(korona_account_id, organizational_unit_id, organizational_unit)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->update_organizational_unit: #{e}"
 end
@@ -983,12 +1011,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_organizational_unit_with_http_info(korona_account_id, organizational_unit_id, body)
+> <Array(nil, Integer, Hash)> update_organizational_unit_with_http_info(korona_account_id, organizational_unit_id, organizational_unit)
 
 ```ruby
 begin
-  # updates the organizational unit 
-  data, status_code, headers = api_instance.update_organizational_unit_with_http_info(korona_account_id, organizational_unit_id, body)
+  
+  data, status_code, headers = api_instance.update_organizational_unit_with_http_info(korona_account_id, organizational_unit_id, organizational_unit)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -1003,7 +1031,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **organizational_unit_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**OrganizationalUnit**](OrganizationalUnit.md) | the properties to update of the organizational unit |  |
+| **organizational_unit** | [**OrganizationalUnit**](OrganizationalUnit.md) | the properties to update of the organizational unit |  |
 
 ### Return type
 
@@ -1021,7 +1049,9 @@ nil (empty response body)
 
 ## update_organizational_unit_day_rating
 
-> update_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date, body)
+> update_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date, day_rating)
+
+
 
 updates the day rating by its id or date
 
@@ -1041,11 +1071,11 @@ api_instance = KoronaCloudClient::OrganizationalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 organizational_unit_id = 'organizational_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
 day_rating_id_or_date = 'day_rating_id_or_date_example' # String | the id or date (YYYY-MM-DD) of the day rating
-body = KoronaCloudClient::DayRating.new # DayRating | the properties to update of the day rating
+day_rating = KoronaCloudClient::DayRating.new # DayRating | the properties to update of the day rating
 
 begin
-  # updates the day rating by its id or date
-  api_instance.update_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date, body)
+  
+  api_instance.update_organizational_unit_day_rating(korona_account_id, organizational_unit_id, day_rating_id_or_date, day_rating)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->update_organizational_unit_day_rating: #{e}"
 end
@@ -1055,12 +1085,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_organizational_unit_day_rating_with_http_info(korona_account_id, organizational_unit_id, day_rating_id_or_date, body)
+> <Array(nil, Integer, Hash)> update_organizational_unit_day_rating_with_http_info(korona_account_id, organizational_unit_id, day_rating_id_or_date, day_rating)
 
 ```ruby
 begin
-  # updates the day rating by its id or date
-  data, status_code, headers = api_instance.update_organizational_unit_day_rating_with_http_info(korona_account_id, organizational_unit_id, day_rating_id_or_date, body)
+  
+  data, status_code, headers = api_instance.update_organizational_unit_day_rating_with_http_info(korona_account_id, organizational_unit_id, day_rating_id_or_date, day_rating)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -1076,7 +1106,7 @@ end
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **organizational_unit_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **day_rating_id_or_date** | **String** | the id or date (YYYY-MM-DD) of the day rating |  |
-| **body** | [**DayRating**](DayRating.md) | the properties to update of the day rating |  |
+| **day_rating** | [**DayRating**](DayRating.md) | the properties to update of the day rating |  |
 
 ### Return type
 
@@ -1094,7 +1124,9 @@ nil (empty response body)
 
 ## update_organizational_unit_day_ratings
 
-> <Array<AddOrUpdateResult>> update_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, body)
+> <Array<AddOrUpdateResult>> update_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, day_rating)
+
+
 
 updates a batch of day ratings
 
@@ -1113,11 +1145,11 @@ end
 api_instance = KoronaCloudClient::OrganizationalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 organizational_unit_id = 'organizational_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::DayRating.new] # Array<DayRating> | an array of new day ratings
+day_rating = [KoronaCloudClient::DayRating.new] # Array<DayRating> | an array of new day ratings
 
 begin
-  # updates a batch of day ratings
-  result = api_instance.update_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, body)
+  
+  result = api_instance.update_organizational_unit_day_ratings(korona_account_id, organizational_unit_id, day_rating)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->update_organizational_unit_day_ratings: #{e}"
@@ -1128,12 +1160,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, day_rating)
 
 ```ruby
 begin
-  # updates a batch of day ratings
-  data, status_code, headers = api_instance.update_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, body)
+  
+  data, status_code, headers = api_instance.update_organizational_unit_day_ratings_with_http_info(korona_account_id, organizational_unit_id, day_rating)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -1148,7 +1180,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **organizational_unit_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;DayRating&gt;**](DayRating.md) | an array of new day ratings |  |
+| **day_rating** | [**Array&lt;DayRating&gt;**](DayRating.md) | an array of new day ratings |  |
 
 ### Return type
 
@@ -1166,11 +1198,11 @@ end
 
 ## update_organizational_units
 
-> <Array<AddOrUpdateResult>> update_organizational_units(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_organizational_units(korona_account_id, organizational_unit)
 
-updates a batch of organizational units
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of organizational units; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -1186,11 +1218,11 @@ end
 
 api_instance = KoronaCloudClient::OrganizationalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'})] # Array<OrganizationalUnit> | an array of existing organizational units
+organizational_unit = [KoronaCloudClient::OrganizationalUnit.new({name: 'name_example'})] # Array<OrganizationalUnit> | an array of existing organizational units
 
 begin
-  # updates a batch of organizational units
-  result = api_instance.update_organizational_units(korona_account_id, body)
+  
+  result = api_instance.update_organizational_units(korona_account_id, organizational_unit)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling OrganizationalUnitsApi->update_organizational_units: #{e}"
@@ -1201,12 +1233,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_organizational_units_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_organizational_units_with_http_info(korona_account_id, organizational_unit)
 
 ```ruby
 begin
-  # updates a batch of organizational units
-  data, status_code, headers = api_instance.update_organizational_units_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_organizational_units_with_http_info(korona_account_id, organizational_unit)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -1220,7 +1252,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;OrganizationalUnit&gt;**](OrganizationalUnit.md) | an array of existing organizational units |  |
+| **organizational_unit** | [**Array&lt;OrganizationalUnit&gt;**](OrganizationalUnit.md) | an array of existing organizational units |  |
 
 ### Return type
 

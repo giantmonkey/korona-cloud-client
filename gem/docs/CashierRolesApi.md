@@ -1,21 +1,23 @@
 # KoronaCloudClient::CashierRolesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_cashier_roles**](CashierRolesApi.md#add_cashier_roles) | **POST** /accounts/{koronaAccountId}/cashierRoles | adds a batch of new cashier roles |
-| [**delete_cashier_role**](CashierRolesApi.md#delete_cashier_role) | **DELETE** /accounts/{koronaAccountId}/cashierRoles/{cashierRoleId} | deletes the single cashier role |
-| [**delete_cashier_roles**](CashierRolesApi.md#delete_cashier_roles) | **DELETE** /accounts/{koronaAccountId}/cashierRoles | deletes a batch of cashier roles |
-| [**get_cashier_role**](CashierRolesApi.md#get_cashier_role) | **GET** /accounts/{koronaAccountId}/cashierRoles/{cashierRoleId} | returns the single cashier role |
-| [**get_cashier_roles**](CashierRolesApi.md#get_cashier_roles) | **GET** /accounts/{koronaAccountId}/cashierRoles | lists all cashier roles |
-| [**update_cashier_role**](CashierRolesApi.md#update_cashier_role) | **PATCH** /accounts/{koronaAccountId}/cashierRoles/{cashierRoleId} | updates the single cashier role |
-| [**update_cashier_roles**](CashierRolesApi.md#update_cashier_roles) | **PATCH** /accounts/{koronaAccountId}/cashierRoles | updates a batch of cashier roles |
+| [**add_cashier_roles**](CashierRolesApi.md#add_cashier_roles) | **POST** /accounts/{koronaAccountId}/cashierRoles |  |
+| [**delete_cashier_role**](CashierRolesApi.md#delete_cashier_role) | **DELETE** /accounts/{koronaAccountId}/cashierRoles/{cashierRoleId} |  |
+| [**delete_cashier_roles**](CashierRolesApi.md#delete_cashier_roles) | **DELETE** /accounts/{koronaAccountId}/cashierRoles |  |
+| [**get_cashier_role**](CashierRolesApi.md#get_cashier_role) | **GET** /accounts/{koronaAccountId}/cashierRoles/{cashierRoleId} |  |
+| [**get_cashier_roles**](CashierRolesApi.md#get_cashier_roles) | **GET** /accounts/{koronaAccountId}/cashierRoles |  |
+| [**update_cashier_role**](CashierRolesApi.md#update_cashier_role) | **PATCH** /accounts/{koronaAccountId}/cashierRoles/{cashierRoleId} |  |
+| [**update_cashier_roles**](CashierRolesApi.md#update_cashier_roles) | **PATCH** /accounts/{koronaAccountId}/cashierRoles |  |
 
 
 ## add_cashier_roles
 
-> <Array<AddOrUpdateResult>> add_cashier_roles(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_cashier_roles(korona_account_id, cashier_role, opts)
+
+
 
 adds a batch of new cashier roles
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::CashierRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CashierRole.new] # Array<CashierRole> | an array of new cashier roles
+cashier_role = [KoronaCloudClient::CashierRole.new] # Array<CashierRole> | an array of new cashier roles
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new cashier roles
-  result = api_instance.add_cashier_roles(korona_account_id, body, opts)
+  
+  result = api_instance.add_cashier_roles(korona_account_id, cashier_role, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierRolesApi->add_cashier_roles: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_cashier_roles_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_cashier_roles_with_http_info(korona_account_id, cashier_role, opts)
 
 ```ruby
 begin
-  # adds a batch of new cashier roles
-  data, status_code, headers = api_instance.add_cashier_roles_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_cashier_roles_with_http_info(korona_account_id, cashier_role, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CashierRole&gt;**](CashierRole.md) | an array of new cashier roles |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **cashier_role** | [**Array&lt;CashierRole&gt;**](CashierRole.md) | an array of new cashier roles |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_cashier_role
 
 > delete_cashier_role(korona_account_id, cashier_role_id)
+
+
 
 deletes the single cashier role
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 cashier_role_id = 'cashier_role_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single cashier role
+  
   api_instance.delete_cashier_role(korona_account_id, cashier_role_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierRolesApi->delete_cashier_role: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single cashier role
+  
   data, status_code, headers = api_instance.delete_cashier_role_with_http_info(korona_account_id, cashier_role_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_cashier_roles
 
-> <Array<AddOrUpdateResult>> delete_cashier_roles(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_cashier_roles(korona_account_id, cashier_role)
+
+
 
 deletes a batch of cashier roles
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::CashierRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CashierRole.new] # Array<CashierRole> | array of existing cashier roles (id or number required)
+cashier_role = [KoronaCloudClient::CashierRole.new] # Array<CashierRole> | array of existing cashier roles (id or number required)
 
 begin
-  # deletes a batch of cashier roles
-  result = api_instance.delete_cashier_roles(korona_account_id, body)
+  
+  result = api_instance.delete_cashier_roles(korona_account_id, cashier_role)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierRolesApi->delete_cashier_roles: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_cashier_roles_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_cashier_roles_with_http_info(korona_account_id, cashier_role)
 
 ```ruby
 begin
-  # deletes a batch of cashier roles
-  data, status_code, headers = api_instance.delete_cashier_roles_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_cashier_roles_with_http_info(korona_account_id, cashier_role)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CashierRole&gt;**](CashierRole.md) | array of existing cashier roles (id or number required) |  |
+| **cashier_role** | [**Array&lt;CashierRole&gt;**](CashierRole.md) | array of existing cashier roles (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_cashier_role
 
 > <CashierRole> get_cashier_role(korona_account_id, cashier_role_id)
+
+
 
 returns the single cashier role
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 cashier_role_id = 'cashier_role_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single cashier role
+  
   result = api_instance.get_cashier_role(korona_account_id, cashier_role_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single cashier role
+  
   data, status_code, headers = api_instance.get_cashier_role_with_http_info(korona_account_id, cashier_role_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListCashierRole> get_cashier_roles(korona_account_id, opts)
 
+
+
 lists all cashier roles
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all cashier roles
+  
   result = api_instance.get_cashier_roles(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all cashier roles
+  
   data, status_code, headers = api_instance.get_cashier_roles_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_cashier_role
 
-> update_cashier_role(korona_account_id, cashier_role_id, body)
+> update_cashier_role(korona_account_id, cashier_role_id, cashier_role)
+
+
 
 updates the single cashier role
 
@@ -399,11 +413,11 @@ end
 api_instance = KoronaCloudClient::CashierRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 cashier_role_id = 'cashier_role_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::CashierRole.new # CashierRole | the properties to update of the cashier role
+cashier_role = KoronaCloudClient::CashierRole.new # CashierRole | the properties to update of the cashier role
 
 begin
-  # updates the single cashier role
-  api_instance.update_cashier_role(korona_account_id, cashier_role_id, body)
+  
+  api_instance.update_cashier_role(korona_account_id, cashier_role_id, cashier_role)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierRolesApi->update_cashier_role: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_cashier_role_with_http_info(korona_account_id, cashier_role_id, body)
+> <Array(nil, Integer, Hash)> update_cashier_role_with_http_info(korona_account_id, cashier_role_id, cashier_role)
 
 ```ruby
 begin
-  # updates the single cashier role
-  data, status_code, headers = api_instance.update_cashier_role_with_http_info(korona_account_id, cashier_role_id, body)
+  
+  data, status_code, headers = api_instance.update_cashier_role_with_http_info(korona_account_id, cashier_role_id, cashier_role)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **cashier_role_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**CashierRole**](CashierRole.md) | the properties to update of the cashier role |  |
+| **cashier_role** | [**CashierRole**](CashierRole.md) | the properties to update of the cashier role |  |
 
 ### Return type
 
@@ -451,7 +465,9 @@ nil (empty response body)
 
 ## update_cashier_roles
 
-> <Array<AddOrUpdateResult>> update_cashier_roles(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_cashier_roles(korona_account_id, cashier_role)
+
+
 
 updates a batch of cashier roles
 
@@ -469,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::CashierRolesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CashierRole.new] # Array<CashierRole> | array of existing cashier roles (id or number required)
+cashier_role = [KoronaCloudClient::CashierRole.new] # Array<CashierRole> | array of existing cashier roles (id or number required)
 
 begin
-  # updates a batch of cashier roles
-  result = api_instance.update_cashier_roles(korona_account_id, body)
+  
+  result = api_instance.update_cashier_roles(korona_account_id, cashier_role)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CashierRolesApi->update_cashier_roles: #{e}"
@@ -484,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_cashier_roles_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_cashier_roles_with_http_info(korona_account_id, cashier_role)
 
 ```ruby
 begin
-  # updates a batch of cashier roles
-  data, status_code, headers = api_instance.update_cashier_roles_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_cashier_roles_with_http_info(korona_account_id, cashier_role)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -503,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CashierRole&gt;**](CashierRole.md) | array of existing cashier roles (id or number required) |  |
+| **cashier_role** | [**Array&lt;CashierRole&gt;**](CashierRole.md) | array of existing cashier roles (id or number required) |  |
 
 ### Return type
 

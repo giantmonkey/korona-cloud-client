@@ -23,7 +23,7 @@
 | **item_sequence** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **last_purchase_price** | **Float** |  | [optional] |
 | **listed** | **Boolean** |  | [optional] |
-| **listed_since** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **listed_since** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **max_price** | **Float** |  | [optional] |
 | **min_price** | **Float** |  | [optional] |
 | **name** | **String** |  | [optional] |
@@ -42,14 +42,19 @@
 | **subproduct_presentation** | **String** |  | [optional] |
 | **subproducts** | [**Array&lt;ProductSubproduct&gt;**](ProductSubproduct.md) |  | [optional] |
 | **supplier_prices** | [**Array&lt;ProductSupplierPrice&gt;**](ProductSupplierPrice.md) |  | [optional] |
-| **tags** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **tags** | **Object** |  | [optional] |
 | **ticket_definition** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **track_inventory** | **Boolean** |  | [optional] |
 | **media_urls** | [**Array&lt;MediaUrl&gt;**](MediaUrl.md) |  | [optional] |
 | **quantity_denomination** | **Float** |  | [optional] |
 | **special_prices** | [**Array&lt;ProductSpecialPrice&gt;**](ProductSpecialPrice.md) |  | [optional] |
-| **verification_requirements** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **verification_requirements** | **Object** |  | [optional] |
 | **sales_lock** | **Boolean** |  | [optional] |
+| **custom_properties** | **Hash&lt;String, String&gt;** |  | [optional] |
+| **containers** | [**Array&lt;ProductContainer&gt;**](ProductContainer.md) |  | [optional] |
+| **container_capacity** | **Float** |  | [optional] |
+| **independent_subarticle_discounts** | **Boolean** |  | [optional] |
+| **listed_organizational_units** | **Object** |  | [optional] |
 | **stock_return_unsellable** | **Boolean** |  | [optional] |
 
 ## Example
@@ -104,6 +109,11 @@ instance = KoronaCloudClient::Product.new(
   special_prices: null,
   verification_requirements: null,
   sales_lock: null,
+  custom_properties: null,
+  containers: null,
+  container_capacity: null,
+  independent_subarticle_discounts: null,
+  listed_organizational_units: null,
   stock_return_unsellable: null
 )
 ```

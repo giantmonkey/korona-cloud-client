@@ -1,16 +1,18 @@
 # KoronaCloudClient::CouponsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_coupon**](CouponsApi.md#get_coupon) | **GET** /accounts/{koronaAccountId}/coupons/{couponId} | returns the single coupon |
-| [**get_coupons**](CouponsApi.md#get_coupons) | **GET** /accounts/{koronaAccountId}/coupons | lists all coupons |
+| [**get_coupon**](CouponsApi.md#get_coupon) | **GET** /accounts/{koronaAccountId}/coupons/{couponId} |  |
+| [**get_coupons**](CouponsApi.md#get_coupons) | **GET** /accounts/{koronaAccountId}/coupons |  |
 
 
 ## get_coupon
 
 > <Coupon> get_coupon(korona_account_id, coupon_id)
+
+
 
 returns the single coupon
 
@@ -31,7 +33,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 coupon_id = 'coupon_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single coupon
+  
   result = api_instance.get_coupon(korona_account_id, coupon_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -47,7 +49,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single coupon
+  
   data, status_code, headers = api_instance.get_coupon_with_http_info(korona_account_id, coupon_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -82,6 +84,8 @@ end
 
 > <ResultListCoupon> get_coupons(korona_account_id, opts)
 
+
+
 lists all coupons
 
 ### Examples
@@ -107,7 +111,7 @@ opts = {
 }
 
 begin
-  # lists all coupons
+  
   result = api_instance.get_coupons(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -123,7 +127,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all coupons
+  
   data, status_code, headers = api_instance.get_coupons_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

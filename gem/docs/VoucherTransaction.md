@@ -4,17 +4,28 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **amount** | **Float** |  | [optional] |
-| **booking_time** | **Time** |  | [optional] |
+| **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
+| **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
+| **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
+| **voided** | **Boolean** |  | [optional][readonly] |
+| **type** | **String** |  | [optional] |
+| **point_of_sale** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **receipt_number** | **String** |  | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
+| **voucher** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **receipt** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **receipt_item** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **amount** | **Float** |  | [optional] |
+| **user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **comment** | **String** |  | [optional] |
 | **price** | **Float** |  | [optional] |
-| **transaction_type** | **String** |  | [optional] |
-| **user** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **voucher** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
-| **voided** | **Boolean** |  | [optional] |
-| **voucher_configuration** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **delivery_note** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **delivery_note_item** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **invoice** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **invoice_item** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **api_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 
 ## Example
 
@@ -22,17 +33,28 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::VoucherTransaction.new(
-  amount: null,
-  booking_time: null,
+  active: null,
+  id: null,
+  revision: null,
+  voided: null,
+  type: null,
+  point_of_sale: null,
   cashier: null,
+  receipt_number: null,
+  booking_time: 2018-11-22T09:40:21+01:00,
+  voucher: null,
+  receipt: null,
+  receipt_item: null,
+  amount: null,
+  user: null,
   comment: null,
   price: null,
-  transaction_type: null,
-  user: null,
-  voucher: null,
   external_references: null,
-  voided: null,
-  voucher_configuration: null
+  delivery_note: null,
+  delivery_note_item: null,
+  invoice: null,
+  invoice_item: null,
+  api_user: null
 )
 ```
 

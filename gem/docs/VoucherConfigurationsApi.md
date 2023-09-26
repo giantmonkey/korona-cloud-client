@@ -1,21 +1,23 @@
 # KoronaCloudClient::VoucherConfigurationsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_voucher_configurations**](VoucherConfigurationsApi.md#add_voucher_configurations) | **POST** /accounts/{koronaAccountId}/voucherConfigurations | adds a batch of new voucher configurations |
-| [**delete_voucher_configuration**](VoucherConfigurationsApi.md#delete_voucher_configuration) | **DELETE** /accounts/{koronaAccountId}/voucherConfigurations/{voucherConfigurationId} | deletes the single voucher configuration |
-| [**delete_voucher_configurations**](VoucherConfigurationsApi.md#delete_voucher_configurations) | **DELETE** /accounts/{koronaAccountId}/voucherConfigurations | deletes a batch of voucher configurations |
-| [**get_voucher_configuration**](VoucherConfigurationsApi.md#get_voucher_configuration) | **GET** /accounts/{koronaAccountId}/voucherConfigurations/{voucherConfigurationId} | returns the single voucher configuration |
-| [**get_voucher_configurations**](VoucherConfigurationsApi.md#get_voucher_configurations) | **GET** /accounts/{koronaAccountId}/voucherConfigurations | lists all voucher configurations |
-| [**update_voucher_configuration**](VoucherConfigurationsApi.md#update_voucher_configuration) | **PATCH** /accounts/{koronaAccountId}/voucherConfigurations/{voucherConfigurationId} | updates the single voucher configuration |
-| [**update_voucher_configurations**](VoucherConfigurationsApi.md#update_voucher_configurations) | **PATCH** /accounts/{koronaAccountId}/voucherConfigurations | updates a batch of voucher configurations |
+| [**add_voucher_configurations**](VoucherConfigurationsApi.md#add_voucher_configurations) | **POST** /accounts/{koronaAccountId}/voucherConfigurations |  |
+| [**delete_voucher_configuration**](VoucherConfigurationsApi.md#delete_voucher_configuration) | **DELETE** /accounts/{koronaAccountId}/voucherConfigurations/{voucherConfigurationId} |  |
+| [**delete_voucher_configurations**](VoucherConfigurationsApi.md#delete_voucher_configurations) | **DELETE** /accounts/{koronaAccountId}/voucherConfigurations |  |
+| [**get_voucher_configuration**](VoucherConfigurationsApi.md#get_voucher_configuration) | **GET** /accounts/{koronaAccountId}/voucherConfigurations/{voucherConfigurationId} |  |
+| [**get_voucher_configurations**](VoucherConfigurationsApi.md#get_voucher_configurations) | **GET** /accounts/{koronaAccountId}/voucherConfigurations |  |
+| [**update_voucher_configuration**](VoucherConfigurationsApi.md#update_voucher_configuration) | **PATCH** /accounts/{koronaAccountId}/voucherConfigurations/{voucherConfigurationId} |  |
+| [**update_voucher_configurations**](VoucherConfigurationsApi.md#update_voucher_configurations) | **PATCH** /accounts/{koronaAccountId}/voucherConfigurations |  |
 
 
 ## add_voucher_configurations
 
-> <Array<AddOrUpdateResult>> add_voucher_configurations(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_voucher_configurations(korona_account_id, voucher_configuration, opts)
+
+
 
 adds a batch of new voucher configurations
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::VoucherConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::VoucherConfiguration.new] # Array<VoucherConfiguration> | array of new voucher configurations
+voucher_configuration = [KoronaCloudClient::VoucherConfiguration.new] # Array<VoucherConfiguration> | array of new voucher configurations
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new voucher configurations
-  result = api_instance.add_voucher_configurations(korona_account_id, body, opts)
+  
+  result = api_instance.add_voucher_configurations(korona_account_id, voucher_configuration, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling VoucherConfigurationsApi->add_voucher_configurations: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_voucher_configurations_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_voucher_configurations_with_http_info(korona_account_id, voucher_configuration, opts)
 
 ```ruby
 begin
-  # adds a batch of new voucher configurations
-  data, status_code, headers = api_instance.add_voucher_configurations_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_voucher_configurations_with_http_info(korona_account_id, voucher_configuration, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;VoucherConfiguration&gt;**](VoucherConfiguration.md) | array of new voucher configurations |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **voucher_configuration** | [**Array&lt;VoucherConfiguration&gt;**](VoucherConfiguration.md) | array of new voucher configurations |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -89,7 +93,9 @@ end
 
 ## delete_voucher_configuration
 
-> delete_voucher_configuration(voucher_configuration_id, korona_account_id)
+> delete_voucher_configuration(korona_account_id, voucher_configuration_id)
+
+
 
 deletes the single voucher configuration
 
@@ -106,12 +112,12 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::VoucherConfigurationsApi.new
-voucher_configuration_id = 'voucher_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+voucher_configuration_id = 'voucher_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single voucher configuration
-  api_instance.delete_voucher_configuration(voucher_configuration_id, korona_account_id)
+  
+  api_instance.delete_voucher_configuration(korona_account_id, voucher_configuration_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling VoucherConfigurationsApi->delete_voucher_configuration: #{e}"
 end
@@ -121,12 +127,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_voucher_configuration_with_http_info(voucher_configuration_id, korona_account_id)
+> <Array(nil, Integer, Hash)> delete_voucher_configuration_with_http_info(korona_account_id, voucher_configuration_id)
 
 ```ruby
 begin
-  # deletes the single voucher configuration
-  data, status_code, headers = api_instance.delete_voucher_configuration_with_http_info(voucher_configuration_id, korona_account_id)
+  
+  data, status_code, headers = api_instance.delete_voucher_configuration_with_http_info(korona_account_id, voucher_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -139,8 +145,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **voucher_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **voucher_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
 
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_voucher_configurations
 
-> <Array<AddOrUpdateResult>> delete_voucher_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_voucher_configurations(korona_account_id, voucher_configuration)
+
+
 
 deletes a batch of voucher configurations
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::VoucherConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::VoucherConfiguration.new] # Array<VoucherConfiguration> | array of existing voucher configurations (id or number required)
+voucher_configuration = [KoronaCloudClient::VoucherConfiguration.new] # Array<VoucherConfiguration> | array of existing voucher configurations (id or number required)
 
 begin
-  # deletes a batch of voucher configurations
-  result = api_instance.delete_voucher_configurations(korona_account_id, body)
+  
+  result = api_instance.delete_voucher_configurations(korona_account_id, voucher_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling VoucherConfigurationsApi->delete_voucher_configurations: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_voucher_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_voucher_configurations_with_http_info(korona_account_id, voucher_configuration)
 
 ```ruby
 begin
-  # deletes a batch of voucher configurations
-  data, status_code, headers = api_instance.delete_voucher_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_voucher_configurations_with_http_info(korona_account_id, voucher_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;VoucherConfiguration&gt;**](VoucherConfiguration.md) | array of existing voucher configurations (id or number required) |  |
+| **voucher_configuration** | [**Array&lt;VoucherConfiguration&gt;**](VoucherConfiguration.md) | array of existing voucher configurations (id or number required) |  |
 
 ### Return type
 
@@ -228,7 +236,9 @@ end
 
 ## get_voucher_configuration
 
-> <VoucherConfiguration> get_voucher_configuration(voucher_configuration_id, korona_account_id)
+> <VoucherConfiguration> get_voucher_configuration(korona_account_id, voucher_configuration_id)
+
+
 
 returns the single voucher configuration
 
@@ -245,12 +255,12 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::VoucherConfigurationsApi.new
-voucher_configuration_id = 'voucher_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+voucher_configuration_id = 'voucher_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single voucher configuration
-  result = api_instance.get_voucher_configuration(voucher_configuration_id, korona_account_id)
+  
+  result = api_instance.get_voucher_configuration(korona_account_id, voucher_configuration_id)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling VoucherConfigurationsApi->get_voucher_configuration: #{e}"
@@ -261,12 +271,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<VoucherConfiguration>, Integer, Hash)> get_voucher_configuration_with_http_info(voucher_configuration_id, korona_account_id)
+> <Array(<VoucherConfiguration>, Integer, Hash)> get_voucher_configuration_with_http_info(korona_account_id, voucher_configuration_id)
 
 ```ruby
 begin
-  # returns the single voucher configuration
-  data, status_code, headers = api_instance.get_voucher_configuration_with_http_info(voucher_configuration_id, korona_account_id)
+  
+  data, status_code, headers = api_instance.get_voucher_configuration_with_http_info(korona_account_id, voucher_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VoucherConfiguration>
@@ -279,8 +289,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **voucher_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **voucher_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
 
@@ -299,6 +309,8 @@ end
 ## get_voucher_configurations
 
 > <ResultListVoucherConfiguration> get_voucher_configurations(korona_account_id, opts)
+
+
 
 lists all voucher configurations
 
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all voucher configurations
+  
   result = api_instance.get_voucher_configurations(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all voucher configurations
+  
   data, status_code, headers = api_instance.get_voucher_configurations_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_voucher_configuration
 
-> update_voucher_configuration(voucher_configuration_id, korona_account_id, body)
+> update_voucher_configuration(korona_account_id, voucher_configuration_id, voucher_configuration)
+
+
 
 updates the single voucher configuration
 
@@ -397,13 +411,13 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::VoucherConfigurationsApi.new
-voucher_configuration_id = 'voucher_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = KoronaCloudClient::VoucherConfiguration.new # VoucherConfiguration | the properties to update of the voucher
+voucher_configuration_id = 'voucher_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
+voucher_configuration = KoronaCloudClient::VoucherConfiguration.new # VoucherConfiguration | the properties to update of the voucher
 
 begin
-  # updates the single voucher configuration
-  api_instance.update_voucher_configuration(voucher_configuration_id, korona_account_id, body)
+  
+  api_instance.update_voucher_configuration(korona_account_id, voucher_configuration_id, voucher_configuration)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling VoucherConfigurationsApi->update_voucher_configuration: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_voucher_configuration_with_http_info(voucher_configuration_id, korona_account_id, body)
+> <Array(nil, Integer, Hash)> update_voucher_configuration_with_http_info(korona_account_id, voucher_configuration_id, voucher_configuration)
 
 ```ruby
 begin
-  # updates the single voucher configuration
-  data, status_code, headers = api_instance.update_voucher_configuration_with_http_info(voucher_configuration_id, korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_voucher_configuration_with_http_info(korona_account_id, voucher_configuration_id, voucher_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -431,9 +445,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **voucher_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**VoucherConfiguration**](VoucherConfiguration.md) | the properties to update of the voucher |  |
+| **voucher_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+| **voucher_configuration** | [**VoucherConfiguration**](VoucherConfiguration.md) | the properties to update of the voucher |  |
 
 ### Return type
 
@@ -451,11 +465,11 @@ nil (empty response body)
 
 ## update_voucher_configurations
 
-> <Array<AddOrUpdateResult>> update_voucher_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_voucher_configurations(korona_account_id, voucher_configuration)
 
-updates a batch of voucher configurations
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of voucher configurations; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -471,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::VoucherConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::VoucherConfiguration.new] # Array<VoucherConfiguration> | an array of existing voucher configurations
+voucher_configuration = [KoronaCloudClient::VoucherConfiguration.new] # Array<VoucherConfiguration> | an array of existing voucher configurations
 
 begin
-  # updates a batch of voucher configurations
-  result = api_instance.update_voucher_configurations(korona_account_id, body)
+  
+  result = api_instance.update_voucher_configurations(korona_account_id, voucher_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling VoucherConfigurationsApi->update_voucher_configurations: #{e}"
@@ -486,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_voucher_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_voucher_configurations_with_http_info(korona_account_id, voucher_configuration)
 
 ```ruby
 begin
-  # updates a batch of voucher configurations
-  data, status_code, headers = api_instance.update_voucher_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_voucher_configurations_with_http_info(korona_account_id, voucher_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -505,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;VoucherConfiguration&gt;**](VoucherConfiguration.md) | an array of existing voucher configurations |  |
+| **voucher_configuration** | [**Array&lt;VoucherConfiguration&gt;**](VoucherConfiguration.md) | an array of existing voucher configurations |  |
 
 ### Return type
 

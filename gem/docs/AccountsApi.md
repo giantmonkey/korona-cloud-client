@@ -1,21 +1,23 @@
 # KoronaCloudClient::AccountsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_accounts**](AccountsApi.md#add_accounts) | **POST** /accounts/{koronaAccountId}/accounts | adds a batch of new accounts |
-| [**delete_account**](AccountsApi.md#delete_account) | **DELETE** /accounts/{koronaAccountId}/accounts/{accountId} | deletes the single account |
-| [**delete_accounts**](AccountsApi.md#delete_accounts) | **DELETE** /accounts/{koronaAccountId}/accounts | deletes a batch of accounts |
-| [**get_account**](AccountsApi.md#get_account) | **GET** /accounts/{koronaAccountId}/accounts/{accountId} | returns a single account |
-| [**get_accounts**](AccountsApi.md#get_accounts) | **GET** /accounts/{koronaAccountId}/accounts | lists all accounts |
-| [**update_account**](AccountsApi.md#update_account) | **PATCH** /accounts/{koronaAccountId}/accounts/{accountId} | updates the single account |
-| [**update_accounts**](AccountsApi.md#update_accounts) | **PATCH** /accounts/{koronaAccountId}/accounts | updates a batch of accounts |
+| [**add_accounts**](AccountsApi.md#add_accounts) | **POST** /accounts/{koronaAccountId}/accounts |  |
+| [**delete_account**](AccountsApi.md#delete_account) | **DELETE** /accounts/{koronaAccountId}/accounts/{accountId} |  |
+| [**delete_accounts**](AccountsApi.md#delete_accounts) | **DELETE** /accounts/{koronaAccountId}/accounts |  |
+| [**get_account**](AccountsApi.md#get_account) | **GET** /accounts/{koronaAccountId}/accounts/{accountId} |  |
+| [**get_accounts**](AccountsApi.md#get_accounts) | **GET** /accounts/{koronaAccountId}/accounts |  |
+| [**update_account**](AccountsApi.md#update_account) | **PATCH** /accounts/{koronaAccountId}/accounts/{accountId} |  |
+| [**update_accounts**](AccountsApi.md#update_accounts) | **PATCH** /accounts/{koronaAccountId}/accounts |  |
 
 
 ## add_accounts
 
-> <Array<AddOrUpdateResult>> add_accounts(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_accounts(korona_account_id, account, opts)
+
+
 
 adds a batch of new accounts
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::AccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Account.new] # Array<Account> | array of new accounts
+account = [KoronaCloudClient::Account.new] # Array<Account> | array of new accounts
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new accounts
-  result = api_instance.add_accounts(korona_account_id, body, opts)
+  
+  result = api_instance.add_accounts(korona_account_id, account, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AccountsApi->add_accounts: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_accounts_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_accounts_with_http_info(korona_account_id, account, opts)
 
 ```ruby
 begin
-  # adds a batch of new accounts
-  data, status_code, headers = api_instance.add_accounts_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_accounts_with_http_info(korona_account_id, account, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Account&gt;**](Account.md) | array of new accounts |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **account** | [**Array&lt;Account&gt;**](Account.md) | array of new accounts |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_account
 
 > delete_account(korona_account_id, account_id)
+
+
 
 deletes the single account
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 account_id = 'account_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single account
+  
   api_instance.delete_account(korona_account_id, account_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AccountsApi->delete_account: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single account
+  
   data, status_code, headers = api_instance.delete_account_with_http_info(korona_account_id, account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_accounts
 
-> <Array<AddOrUpdateResult>> delete_accounts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_accounts(korona_account_id, account)
+
+
 
 deletes a batch of accounts
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::AccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Account.new] # Array<Account> | array of existing accounts (id or number required)
+account = [KoronaCloudClient::Account.new] # Array<Account> | array of existing accounts (id or number required)
 
 begin
-  # deletes a batch of accounts
-  result = api_instance.delete_accounts(korona_account_id, body)
+  
+  result = api_instance.delete_accounts(korona_account_id, account)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AccountsApi->delete_accounts: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_accounts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_accounts_with_http_info(korona_account_id, account)
 
 ```ruby
 begin
-  # deletes a batch of accounts
-  data, status_code, headers = api_instance.delete_accounts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_accounts_with_http_info(korona_account_id, account)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Account&gt;**](Account.md) | array of existing accounts (id or number required) |  |
+| **account** | [**Array&lt;Account&gt;**](Account.md) | array of existing accounts (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_account
 
 > <Account> get_account(korona_account_id, account_id)
+
+
 
 returns a single account
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 account_id = 'account_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single account
+  
   result = api_instance.get_account(korona_account_id, account_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single account
+  
   data, status_code, headers = api_instance.get_account_with_http_info(korona_account_id, account_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListAccount> get_accounts(korona_account_id, opts)
 
+
+
 lists all accounts
 
 ### Examples
@@ -325,7 +337,7 @@ opts = {
 }
 
 begin
-  # lists all accounts
+  
   result = api_instance.get_accounts(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -341,7 +353,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all accounts
+  
   data, status_code, headers = api_instance.get_accounts_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -378,11 +390,11 @@ end
 
 ## update_account
 
-> update_account(korona_account_id, account_id, body)
+> update_account(korona_account_id, account_id, account)
 
-updates the single account
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single account; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -399,11 +411,11 @@ end
 api_instance = KoronaCloudClient::AccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 account_id = 'account_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::Account.new # Account | the properties to update of the account
+account = KoronaCloudClient::Account.new # Account | the properties to update of the account
 
 begin
-  # updates the single account
-  api_instance.update_account(korona_account_id, account_id, body)
+  
+  api_instance.update_account(korona_account_id, account_id, account)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AccountsApi->update_account: #{e}"
 end
@@ -413,12 +425,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_account_with_http_info(korona_account_id, account_id, body)
+> <Array(nil, Integer, Hash)> update_account_with_http_info(korona_account_id, account_id, account)
 
 ```ruby
 begin
-  # updates the single account
-  data, status_code, headers = api_instance.update_account_with_http_info(korona_account_id, account_id, body)
+  
+  data, status_code, headers = api_instance.update_account_with_http_info(korona_account_id, account_id, account)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +445,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **account_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Account**](Account.md) | the properties to update of the account |  |
+| **account** | [**Account**](Account.md) | the properties to update of the account |  |
 
 ### Return type
 
@@ -451,11 +463,11 @@ nil (empty response body)
 
 ## update_accounts
 
-> <Array<AddOrUpdateResult>> update_accounts(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_accounts(korona_account_id, account)
 
-updates a batch of accounts
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of accounts; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -471,11 +483,11 @@ end
 
 api_instance = KoronaCloudClient::AccountsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Account.new] # Array<Account> | an array of existing accounts
+account = [KoronaCloudClient::Account.new] # Array<Account> | an array of existing accounts
 
 begin
-  # updates a batch of accounts
-  result = api_instance.update_accounts(korona_account_id, body)
+  
+  result = api_instance.update_accounts(korona_account_id, account)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling AccountsApi->update_accounts: #{e}"
@@ -486,12 +498,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_accounts_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_accounts_with_http_info(korona_account_id, account)
 
 ```ruby
 begin
-  # updates a batch of accounts
-  data, status_code, headers = api_instance.update_accounts_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_accounts_with_http_info(korona_account_id, account)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -505,7 +517,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Account&gt;**](Account.md) | an array of existing accounts |  |
+| **account** | [**Array&lt;Account&gt;**](Account.md) | an array of existing accounts |  |
 
 ### Return type
 

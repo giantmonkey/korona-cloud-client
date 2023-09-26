@@ -10,7 +10,7 @@
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **purchase_price** | [**StockReceiptItemPurchasePrice**](StockReceiptItemPurchasePrice.md) |  | [optional] |
 | **revision** | **Integer** |  | [optional][readonly] |
-| **shelf_life** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **shelf_life** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 
 ## Example
 

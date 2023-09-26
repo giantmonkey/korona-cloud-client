@@ -9,7 +9,7 @@
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **address** | [**AddressInformation**](AddressInformation.md) |  | [optional] |
-| **birthday** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **birthday** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **cards** | [**Array&lt;CustomerCard&gt;**](CustomerCard.md) |  | [optional] |
 | **company** | **String** |  | [optional] |
 | **customer_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
@@ -24,8 +24,8 @@
 | **tax_id** | **String** |  | [optional] |
 | **privacy_policy_accepted** | **Boolean** |  | [optional] |
 | **marketing_contact_permitted** | **Boolean** |  | [optional] |
-| **create_time** | **Date** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
-| **last_receipt_time** | **Date** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
+| **create_time** | **Date** | yyyy-MM-dd | [optional][readonly] |
+| **last_receipt_time** | **Date** | yyyy-MM-dd | [optional][readonly] |
 | **use_email_for_digital_receipt** | **Boolean** |  | [optional] |
 | **lock_delivery_note_sales** | **Boolean** |  | [optional] |
 
@@ -55,8 +55,8 @@ instance = KoronaCloudClient::Customer.new(
   tax_id: null,
   privacy_policy_accepted: null,
   marketing_contact_permitted: null,
-  create_time: null,
-  last_receipt_time: null,
+  create_time: 2018-11-22,
+  last_receipt_time: 2018-11-22,
   use_email_for_digital_receipt: null,
   lock_delivery_note_sales: null
 )

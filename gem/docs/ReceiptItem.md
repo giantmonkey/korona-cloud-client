@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **attendance** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **discounts** | [**Array&lt;Discount&gt;**](Discount.md) |  | [optional] |
@@ -19,11 +19,11 @@
 | **sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **serial_numbers** | **Array&lt;String&gt;** |  | [optional] |
 | **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
-| **delivery_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **delivery_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **recognition_number** | **String** | the number referencing the product was typed/scanned to create the receipt item | [optional] |
 | **type** | **String** |  | [optional] |
-| **voucher_transaction** | [**VoucherTransaction**](VoucherTransaction.md) |  | [optional] |
+| **voucher_transaction** | [**VoucherTransactionOld**](VoucherTransactionOld.md) |  | [optional] |
 | **voucher_transaction_reference** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **special_price_configuration** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **return_reason** | [**ReceiptItemReturnReason**](ReceiptItemReturnReason.md) |  | [optional] |

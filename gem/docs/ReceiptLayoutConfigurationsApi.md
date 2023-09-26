@@ -1,21 +1,23 @@
 # KoronaCloudClient::ReceiptLayoutConfigurationsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#add_receipt_layout_configurations) | **POST** /accounts/{koronaAccountId}/receiptLayoutConfigurations | adds a batch of new receipt layout configurations |
-| [**delete_receipt_layout_configuration**](ReceiptLayoutConfigurationsApi.md#delete_receipt_layout_configuration) | **DELETE** /accounts/{koronaAccountId}/receiptLayoutConfigurations/{receiptLayoutConfigurationId} | deletes the single receipt layout configuration |
-| [**delete_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#delete_receipt_layout_configurations) | **DELETE** /accounts/{koronaAccountId}/receiptLayoutConfigurations | deletes a batch of receipt layout configurations |
-| [**get_receipt_layout_configuration**](ReceiptLayoutConfigurationsApi.md#get_receipt_layout_configuration) | **GET** /accounts/{koronaAccountId}/receiptLayoutConfigurations/{receiptLayoutConfigurationId} | returns the single receipt layout configuration |
-| [**get_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#get_receipt_layout_configurations) | **GET** /accounts/{koronaAccountId}/receiptLayoutConfigurations | lists all receipt layout configurations |
-| [**update_receipt_layout_configuration**](ReceiptLayoutConfigurationsApi.md#update_receipt_layout_configuration) | **PATCH** /accounts/{koronaAccountId}/receiptLayoutConfigurations/{receiptLayoutConfigurationId} | updates the single receipt layout configuration |
-| [**update_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#update_receipt_layout_configurations) | **PATCH** /accounts/{koronaAccountId}/receiptLayoutConfigurations | updates a batch of receipt layout configurations |
+| [**add_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#add_receipt_layout_configurations) | **POST** /accounts/{koronaAccountId}/receiptLayoutConfigurations |  |
+| [**delete_receipt_layout_configuration**](ReceiptLayoutConfigurationsApi.md#delete_receipt_layout_configuration) | **DELETE** /accounts/{koronaAccountId}/receiptLayoutConfigurations/{receiptLayoutConfigurationId} |  |
+| [**delete_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#delete_receipt_layout_configurations) | **DELETE** /accounts/{koronaAccountId}/receiptLayoutConfigurations |  |
+| [**get_receipt_layout_configuration**](ReceiptLayoutConfigurationsApi.md#get_receipt_layout_configuration) | **GET** /accounts/{koronaAccountId}/receiptLayoutConfigurations/{receiptLayoutConfigurationId} |  |
+| [**get_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#get_receipt_layout_configurations) | **GET** /accounts/{koronaAccountId}/receiptLayoutConfigurations |  |
+| [**update_receipt_layout_configuration**](ReceiptLayoutConfigurationsApi.md#update_receipt_layout_configuration) | **PATCH** /accounts/{koronaAccountId}/receiptLayoutConfigurations/{receiptLayoutConfigurationId} |  |
+| [**update_receipt_layout_configurations**](ReceiptLayoutConfigurationsApi.md#update_receipt_layout_configurations) | **PATCH** /accounts/{koronaAccountId}/receiptLayoutConfigurations |  |
 
 
 ## add_receipt_layout_configurations
 
-> <Array<AddOrUpdateResult>> add_receipt_layout_configurations(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_receipt_layout_configurations(korona_account_id, receipt_layout_configuration, opts)
+
+
 
 adds a batch of new receipt layout configurations
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::ReceiptLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ReceiptLayoutConfiguration.new] # Array<ReceiptLayoutConfiguration> | array of new receipt layout configurations
+receipt_layout_configuration = [KoronaCloudClient::ReceiptLayoutConfiguration.new] # Array<ReceiptLayoutConfiguration> | array of new receipt layout configurations
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new receipt layout configurations
-  result = api_instance.add_receipt_layout_configurations(korona_account_id, body, opts)
+  
+  result = api_instance.add_receipt_layout_configurations(korona_account_id, receipt_layout_configuration, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReceiptLayoutConfigurationsApi->add_receipt_layout_configurations: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_receipt_layout_configurations_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_receipt_layout_configurations_with_http_info(korona_account_id, receipt_layout_configuration, opts)
 
 ```ruby
 begin
-  # adds a batch of new receipt layout configurations
-  data, status_code, headers = api_instance.add_receipt_layout_configurations_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_receipt_layout_configurations_with_http_info(korona_account_id, receipt_layout_configuration, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ReceiptLayoutConfiguration&gt;**](ReceiptLayoutConfiguration.md) | array of new receipt layout configurations |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **receipt_layout_configuration** | [**Array&lt;ReceiptLayoutConfiguration&gt;**](ReceiptLayoutConfiguration.md) | array of new receipt layout configurations |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_receipt_layout_configuration
 
 > delete_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id)
+
+
 
 deletes the single receipt layout configuration
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 receipt_layout_configuration_id = 'receipt_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single receipt layout configuration
+  
   api_instance.delete_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReceiptLayoutConfigurationsApi->delete_receipt_layout_configuration: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single receipt layout configuration
+  
   data, status_code, headers = api_instance.delete_receipt_layout_configuration_with_http_info(korona_account_id, receipt_layout_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_receipt_layout_configurations
 
-> <Array<AddOrUpdateResult>> delete_receipt_layout_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_receipt_layout_configurations(korona_account_id, receipt_layout_configuration)
+
+
 
 deletes a batch of receipt layout configurations
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::ReceiptLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ReceiptLayoutConfiguration.new] # Array<ReceiptLayoutConfiguration> | array of existing receipt layout configurations (id or number required)
+receipt_layout_configuration = [KoronaCloudClient::ReceiptLayoutConfiguration.new] # Array<ReceiptLayoutConfiguration> | array of existing receipt layout configurations (id or number required)
 
 begin
-  # deletes a batch of receipt layout configurations
-  result = api_instance.delete_receipt_layout_configurations(korona_account_id, body)
+  
+  result = api_instance.delete_receipt_layout_configurations(korona_account_id, receipt_layout_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReceiptLayoutConfigurationsApi->delete_receipt_layout_configurations: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_receipt_layout_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_receipt_layout_configurations_with_http_info(korona_account_id, receipt_layout_configuration)
 
 ```ruby
 begin
-  # deletes a batch of receipt layout configurations
-  data, status_code, headers = api_instance.delete_receipt_layout_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_receipt_layout_configurations_with_http_info(korona_account_id, receipt_layout_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ReceiptLayoutConfiguration&gt;**](ReceiptLayoutConfiguration.md) | array of existing receipt layout configurations (id or number required) |  |
+| **receipt_layout_configuration** | [**Array&lt;ReceiptLayoutConfiguration&gt;**](ReceiptLayoutConfiguration.md) | array of existing receipt layout configurations (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_receipt_layout_configuration
 
 > <ReceiptLayoutConfiguration> get_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id)
+
+
 
 returns the single receipt layout configuration
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 receipt_layout_configuration_id = 'receipt_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single receipt layout configuration
+  
   result = api_instance.get_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single receipt layout configuration
+  
   data, status_code, headers = api_instance.get_receipt_layout_configuration_with_http_info(korona_account_id, receipt_layout_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListReceiptLayoutConfiguration> get_receipt_layout_configurations(korona_account_id, opts)
 
+
+
 lists all receipt layout configurations
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all receipt layout configurations
+  
   result = api_instance.get_receipt_layout_configurations(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all receipt layout configurations
+  
   data, status_code, headers = api_instance.get_receipt_layout_configurations_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_receipt_layout_configuration
 
-> update_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id, body)
+> update_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id, receipt_layout_configuration)
 
-updates the single receipt layout configuration
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single receipt layout configuration; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::ReceiptLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 receipt_layout_configuration_id = 'receipt_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::ReceiptLayoutConfiguration.new # ReceiptLayoutConfiguration | the properties to update of the receipt layout configuration
+receipt_layout_configuration = KoronaCloudClient::ReceiptLayoutConfiguration.new # ReceiptLayoutConfiguration | the properties to update of the receipt layout configuration
 
 begin
-  # updates the single receipt layout configuration
-  api_instance.update_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id, body)
+  
+  api_instance.update_receipt_layout_configuration(korona_account_id, receipt_layout_configuration_id, receipt_layout_configuration)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReceiptLayoutConfigurationsApi->update_receipt_layout_configuration: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_receipt_layout_configuration_with_http_info(korona_account_id, receipt_layout_configuration_id, body)
+> <Array(nil, Integer, Hash)> update_receipt_layout_configuration_with_http_info(korona_account_id, receipt_layout_configuration_id, receipt_layout_configuration)
 
 ```ruby
 begin
-  # updates the single receipt layout configuration
-  data, status_code, headers = api_instance.update_receipt_layout_configuration_with_http_info(korona_account_id, receipt_layout_configuration_id, body)
+  
+  data, status_code, headers = api_instance.update_receipt_layout_configuration_with_http_info(korona_account_id, receipt_layout_configuration_id, receipt_layout_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **receipt_layout_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**ReceiptLayoutConfiguration**](ReceiptLayoutConfiguration.md) | the properties to update of the receipt layout configuration |  |
+| **receipt_layout_configuration** | [**ReceiptLayoutConfiguration**](ReceiptLayoutConfiguration.md) | the properties to update of the receipt layout configuration |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_receipt_layout_configurations
 
-> <Array<AddOrUpdateResult>> update_receipt_layout_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_receipt_layout_configurations(korona_account_id, receipt_layout_configuration)
 
-updates a batch of receipt layout configurations
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of receipt layout configurations; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::ReceiptLayoutConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ReceiptLayoutConfiguration.new] # Array<ReceiptLayoutConfiguration> | an array of existing receipt layout configurations
+receipt_layout_configuration = [KoronaCloudClient::ReceiptLayoutConfiguration.new] # Array<ReceiptLayoutConfiguration> | an array of existing receipt layout configurations
 
 begin
-  # updates a batch of receipt layout configurations
-  result = api_instance.update_receipt_layout_configurations(korona_account_id, body)
+  
+  result = api_instance.update_receipt_layout_configurations(korona_account_id, receipt_layout_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ReceiptLayoutConfigurationsApi->update_receipt_layout_configurations: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_receipt_layout_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_receipt_layout_configurations_with_http_info(korona_account_id, receipt_layout_configuration)
 
 ```ruby
 begin
-  # updates a batch of receipt layout configurations
-  data, status_code, headers = api_instance.update_receipt_layout_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_receipt_layout_configurations_with_http_info(korona_account_id, receipt_layout_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ReceiptLayoutConfiguration&gt;**](ReceiptLayoutConfiguration.md) | an array of existing receipt layout configurations |  |
+| **receipt_layout_configuration** | [**Array&lt;ReceiptLayoutConfiguration&gt;**](ReceiptLayoutConfiguration.md) | an array of existing receipt layout configurations |  |
 
 ### Return type
 

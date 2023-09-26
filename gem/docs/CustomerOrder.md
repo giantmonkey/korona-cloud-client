@@ -8,18 +8,18 @@
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **comment** | **String** |  | [optional] |
-| **create_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **customer** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **customer_data** | [**CustomerData**](CustomerData.md) |  | [optional] |
-| **deposits** | [**Array&lt;Deposit&gt;**](Deposit.md) | an empty list will not delete existing deposits and will result in an error | [optional] |
-| **finish_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **deposits** | [**Array&lt;Deposit&gt;**](Deposit.md) |  | [optional] |
+| **finish_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **info_texts** | **Array&lt;String&gt;** |  | [optional] |
 | **items** | [**Array&lt;CustomerOrderItem&gt;**](CustomerOrderItem.md) |  | [optional] |
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **pick_up_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **pick_up_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **point_of_sale** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **ready_for_pick_up** | **Boolean** |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |

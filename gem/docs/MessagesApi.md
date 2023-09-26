@@ -1,15 +1,17 @@
 # KoronaCloudClient::MessagesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_messages**](MessagesApi.md#add_messages) | **POST** /accounts/{koronaAccountId}/messages | sends a command type to points of sale |
+| [**add_messages**](MessagesApi.md#add_messages) | **POST** /accounts/{koronaAccountId}/messages |  |
 
 
 ## add_messages
 
-> <Array<AddOrUpdateResult>> add_messages(korona_account_id, body)
+> <Array<AddOrUpdateResult>> add_messages(korona_account_id, message)
+
+
 
 sends a command type to points of sale
 
@@ -27,11 +29,11 @@ end
 
 api_instance = KoronaCloudClient::MessagesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Message.new] # Array<Message> | array of messages
+message = [KoronaCloudClient::Message.new] # Array<Message> | array of messages
 
 begin
-  # sends a command type to points of sale
-  result = api_instance.add_messages(korona_account_id, body)
+  
+  result = api_instance.add_messages(korona_account_id, message)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling MessagesApi->add_messages: #{e}"
@@ -42,12 +44,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_messages_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_messages_with_http_info(korona_account_id, message)
 
 ```ruby
 begin
-  # sends a command type to points of sale
-  data, status_code, headers = api_instance.add_messages_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.add_messages_with_http_info(korona_account_id, message)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -61,7 +63,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Message&gt;**](Message.md) | array of messages |  |
+| **message** | [**Array&lt;Message&gt;**](Message.md) | array of messages |  |
 
 ### Return type
 

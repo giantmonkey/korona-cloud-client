@@ -1,21 +1,23 @@
 # KoronaCloudClient::PosProfilesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_pos_profiles**](PosProfilesApi.md#add_pos_profiles) | **POST** /accounts/{koronaAccountId}/posProfiles | adds a batch of new pos profiles |
-| [**delete_pos_profile**](PosProfilesApi.md#delete_pos_profile) | **DELETE** /accounts/{koronaAccountId}/posProfiles/{posProfileId} | deletes the single pos profile |
-| [**delete_pos_profiles**](PosProfilesApi.md#delete_pos_profiles) | **DELETE** /accounts/{koronaAccountId}/posProfiles | deletes a batch of pos profiles |
-| [**get_pos_profile**](PosProfilesApi.md#get_pos_profile) | **GET** /accounts/{koronaAccountId}/posProfiles/{posProfileId} | returns the single pos profile |
-| [**get_pos_profiles**](PosProfilesApi.md#get_pos_profiles) | **GET** /accounts/{koronaAccountId}/posProfiles | lists all pos profiles |
-| [**update_pos_profile**](PosProfilesApi.md#update_pos_profile) | **PATCH** /accounts/{koronaAccountId}/posProfiles/{posProfileId} | updates the single pos profile |
-| [**update_pos_profiles**](PosProfilesApi.md#update_pos_profiles) | **PATCH** /accounts/{koronaAccountId}/posProfiles | updates a batch of pos profiles |
+| [**add_pos_profiles**](PosProfilesApi.md#add_pos_profiles) | **POST** /accounts/{koronaAccountId}/posProfiles |  |
+| [**delete_pos_profile**](PosProfilesApi.md#delete_pos_profile) | **DELETE** /accounts/{koronaAccountId}/posProfiles/{posProfileId} |  |
+| [**delete_pos_profiles**](PosProfilesApi.md#delete_pos_profiles) | **DELETE** /accounts/{koronaAccountId}/posProfiles |  |
+| [**get_pos_profile**](PosProfilesApi.md#get_pos_profile) | **GET** /accounts/{koronaAccountId}/posProfiles/{posProfileId} |  |
+| [**get_pos_profiles**](PosProfilesApi.md#get_pos_profiles) | **GET** /accounts/{koronaAccountId}/posProfiles |  |
+| [**update_pos_profile**](PosProfilesApi.md#update_pos_profile) | **PATCH** /accounts/{koronaAccountId}/posProfiles/{posProfileId} |  |
+| [**update_pos_profiles**](PosProfilesApi.md#update_pos_profiles) | **PATCH** /accounts/{koronaAccountId}/posProfiles |  |
 
 
 ## add_pos_profiles
 
-> <Array<AddOrUpdateResult>> add_pos_profiles(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_pos_profiles(korona_account_id, pos_profile, opts)
+
+
 
 adds a batch of new pos profiles
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::PosProfilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosProfile.new] # Array<PosProfile> | array of new pos profiles
+pos_profile = [KoronaCloudClient::PosProfile.new] # Array<PosProfile> | array of new pos profiles
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new pos profiles
-  result = api_instance.add_pos_profiles(korona_account_id, body, opts)
+  
+  result = api_instance.add_pos_profiles(korona_account_id, pos_profile, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosProfilesApi->add_pos_profiles: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_pos_profiles_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_pos_profiles_with_http_info(korona_account_id, pos_profile, opts)
 
 ```ruby
 begin
-  # adds a batch of new pos profiles
-  data, status_code, headers = api_instance.add_pos_profiles_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_pos_profiles_with_http_info(korona_account_id, pos_profile, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosProfile&gt;**](PosProfile.md) | array of new pos profiles |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **pos_profile** | [**Array&lt;PosProfile&gt;**](PosProfile.md) | array of new pos profiles |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_pos_profile
 
 > delete_pos_profile(korona_account_id, pos_profile_id)
+
+
 
 deletes the single pos profile
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 pos_profile_id = 'pos_profile_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single pos profile
+  
   api_instance.delete_pos_profile(korona_account_id, pos_profile_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosProfilesApi->delete_pos_profile: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single pos profile
+  
   data, status_code, headers = api_instance.delete_pos_profile_with_http_info(korona_account_id, pos_profile_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_pos_profiles
 
-> <Array<AddOrUpdateResult>> delete_pos_profiles(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_pos_profiles(korona_account_id, pos_profile)
+
+
 
 deletes a batch of pos profiles
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::PosProfilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosProfile.new] # Array<PosProfile> | array of existing pos profiles (id or number required)
+pos_profile = [KoronaCloudClient::PosProfile.new] # Array<PosProfile> | array of existing pos profiles (id or number required)
 
 begin
-  # deletes a batch of pos profiles
-  result = api_instance.delete_pos_profiles(korona_account_id, body)
+  
+  result = api_instance.delete_pos_profiles(korona_account_id, pos_profile)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosProfilesApi->delete_pos_profiles: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_pos_profiles_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_pos_profiles_with_http_info(korona_account_id, pos_profile)
 
 ```ruby
 begin
-  # deletes a batch of pos profiles
-  data, status_code, headers = api_instance.delete_pos_profiles_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_pos_profiles_with_http_info(korona_account_id, pos_profile)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosProfile&gt;**](PosProfile.md) | array of existing pos profiles (id or number required) |  |
+| **pos_profile** | [**Array&lt;PosProfile&gt;**](PosProfile.md) | array of existing pos profiles (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_pos_profile
 
 > <PosProfile> get_pos_profile(korona_account_id, pos_profile_id)
+
+
 
 returns the single pos profile
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 pos_profile_id = 'pos_profile_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single pos profile
+  
   result = api_instance.get_pos_profile(korona_account_id, pos_profile_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single pos profile
+  
   data, status_code, headers = api_instance.get_pos_profile_with_http_info(korona_account_id, pos_profile_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListPosProfile> get_pos_profiles(korona_account_id, opts)
 
+
+
 lists all pos profiles
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all pos profiles
+  
   result = api_instance.get_pos_profiles(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all pos profiles
+  
   data, status_code, headers = api_instance.get_pos_profiles_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_pos_profile
 
-> update_pos_profile(korona_account_id, pos_profile_id, body)
+> update_pos_profile(korona_account_id, pos_profile_id, pos_profile)
 
-updates the single pos profile
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single pos profile; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::PosProfilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 pos_profile_id = 'pos_profile_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::PosProfile.new # PosProfile | the properties to update of the pos profile
+pos_profile = KoronaCloudClient::PosProfile.new # PosProfile | the properties to update of the pos profile
 
 begin
-  # updates the single pos profile
-  api_instance.update_pos_profile(korona_account_id, pos_profile_id, body)
+  
+  api_instance.update_pos_profile(korona_account_id, pos_profile_id, pos_profile)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosProfilesApi->update_pos_profile: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_pos_profile_with_http_info(korona_account_id, pos_profile_id, body)
+> <Array(nil, Integer, Hash)> update_pos_profile_with_http_info(korona_account_id, pos_profile_id, pos_profile)
 
 ```ruby
 begin
-  # updates the single pos profile
-  data, status_code, headers = api_instance.update_pos_profile_with_http_info(korona_account_id, pos_profile_id, body)
+  
+  data, status_code, headers = api_instance.update_pos_profile_with_http_info(korona_account_id, pos_profile_id, pos_profile)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **pos_profile_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**PosProfile**](PosProfile.md) | the properties to update of the pos profile |  |
+| **pos_profile** | [**PosProfile**](PosProfile.md) | the properties to update of the pos profile |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_pos_profiles
 
-> <Array<AddOrUpdateResult>> update_pos_profiles(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_pos_profiles(korona_account_id, pos_profile)
 
-updates a batch of pos profiles
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of pos profiles; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::PosProfilesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PosProfile.new] # Array<PosProfile> | an array of existing pos profiles
+pos_profile = [KoronaCloudClient::PosProfile.new] # Array<PosProfile> | an array of existing pos profiles
 
 begin
-  # updates a batch of pos profiles
-  result = api_instance.update_pos_profiles(korona_account_id, body)
+  
+  result = api_instance.update_pos_profiles(korona_account_id, pos_profile)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PosProfilesApi->update_pos_profiles: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_pos_profiles_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_pos_profiles_with_http_info(korona_account_id, pos_profile)
 
 ```ruby
 begin
-  # updates a batch of pos profiles
-  data, status_code, headers = api_instance.update_pos_profiles_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_pos_profiles_with_http_info(korona_account_id, pos_profile)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PosProfile&gt;**](PosProfile.md) | an array of existing pos profiles |  |
+| **pos_profile** | [**Array&lt;PosProfile&gt;**](PosProfile.md) | an array of existing pos profiles |  |
 
 ### Return type
 

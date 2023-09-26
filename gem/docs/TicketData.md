@@ -4,11 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **valid_from** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **daily_valid_from** | **String** | Format: HH:mm:ss | [optional] |
+| **valid_from** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **daily_valid_from** | **String** | HH:mm:ss | [optional] |
 | **max_possible_admissions** | **Integer** |  | [optional] |
-| **valid_to** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **daily_valid_to** | **String** | Format: HH:mm:ss | [optional] |
+| **valid_to** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **daily_valid_to** | **String** | HH:mm:ss | [optional] |
 | **entry_gate_numbers** | **Array&lt;String&gt;** |  | [optional] |
 | **ticket_number_prefix** | **String** |  | [optional] |
 | **days_blocked_after_use** | **Integer** |  | [optional] |

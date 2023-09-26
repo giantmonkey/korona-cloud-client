@@ -13,9 +13,10 @@
 | **denominations** | [**Array&lt;CurrencyDenomination&gt;**](CurrencyDenomination.md) |  | [optional] |
 | **exchange_rates** | [**Array&lt;CurrencyExchangeRate&gt;**](CurrencyExchangeRate.md) |  | [optional] |
 | **key** | **String** |  | [optional] |
+| **max_payment_input** | **Float** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **system_currency** | **Boolean** |  | [optional] |
 | **symbol** | **String** |  | [optional] |
+| **system_currency** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -32,9 +33,10 @@ instance = KoronaCloudClient::Currency.new(
   denominations: null,
   exchange_rates: null,
   key: null,
+  max_payment_input: null,
   name: null,
-  system_currency: null,
-  symbol: null
+  symbol: null,
+  system_currency: null
 )
 ```
 

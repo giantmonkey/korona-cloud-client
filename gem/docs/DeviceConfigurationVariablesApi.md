@@ -1,20 +1,22 @@
 # KoronaCloudClient::DeviceConfigurationVariablesApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_device_configuration_variables**](DeviceConfigurationVariablesApi.md#add_device_configuration_variables) | **POST** /accounts/{koronaAccountId}/deviceConfigurationVariables | adds a batch of new device configuration variables |
-| [**delete_device_configuration_variable**](DeviceConfigurationVariablesApi.md#delete_device_configuration_variable) | **DELETE** /accounts/{koronaAccountId}/deviceConfigurationVariables/{deviceConfigurationVariableId} | deletes the single device configuration variable |
-| [**delete_device_configuration_variables**](DeviceConfigurationVariablesApi.md#delete_device_configuration_variables) | **DELETE** /accounts/{koronaAccountId}/deviceConfigurationVariables | deletes a batch of device configuration variables |
-| [**get_device_configuration_variable**](DeviceConfigurationVariablesApi.md#get_device_configuration_variable) | **GET** /accounts/{koronaAccountId}/deviceConfigurationVariables/{deviceConfigurationVariableId} | returns the single device configuration variable |
-| [**get_device_configuration_variables**](DeviceConfigurationVariablesApi.md#get_device_configuration_variables) | **GET** /accounts/{koronaAccountId}/deviceConfigurationVariables | lists all device configuration variables |
-| [**update_device_configuration_variables**](DeviceConfigurationVariablesApi.md#update_device_configuration_variables) | **PATCH** /accounts/{koronaAccountId}/deviceConfigurationVariables | updates a batch of device configuration variables |
+| [**add_device_configuration_variables**](DeviceConfigurationVariablesApi.md#add_device_configuration_variables) | **POST** /accounts/{koronaAccountId}/deviceConfigurationVariables |  |
+| [**delete_device_configuration_variable**](DeviceConfigurationVariablesApi.md#delete_device_configuration_variable) | **DELETE** /accounts/{koronaAccountId}/deviceConfigurationVariables/{deviceConfigurationVariableId} |  |
+| [**delete_device_configuration_variables**](DeviceConfigurationVariablesApi.md#delete_device_configuration_variables) | **DELETE** /accounts/{koronaAccountId}/deviceConfigurationVariables |  |
+| [**get_device_configuration_variable**](DeviceConfigurationVariablesApi.md#get_device_configuration_variable) | **GET** /accounts/{koronaAccountId}/deviceConfigurationVariables/{deviceConfigurationVariableId} |  |
+| [**get_device_configuration_variables**](DeviceConfigurationVariablesApi.md#get_device_configuration_variables) | **GET** /accounts/{koronaAccountId}/deviceConfigurationVariables |  |
+| [**update_device_configuration_variables**](DeviceConfigurationVariablesApi.md#update_device_configuration_variables) | **PATCH** /accounts/{koronaAccountId}/deviceConfigurationVariables |  |
 
 
 ## add_device_configuration_variables
 
-> <Array<AddOrUpdateResult>> add_device_configuration_variables(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_device_configuration_variables(korona_account_id, device_configuration_variable, opts)
+
+
 
 adds a batch of new device configuration variables
 
@@ -32,14 +34,15 @@ end
 
 api_instance = KoronaCloudClient::DeviceConfigurationVariablesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::DeviceConfigurationVariable.new] # Array<DeviceConfigurationVariable> | array of new device configuration variables
+device_configuration_variable = [KoronaCloudClient::DeviceConfigurationVariable.new] # Array<DeviceConfigurationVariable> | array of new device configuration variables
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new device configuration variables
-  result = api_instance.add_device_configuration_variables(korona_account_id, body, opts)
+  
+  result = api_instance.add_device_configuration_variables(korona_account_id, device_configuration_variable, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DeviceConfigurationVariablesApi->add_device_configuration_variables: #{e}"
@@ -50,12 +53,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_device_configuration_variables_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_device_configuration_variables_with_http_info(korona_account_id, device_configuration_variable, opts)
 
 ```ruby
 begin
-  # adds a batch of new device configuration variables
-  data, status_code, headers = api_instance.add_device_configuration_variables_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_device_configuration_variables_with_http_info(korona_account_id, device_configuration_variable, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -69,8 +72,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;DeviceConfigurationVariable&gt;**](DeviceConfigurationVariable.md) | array of new device configuration variables |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **device_configuration_variable** | [**Array&lt;DeviceConfigurationVariable&gt;**](DeviceConfigurationVariable.md) | array of new device configuration variables |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -89,6 +93,8 @@ end
 ## delete_device_configuration_variable
 
 > delete_device_configuration_variable(korona_account_id, device_configuration_variable_id)
+
+
 
 deletes the single device configuration variable
 
@@ -109,7 +115,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 device_configuration_variable_id = 'device_configuration_variable_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single device configuration variable
+  
   api_instance.delete_device_configuration_variable(korona_account_id, device_configuration_variable_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DeviceConfigurationVariablesApi->delete_device_configuration_variable: #{e}"
@@ -124,7 +130,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single device configuration variable
+  
   data, status_code, headers = api_instance.delete_device_configuration_variable_with_http_info(korona_account_id, device_configuration_variable_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -157,7 +163,9 @@ nil (empty response body)
 
 ## delete_device_configuration_variables
 
-> <Array<AddOrUpdateResult>> delete_device_configuration_variables(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_device_configuration_variables(korona_account_id, device_configuration_variable)
+
+
 
 deletes a batch of device configuration variables
 
@@ -175,11 +183,11 @@ end
 
 api_instance = KoronaCloudClient::DeviceConfigurationVariablesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::DeviceConfigurationVariable.new] # Array<DeviceConfigurationVariable> | array of existing device configuration variables (id or number required)
+device_configuration_variable = [KoronaCloudClient::DeviceConfigurationVariable.new] # Array<DeviceConfigurationVariable> | array of existing device configuration variables (id or number required)
 
 begin
-  # deletes a batch of device configuration variables
-  result = api_instance.delete_device_configuration_variables(korona_account_id, body)
+  
+  result = api_instance.delete_device_configuration_variables(korona_account_id, device_configuration_variable)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DeviceConfigurationVariablesApi->delete_device_configuration_variables: #{e}"
@@ -190,12 +198,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_device_configuration_variables_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_device_configuration_variables_with_http_info(korona_account_id, device_configuration_variable)
 
 ```ruby
 begin
-  # deletes a batch of device configuration variables
-  data, status_code, headers = api_instance.delete_device_configuration_variables_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_device_configuration_variables_with_http_info(korona_account_id, device_configuration_variable)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -209,7 +217,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;DeviceConfigurationVariable&gt;**](DeviceConfigurationVariable.md) | array of existing device configuration variables (id or number required) |  |
+| **device_configuration_variable** | [**Array&lt;DeviceConfigurationVariable&gt;**](DeviceConfigurationVariable.md) | array of existing device configuration variables (id or number required) |  |
 
 ### Return type
 
@@ -228,6 +236,8 @@ end
 ## get_device_configuration_variable
 
 > <DeviceConfigurationVariable> get_device_configuration_variable(korona_account_id, device_configuration_variable_id)
+
+
 
 returns the single device configuration variable
 
@@ -248,7 +258,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 device_configuration_variable_id = 'device_configuration_variable_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single device configuration variable
+  
   result = api_instance.get_device_configuration_variable(korona_account_id, device_configuration_variable_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -264,7 +274,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single device configuration variable
+  
   data, status_code, headers = api_instance.get_device_configuration_variable_with_http_info(korona_account_id, device_configuration_variable_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -299,6 +309,8 @@ end
 
 > <ResultListDeviceConfigurationVariable> get_device_configuration_variables(korona_account_id, opts)
 
+
+
 lists all device configuration variables
 
 ### Examples
@@ -325,7 +337,7 @@ opts = {
 }
 
 begin
-  # lists all device configuration variables
+  
   result = api_instance.get_device_configuration_variables(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -341,7 +353,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all device configuration variables
+  
   data, status_code, headers = api_instance.get_device_configuration_variables_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -379,7 +391,9 @@ end
 
 ## update_device_configuration_variables
 
-> <Array<AddOrUpdateResult>> update_device_configuration_variables(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_device_configuration_variables(korona_account_id, device_configuration_variable)
+
+
 
 updates a batch of device configuration variables
 
@@ -397,11 +411,11 @@ end
 
 api_instance = KoronaCloudClient::DeviceConfigurationVariablesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::DeviceConfigurationVariable.new] # Array<DeviceConfigurationVariable> | array of existing device configuration variables (id or number required)
+device_configuration_variable = [KoronaCloudClient::DeviceConfigurationVariable.new] # Array<DeviceConfigurationVariable> | array of existing device configuration variables (id or number required)
 
 begin
-  # updates a batch of device configuration variables
-  result = api_instance.update_device_configuration_variables(korona_account_id, body)
+  
+  result = api_instance.update_device_configuration_variables(korona_account_id, device_configuration_variable)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DeviceConfigurationVariablesApi->update_device_configuration_variables: #{e}"
@@ -412,12 +426,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_device_configuration_variables_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_device_configuration_variables_with_http_info(korona_account_id, device_configuration_variable)
 
 ```ruby
 begin
-  # updates a batch of device configuration variables
-  data, status_code, headers = api_instance.update_device_configuration_variables_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_device_configuration_variables_with_http_info(korona_account_id, device_configuration_variable)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -431,7 +445,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;DeviceConfigurationVariable&gt;**](DeviceConfigurationVariable.md) | array of existing device configuration variables (id or number required) |  |
+| **device_configuration_variable** | [**Array&lt;DeviceConfigurationVariable&gt;**](DeviceConfigurationVariable.md) | array of existing device configuration variables (id or number required) |  |
 
 ### Return type
 

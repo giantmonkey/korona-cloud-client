@@ -1,20 +1,22 @@
 # KoronaCloudClient::SpecialPriceConfigurationsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_special_price_configurations**](SpecialPriceConfigurationsApi.md#add_special_price_configurations) | **POST** /accounts/{koronaAccountId}/specialPriceConfigurations | adds a batch of new special price configurations |
-| [**delete_special_price_configurations**](SpecialPriceConfigurationsApi.md#delete_special_price_configurations) | **DELETE** /accounts/{koronaAccountId}/specialPriceConfigurations | deletes a batch of special price configurations |
-| [**get_special_price_configuration**](SpecialPriceConfigurationsApi.md#get_special_price_configuration) | **GET** /accounts/{koronaAccountId}/specialPriceConfigurations/{specialPriceConfigurationId} | returns the single special price configuration |
-| [**get_special_price_configurations**](SpecialPriceConfigurationsApi.md#get_special_price_configurations) | **GET** /accounts/{koronaAccountId}/specialPriceConfigurations | lists all special price configurations |
-| [**get_special_prices**](SpecialPriceConfigurationsApi.md#get_special_prices) | **GET** /accounts/{koronaAccountId}/specialPriceConfigurations/{specialPriceConfigurationId}/specialPrices | returns the special prices for the given configuration |
-| [**update_special_price_configurations**](SpecialPriceConfigurationsApi.md#update_special_price_configurations) | **PATCH** /accounts/{koronaAccountId}/specialPriceConfigurations | updates a batch of special price configurations |
+| [**add_special_price_configurations**](SpecialPriceConfigurationsApi.md#add_special_price_configurations) | **POST** /accounts/{koronaAccountId}/specialPriceConfigurations |  |
+| [**delete_special_price_configurations**](SpecialPriceConfigurationsApi.md#delete_special_price_configurations) | **DELETE** /accounts/{koronaAccountId}/specialPriceConfigurations |  |
+| [**get_special_price_configuration**](SpecialPriceConfigurationsApi.md#get_special_price_configuration) | **GET** /accounts/{koronaAccountId}/specialPriceConfigurations/{specialPriceConfigurationId} |  |
+| [**get_special_price_configurations**](SpecialPriceConfigurationsApi.md#get_special_price_configurations) | **GET** /accounts/{koronaAccountId}/specialPriceConfigurations |  |
+| [**get_special_prices**](SpecialPriceConfigurationsApi.md#get_special_prices) | **GET** /accounts/{koronaAccountId}/specialPriceConfigurations/{specialPriceConfigurationId}/specialPrices |  |
+| [**update_special_price_configurations**](SpecialPriceConfigurationsApi.md#update_special_price_configurations) | **PATCH** /accounts/{koronaAccountId}/specialPriceConfigurations |  |
 
 
 ## add_special_price_configurations
 
-> <Array<AddOrUpdateResult>> add_special_price_configurations(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_special_price_configurations(korona_account_id, special_price_configuration, opts)
+
+
 
 adds a batch of new special price configurations
 
@@ -32,14 +34,15 @@ end
 
 api_instance = KoronaCloudClient::SpecialPriceConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of new special price configurations
+special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of new special price configurations
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new special price configurations
-  result = api_instance.add_special_price_configurations(korona_account_id, body, opts)
+  
+  result = api_instance.add_special_price_configurations(korona_account_id, special_price_configuration, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling SpecialPriceConfigurationsApi->add_special_price_configurations: #{e}"
@@ -50,12 +53,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_special_price_configurations_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_special_price_configurations_with_http_info(korona_account_id, special_price_configuration, opts)
 
 ```ruby
 begin
-  # adds a batch of new special price configurations
-  data, status_code, headers = api_instance.add_special_price_configurations_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_special_price_configurations_with_http_info(korona_account_id, special_price_configuration, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -69,8 +72,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;SpecialPriceConfiguration&gt;**](SpecialPriceConfiguration.md) | array of new special price configurations |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **special_price_configuration** | [**Array&lt;SpecialPriceConfiguration&gt;**](SpecialPriceConfiguration.md) | array of new special price configurations |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -88,7 +92,9 @@ end
 
 ## delete_special_price_configurations
 
-> <Array<AddOrUpdateResult>> delete_special_price_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_special_price_configurations(korona_account_id, special_price_configuration)
+
+
 
 deletes a batch of special price configurations
 
@@ -106,11 +112,11 @@ end
 
 api_instance = KoronaCloudClient::SpecialPriceConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
+special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
 
 begin
-  # deletes a batch of special price configurations
-  result = api_instance.delete_special_price_configurations(korona_account_id, body)
+  
+  result = api_instance.delete_special_price_configurations(korona_account_id, special_price_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling SpecialPriceConfigurationsApi->delete_special_price_configurations: #{e}"
@@ -121,12 +127,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_special_price_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_special_price_configurations_with_http_info(korona_account_id, special_price_configuration)
 
 ```ruby
 begin
-  # deletes a batch of special price configurations
-  data, status_code, headers = api_instance.delete_special_price_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_special_price_configurations_with_http_info(korona_account_id, special_price_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -140,7 +146,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;SpecialPriceConfiguration&gt;**](SpecialPriceConfiguration.md) | array of existing special price configurations (id or number required) |  |
+| **special_price_configuration** | [**Array&lt;SpecialPriceConfiguration&gt;**](SpecialPriceConfiguration.md) | array of existing special price configurations (id or number required) |  |
 
 ### Return type
 
@@ -159,6 +165,8 @@ end
 ## get_special_price_configuration
 
 > <SpecialPriceConfiguration> get_special_price_configuration(korona_account_id, special_price_configuration_id)
+
+
 
 returns the single special price configuration
 
@@ -179,7 +187,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 special_price_configuration_id = 'special_price_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single special price configuration
+  
   result = api_instance.get_special_price_configuration(korona_account_id, special_price_configuration_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -195,7 +203,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single special price configuration
+  
   data, status_code, headers = api_instance.get_special_price_configuration_with_http_info(korona_account_id, special_price_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -230,6 +238,8 @@ end
 
 > <ResultListSpecialPriceConfiguration> get_special_price_configurations(korona_account_id, opts)
 
+
+
 lists all special price configurations
 
 ### Examples
@@ -256,7 +266,7 @@ opts = {
 }
 
 begin
-  # lists all special price configurations
+  
   result = api_instance.get_special_price_configurations(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -272,7 +282,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all special price configurations
+  
   data, status_code, headers = api_instance.get_special_price_configurations_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -312,6 +322,8 @@ end
 
 > <Array<SpecialPrice>> get_special_prices(korona_account_id, special_price_configuration_id)
 
+
+
 returns the special prices for the given configuration
 
 ### Examples
@@ -331,7 +343,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 special_price_configuration_id = 'special_price_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the special prices for the given configuration
+  
   result = api_instance.get_special_prices(korona_account_id, special_price_configuration_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -347,7 +359,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the special prices for the given configuration
+  
   data, status_code, headers = api_instance.get_special_prices_with_http_info(korona_account_id, special_price_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_special_price_configurations
 
-> <Array<AddOrUpdateResult>> update_special_price_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_special_price_configurations(korona_account_id, special_price_configuration)
+
+
 
 updates a batch of special price configurations
 
@@ -398,11 +412,11 @@ end
 
 api_instance = KoronaCloudClient::SpecialPriceConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
+special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
 
 begin
-  # updates a batch of special price configurations
-  result = api_instance.update_special_price_configurations(korona_account_id, body)
+  
+  result = api_instance.update_special_price_configurations(korona_account_id, special_price_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling SpecialPriceConfigurationsApi->update_special_price_configurations: #{e}"
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_special_price_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_special_price_configurations_with_http_info(korona_account_id, special_price_configuration)
 
 ```ruby
 begin
-  # updates a batch of special price configurations
-  data, status_code, headers = api_instance.update_special_price_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_special_price_configurations_with_http_info(korona_account_id, special_price_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -432,7 +446,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;SpecialPriceConfiguration&gt;**](SpecialPriceConfiguration.md) | array of existing special price configurations (id or number required) |  |
+| **special_price_configuration** | [**Array&lt;SpecialPriceConfiguration&gt;**](SpecialPriceConfiguration.md) | array of existing special price configurations (id or number required) |  |
 
 ### Return type
 

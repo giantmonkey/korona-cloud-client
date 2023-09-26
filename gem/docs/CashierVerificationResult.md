@@ -4,11 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **finish_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **finish_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **requirement** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **selected_option** | **String** |  | [optional] |
 | **failed** | **Boolean** |  | [optional] |
-| **date_of_birth** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **date_of_birth** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **type** | **String** |  | [optional] |
 
 ## Example

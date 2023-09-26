@@ -14,7 +14,7 @@
 | **min_item_quantity** | **Float** |  | [optional] |
 | **min_total** | **Float** |  | [optional] |
 | **options** | **Array&lt;String&gt;** |  | [optional] |
-| **organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **organizational_units** | **Object** |  | [optional] |
 | **required** | **Boolean** |  | [optional] |
 | **tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **validity** | [**Validity**](Validity.md) |  | [optional] |

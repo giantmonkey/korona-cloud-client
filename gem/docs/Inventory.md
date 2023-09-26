@@ -12,10 +12,10 @@
 | **automatic_booking_after_days** | **Integer** | only if isAutomaticBooking&#x3D;true | [optional] |
 | **check_product_assortment_validity** | **Boolean** |  | [optional] |
 | **check_product_listing** | **Boolean** |  | [optional] |
-| **create_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **description** | **String** |  | [optional] |
-| **execution_days** | **Array&lt;String&gt;** | only if type&#x3D;PERPETUAL_INVENTORY | [optional] |
-| **execution_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **execution_days** | **Array&lt;String&gt;** |  | [optional] |
+| **execution_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **has_booked_receipts** | **Boolean** |  | [optional][readonly] |
 | **max_products_per_list** | **Integer** | only if type&#x3D;ANNUAL_INVENTORY | INVENTORY_IRREGULARITY | [optional] |
 | **one_commodity_group_per_inventory_list** | **Boolean** | only if type&#x3D;ANNUAL_INVENTORY | INVENTORY_IRREGULARITY | [optional] |

@@ -8,12 +8,12 @@
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
-| **arrival_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **arrival_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **booking_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **booking_api_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **create_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **create_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **customer** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **description** | **String** |  | [optional] |

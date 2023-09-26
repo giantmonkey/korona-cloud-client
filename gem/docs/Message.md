@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **target_points_of_sale** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **target_points_of_sale** | **Object** |  | [optional] |
 | **command_type** | **String** |  | [optional] |
 
 ## Example

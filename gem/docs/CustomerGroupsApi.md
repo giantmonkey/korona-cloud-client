@@ -1,21 +1,23 @@
 # KoronaCloudClient::CustomerGroupsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_customer_groups**](CustomerGroupsApi.md#add_customer_groups) | **POST** /accounts/{koronaAccountId}/customerGroups | adds a batch of new customer groups |
-| [**delete_customer_group**](CustomerGroupsApi.md#delete_customer_group) | **DELETE** /accounts/{koronaAccountId}/customerGroups/{customerGroupId} | deletes the single customer group |
-| [**delete_customer_groups**](CustomerGroupsApi.md#delete_customer_groups) | **DELETE** /accounts/{koronaAccountId}/customerGroups | deletes a batch of customer groups |
-| [**get_customer_group**](CustomerGroupsApi.md#get_customer_group) | **GET** /accounts/{koronaAccountId}/customerGroups/{customerGroupId} | returns the single customer group |
-| [**get_customer_groups**](CustomerGroupsApi.md#get_customer_groups) | **GET** /accounts/{koronaAccountId}/customerGroups | lists all customer groups |
-| [**update_customer_group**](CustomerGroupsApi.md#update_customer_group) | **PATCH** /accounts/{koronaAccountId}/customerGroups/{customerGroupId} | updates the single customer group |
-| [**update_customer_groups**](CustomerGroupsApi.md#update_customer_groups) | **PATCH** /accounts/{koronaAccountId}/customerGroups | updates a batch of customer groups |
+| [**add_customer_groups**](CustomerGroupsApi.md#add_customer_groups) | **POST** /accounts/{koronaAccountId}/customerGroups |  |
+| [**delete_customer_group**](CustomerGroupsApi.md#delete_customer_group) | **DELETE** /accounts/{koronaAccountId}/customerGroups/{customerGroupId} |  |
+| [**delete_customer_groups**](CustomerGroupsApi.md#delete_customer_groups) | **DELETE** /accounts/{koronaAccountId}/customerGroups |  |
+| [**get_customer_group**](CustomerGroupsApi.md#get_customer_group) | **GET** /accounts/{koronaAccountId}/customerGroups/{customerGroupId} |  |
+| [**get_customer_groups**](CustomerGroupsApi.md#get_customer_groups) | **GET** /accounts/{koronaAccountId}/customerGroups |  |
+| [**update_customer_group**](CustomerGroupsApi.md#update_customer_group) | **PATCH** /accounts/{koronaAccountId}/customerGroups/{customerGroupId} |  |
+| [**update_customer_groups**](CustomerGroupsApi.md#update_customer_groups) | **PATCH** /accounts/{koronaAccountId}/customerGroups |  |
 
 
 ## add_customer_groups
 
-> <Array<AddOrUpdateResult>> add_customer_groups(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_customer_groups(korona_account_id, customer_group, opts)
+
+
 
 adds a batch of new customer groups
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::CustomerGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerGroup.new] # Array<CustomerGroup> | array of new customer groups
+customer_group = [KoronaCloudClient::CustomerGroup.new] # Array<CustomerGroup> | array of new customer groups
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new customer groups
-  result = api_instance.add_customer_groups(korona_account_id, body, opts)
+  
+  result = api_instance.add_customer_groups(korona_account_id, customer_group, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerGroupsApi->add_customer_groups: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_customer_groups_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_customer_groups_with_http_info(korona_account_id, customer_group, opts)
 
 ```ruby
 begin
-  # adds a batch of new customer groups
-  data, status_code, headers = api_instance.add_customer_groups_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_customer_groups_with_http_info(korona_account_id, customer_group, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerGroup&gt;**](CustomerGroup.md) | array of new customer groups |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **customer_group** | [**Array&lt;CustomerGroup&gt;**](CustomerGroup.md) | array of new customer groups |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_customer_group
 
 > delete_customer_group(korona_account_id, customer_group_id)
+
+
 
 deletes the single customer group
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 customer_group_id = 'customer_group_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single customer group
+  
   api_instance.delete_customer_group(korona_account_id, customer_group_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerGroupsApi->delete_customer_group: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single customer group
+  
   data, status_code, headers = api_instance.delete_customer_group_with_http_info(korona_account_id, customer_group_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_customer_groups
 
-> <Array<AddOrUpdateResult>> delete_customer_groups(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_customer_groups(korona_account_id, customer_group)
+
+
 
 deletes a batch of customer groups
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::CustomerGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerGroup.new] # Array<CustomerGroup> | array of existing customer groups (id or number required)
+customer_group = [KoronaCloudClient::CustomerGroup.new] # Array<CustomerGroup> | array of existing customer groups (id or number required)
 
 begin
-  # deletes a batch of customer groups
-  result = api_instance.delete_customer_groups(korona_account_id, body)
+  
+  result = api_instance.delete_customer_groups(korona_account_id, customer_group)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerGroupsApi->delete_customer_groups: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_customer_groups_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_customer_groups_with_http_info(korona_account_id, customer_group)
 
 ```ruby
 begin
-  # deletes a batch of customer groups
-  data, status_code, headers = api_instance.delete_customer_groups_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_customer_groups_with_http_info(korona_account_id, customer_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerGroup&gt;**](CustomerGroup.md) | array of existing customer groups (id or number required) |  |
+| **customer_group** | [**Array&lt;CustomerGroup&gt;**](CustomerGroup.md) | array of existing customer groups (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_customer_group
 
 > <CustomerGroup> get_customer_group(korona_account_id, customer_group_id)
+
+
 
 returns the single customer group
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 customer_group_id = 'customer_group_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single customer group
+  
   result = api_instance.get_customer_group(korona_account_id, customer_group_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single customer group
+  
   data, status_code, headers = api_instance.get_customer_group_with_http_info(korona_account_id, customer_group_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListCustomerGroup> get_customer_groups(korona_account_id, opts)
 
+
+
 lists all customer groups
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all customer groups
+  
   result = api_instance.get_customer_groups(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all customer groups
+  
   data, status_code, headers = api_instance.get_customer_groups_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_customer_group
 
-> update_customer_group(korona_account_id, customer_group_id, body)
+> update_customer_group(korona_account_id, customer_group_id, customer_group)
 
-updates the single customer group
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single customer group; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::CustomerGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 customer_group_id = 'customer_group_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::CustomerGroup.new # CustomerGroup | the properties to update of the customer group
+customer_group = KoronaCloudClient::CustomerGroup.new # CustomerGroup | the properties to update of the customer group
 
 begin
-  # updates the single customer group
-  api_instance.update_customer_group(korona_account_id, customer_group_id, body)
+  
+  api_instance.update_customer_group(korona_account_id, customer_group_id, customer_group)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerGroupsApi->update_customer_group: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_customer_group_with_http_info(korona_account_id, customer_group_id, body)
+> <Array(nil, Integer, Hash)> update_customer_group_with_http_info(korona_account_id, customer_group_id, customer_group)
 
 ```ruby
 begin
-  # updates the single customer group
-  data, status_code, headers = api_instance.update_customer_group_with_http_info(korona_account_id, customer_group_id, body)
+  
+  data, status_code, headers = api_instance.update_customer_group_with_http_info(korona_account_id, customer_group_id, customer_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **customer_group_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**CustomerGroup**](CustomerGroup.md) | the properties to update of the customer group |  |
+| **customer_group** | [**CustomerGroup**](CustomerGroup.md) | the properties to update of the customer group |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_customer_groups
 
-> <Array<AddOrUpdateResult>> update_customer_groups(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_customer_groups(korona_account_id, customer_group)
 
-updates a batch of customer groups
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of customer groups; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::CustomerGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerGroup.new] # Array<CustomerGroup> | an array of existing customer groups
+customer_group = [KoronaCloudClient::CustomerGroup.new] # Array<CustomerGroup> | an array of existing customer groups
 
 begin
-  # updates a batch of customer groups
-  result = api_instance.update_customer_groups(korona_account_id, body)
+  
+  result = api_instance.update_customer_groups(korona_account_id, customer_group)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerGroupsApi->update_customer_groups: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_customer_groups_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_customer_groups_with_http_info(korona_account_id, customer_group)
 
 ```ruby
 begin
-  # updates a batch of customer groups
-  data, status_code, headers = api_instance.update_customer_groups_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_customer_groups_with_http_info(korona_account_id, customer_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerGroup&gt;**](CustomerGroup.md) | an array of existing customer groups |  |
+| **customer_group** | [**Array&lt;CustomerGroup&gt;**](CustomerGroup.md) | an array of existing customer groups |  |
 
 ### Return type
 

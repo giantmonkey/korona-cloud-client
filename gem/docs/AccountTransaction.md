@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **account** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **amount** | **Float** |  | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **description** | **String** |  | [optional] |
 | **info_texts** | **Array&lt;String&gt;** |  | [optional] |
 | **serial_numbers** | **Array&lt;String&gt;** |  | [optional] |

@@ -8,11 +8,11 @@
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
-| **delivery_date** | **Time** |  | [optional] |
-| **shipping_date** | **Time** |  | [optional] |
+| **delivery_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **shipping_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **point_of_sale** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **create_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
+| **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
 | **booking_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **booking_api_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
@@ -38,8 +38,8 @@ instance = KoronaCloudClient::DispatchNotification.new(
   id: null,
   revision: null,
   number: null,
-  delivery_date: null,
-  shipping_date: null,
+  delivery_date: 2018-11-22T09:40:21+01:00,
+  shipping_date: 2018-11-22T09:40:21+01:00,
   point_of_sale: null,
   create_time: 2018-11-22T09:40:21+01:00,
   booking_time: 2018-11-22T09:40:21+01:00,

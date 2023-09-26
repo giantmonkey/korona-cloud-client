@@ -1,21 +1,23 @@
 # KoronaCloudClient::ExternalSystemCallsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_external_system_calls**](ExternalSystemCallsApi.md#add_external_system_calls) | **POST** /accounts/{koronaAccountId}/externalSystemCalls | adds a batch of new external system calls |
-| [**delete_external_system_call**](ExternalSystemCallsApi.md#delete_external_system_call) | **DELETE** /accounts/{koronaAccountId}/externalSystemCalls/{externalSystemCallId} | deletes a single external system call |
-| [**delete_external_system_calls**](ExternalSystemCallsApi.md#delete_external_system_calls) | **DELETE** /accounts/{koronaAccountId}/externalSystemCalls | deletes a batch of external system calls |
-| [**get_external_system_call**](ExternalSystemCallsApi.md#get_external_system_call) | **GET** /accounts/{koronaAccountId}/externalSystemCalls/{externalSystemCallId} | returns a single external system call |
-| [**get_external_system_calls**](ExternalSystemCallsApi.md#get_external_system_calls) | **GET** /accounts/{koronaAccountId}/externalSystemCalls | lists all external system calls |
-| [**update_external_system_call**](ExternalSystemCallsApi.md#update_external_system_call) | **PATCH** /accounts/{koronaAccountId}/externalSystemCalls/{externalSystemCallId} | updates the single external system call |
-| [**update_external_system_calls**](ExternalSystemCallsApi.md#update_external_system_calls) | **PATCH** /accounts/{koronaAccountId}/externalSystemCalls | updates a batch of external system calls |
+| [**add_external_system_calls**](ExternalSystemCallsApi.md#add_external_system_calls) | **POST** /accounts/{koronaAccountId}/externalSystemCalls |  |
+| [**delete_external_system_call**](ExternalSystemCallsApi.md#delete_external_system_call) | **DELETE** /accounts/{koronaAccountId}/externalSystemCalls/{externalSystemCallId} |  |
+| [**delete_external_system_calls**](ExternalSystemCallsApi.md#delete_external_system_calls) | **DELETE** /accounts/{koronaAccountId}/externalSystemCalls |  |
+| [**get_external_system_call**](ExternalSystemCallsApi.md#get_external_system_call) | **GET** /accounts/{koronaAccountId}/externalSystemCalls/{externalSystemCallId} |  |
+| [**get_external_system_calls**](ExternalSystemCallsApi.md#get_external_system_calls) | **GET** /accounts/{koronaAccountId}/externalSystemCalls |  |
+| [**update_external_system_call**](ExternalSystemCallsApi.md#update_external_system_call) | **PATCH** /accounts/{koronaAccountId}/externalSystemCalls/{externalSystemCallId} |  |
+| [**update_external_system_calls**](ExternalSystemCallsApi.md#update_external_system_calls) | **PATCH** /accounts/{koronaAccountId}/externalSystemCalls |  |
 
 
 ## add_external_system_calls
 
-> <Array<AddOrUpdateResult>> add_external_system_calls(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_external_system_calls(korona_account_id, external_system_call, opts)
+
+
 
 adds a batch of new external system calls
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::ExternalSystemCallsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ExternalSystemCall.new] # Array<ExternalSystemCall> | array of new external system calls
+external_system_call = [KoronaCloudClient::ExternalSystemCall.new] # Array<ExternalSystemCall> | array of new external system calls
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new external system calls
-  result = api_instance.add_external_system_calls(korona_account_id, body, opts)
+  
+  result = api_instance.add_external_system_calls(korona_account_id, external_system_call, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ExternalSystemCallsApi->add_external_system_calls: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_external_system_calls_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_external_system_calls_with_http_info(korona_account_id, external_system_call, opts)
 
 ```ruby
 begin
-  # adds a batch of new external system calls
-  data, status_code, headers = api_instance.add_external_system_calls_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_external_system_calls_with_http_info(korona_account_id, external_system_call, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ExternalSystemCall&gt;**](ExternalSystemCall.md) | array of new external system calls |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **external_system_call** | [**Array&lt;ExternalSystemCall&gt;**](ExternalSystemCall.md) | array of new external system calls |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_external_system_call
 
 > delete_external_system_call(korona_account_id, external_system_call_id)
+
+
 
 deletes a single external system call
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 external_system_call_id = 'external_system_call_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes a single external system call
+  
   api_instance.delete_external_system_call(korona_account_id, external_system_call_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ExternalSystemCallsApi->delete_external_system_call: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes a single external system call
+  
   data, status_code, headers = api_instance.delete_external_system_call_with_http_info(korona_account_id, external_system_call_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_external_system_calls
 
-> <Array<AddOrUpdateResult>> delete_external_system_calls(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_external_system_calls(korona_account_id, external_system_call)
+
+
 
 deletes a batch of external system calls
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::ExternalSystemCallsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ExternalSystemCall.new] # Array<ExternalSystemCall> | array of existing external system calls (id or number required)
+external_system_call = [KoronaCloudClient::ExternalSystemCall.new] # Array<ExternalSystemCall> | array of existing external system calls (id or number required)
 
 begin
-  # deletes a batch of external system calls
-  result = api_instance.delete_external_system_calls(korona_account_id, body)
+  
+  result = api_instance.delete_external_system_calls(korona_account_id, external_system_call)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ExternalSystemCallsApi->delete_external_system_calls: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_external_system_calls_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_external_system_calls_with_http_info(korona_account_id, external_system_call)
 
 ```ruby
 begin
-  # deletes a batch of external system calls
-  data, status_code, headers = api_instance.delete_external_system_calls_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_external_system_calls_with_http_info(korona_account_id, external_system_call)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ExternalSystemCall&gt;**](ExternalSystemCall.md) | array of existing external system calls (id or number required) |  |
+| **external_system_call** | [**Array&lt;ExternalSystemCall&gt;**](ExternalSystemCall.md) | array of existing external system calls (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_external_system_call
 
 > <ExternalSystemCall> get_external_system_call(korona_account_id, external_system_call_id)
+
+
 
 returns a single external system call
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 external_system_call_id = 'external_system_call_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns a single external system call
+  
   result = api_instance.get_external_system_call(korona_account_id, external_system_call_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns a single external system call
+  
   data, status_code, headers = api_instance.get_external_system_call_with_http_info(korona_account_id, external_system_call_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListExternalSystemCall> get_external_system_calls(korona_account_id, opts)
 
+
+
 lists all external system calls
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all external system calls
+  
   result = api_instance.get_external_system_calls(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all external system calls
+  
   data, status_code, headers = api_instance.get_external_system_calls_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_external_system_call
 
-> update_external_system_call(korona_account_id, external_system_call_id, body)
+> update_external_system_call(korona_account_id, external_system_call_id, external_system_call)
+
+
 
 updates the single external system call
 
@@ -399,11 +413,11 @@ end
 api_instance = KoronaCloudClient::ExternalSystemCallsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 external_system_call_id = 'external_system_call_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::ExternalSystemCall.new # ExternalSystemCall | the properties to update of the external system call
+external_system_call = KoronaCloudClient::ExternalSystemCall.new # ExternalSystemCall | the properties to update of the external system call
 
 begin
-  # updates the single external system call
-  api_instance.update_external_system_call(korona_account_id, external_system_call_id, body)
+  
+  api_instance.update_external_system_call(korona_account_id, external_system_call_id, external_system_call)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ExternalSystemCallsApi->update_external_system_call: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_external_system_call_with_http_info(korona_account_id, external_system_call_id, body)
+> <Array(nil, Integer, Hash)> update_external_system_call_with_http_info(korona_account_id, external_system_call_id, external_system_call)
 
 ```ruby
 begin
-  # updates the single external system call
-  data, status_code, headers = api_instance.update_external_system_call_with_http_info(korona_account_id, external_system_call_id, body)
+  
+  data, status_code, headers = api_instance.update_external_system_call_with_http_info(korona_account_id, external_system_call_id, external_system_call)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **external_system_call_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**ExternalSystemCall**](ExternalSystemCall.md) | the properties to update of the external system call |  |
+| **external_system_call** | [**ExternalSystemCall**](ExternalSystemCall.md) | the properties to update of the external system call |  |
 
 ### Return type
 
@@ -451,7 +465,9 @@ nil (empty response body)
 
 ## update_external_system_calls
 
-> <Array<AddOrUpdateResult>> update_external_system_calls(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_external_system_calls(korona_account_id, external_system_call)
+
+
 
 updates a batch of external system calls
 
@@ -469,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::ExternalSystemCallsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::ExternalSystemCall.new] # Array<ExternalSystemCall> | array of existing external system calls (id or number required)
+external_system_call = [KoronaCloudClient::ExternalSystemCall.new] # Array<ExternalSystemCall> | array of existing external system calls (id or number required)
 
 begin
-  # updates a batch of external system calls
-  result = api_instance.update_external_system_calls(korona_account_id, body)
+  
+  result = api_instance.update_external_system_calls(korona_account_id, external_system_call)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling ExternalSystemCallsApi->update_external_system_calls: #{e}"
@@ -484,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_external_system_calls_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_external_system_calls_with_http_info(korona_account_id, external_system_call)
 
 ```ruby
 begin
-  # updates a batch of external system calls
-  data, status_code, headers = api_instance.update_external_system_calls_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_external_system_calls_with_http_info(korona_account_id, external_system_call)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -503,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;ExternalSystemCall&gt;**](ExternalSystemCall.md) | array of existing external system calls (id or number required) |  |
+| **external_system_call** | [**Array&lt;ExternalSystemCall&gt;**](ExternalSystemCall.md) | array of existing external system calls (id or number required) |  |
 
 ### Return type
 

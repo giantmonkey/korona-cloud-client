@@ -13,7 +13,7 @@
 | **duration** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
 | **location** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **start** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **start** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **tags** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **description** | **String** |  | [optional] |
 

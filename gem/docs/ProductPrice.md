@@ -9,6 +9,7 @@
 | **product_code** | **String** | product code the price is valid for. [productCode] or [validFrom] is required, but not both. | [optional] |
 | **price_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **number** | **String** |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = KoronaCloudClient::ProductPrice.new(
   valid_from: null,
   product_code: null,
   price_group: null,
-  organizational_unit: null
+  organizational_unit: null,
+  number: null
 )
 ```
 

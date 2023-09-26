@@ -7,10 +7,11 @@
 | **amount** | **Float** |  | [optional] |
 | **currency** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **payment_method** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **transaction_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **transaction_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **transaction_token** | **String** |  | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **prepaid_card** | [**PrepaidCard**](PrepaidCard.md) |  | [optional] |
+| **input_amount** | **Float** |  | [optional] |
 | **payment_terminal_receipts** | [**Array&lt;PaymentTerminalReceipt&gt;**](PaymentTerminalReceipt.md) |  | [optional] |
 
 ## Example
@@ -26,6 +27,7 @@ instance = KoronaCloudClient::Payment.new(
   transaction_token: null,
   external_references: null,
   prepaid_card: null,
+  input_amount: null,
   payment_terminal_receipts: null
 )
 ```

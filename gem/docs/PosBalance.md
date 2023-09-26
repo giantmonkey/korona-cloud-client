@@ -10,8 +10,8 @@
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **balance_attempts** | **Integer** |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **create_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **finish_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **finish_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **summaries** | [**Array&lt;PosBalanceSummary&gt;**](PosBalanceSummary.md) |  | [optional] |
 | **summary_changesets** | [**Array&lt;PosBalanceSummaryChangeset&gt;**](PosBalanceSummaryChangeset.md) |  | [optional] |
 | **items** | [**Array&lt;PosBalanceItem&gt;**](PosBalanceItem.md) |  | [optional] |

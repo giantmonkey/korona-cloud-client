@@ -1,19 +1,21 @@
 # KoronaCloudClient::FiscalUnitsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_fiscal_units**](FiscalUnitsApi.md#add_fiscal_units) | **POST** /accounts/{koronaAccountId}/fiscalUnits | adds a batch of fiscal units |
-| [**get_fiscal_unit**](FiscalUnitsApi.md#get_fiscal_unit) | **GET** /accounts/{koronaAccountId}/fiscalUnits/{fiscalUnitId} | returns the single fiscal unit |
-| [**get_fiscal_units**](FiscalUnitsApi.md#get_fiscal_units) | **GET** /accounts/{koronaAccountId}/fiscalUnits | lists all fiscal units |
-| [**update_fiscal_unit**](FiscalUnitsApi.md#update_fiscal_unit) | **PATCH** /accounts/{koronaAccountId}/fiscalUnits/{fiscalUnitId} | updates the fiscal unit |
-| [**update_fiscal_units**](FiscalUnitsApi.md#update_fiscal_units) | **PATCH** /accounts/{koronaAccountId}/fiscalUnits | updates a batch of fiscal units |
+| [**add_fiscal_units**](FiscalUnitsApi.md#add_fiscal_units) | **POST** /accounts/{koronaAccountId}/fiscalUnits |  |
+| [**get_fiscal_unit**](FiscalUnitsApi.md#get_fiscal_unit) | **GET** /accounts/{koronaAccountId}/fiscalUnits/{fiscalUnitId} |  |
+| [**get_fiscal_units**](FiscalUnitsApi.md#get_fiscal_units) | **GET** /accounts/{koronaAccountId}/fiscalUnits |  |
+| [**update_fiscal_unit**](FiscalUnitsApi.md#update_fiscal_unit) | **PATCH** /accounts/{koronaAccountId}/fiscalUnits/{fiscalUnitId} |  |
+| [**update_fiscal_units**](FiscalUnitsApi.md#update_fiscal_units) | **PATCH** /accounts/{koronaAccountId}/fiscalUnits |  |
 
 
 ## add_fiscal_units
 
-> <Array<AddOrUpdateResult>> add_fiscal_units(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_fiscal_units(korona_account_id, fiscal_unit, opts)
+
+
 
 adds a batch of fiscal units
 
@@ -31,14 +33,15 @@ end
 
 api_instance = KoronaCloudClient::FiscalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::FiscalUnit.new] # Array<FiscalUnit> | array of new fiscal units
+fiscal_unit = [KoronaCloudClient::FiscalUnit.new] # Array<FiscalUnit> | array of new fiscal units
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of fiscal units
-  result = api_instance.add_fiscal_units(korona_account_id, body, opts)
+  
+  result = api_instance.add_fiscal_units(korona_account_id, fiscal_unit, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling FiscalUnitsApi->add_fiscal_units: #{e}"
@@ -49,12 +52,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_fiscal_units_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_fiscal_units_with_http_info(korona_account_id, fiscal_unit, opts)
 
 ```ruby
 begin
-  # adds a batch of fiscal units
-  data, status_code, headers = api_instance.add_fiscal_units_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_fiscal_units_with_http_info(korona_account_id, fiscal_unit, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -68,8 +71,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;FiscalUnit&gt;**](FiscalUnit.md) | array of new fiscal units |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **fiscal_unit** | [**Array&lt;FiscalUnit&gt;**](FiscalUnit.md) | array of new fiscal units |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -88,6 +92,8 @@ end
 ## get_fiscal_unit
 
 > <FiscalUnit> get_fiscal_unit(korona_account_id, fiscal_unit_id)
+
+
 
 returns the single fiscal unit
 
@@ -108,7 +114,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 fiscal_unit_id = 'fiscal_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single fiscal unit
+  
   result = api_instance.get_fiscal_unit(korona_account_id, fiscal_unit_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -124,7 +130,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single fiscal unit
+  
   data, status_code, headers = api_instance.get_fiscal_unit_with_http_info(korona_account_id, fiscal_unit_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -159,6 +165,8 @@ end
 
 > <ResultListFiscalUnit> get_fiscal_units(korona_account_id, opts)
 
+
+
 lists all fiscal units
 
 ### Examples
@@ -187,7 +195,7 @@ opts = {
 }
 
 begin
-  # lists all fiscal units
+  
   result = api_instance.get_fiscal_units(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -203,7 +211,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all fiscal units
+  
   data, status_code, headers = api_instance.get_fiscal_units_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -243,7 +251,9 @@ end
 
 ## update_fiscal_unit
 
-> update_fiscal_unit(korona_account_id, fiscal_unit_id, body)
+> update_fiscal_unit(korona_account_id, fiscal_unit_id, fiscal_unit)
+
+
 
 updates the fiscal unit
 
@@ -262,11 +272,11 @@ end
 api_instance = KoronaCloudClient::FiscalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 fiscal_unit_id = 'fiscal_unit_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::FiscalUnit.new # FiscalUnit | the properties to update of the fiscal unit
+fiscal_unit = KoronaCloudClient::FiscalUnit.new # FiscalUnit | the properties to update of the fiscal unit
 
 begin
-  # updates the fiscal unit
-  api_instance.update_fiscal_unit(korona_account_id, fiscal_unit_id, body)
+  
+  api_instance.update_fiscal_unit(korona_account_id, fiscal_unit_id, fiscal_unit)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling FiscalUnitsApi->update_fiscal_unit: #{e}"
 end
@@ -276,12 +286,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_fiscal_unit_with_http_info(korona_account_id, fiscal_unit_id, body)
+> <Array(nil, Integer, Hash)> update_fiscal_unit_with_http_info(korona_account_id, fiscal_unit_id, fiscal_unit)
 
 ```ruby
 begin
-  # updates the fiscal unit
-  data, status_code, headers = api_instance.update_fiscal_unit_with_http_info(korona_account_id, fiscal_unit_id, body)
+  
+  data, status_code, headers = api_instance.update_fiscal_unit_with_http_info(korona_account_id, fiscal_unit_id, fiscal_unit)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -296,7 +306,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **fiscal_unit_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**FiscalUnit**](FiscalUnit.md) | the properties to update of the fiscal unit |  |
+| **fiscal_unit** | [**FiscalUnit**](FiscalUnit.md) | the properties to update of the fiscal unit |  |
 
 ### Return type
 
@@ -314,7 +324,9 @@ nil (empty response body)
 
 ## update_fiscal_units
 
-> <Array<AddOrUpdateResult>> update_fiscal_units(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_fiscal_units(korona_account_id, fiscal_unit)
+
+
 
 updates a batch of fiscal units
 
@@ -332,11 +344,11 @@ end
 
 api_instance = KoronaCloudClient::FiscalUnitsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::FiscalUnit.new] # Array<FiscalUnit> | array of existing fiscal units (id or number required)
+fiscal_unit = [KoronaCloudClient::FiscalUnit.new] # Array<FiscalUnit> | array of existing fiscal units (id or number required)
 
 begin
-  # updates a batch of fiscal units
-  result = api_instance.update_fiscal_units(korona_account_id, body)
+  
+  result = api_instance.update_fiscal_units(korona_account_id, fiscal_unit)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling FiscalUnitsApi->update_fiscal_units: #{e}"
@@ -347,12 +359,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_fiscal_units_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_fiscal_units_with_http_info(korona_account_id, fiscal_unit)
 
 ```ruby
 begin
-  # updates a batch of fiscal units
-  data, status_code, headers = api_instance.update_fiscal_units_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_fiscal_units_with_http_info(korona_account_id, fiscal_unit)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -366,7 +378,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;FiscalUnit&gt;**](FiscalUnit.md) | array of existing fiscal units (id or number required) |  |
+| **fiscal_unit** | [**Array&lt;FiscalUnit&gt;**](FiscalUnit.md) | array of existing fiscal units (id or number required) |  |
 
 ### Return type
 

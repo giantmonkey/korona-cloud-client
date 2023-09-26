@@ -11,7 +11,7 @@
 | **creditor_identifier** | **String** |  | [optional] |
 | **currency** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **iban** | **String** |  | [optional] |
-| **payment_method** | **String** |  | [optional] |
+| **payment_method** | **String** | SupplierPaymentMethod | [optional] |
 | **minimum_order_value** | **Float** |  | [optional] |
 
 ## Example

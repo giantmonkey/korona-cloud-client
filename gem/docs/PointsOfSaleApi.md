@@ -1,25 +1,27 @@
 # KoronaCloudClient::PointsOfSaleApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_point_of_sale_end_of_day_statements**](PointsOfSaleApi.md#add_point_of_sale_end_of_day_statements) | **POST** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/endOfDayStatements | adds a batch of point of sale-related end-of-day-statements |
-| [**add_point_of_sale_receipts**](PointsOfSaleApi.md#add_point_of_sale_receipts) | **POST** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/receipts | adds a batch of point of sale-related receipts |
-| [**add_points_of_sale**](PointsOfSaleApi.md#add_points_of_sale) | **POST** /accounts/{koronaAccountId}/pointsOfSale | adds a batch of new points of sale |
-| [**get_point_of_sale**](PointsOfSaleApi.md#get_point_of_sale) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId} | returns the single point of sale |
+| [**add_point_of_sale_end_of_day_statements**](PointsOfSaleApi.md#add_point_of_sale_end_of_day_statements) | **POST** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/endOfDayStatements |  |
+| [**add_point_of_sale_receipts**](PointsOfSaleApi.md#add_point_of_sale_receipts) | **POST** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/receipts |  |
+| [**add_points_of_sale**](PointsOfSaleApi.md#add_points_of_sale) | **POST** /accounts/{koronaAccountId}/pointsOfSale |  |
+| [**get_point_of_sale**](PointsOfSaleApi.md#get_point_of_sale) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId} |  |
 | [**get_point_of_sale_balances**](PointsOfSaleApi.md#get_point_of_sale_balances) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/balances |  |
-| [**get_point_of_sale_end_of_day_statements**](PointsOfSaleApi.md#get_point_of_sale_end_of_day_statements) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/endOfDayStatements | lists all point of sale-related end-of-day-statements |
-| [**get_point_of_sale_receipt**](PointsOfSaleApi.md#get_point_of_sale_receipt) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/receipts/{receiptId} | returns the single point of sale-related receipt |
-| [**get_point_of_sale_receipts**](PointsOfSaleApi.md#get_point_of_sale_receipts) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/receipts | lists all point of sale-related receipts |
-| [**get_points_of_sale**](PointsOfSaleApi.md#get_points_of_sale) | **GET** /accounts/{koronaAccountId}/pointsOfSale | lists all points of sale |
-| [**update_point_of_sale**](PointsOfSaleApi.md#update_point_of_sale) | **PATCH** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId} | updates the point of sale |
-| [**update_points_of_sale**](PointsOfSaleApi.md#update_points_of_sale) | **PATCH** /accounts/{koronaAccountId}/pointsOfSale | updates a batch of points of sale |
+| [**get_point_of_sale_end_of_day_statements**](PointsOfSaleApi.md#get_point_of_sale_end_of_day_statements) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/endOfDayStatements |  |
+| [**get_point_of_sale_receipt**](PointsOfSaleApi.md#get_point_of_sale_receipt) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/receipts/{receiptId} |  |
+| [**get_point_of_sale_receipts**](PointsOfSaleApi.md#get_point_of_sale_receipts) | **GET** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId}/receipts |  |
+| [**get_points_of_sale**](PointsOfSaleApi.md#get_points_of_sale) | **GET** /accounts/{koronaAccountId}/pointsOfSale |  |
+| [**update_point_of_sale**](PointsOfSaleApi.md#update_point_of_sale) | **PATCH** /accounts/{koronaAccountId}/pointsOfSale/{pointOfSaleId} |  |
+| [**update_points_of_sale**](PointsOfSaleApi.md#update_points_of_sale) | **PATCH** /accounts/{koronaAccountId}/pointsOfSale |  |
 
 
 ## add_point_of_sale_end_of_day_statements
 
 > <Array<AddOrUpdateResult>> add_point_of_sale_end_of_day_statements(korona_account_id, point_of_sale_id, coupling_id, opts)
+
+
 
 adds a batch of point of sale-related end-of-day-statements
 
@@ -40,11 +42,11 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 point_of_sale_id = 'point_of_sale_id_example' # String | id of the related object (important: id should match the uuid-format)
 coupling_id = 'coupling_id_example' # String | the coupling-id of the device
 opts = {
-  body: [KoronaCloudClient::EndOfDayStatement.new] # Array<EndOfDayStatement> | the end-of-day-statements to add
+  end_of_day_statement: [KoronaCloudClient::EndOfDayStatement.new] # Array<EndOfDayStatement> | the end-of-day-statements to add
 }
 
 begin
-  # adds a batch of point of sale-related end-of-day-statements
+  
   result = api_instance.add_point_of_sale_end_of_day_statements(korona_account_id, point_of_sale_id, coupling_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -60,7 +62,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # adds a batch of point of sale-related end-of-day-statements
+  
   data, status_code, headers = api_instance.add_point_of_sale_end_of_day_statements_with_http_info(korona_account_id, point_of_sale_id, coupling_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -77,7 +79,7 @@ end
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **point_of_sale_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **coupling_id** | **String** | the coupling-id of the device |  |
-| **body** | [**Array&lt;EndOfDayStatement&gt;**](EndOfDayStatement.md) | the end-of-day-statements to add | [optional] |
+| **end_of_day_statement** | [**Array&lt;EndOfDayStatement&gt;**](EndOfDayStatement.md) | the end-of-day-statements to add | [optional] |
 
 ### Return type
 
@@ -96,6 +98,8 @@ end
 ## add_point_of_sale_receipts
 
 > <Array<AddOrUpdateResult>> add_point_of_sale_receipts(korona_account_id, point_of_sale_id, coupling_id, opts)
+
+
 
 adds a batch of point of sale-related receipts
 
@@ -117,11 +121,11 @@ point_of_sale_id = 'point_of_sale_id_example' # String | id of the related objec
 coupling_id = 'coupling_id_example' # String | the coupling-id of the device. It can be set to check whether your coupling-id is correct or not (works only, if point of sale is external).
 opts = {
   disable_receipt_number_prefix: true, # Boolean | prevents setting a prefix at the receipt number
-  body: [KoronaCloudClient::Receipt.new] # Array<Receipt> | the receipts to add
+  receipt: [KoronaCloudClient::Receipt.new] # Array<Receipt> | the receipts to add
 }
 
 begin
-  # adds a batch of point of sale-related receipts
+  
   result = api_instance.add_point_of_sale_receipts(korona_account_id, point_of_sale_id, coupling_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -137,7 +141,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # adds a batch of point of sale-related receipts
+  
   data, status_code, headers = api_instance.add_point_of_sale_receipts_with_http_info(korona_account_id, point_of_sale_id, coupling_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -155,7 +159,7 @@ end
 | **point_of_sale_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **coupling_id** | **String** | the coupling-id of the device. It can be set to check whether your coupling-id is correct or not (works only, if point of sale is external). |  |
 | **disable_receipt_number_prefix** | **Boolean** | prevents setting a prefix at the receipt number | [optional] |
-| **body** | [**Array&lt;Receipt&gt;**](Receipt.md) | the receipts to add | [optional] |
+| **receipt** | [**Array&lt;Receipt&gt;**](Receipt.md) | the receipts to add | [optional] |
 
 ### Return type
 
@@ -173,7 +177,9 @@ end
 
 ## add_points_of_sale
 
-> <Array<AddOrUpdateResult>> add_points_of_sale(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_points_of_sale(korona_account_id, pos, opts)
+
+
 
 adds a batch of new points of sale
 
@@ -191,14 +197,15 @@ end
 
 api_instance = KoronaCloudClient::PointsOfSaleApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Pos.new] # Array<Pos> | array of new points of sale
+pos = [KoronaCloudClient::Pos.new] # Array<Pos> | array of new points of sale
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new points of sale
-  result = api_instance.add_points_of_sale(korona_account_id, body, opts)
+  
+  result = api_instance.add_points_of_sale(korona_account_id, pos, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PointsOfSaleApi->add_points_of_sale: #{e}"
@@ -209,12 +216,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_points_of_sale_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_points_of_sale_with_http_info(korona_account_id, pos, opts)
 
 ```ruby
 begin
-  # adds a batch of new points of sale
-  data, status_code, headers = api_instance.add_points_of_sale_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_points_of_sale_with_http_info(korona_account_id, pos, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -228,8 +235,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Pos&gt;**](Pos.md) | array of new points of sale |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **pos** | [**Array&lt;Pos&gt;**](Pos.md) | array of new points of sale |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -248,6 +256,8 @@ end
 ## get_point_of_sale
 
 > <Pos> get_point_of_sale(korona_account_id, point_of_sale_id, opts)
+
+
 
 returns the single point of sale
 
@@ -271,7 +281,7 @@ opts = {
 }
 
 begin
-  # returns the single point of sale
+  
   result = api_instance.get_point_of_sale(korona_account_id, point_of_sale_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -287,7 +297,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single point of sale
+  
   data, status_code, headers = api_instance.get_point_of_sale_with_http_info(korona_account_id, point_of_sale_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -324,6 +334,8 @@ end
 > <ResultListPosBalance> get_point_of_sale_balances(korona_account_id, point_of_sale_id, opts)
 
 
+
+lists all point of sale-related pos balances
 
 ### Examples
 
@@ -407,6 +419,8 @@ end
 
 > <ResultListEndOfDayStatement> get_point_of_sale_end_of_day_statements(korona_account_id, point_of_sale_id, opts)
 
+
+
 lists all point of sale-related end-of-day-statements
 
 ### Examples
@@ -436,7 +450,7 @@ opts = {
 }
 
 begin
-  # lists all point of sale-related end-of-day-statements
+  
   result = api_instance.get_point_of_sale_end_of_day_statements(korona_account_id, point_of_sale_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -452,7 +466,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all point of sale-related end-of-day-statements
+  
   data, status_code, headers = api_instance.get_point_of_sale_end_of_day_statements_with_http_info(korona_account_id, point_of_sale_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -495,6 +509,8 @@ end
 
 > <Receipt> get_point_of_sale_receipt(korona_account_id, point_of_sale_id, receipt_id, opts)
 
+
+
 returns the single point of sale-related receipt
 
 ### Examples
@@ -519,7 +535,7 @@ opts = {
 }
 
 begin
-  # returns the single point of sale-related receipt
+  
   result = api_instance.get_point_of_sale_receipt(korona_account_id, point_of_sale_id, receipt_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -535,7 +551,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single point of sale-related receipt
+  
   data, status_code, headers = api_instance.get_point_of_sale_receipt_with_http_info(korona_account_id, point_of_sale_id, receipt_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -573,6 +589,8 @@ end
 
 > <ResultListReceipt> get_point_of_sale_receipts(korona_account_id, point_of_sale_id, opts)
 
+
+
 lists all point of sale-related receipts
 
 ### Examples
@@ -607,7 +625,7 @@ opts = {
 }
 
 begin
-  # lists all point of sale-related receipts
+  
   result = api_instance.get_point_of_sale_receipts(korona_account_id, point_of_sale_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -623,7 +641,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all point of sale-related receipts
+  
   data, status_code, headers = api_instance.get_point_of_sale_receipts_with_http_info(korona_account_id, point_of_sale_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -671,6 +689,8 @@ end
 
 > <ResultListPos> get_points_of_sale(korona_account_id, opts)
 
+
+
 lists all points of sale
 
 ### Examples
@@ -699,7 +719,7 @@ opts = {
 }
 
 begin
-  # lists all points of sale
+  
   result = api_instance.get_points_of_sale(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -715,7 +735,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all points of sale
+  
   data, status_code, headers = api_instance.get_points_of_sale_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -755,7 +775,9 @@ end
 
 ## update_point_of_sale
 
-> update_point_of_sale(korona_account_id, point_of_sale_id, body, opts)
+> update_point_of_sale(korona_account_id, point_of_sale_id, pos, opts)
+
+
 
 updates the point of sale
 
@@ -774,15 +796,15 @@ end
 api_instance = KoronaCloudClient::PointsOfSaleApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 point_of_sale_id = 'point_of_sale_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::Pos.new # Pos | the properties to update of the point of sale ('couplingId' only)
+pos = KoronaCloudClient::Pos.new # Pos | the properties to update of the point of sale ('couplingId' only)
 opts = {
   coupling_id: 'coupling_id_example', # String | the coupling-id of the device (required if already coupled)
   decouple: true # Boolean | executes uncoupling, if set to true, device will be uncoupled if point of sale is already coupled
 }
 
 begin
-  # updates the point of sale
-  api_instance.update_point_of_sale(korona_account_id, point_of_sale_id, body, opts)
+  
+  api_instance.update_point_of_sale(korona_account_id, point_of_sale_id, pos, opts)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PointsOfSaleApi->update_point_of_sale: #{e}"
 end
@@ -792,12 +814,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_point_of_sale_with_http_info(korona_account_id, point_of_sale_id, body, opts)
+> <Array(nil, Integer, Hash)> update_point_of_sale_with_http_info(korona_account_id, point_of_sale_id, pos, opts)
 
 ```ruby
 begin
-  # updates the point of sale
-  data, status_code, headers = api_instance.update_point_of_sale_with_http_info(korona_account_id, point_of_sale_id, body, opts)
+  
+  data, status_code, headers = api_instance.update_point_of_sale_with_http_info(korona_account_id, point_of_sale_id, pos, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -812,7 +834,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **point_of_sale_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Pos**](Pos.md) | the properties to update of the point of sale (&#39;couplingId&#39; only) |  |
+| **pos** | [**Pos**](Pos.md) | the properties to update of the point of sale (&#39;couplingId&#39; only) |  |
 | **coupling_id** | **String** | the coupling-id of the device (required if already coupled) | [optional] |
 | **decouple** | **Boolean** | executes uncoupling, if set to true, device will be uncoupled if point of sale is already coupled | [optional] |
 
@@ -832,11 +854,11 @@ nil (empty response body)
 
 ## update_points_of_sale
 
-> <Array<AddOrUpdateResult>> update_points_of_sale(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_points_of_sale(korona_account_id, pos)
 
-updates a batch of points of sale
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of points of sale; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -852,11 +874,11 @@ end
 
 api_instance = KoronaCloudClient::PointsOfSaleApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Pos.new] # Array<Pos> | an array of existing points of sale
+pos = [KoronaCloudClient::Pos.new] # Array<Pos> | an array of existing points of sale
 
 begin
-  # updates a batch of points of sale
-  result = api_instance.update_points_of_sale(korona_account_id, body)
+  
+  result = api_instance.update_points_of_sale(korona_account_id, pos)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PointsOfSaleApi->update_points_of_sale: #{e}"
@@ -867,12 +889,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_points_of_sale_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_points_of_sale_with_http_info(korona_account_id, pos)
 
 ```ruby
 begin
-  # updates a batch of points of sale
-  data, status_code, headers = api_instance.update_points_of_sale_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_points_of_sale_with_http_info(korona_account_id, pos)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -886,7 +908,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Pos&gt;**](Pos.md) | an array of existing points of sale |  |
+| **pos** | [**Array&lt;Pos&gt;**](Pos.md) | an array of existing points of sale |  |
 
 ### Return type
 

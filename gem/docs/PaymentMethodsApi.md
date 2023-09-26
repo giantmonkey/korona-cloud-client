@@ -1,21 +1,23 @@
 # KoronaCloudClient::PaymentMethodsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_payment_methods**](PaymentMethodsApi.md#add_payment_methods) | **POST** /accounts/{koronaAccountId}/paymentMethods | adds a batch of new payment methods |
-| [**delete_payment_method**](PaymentMethodsApi.md#delete_payment_method) | **DELETE** /accounts/{koronaAccountId}/paymentMethods/{paymentMethodId} | deletes the single payment method |
-| [**delete_payment_methods**](PaymentMethodsApi.md#delete_payment_methods) | **DELETE** /accounts/{koronaAccountId}/paymentMethods | deletes a batch of payment methods |
-| [**get_payment_method**](PaymentMethodsApi.md#get_payment_method) | **GET** /accounts/{koronaAccountId}/paymentMethods/{paymentMethodId} | returns the single payment method |
-| [**get_payment_methods**](PaymentMethodsApi.md#get_payment_methods) | **GET** /accounts/{koronaAccountId}/paymentMethods | lists all payment methods |
-| [**update_payment_method**](PaymentMethodsApi.md#update_payment_method) | **PATCH** /accounts/{koronaAccountId}/paymentMethods/{paymentMethodId} | updates the single payment method |
-| [**update_payment_methods**](PaymentMethodsApi.md#update_payment_methods) | **PATCH** /accounts/{koronaAccountId}/paymentMethods | updates a batch of payment methods |
+| [**add_payment_methods**](PaymentMethodsApi.md#add_payment_methods) | **POST** /accounts/{koronaAccountId}/paymentMethods |  |
+| [**delete_payment_method**](PaymentMethodsApi.md#delete_payment_method) | **DELETE** /accounts/{koronaAccountId}/paymentMethods/{paymentMethodId} |  |
+| [**delete_payment_methods**](PaymentMethodsApi.md#delete_payment_methods) | **DELETE** /accounts/{koronaAccountId}/paymentMethods |  |
+| [**get_payment_method**](PaymentMethodsApi.md#get_payment_method) | **GET** /accounts/{koronaAccountId}/paymentMethods/{paymentMethodId} |  |
+| [**get_payment_methods**](PaymentMethodsApi.md#get_payment_methods) | **GET** /accounts/{koronaAccountId}/paymentMethods |  |
+| [**update_payment_method**](PaymentMethodsApi.md#update_payment_method) | **PATCH** /accounts/{koronaAccountId}/paymentMethods/{paymentMethodId} |  |
+| [**update_payment_methods**](PaymentMethodsApi.md#update_payment_methods) | **PATCH** /accounts/{koronaAccountId}/paymentMethods |  |
 
 
 ## add_payment_methods
 
-> <Array<AddOrUpdateResult>> add_payment_methods(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_payment_methods(korona_account_id, payment_method, opts)
+
+
 
 adds a batch of new payment methods
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::PaymentMethodsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PaymentMethod.new] # Array<PaymentMethod> | array of new payment methods
+payment_method = [KoronaCloudClient::PaymentMethod.new] # Array<PaymentMethod> | array of new payment methods
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new payment methods
-  result = api_instance.add_payment_methods(korona_account_id, body, opts)
+  
+  result = api_instance.add_payment_methods(korona_account_id, payment_method, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PaymentMethodsApi->add_payment_methods: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_payment_methods_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_payment_methods_with_http_info(korona_account_id, payment_method, opts)
 
 ```ruby
 begin
-  # adds a batch of new payment methods
-  data, status_code, headers = api_instance.add_payment_methods_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_payment_methods_with_http_info(korona_account_id, payment_method, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PaymentMethod&gt;**](PaymentMethod.md) | array of new payment methods |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **payment_method** | [**Array&lt;PaymentMethod&gt;**](PaymentMethod.md) | array of new payment methods |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_payment_method
 
 > delete_payment_method(korona_account_id, payment_method_id)
+
+
 
 deletes the single payment method
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 payment_method_id = 'payment_method_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single payment method
+  
   api_instance.delete_payment_method(korona_account_id, payment_method_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PaymentMethodsApi->delete_payment_method: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single payment method
+  
   data, status_code, headers = api_instance.delete_payment_method_with_http_info(korona_account_id, payment_method_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_payment_methods
 
-> <Array<AddOrUpdateResult>> delete_payment_methods(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_payment_methods(korona_account_id, payment_method)
+
+
 
 deletes a batch of payment methods
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::PaymentMethodsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PaymentMethod.new] # Array<PaymentMethod> | array of existing payment methods (id or number required)
+payment_method = [KoronaCloudClient::PaymentMethod.new] # Array<PaymentMethod> | array of existing payment methods (id or number required)
 
 begin
-  # deletes a batch of payment methods
-  result = api_instance.delete_payment_methods(korona_account_id, body)
+  
+  result = api_instance.delete_payment_methods(korona_account_id, payment_method)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PaymentMethodsApi->delete_payment_methods: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_payment_methods_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_payment_methods_with_http_info(korona_account_id, payment_method)
 
 ```ruby
 begin
-  # deletes a batch of payment methods
-  data, status_code, headers = api_instance.delete_payment_methods_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_payment_methods_with_http_info(korona_account_id, payment_method)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PaymentMethod&gt;**](PaymentMethod.md) | array of existing payment methods (id or number required) |  |
+| **payment_method** | [**Array&lt;PaymentMethod&gt;**](PaymentMethod.md) | array of existing payment methods (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_payment_method
 
 > <PaymentMethod> get_payment_method(korona_account_id, payment_method_id)
+
+
 
 returns the single payment method
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 payment_method_id = 'payment_method_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single payment method
+  
   result = api_instance.get_payment_method(korona_account_id, payment_method_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single payment method
+  
   data, status_code, headers = api_instance.get_payment_method_with_http_info(korona_account_id, payment_method_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListPaymentMethod> get_payment_methods(korona_account_id, opts)
 
+
+
 lists all payment methods
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all payment methods
+  
   result = api_instance.get_payment_methods(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all payment methods
+  
   data, status_code, headers = api_instance.get_payment_methods_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,11 +392,11 @@ end
 
 ## update_payment_method
 
-> update_payment_method(korona_account_id, payment_method_id, body)
+> update_payment_method(korona_account_id, payment_method_id, payment_method)
 
-updates the single payment method
 
-if [number] is set, the number of the object will change and the resource location as well
+
+updates the single payment method; if [number] is set, the number of the object will change and the resource location as well
 
 ### Examples
 
@@ -401,11 +413,11 @@ end
 api_instance = KoronaCloudClient::PaymentMethodsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 payment_method_id = 'payment_method_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::PaymentMethod.new # PaymentMethod | the properties to update of the payment method
+payment_method = KoronaCloudClient::PaymentMethod.new # PaymentMethod | the properties to update of the payment method
 
 begin
-  # updates the single payment method
-  api_instance.update_payment_method(korona_account_id, payment_method_id, body)
+  
+  api_instance.update_payment_method(korona_account_id, payment_method_id, payment_method)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PaymentMethodsApi->update_payment_method: #{e}"
 end
@@ -415,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_payment_method_with_http_info(korona_account_id, payment_method_id, body)
+> <Array(nil, Integer, Hash)> update_payment_method_with_http_info(korona_account_id, payment_method_id, payment_method)
 
 ```ruby
 begin
-  # updates the single payment method
-  data, status_code, headers = api_instance.update_payment_method_with_http_info(korona_account_id, payment_method_id, body)
+  
+  data, status_code, headers = api_instance.update_payment_method_with_http_info(korona_account_id, payment_method_id, payment_method)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -435,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **payment_method_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**PaymentMethod**](PaymentMethod.md) | the properties to update of the payment method |  |
+| **payment_method** | [**PaymentMethod**](PaymentMethod.md) | the properties to update of the payment method |  |
 
 ### Return type
 
@@ -453,11 +465,11 @@ nil (empty response body)
 
 ## update_payment_methods
 
-> <Array<AddOrUpdateResult>> update_payment_methods(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_payment_methods(korona_account_id, payment_method)
 
-updates a batch of payment methods
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of payment methods; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -473,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::PaymentMethodsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::PaymentMethod.new] # Array<PaymentMethod> | an array of existing payment methods
+payment_method = [KoronaCloudClient::PaymentMethod.new] # Array<PaymentMethod> | an array of existing payment methods
 
 begin
-  # updates a batch of payment methods
-  result = api_instance.update_payment_methods(korona_account_id, body)
+  
+  result = api_instance.update_payment_methods(korona_account_id, payment_method)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PaymentMethodsApi->update_payment_methods: #{e}"
@@ -488,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_payment_methods_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_payment_methods_with_http_info(korona_account_id, payment_method)
 
 ```ruby
 begin
-  # updates a batch of payment methods
-  data, status_code, headers = api_instance.update_payment_methods_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_payment_methods_with_http_info(korona_account_id, payment_method)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -507,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;PaymentMethod&gt;**](PaymentMethod.md) | an array of existing payment methods |  |
+| **payment_method** | [**Array&lt;PaymentMethod&gt;**](PaymentMethod.md) | an array of existing payment methods |  |
 
 ### Return type
 

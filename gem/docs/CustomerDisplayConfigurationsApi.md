@@ -1,20 +1,22 @@
 # KoronaCloudClient::CustomerDisplayConfigurationsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#add_customer_display_configurations) | **POST** /accounts/{koronaAccountId}/customerDisplayConfigurations | adds a batch of new customer display configurations |
-| [**delete_customer_display_configuration**](CustomerDisplayConfigurationsApi.md#delete_customer_display_configuration) | **DELETE** /accounts/{koronaAccountId}/customerDisplayConfigurations/{customerDisplayConfigurationId} | deletes the single customer display configuration |
-| [**delete_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#delete_customer_display_configurations) | **DELETE** /accounts/{koronaAccountId}/customerDisplayConfigurations | deletes a batch of customer display configurations |
-| [**get_customer_display_configuration**](CustomerDisplayConfigurationsApi.md#get_customer_display_configuration) | **GET** /accounts/{koronaAccountId}/customerDisplayConfigurations/{customerDisplayConfigurationId} | returns the single customer display configuration |
-| [**get_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#get_customer_display_configurations) | **GET** /accounts/{koronaAccountId}/customerDisplayConfigurations | lists all customer display configurations |
-| [**update_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#update_customer_display_configurations) | **PATCH** /accounts/{koronaAccountId}/customerDisplayConfigurations | updates a batch of customer display configurations |
+| [**add_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#add_customer_display_configurations) | **POST** /accounts/{koronaAccountId}/customerDisplayConfigurations |  |
+| [**delete_customer_display_configuration**](CustomerDisplayConfigurationsApi.md#delete_customer_display_configuration) | **DELETE** /accounts/{koronaAccountId}/customerDisplayConfigurations/{customerDisplayConfigurationId} |  |
+| [**delete_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#delete_customer_display_configurations) | **DELETE** /accounts/{koronaAccountId}/customerDisplayConfigurations |  |
+| [**get_customer_display_configuration**](CustomerDisplayConfigurationsApi.md#get_customer_display_configuration) | **GET** /accounts/{koronaAccountId}/customerDisplayConfigurations/{customerDisplayConfigurationId} |  |
+| [**get_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#get_customer_display_configurations) | **GET** /accounts/{koronaAccountId}/customerDisplayConfigurations |  |
+| [**update_customer_display_configurations**](CustomerDisplayConfigurationsApi.md#update_customer_display_configurations) | **PATCH** /accounts/{koronaAccountId}/customerDisplayConfigurations |  |
 
 
 ## add_customer_display_configurations
 
-> <Array<AddOrUpdateResult>> add_customer_display_configurations(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_customer_display_configurations(korona_account_id, customer_display_configuration, opts)
+
+
 
 adds a batch of new customer display configurations
 
@@ -32,14 +34,15 @@ end
 
 api_instance = KoronaCloudClient::CustomerDisplayConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerDisplayConfiguration.new] # Array<CustomerDisplayConfiguration> | array of new customer display configurations
+customer_display_configuration = [KoronaCloudClient::CustomerDisplayConfiguration.new] # Array<CustomerDisplayConfiguration> | array of new customer display configurations
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new customer display configurations
-  result = api_instance.add_customer_display_configurations(korona_account_id, body, opts)
+  
+  result = api_instance.add_customer_display_configurations(korona_account_id, customer_display_configuration, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerDisplayConfigurationsApi->add_customer_display_configurations: #{e}"
@@ -50,12 +53,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_customer_display_configurations_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_customer_display_configurations_with_http_info(korona_account_id, customer_display_configuration, opts)
 
 ```ruby
 begin
-  # adds a batch of new customer display configurations
-  data, status_code, headers = api_instance.add_customer_display_configurations_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_customer_display_configurations_with_http_info(korona_account_id, customer_display_configuration, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -69,8 +72,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerDisplayConfiguration&gt;**](CustomerDisplayConfiguration.md) | array of new customer display configurations |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **customer_display_configuration** | [**Array&lt;CustomerDisplayConfiguration&gt;**](CustomerDisplayConfiguration.md) | array of new customer display configurations |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -89,6 +93,8 @@ end
 ## delete_customer_display_configuration
 
 > delete_customer_display_configuration(korona_account_id, customer_display_configuration_id)
+
+
 
 deletes the single customer display configuration
 
@@ -109,7 +115,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 customer_display_configuration_id = 'customer_display_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single customer display configuration
+  
   api_instance.delete_customer_display_configuration(korona_account_id, customer_display_configuration_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerDisplayConfigurationsApi->delete_customer_display_configuration: #{e}"
@@ -124,7 +130,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single customer display configuration
+  
   data, status_code, headers = api_instance.delete_customer_display_configuration_with_http_info(korona_account_id, customer_display_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -157,7 +163,9 @@ nil (empty response body)
 
 ## delete_customer_display_configurations
 
-> <Array<AddOrUpdateResult>> delete_customer_display_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_customer_display_configurations(korona_account_id, customer_display_configuration)
+
+
 
 deletes a batch of customer display configurations
 
@@ -175,11 +183,11 @@ end
 
 api_instance = KoronaCloudClient::CustomerDisplayConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerDisplayConfiguration.new] # Array<CustomerDisplayConfiguration> | an array of existing customer display configurations
+customer_display_configuration = [KoronaCloudClient::CustomerDisplayConfiguration.new] # Array<CustomerDisplayConfiguration> | an array of existing customer display configurations
 
 begin
-  # deletes a batch of customer display configurations
-  result = api_instance.delete_customer_display_configurations(korona_account_id, body)
+  
+  result = api_instance.delete_customer_display_configurations(korona_account_id, customer_display_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerDisplayConfigurationsApi->delete_customer_display_configurations: #{e}"
@@ -190,12 +198,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_customer_display_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_customer_display_configurations_with_http_info(korona_account_id, customer_display_configuration)
 
 ```ruby
 begin
-  # deletes a batch of customer display configurations
-  data, status_code, headers = api_instance.delete_customer_display_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_customer_display_configurations_with_http_info(korona_account_id, customer_display_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -209,7 +217,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerDisplayConfiguration&gt;**](CustomerDisplayConfiguration.md) | an array of existing customer display configurations |  |
+| **customer_display_configuration** | [**Array&lt;CustomerDisplayConfiguration&gt;**](CustomerDisplayConfiguration.md) | an array of existing customer display configurations |  |
 
 ### Return type
 
@@ -228,6 +236,8 @@ end
 ## get_customer_display_configuration
 
 > <CustomerDisplayConfiguration> get_customer_display_configuration(korona_account_id, customer_display_configuration_id)
+
+
 
 returns the single customer display configuration
 
@@ -248,7 +258,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 customer_display_configuration_id = 'customer_display_configuration_id_example' # String | the number of the customer display configuration
 
 begin
-  # returns the single customer display configuration
+  
   result = api_instance.get_customer_display_configuration(korona_account_id, customer_display_configuration_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -264,7 +274,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single customer display configuration
+  
   data, status_code, headers = api_instance.get_customer_display_configuration_with_http_info(korona_account_id, customer_display_configuration_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -299,6 +309,8 @@ end
 
 > <ResultListCustomerDisplayConfiguration> get_customer_display_configurations(korona_account_id, opts)
 
+
+
 lists all customer display configurations
 
 ### Examples
@@ -325,7 +337,7 @@ opts = {
 }
 
 begin
-  # lists all customer display configurations
+  
   result = api_instance.get_customer_display_configurations(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -341,7 +353,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all customer display configurations
+  
   data, status_code, headers = api_instance.get_customer_display_configurations_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -379,11 +391,11 @@ end
 
 ## update_customer_display_configurations
 
-> <Array<AddOrUpdateResult>> update_customer_display_configurations(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_customer_display_configurations(korona_account_id, customer_display_configuration)
 
-updates a batch of customer display configurations
 
-[number] must be set in the objects, otherwise the object cannot be updated
+
+updates a batch of customer display configurations; [number] must be set in the objects, otherwise the object cannot be updated
 
 ### Examples
 
@@ -399,11 +411,11 @@ end
 
 api_instance = KoronaCloudClient::CustomerDisplayConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CustomerDisplayConfiguration.new] # Array<CustomerDisplayConfiguration> | an array of existing customer display configurations
+customer_display_configuration = [KoronaCloudClient::CustomerDisplayConfiguration.new] # Array<CustomerDisplayConfiguration> | an array of existing customer display configurations
 
 begin
-  # updates a batch of customer display configurations
-  result = api_instance.update_customer_display_configurations(korona_account_id, body)
+  
+  result = api_instance.update_customer_display_configurations(korona_account_id, customer_display_configuration)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CustomerDisplayConfigurationsApi->update_customer_display_configurations: #{e}"
@@ -414,12 +426,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_customer_display_configurations_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_customer_display_configurations_with_http_info(korona_account_id, customer_display_configuration)
 
 ```ruby
 begin
-  # updates a batch of customer display configurations
-  data, status_code, headers = api_instance.update_customer_display_configurations_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_customer_display_configurations_with_http_info(korona_account_id, customer_display_configuration)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -433,7 +445,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CustomerDisplayConfiguration&gt;**](CustomerDisplayConfiguration.md) | an array of existing customer display configurations |  |
+| **customer_display_configuration** | [**Array&lt;CustomerDisplayConfiguration&gt;**](CustomerDisplayConfiguration.md) | an array of existing customer display configurations |  |
 
 ### Return type
 

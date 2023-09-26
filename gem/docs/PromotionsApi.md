@@ -1,21 +1,23 @@
 # KoronaCloudClient::PromotionsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_promotions**](PromotionsApi.md#add_promotions) | **POST** /accounts/{koronaAccountId}/promotions | adds a batch of new promotions |
-| [**delete_promotion**](PromotionsApi.md#delete_promotion) | **DELETE** /accounts/{koronaAccountId}/promotions/{promotionId} | deletes the single promotion |
-| [**delete_promotions**](PromotionsApi.md#delete_promotions) | **DELETE** /accounts/{koronaAccountId}/promotions | deletes a batch of promotions |
-| [**get_promotion**](PromotionsApi.md#get_promotion) | **GET** /accounts/{koronaAccountId}/promotions/{promotionId} | returns the single promotion |
-| [**get_promotions**](PromotionsApi.md#get_promotions) | **GET** /accounts/{koronaAccountId}/promotions | lists all promotions |
-| [**update_promotion**](PromotionsApi.md#update_promotion) | **PATCH** /accounts/{koronaAccountId}/promotions/{promotionId} | updates the single promotion |
-| [**update_promotions**](PromotionsApi.md#update_promotions) | **PATCH** /accounts/{koronaAccountId}/promotions | updates a batch of promotions |
+| [**add_promotions**](PromotionsApi.md#add_promotions) | **POST** /accounts/{koronaAccountId}/promotions |  |
+| [**delete_promotion**](PromotionsApi.md#delete_promotion) | **DELETE** /accounts/{koronaAccountId}/promotions/{promotionId} |  |
+| [**delete_promotions**](PromotionsApi.md#delete_promotions) | **DELETE** /accounts/{koronaAccountId}/promotions |  |
+| [**get_promotion**](PromotionsApi.md#get_promotion) | **GET** /accounts/{koronaAccountId}/promotions/{promotionId} |  |
+| [**get_promotions**](PromotionsApi.md#get_promotions) | **GET** /accounts/{koronaAccountId}/promotions |  |
+| [**update_promotion**](PromotionsApi.md#update_promotion) | **PATCH** /accounts/{koronaAccountId}/promotions/{promotionId} |  |
+| [**update_promotions**](PromotionsApi.md#update_promotions) | **PATCH** /accounts/{koronaAccountId}/promotions |  |
 
 
 ## add_promotions
 
-> <Array<AddOrUpdateResult>> add_promotions(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_promotions(korona_account_id, promotion, opts)
+
+
 
 adds a batch of new promotions
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::PromotionsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of new promotions
+promotion = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of new promotions
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new promotions
-  result = api_instance.add_promotions(korona_account_id, body, opts)
+  
+  result = api_instance.add_promotions(korona_account_id, promotion, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PromotionsApi->add_promotions: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_promotions_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_promotions_with_http_info(korona_account_id, promotion, opts)
 
 ```ruby
 begin
-  # adds a batch of new promotions
-  data, status_code, headers = api_instance.add_promotions_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_promotions_with_http_info(korona_account_id, promotion, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of new promotions |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **promotion** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of new promotions |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_promotion
 
 > delete_promotion(korona_account_id, promotion_id)
+
+
 
 deletes the single promotion
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 promotion_id = 'promotion_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single promotion
+  
   api_instance.delete_promotion(korona_account_id, promotion_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PromotionsApi->delete_promotion: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single promotion
+  
   data, status_code, headers = api_instance.delete_promotion_with_http_info(korona_account_id, promotion_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_promotions
 
-> <Array<AddOrUpdateResult>> delete_promotions(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_promotions(korona_account_id, promotion)
+
+
 
 deletes a batch of promotions
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::PromotionsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number required)
+promotion = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number required)
 
 begin
-  # deletes a batch of promotions
-  result = api_instance.delete_promotions(korona_account_id, body)
+  
+  result = api_instance.delete_promotions(korona_account_id, promotion)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PromotionsApi->delete_promotions: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_promotions_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_promotions_with_http_info(korona_account_id, promotion)
 
 ```ruby
 begin
-  # deletes a batch of promotions
-  data, status_code, headers = api_instance.delete_promotions_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_promotions_with_http_info(korona_account_id, promotion)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number required) |  |
+| **promotion** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_promotion
 
 > <Promotion> get_promotion(korona_account_id, promotion_id)
+
+
 
 returns the single promotion
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 promotion_id = 'promotion_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single promotion
+  
   result = api_instance.get_promotion(korona_account_id, promotion_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single promotion
+  
   data, status_code, headers = api_instance.get_promotion_with_http_info(korona_account_id, promotion_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListPromotion> get_promotions(korona_account_id, opts)
 
+
+
 lists all promotions
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all promotions
+  
   result = api_instance.get_promotions(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all promotions
+  
   data, status_code, headers = api_instance.get_promotions_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_promotion
 
-> update_promotion(korona_account_id, promotion_id, body)
+> update_promotion(korona_account_id, promotion_id, promotion)
+
+
 
 updates the single promotion
 
@@ -399,11 +413,11 @@ end
 api_instance = KoronaCloudClient::PromotionsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 promotion_id = 'promotion_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::Promotion.new # Promotion | the properties to update of the promotion
+promotion = KoronaCloudClient::Promotion.new # Promotion | the properties to update of the promotion
 
 begin
-  # updates the single promotion
-  api_instance.update_promotion(korona_account_id, promotion_id, body)
+  
+  api_instance.update_promotion(korona_account_id, promotion_id, promotion)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PromotionsApi->update_promotion: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_promotion_with_http_info(korona_account_id, promotion_id, body)
+> <Array(nil, Integer, Hash)> update_promotion_with_http_info(korona_account_id, promotion_id, promotion)
 
 ```ruby
 begin
-  # updates the single promotion
-  data, status_code, headers = api_instance.update_promotion_with_http_info(korona_account_id, promotion_id, body)
+  
+  data, status_code, headers = api_instance.update_promotion_with_http_info(korona_account_id, promotion_id, promotion)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **promotion_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Promotion**](Promotion.md) | the properties to update of the promotion |  |
+| **promotion** | [**Promotion**](Promotion.md) | the properties to update of the promotion |  |
 
 ### Return type
 
@@ -451,7 +465,9 @@ nil (empty response body)
 
 ## update_promotions
 
-> <Array<AddOrUpdateResult>> update_promotions(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_promotions(korona_account_id, promotion)
+
+
 
 updates a batch of promotions
 
@@ -469,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::PromotionsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number required)
+promotion = [KoronaCloudClient::Promotion.new] # Array<Promotion> | array of existing promotions (id or number required)
 
 begin
-  # updates a batch of promotions
-  result = api_instance.update_promotions(korona_account_id, body)
+  
+  result = api_instance.update_promotions(korona_account_id, promotion)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling PromotionsApi->update_promotions: #{e}"
@@ -484,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_promotions_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_promotions_with_http_info(korona_account_id, promotion)
 
 ```ruby
 begin
-  # updates a batch of promotions
-  data, status_code, headers = api_instance.update_promotions_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_promotions_with_http_info(korona_account_id, promotion)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -503,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number required) |  |
+| **promotion** | [**Array&lt;Promotion&gt;**](Promotion.md) | array of existing promotions (id or number required) |  |
 
 ### Return type
 

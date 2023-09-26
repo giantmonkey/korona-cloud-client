@@ -1,21 +1,23 @@
 # KoronaCloudClient::CommodityGroupsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_commodity_groups**](CommodityGroupsApi.md#add_commodity_groups) | **POST** /accounts/{koronaAccountId}/commodityGroups | adds a batch of new commodity groups |
-| [**delete_commodity_group**](CommodityGroupsApi.md#delete_commodity_group) | **DELETE** /accounts/{koronaAccountId}/commodityGroups/{commodityGroupId} | deletes the single commodity group |
-| [**delete_commodity_groups**](CommodityGroupsApi.md#delete_commodity_groups) | **DELETE** /accounts/{koronaAccountId}/commodityGroups | deletes a batch of commodity groups |
-| [**get_commodity_group**](CommodityGroupsApi.md#get_commodity_group) | **GET** /accounts/{koronaAccountId}/commodityGroups/{commodityGroupId} | returns the single commodity group |
-| [**get_commodity_groups**](CommodityGroupsApi.md#get_commodity_groups) | **GET** /accounts/{koronaAccountId}/commodityGroups | lists all commodity groups |
-| [**update_commodity_group**](CommodityGroupsApi.md#update_commodity_group) | **PATCH** /accounts/{koronaAccountId}/commodityGroups/{commodityGroupId} | updates the single commodity group |
-| [**update_commodity_groups**](CommodityGroupsApi.md#update_commodity_groups) | **PATCH** /accounts/{koronaAccountId}/commodityGroups | updates a batch of commodity groups |
+| [**add_commodity_groups**](CommodityGroupsApi.md#add_commodity_groups) | **POST** /accounts/{koronaAccountId}/commodityGroups |  |
+| [**delete_commodity_group**](CommodityGroupsApi.md#delete_commodity_group) | **DELETE** /accounts/{koronaAccountId}/commodityGroups/{commodityGroupId} |  |
+| [**delete_commodity_groups**](CommodityGroupsApi.md#delete_commodity_groups) | **DELETE** /accounts/{koronaAccountId}/commodityGroups |  |
+| [**get_commodity_group**](CommodityGroupsApi.md#get_commodity_group) | **GET** /accounts/{koronaAccountId}/commodityGroups/{commodityGroupId} |  |
+| [**get_commodity_groups**](CommodityGroupsApi.md#get_commodity_groups) | **GET** /accounts/{koronaAccountId}/commodityGroups |  |
+| [**update_commodity_group**](CommodityGroupsApi.md#update_commodity_group) | **PATCH** /accounts/{koronaAccountId}/commodityGroups/{commodityGroupId} |  |
+| [**update_commodity_groups**](CommodityGroupsApi.md#update_commodity_groups) | **PATCH** /accounts/{koronaAccountId}/commodityGroups |  |
 
 
 ## add_commodity_groups
 
-> <Array<AddOrUpdateResult>> add_commodity_groups(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_commodity_groups(korona_account_id, commodity_group, opts)
+
+
 
 adds a batch of new commodity groups
 
@@ -33,14 +35,15 @@ end
 
 api_instance = KoronaCloudClient::CommodityGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CommodityGroup.new] # Array<CommodityGroup> | an array of new commodity groups
+commodity_group = [KoronaCloudClient::CommodityGroup.new] # Array<CommodityGroup> | an array of new commodity groups
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds a batch of new commodity groups
-  result = api_instance.add_commodity_groups(korona_account_id, body, opts)
+  
+  result = api_instance.add_commodity_groups(korona_account_id, commodity_group, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CommodityGroupsApi->add_commodity_groups: #{e}"
@@ -51,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_commodity_groups_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_commodity_groups_with_http_info(korona_account_id, commodity_group, opts)
 
 ```ruby
 begin
-  # adds a batch of new commodity groups
-  data, status_code, headers = api_instance.add_commodity_groups_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_commodity_groups_with_http_info(korona_account_id, commodity_group, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -70,8 +73,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CommodityGroup&gt;**](CommodityGroup.md) | an array of new commodity groups |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **commodity_group** | [**Array&lt;CommodityGroup&gt;**](CommodityGroup.md) | an array of new commodity groups |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -90,6 +94,8 @@ end
 ## delete_commodity_group
 
 > delete_commodity_group(korona_account_id, commodity_group_id)
+
+
 
 deletes the single commodity group
 
@@ -110,7 +116,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 commodity_group_id = 'commodity_group_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single commodity group
+  
   api_instance.delete_commodity_group(korona_account_id, commodity_group_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CommodityGroupsApi->delete_commodity_group: #{e}"
@@ -125,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single commodity group
+  
   data, status_code, headers = api_instance.delete_commodity_group_with_http_info(korona_account_id, commodity_group_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -158,7 +164,9 @@ nil (empty response body)
 
 ## delete_commodity_groups
 
-> <Array<AddOrUpdateResult>> delete_commodity_groups(korona_account_id, body)
+> <Array<AddOrUpdateResult>> delete_commodity_groups(korona_account_id, commodity_group)
+
+
 
 deletes a batch of commodity groups
 
@@ -176,11 +184,11 @@ end
 
 api_instance = KoronaCloudClient::CommodityGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CommodityGroup.new] # Array<CommodityGroup> | array of existing commodity groups (id or number required)
+commodity_group = [KoronaCloudClient::CommodityGroup.new] # Array<CommodityGroup> | array of existing commodity groups (id or number required)
 
 begin
-  # deletes a batch of commodity groups
-  result = api_instance.delete_commodity_groups(korona_account_id, body)
+  
+  result = api_instance.delete_commodity_groups(korona_account_id, commodity_group)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CommodityGroupsApi->delete_commodity_groups: #{e}"
@@ -191,12 +199,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_commodity_groups_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> delete_commodity_groups_with_http_info(korona_account_id, commodity_group)
 
 ```ruby
 begin
-  # deletes a batch of commodity groups
-  data, status_code, headers = api_instance.delete_commodity_groups_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.delete_commodity_groups_with_http_info(korona_account_id, commodity_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -210,7 +218,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CommodityGroup&gt;**](CommodityGroup.md) | array of existing commodity groups (id or number required) |  |
+| **commodity_group** | [**Array&lt;CommodityGroup&gt;**](CommodityGroup.md) | array of existing commodity groups (id or number required) |  |
 
 ### Return type
 
@@ -229,6 +237,8 @@ end
 ## get_commodity_group
 
 > <CommodityGroup> get_commodity_group(korona_account_id, commodity_group_id)
+
+
 
 returns the single commodity group
 
@@ -249,7 +259,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 commodity_group_id = 'commodity_group_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single commodity group
+  
   result = api_instance.get_commodity_group(korona_account_id, commodity_group_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -265,7 +275,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single commodity group
+  
   data, status_code, headers = api_instance.get_commodity_group_with_http_info(korona_account_id, commodity_group_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -300,6 +310,8 @@ end
 
 > <ResultListCommodityGroup> get_commodity_groups(korona_account_id, opts)
 
+
+
 lists all commodity groups
 
 ### Examples
@@ -326,7 +338,7 @@ opts = {
 }
 
 begin
-  # lists all commodity groups
+  
   result = api_instance.get_commodity_groups(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -342,7 +354,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all commodity groups
+  
   data, status_code, headers = api_instance.get_commodity_groups_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -380,7 +392,9 @@ end
 
 ## update_commodity_group
 
-> update_commodity_group(korona_account_id, commodity_group_id, body)
+> update_commodity_group(korona_account_id, commodity_group_id, commodity_group)
+
+
 
 updates the single commodity group
 
@@ -399,11 +413,11 @@ end
 api_instance = KoronaCloudClient::CommodityGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 commodity_group_id = 'commodity_group_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::CommodityGroup.new # CommodityGroup | the properties to update of the commodity group
+commodity_group = KoronaCloudClient::CommodityGroup.new # CommodityGroup | the properties to update of the commodity group
 
 begin
-  # updates the single commodity group
-  api_instance.update_commodity_group(korona_account_id, commodity_group_id, body)
+  
+  api_instance.update_commodity_group(korona_account_id, commodity_group_id, commodity_group)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CommodityGroupsApi->update_commodity_group: #{e}"
 end
@@ -413,12 +427,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_commodity_group_with_http_info(korona_account_id, commodity_group_id, body)
+> <Array(nil, Integer, Hash)> update_commodity_group_with_http_info(korona_account_id, commodity_group_id, commodity_group)
 
 ```ruby
 begin
-  # updates the single commodity group
-  data, status_code, headers = api_instance.update_commodity_group_with_http_info(korona_account_id, commodity_group_id, body)
+  
+  data, status_code, headers = api_instance.update_commodity_group_with_http_info(korona_account_id, commodity_group_id, commodity_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -433,7 +447,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **commodity_group_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**CommodityGroup**](CommodityGroup.md) | the properties to update of the commodity group |  |
+| **commodity_group** | [**CommodityGroup**](CommodityGroup.md) | the properties to update of the commodity group |  |
 
 ### Return type
 
@@ -451,7 +465,9 @@ nil (empty response body)
 
 ## update_commodity_groups
 
-> <Array<AddOrUpdateResult>> update_commodity_groups(korona_account_id, body)
+> <Array<AddOrUpdateResult>> update_commodity_groups(korona_account_id, commodity_group)
+
+
 
 updates a batch of commodity groups
 
@@ -469,11 +485,11 @@ end
 
 api_instance = KoronaCloudClient::CommodityGroupsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::CommodityGroup.new] # Array<CommodityGroup> | array of existing commodity groups (id or number required)
+commodity_group = [KoronaCloudClient::CommodityGroup.new] # Array<CommodityGroup> | array of existing commodity groups (id or number required)
 
 begin
-  # updates a batch of commodity groups
-  result = api_instance.update_commodity_groups(korona_account_id, body)
+  
+  result = api_instance.update_commodity_groups(korona_account_id, commodity_group)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling CommodityGroupsApi->update_commodity_groups: #{e}"
@@ -484,12 +500,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_commodity_groups_with_http_info(korona_account_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_commodity_groups_with_http_info(korona_account_id, commodity_group)
 
 ```ruby
 begin
-  # updates a batch of commodity groups
-  data, status_code, headers = api_instance.update_commodity_groups_with_http_info(korona_account_id, body)
+  
+  data, status_code, headers = api_instance.update_commodity_groups_with_http_info(korona_account_id, commodity_group)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -503,7 +519,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;CommodityGroup&gt;**](CommodityGroup.md) | array of existing commodity groups (id or number required) |  |
+| **commodity_group** | [**Array&lt;CommodityGroup&gt;**](CommodityGroup.md) | array of existing commodity groups (id or number required) |  |
 
 ### Return type
 

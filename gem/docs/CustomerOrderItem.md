@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **attendance** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **discounts** | [**Array&lt;Discount&gt;**](Discount.md) |  | [optional] |

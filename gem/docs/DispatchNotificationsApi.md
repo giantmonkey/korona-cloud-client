@@ -1,26 +1,28 @@
 # KoronaCloudClient::DispatchNotificationsApi
 
-All URIs are relative to *https://www.koronacloud.com/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_dispatch_notification_items**](DispatchNotificationsApi.md#add_dispatch_notification_items) | **POST** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items | adds dispatch notification items |
-| [**add_dispatch_notifications**](DispatchNotificationsApi.md#add_dispatch_notifications) | **POST** /accounts/{koronaAccountId}/dispatchNotifications | adds dispatch notifications |
-| [**book_dispatch_notification**](DispatchNotificationsApi.md#book_dispatch_notification) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/book | books the single dispatch notification |
-| [**delete_dispatch_notification**](DispatchNotificationsApi.md#delete_dispatch_notification) | **DELETE** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId} | deletes the single dispatch notification |
-| [**delete_dispatch_notification_item**](DispatchNotificationsApi.md#delete_dispatch_notification_item) | **DELETE** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items/{dispatchNotificationItemId} | deletes the single dispatch notification item |
-| [**get_dispatch_notification**](DispatchNotificationsApi.md#get_dispatch_notification) | **GET** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId} | returns the single dispatch notification |
-| [**get_dispatch_notification_item**](DispatchNotificationsApi.md#get_dispatch_notification_item) | **GET** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items/{dispatchNotificationItemId} | returns the single dispatch notification item |
-| [**get_dispatch_notification_items**](DispatchNotificationsApi.md#get_dispatch_notification_items) | **GET** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items | lists all dispatch notification items |
-| [**get_dispatch_notifications**](DispatchNotificationsApi.md#get_dispatch_notifications) | **GET** /accounts/{koronaAccountId}/dispatchNotifications | lists all dispatch notifications |
-| [**update_dispatch_notification**](DispatchNotificationsApi.md#update_dispatch_notification) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId} | updates the single dispatch notification |
-| [**update_dispatch_notification_item**](DispatchNotificationsApi.md#update_dispatch_notification_item) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items/{dispatchNotificationItemId} | updates the single dispatch notification item |
-| [**update_dispatch_notification_items**](DispatchNotificationsApi.md#update_dispatch_notification_items) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items | updates dispatch notification items |
+| [**add_dispatch_notification_items**](DispatchNotificationsApi.md#add_dispatch_notification_items) | **POST** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items |  |
+| [**add_dispatch_notifications**](DispatchNotificationsApi.md#add_dispatch_notifications) | **POST** /accounts/{koronaAccountId}/dispatchNotifications |  |
+| [**book_dispatch_notification**](DispatchNotificationsApi.md#book_dispatch_notification) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/book |  |
+| [**delete_dispatch_notification**](DispatchNotificationsApi.md#delete_dispatch_notification) | **DELETE** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId} |  |
+| [**delete_dispatch_notification_item**](DispatchNotificationsApi.md#delete_dispatch_notification_item) | **DELETE** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items/{dispatchNotificationItemId} |  |
+| [**get_dispatch_notification**](DispatchNotificationsApi.md#get_dispatch_notification) | **GET** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId} |  |
+| [**get_dispatch_notification_item**](DispatchNotificationsApi.md#get_dispatch_notification_item) | **GET** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items/{dispatchNotificationItemId} |  |
+| [**get_dispatch_notification_items**](DispatchNotificationsApi.md#get_dispatch_notification_items) | **GET** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items |  |
+| [**get_dispatch_notifications**](DispatchNotificationsApi.md#get_dispatch_notifications) | **GET** /accounts/{koronaAccountId}/dispatchNotifications |  |
+| [**update_dispatch_notification**](DispatchNotificationsApi.md#update_dispatch_notification) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId} |  |
+| [**update_dispatch_notification_item**](DispatchNotificationsApi.md#update_dispatch_notification_item) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items/{dispatchNotificationItemId} |  |
+| [**update_dispatch_notification_items**](DispatchNotificationsApi.md#update_dispatch_notification_items) | **PATCH** /accounts/{koronaAccountId}/dispatchNotifications/{dispatchNotificationId}/items |  |
 
 
 ## add_dispatch_notification_items
 
-> <Array<AddOrUpdateResult>> add_dispatch_notification_items(korona_account_id, dispatch_notification_id, body, opts)
+> <Array<AddOrUpdateResult>> add_dispatch_notification_items(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
+
+
 
 adds dispatch notification items
 
@@ -39,14 +41,16 @@ end
 api_instance = KoronaCloudClient::DispatchNotificationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 dispatch_notification_id = 'dispatch_notification_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::DispatchNotificationItem.new] # Array<DispatchNotificationItem> | array of new dispatch notification items
+dispatch_notification_item = [KoronaCloudClient::DispatchNotificationItem.new] # Array<DispatchNotificationItem> | array of new dispatch notification items
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  assign_existing_product: true, # Boolean | try to assign an existing product using codes set in import item data
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds dispatch notification items
-  result = api_instance.add_dispatch_notification_items(korona_account_id, dispatch_notification_id, body, opts)
+  
+  result = api_instance.add_dispatch_notification_items(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->add_dispatch_notification_items: #{e}"
@@ -57,12 +61,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
 
 ```ruby
 begin
-  # adds dispatch notification items
-  data, status_code, headers = api_instance.add_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -77,8 +81,10 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **dispatch_notification_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;DispatchNotificationItem&gt;**](DispatchNotificationItem.md) | array of new dispatch notification items |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **dispatch_notification_item** | [**Array&lt;DispatchNotificationItem&gt;**](DispatchNotificationItem.md) | array of new dispatch notification items |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **assign_existing_product** | **Boolean** | try to assign an existing product using codes set in import item data | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -96,7 +102,9 @@ end
 
 ## add_dispatch_notifications
 
-> <Array<AddOrUpdateResult>> add_dispatch_notifications(korona_account_id, body, opts)
+> <Array<AddOrUpdateResult>> add_dispatch_notifications(korona_account_id, dispatch_notification, opts)
+
+
 
 adds dispatch notifications
 
@@ -114,14 +122,15 @@ end
 
 api_instance = KoronaCloudClient::DispatchNotificationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-body = [KoronaCloudClient::DispatchNotification.new] # Array<DispatchNotification> | array of new dispatch notifications
+dispatch_notification = [KoronaCloudClient::DispatchNotification.new] # Array<DispatchNotification> | array of new dispatch notifications
 opts = {
-  upsert: true # Boolean | when set to true, updates the object instead of generating a already-exists-error
+  upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
+  write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
 begin
-  # adds dispatch notifications
-  result = api_instance.add_dispatch_notifications(korona_account_id, body, opts)
+  
+  result = api_instance.add_dispatch_notifications(korona_account_id, dispatch_notification, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->add_dispatch_notifications: #{e}"
@@ -132,12 +141,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_dispatch_notifications_with_http_info(korona_account_id, body, opts)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> add_dispatch_notifications_with_http_info(korona_account_id, dispatch_notification, opts)
 
 ```ruby
 begin
-  # adds dispatch notifications
-  data, status_code, headers = api_instance.add_dispatch_notifications_with_http_info(korona_account_id, body, opts)
+  
+  data, status_code, headers = api_instance.add_dispatch_notifications_with_http_info(korona_account_id, dispatch_notification, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -151,8 +160,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **body** | [**Array&lt;DispatchNotification&gt;**](DispatchNotification.md) | array of new dispatch notifications |  |
-| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error | [optional] |
+| **dispatch_notification** | [**Array&lt;DispatchNotification&gt;**](DispatchNotification.md) | array of new dispatch notifications |  |
+| **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
+| **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
 
@@ -171,6 +181,8 @@ end
 ## book_dispatch_notification
 
 > book_dispatch_notification(korona_account_id, dispatch_notification_id)
+
+
 
 books the single dispatch notification
 
@@ -191,7 +203,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 dispatch_notification_id = 'dispatch_notification_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # books the single dispatch notification
+  
   api_instance.book_dispatch_notification(korona_account_id, dispatch_notification_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->book_dispatch_notification: #{e}"
@@ -206,7 +218,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # books the single dispatch notification
+  
   data, status_code, headers = api_instance.book_dispatch_notification_with_http_info(korona_account_id, dispatch_notification_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -241,6 +253,8 @@ nil (empty response body)
 
 > delete_dispatch_notification(korona_account_id, dispatch_notification_id)
 
+
+
 deletes the single dispatch notification
 
 ### Examples
@@ -260,7 +274,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 dispatch_notification_id = 'dispatch_notification_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single dispatch notification
+  
   api_instance.delete_dispatch_notification(korona_account_id, dispatch_notification_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->delete_dispatch_notification: #{e}"
@@ -275,7 +289,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single dispatch notification
+  
   data, status_code, headers = api_instance.delete_dispatch_notification_with_http_info(korona_account_id, dispatch_notification_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -310,6 +324,8 @@ nil (empty response body)
 
 > delete_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id)
 
+
+
 deletes the single dispatch notification item
 
 ### Examples
@@ -330,7 +346,7 @@ dispatch_notification_id = 'dispatch_notification_id_example' # String | id of t
 dispatch_notification_item_id = 'dispatch_notification_item_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # deletes the single dispatch notification item
+  
   api_instance.delete_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->delete_dispatch_notification_item: #{e}"
@@ -345,7 +361,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # deletes the single dispatch notification item
+  
   data, status_code, headers = api_instance.delete_dispatch_notification_item_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -381,6 +397,8 @@ nil (empty response body)
 
 > <DispatchNotification> get_dispatch_notification(korona_account_id, dispatch_notification_id)
 
+
+
 returns the single dispatch notification
 
 ### Examples
@@ -400,7 +418,7 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 dispatch_notification_id = 'dispatch_notification_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
-  # returns the single dispatch notification
+  
   result = api_instance.get_dispatch_notification(korona_account_id, dispatch_notification_id)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -416,7 +434,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single dispatch notification
+  
   data, status_code, headers = api_instance.get_dispatch_notification_with_http_info(korona_account_id, dispatch_notification_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -451,6 +469,8 @@ end
 
 > <DispatchNotificationItem> get_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, opts)
 
+
+
 returns the single dispatch notification item
 
 ### Examples
@@ -474,7 +494,7 @@ opts = {
 }
 
 begin
-  # returns the single dispatch notification item
+  
   result = api_instance.get_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -490,7 +510,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # returns the single dispatch notification item
+  
   data, status_code, headers = api_instance.get_dispatch_notification_item_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -527,6 +547,8 @@ end
 
 > <ResultListDispatchNotificationItem> get_dispatch_notification_items(korona_account_id, dispatch_notification_id, opts)
 
+
+
 lists all dispatch notification items
 
 ### Examples
@@ -553,7 +575,7 @@ opts = {
 }
 
 begin
-  # lists all dispatch notification items
+  
   result = api_instance.get_dispatch_notification_items(korona_account_id, dispatch_notification_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -569,7 +591,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all dispatch notification items
+  
   data, status_code, headers = api_instance.get_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -609,6 +631,8 @@ end
 
 > <ResultListDispatchNotification> get_dispatch_notifications(korona_account_id, opts)
 
+
+
 lists all dispatch notifications
 
 ### Examples
@@ -642,7 +666,7 @@ opts = {
 }
 
 begin
-  # lists all dispatch notifications
+  
   result = api_instance.get_dispatch_notifications(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
@@ -658,7 +682,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # lists all dispatch notifications
+  
   data, status_code, headers = api_instance.get_dispatch_notifications_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -703,7 +727,9 @@ end
 
 ## update_dispatch_notification
 
-> update_dispatch_notification(korona_account_id, dispatch_notification_id, body)
+> update_dispatch_notification(korona_account_id, dispatch_notification_id, dispatch_notification)
+
+
 
 updates the single dispatch notification
 
@@ -722,11 +748,11 @@ end
 api_instance = KoronaCloudClient::DispatchNotificationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 dispatch_notification_id = 'dispatch_notification_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::DispatchNotification.new # DispatchNotification | data to update
+dispatch_notification = KoronaCloudClient::DispatchNotification.new # DispatchNotification | data to update
 
 begin
-  # updates the single dispatch notification
-  api_instance.update_dispatch_notification(korona_account_id, dispatch_notification_id, body)
+  
+  api_instance.update_dispatch_notification(korona_account_id, dispatch_notification_id, dispatch_notification)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->update_dispatch_notification: #{e}"
 end
@@ -736,12 +762,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_dispatch_notification_with_http_info(korona_account_id, dispatch_notification_id, body)
+> <Array(nil, Integer, Hash)> update_dispatch_notification_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification)
 
 ```ruby
 begin
-  # updates the single dispatch notification
-  data, status_code, headers = api_instance.update_dispatch_notification_with_http_info(korona_account_id, dispatch_notification_id, body)
+  
+  data, status_code, headers = api_instance.update_dispatch_notification_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -756,7 +782,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **dispatch_notification_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**DispatchNotification**](DispatchNotification.md) | data to update |  |
+| **dispatch_notification** | [**DispatchNotification**](DispatchNotification.md) | data to update |  |
 
 ### Return type
 
@@ -774,7 +800,9 @@ nil (empty response body)
 
 ## update_dispatch_notification_item
 
-> update_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, body)
+> update_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, dispatch_notification_item, opts)
+
+
 
 updates the single dispatch notification item
 
@@ -794,11 +822,14 @@ api_instance = KoronaCloudClient::DispatchNotificationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 dispatch_notification_id = 'dispatch_notification_id_example' # String | id of the related object (important: id should match the uuid-format)
 dispatch_notification_item_id = 'dispatch_notification_item_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = KoronaCloudClient::DispatchNotificationItem.new # DispatchNotificationItem | data to update
+dispatch_notification_item = KoronaCloudClient::DispatchNotificationItem.new # DispatchNotificationItem | data to update
+opts = {
+  assign_existing_product: true # Boolean | try to assign an existing product using codes set in import item data
+}
 
 begin
-  # updates the single dispatch notification item
-  api_instance.update_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, body)
+  
+  api_instance.update_dispatch_notification_item(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, dispatch_notification_item, opts)
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->update_dispatch_notification_item: #{e}"
 end
@@ -808,12 +839,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_dispatch_notification_item_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, body)
+> <Array(nil, Integer, Hash)> update_dispatch_notification_item_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, dispatch_notification_item, opts)
 
 ```ruby
 begin
-  # updates the single dispatch notification item
-  data, status_code, headers = api_instance.update_dispatch_notification_item_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, body)
+  
+  data, status_code, headers = api_instance.update_dispatch_notification_item_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item_id, dispatch_notification_item, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -829,7 +860,8 @@ end
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **dispatch_notification_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **dispatch_notification_item_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**DispatchNotificationItem**](DispatchNotificationItem.md) | data to update |  |
+| **dispatch_notification_item** | [**DispatchNotificationItem**](DispatchNotificationItem.md) | data to update |  |
+| **assign_existing_product** | **Boolean** | try to assign an existing product using codes set in import item data | [optional] |
 
 ### Return type
 
@@ -847,7 +879,9 @@ nil (empty response body)
 
 ## update_dispatch_notification_items
 
-> <Array<AddOrUpdateResult>> update_dispatch_notification_items(korona_account_id, dispatch_notification_id, body)
+> <Array<AddOrUpdateResult>> update_dispatch_notification_items(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
+
+
 
 updates dispatch notification items
 
@@ -866,11 +900,14 @@ end
 api_instance = KoronaCloudClient::DispatchNotificationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 dispatch_notification_id = 'dispatch_notification_id_example' # String | id of the related object (important: id should match the uuid-format)
-body = [KoronaCloudClient::DispatchNotificationItem.new] # Array<DispatchNotificationItem> | data to update
+dispatch_notification_item = [KoronaCloudClient::DispatchNotificationItem.new] # Array<DispatchNotificationItem> | data to update
+opts = {
+  assign_existing_product: true # Boolean | try to assign an existing product using codes set in import item data
+}
 
 begin
-  # updates dispatch notification items
-  result = api_instance.update_dispatch_notification_items(korona_account_id, dispatch_notification_id, body)
+  
+  result = api_instance.update_dispatch_notification_items(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DispatchNotificationsApi->update_dispatch_notification_items: #{e}"
@@ -881,12 +918,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, body)
+> <Array(<Array<AddOrUpdateResult>>, Integer, Hash)> update_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
 
 ```ruby
 begin
-  # updates dispatch notification items
-  data, status_code, headers = api_instance.update_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, body)
+  
+  data, status_code, headers = api_instance.update_dispatch_notification_items_with_http_info(korona_account_id, dispatch_notification_id, dispatch_notification_item, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AddOrUpdateResult>>
@@ -901,7 +938,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **dispatch_notification_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
-| **body** | [**Array&lt;DispatchNotificationItem&gt;**](DispatchNotificationItem.md) | data to update |  |
+| **dispatch_notification_item** | [**Array&lt;DispatchNotificationItem&gt;**](DispatchNotificationItem.md) | data to update |  |
+| **assign_existing_product** | **Boolean** | try to assign an existing product using codes set in import item data | [optional] |
 
 ### Return type
 

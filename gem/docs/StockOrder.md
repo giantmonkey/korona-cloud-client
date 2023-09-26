@@ -9,23 +9,23 @@
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
 | **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
 | **booking_api_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **booking_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **booking_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **cashier** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **comment** | **String** |  | [optional] |
-| **create_time** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **create_user** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **customer** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **deposit** | **Float** |  | [optional] |
 | **description** | **String** |  | [optional] |
-| **expected_from_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **expected_to_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **expected_from_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **expected_to_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **finalized** | **Boolean** |  | [optional][readonly] |
 | **items** | [**Array&lt;StockOrderItem&gt;**](StockOrderItem.md) |  | [optional] |
 | **items_count** | **Integer** |  | [optional] |
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **party_information** | [**ProductTransferInvolvedPartyInformation**](ProductTransferInvolvedPartyInformation.md) |  | [optional] |
-| **pickup_date** | **Time** | Format: yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **pickup_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **point_of_sale** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **shipping_condition** | **String** |  | [optional] |
 | **shipping_supplier_information** | **String** |  | [optional] |
