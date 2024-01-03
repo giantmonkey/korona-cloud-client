@@ -8,7 +8,7 @@
 | **booking_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **description** | **String** |  | [optional] |
-| **discounts** | [**Array&lt;Discount&gt;**](Discount.md) |  | [optional] |
+| **discounts** | [**Array&lt;Discount&gt;**](Discount.md) |  | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **indent** | **Integer** |  | [optional] |
 | **index** | **Integer** |  | [optional][readonly] |
@@ -27,7 +27,7 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::CustomerOrderItem.new(
   attendance: null,
-  booking_time: 2018-11-22T09:40:21+01:00,
+  booking_time: 2018-11-22T08:40:21Z,
   commodity_group: null,
   description: null,
   discounts: null,

@@ -42,19 +42,19 @@
 | **subproduct_presentation** | **String** |  | [optional] |
 | **subproducts** | [**Array&lt;ProductSubproduct&gt;**](ProductSubproduct.md) |  | [optional] |
 | **supplier_prices** | [**Array&lt;ProductSupplierPrice&gt;**](ProductSupplierPrice.md) |  | [optional] |
-| **tags** | **Object** |  | [optional] |
+| **tags** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **ticket_definition** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **track_inventory** | **Boolean** |  | [optional] |
 | **media_urls** | [**Array&lt;MediaUrl&gt;**](MediaUrl.md) |  | [optional] |
 | **quantity_denomination** | **Float** |  | [optional] |
 | **special_prices** | [**Array&lt;ProductSpecialPrice&gt;**](ProductSpecialPrice.md) |  | [optional] |
-| **verification_requirements** | **Object** |  | [optional] |
+| **verification_requirements** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **sales_lock** | **Boolean** |  | [optional] |
 | **custom_properties** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **containers** | [**Array&lt;ProductContainer&gt;**](ProductContainer.md) |  | [optional] |
 | **container_capacity** | **Float** |  | [optional] |
 | **independent_subarticle_discounts** | **Boolean** |  | [optional] |
-| **listed_organizational_units** | **Object** |  | [optional] |
+| **listed_organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **stock_return_unsellable** | **Boolean** |  | [optional] |
 
 ## Example
@@ -82,7 +82,7 @@ instance = KoronaCloudClient::Product.new(
   item_sequence: null,
   last_purchase_price: null,
   listed: null,
-  listed_since: 2018-11-22T09:40:21+01:00,
+  listed_since: 2018-11-22T08:40:21Z,
   max_price: 9999.99,
   min_price: -9999.99,
   name: null,

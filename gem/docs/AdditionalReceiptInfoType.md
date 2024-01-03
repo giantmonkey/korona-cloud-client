@@ -14,10 +14,12 @@
 | **min_item_quantity** | **Float** |  | [optional] |
 | **min_total** | **Float** |  | [optional] |
 | **options** | **Array&lt;String&gt;** |  | [optional] |
-| **organizational_units** | **Object** |  | [optional] |
+| **organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **required** | **Boolean** |  | [optional] |
 | **tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **validity** | [**Validity**](Validity.md) |  | [optional] |
+| **points_of_sale** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **points_of_sale_selection_mode** | **String** |  | [optional] |
 
 ## Example
 
@@ -38,7 +40,9 @@ instance = KoronaCloudClient::AdditionalReceiptInfoType.new(
   organizational_units: null,
   required: null,
   tag: null,
-  validity: null
+  validity: null,
+  points_of_sale: null,
+  points_of_sale_selection_mode: null
 )
 ```
 

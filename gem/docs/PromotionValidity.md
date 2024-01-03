@@ -9,6 +9,8 @@
 | **days_of_week** | **Array&lt;String&gt;** |  | [optional] |
 | **organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **time_of_day_interval** | [**TimeOfDayInterval**](TimeOfDayInterval.md) |  | [optional] |
+| **org_selection_mode** | **String** |  | [optional] |
+| **pos_types** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -20,7 +22,9 @@ instance = KoronaCloudClient::PromotionValidity.new(
   days_of_month: null,
   days_of_week: null,
   organizational_units: null,
-  time_of_day_interval: null
+  time_of_day_interval: null,
+  org_selection_mode: null,
+  pos_types: null
 )
 ```
 

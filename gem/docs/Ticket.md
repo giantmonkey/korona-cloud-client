@@ -22,9 +22,9 @@ instance = KoronaCloudClient::Ticket.new(
   personalization: null,
   ticket_number: null,
   duplicate: null,
-  creation_date: 2018-11-22T09:40:21+01:00,
+  creation_date: 2018-11-22T08:40:21Z,
   locked: null,
-  locked_to: 2018-11-22T09:40:21+01:00
+  locked_to: 2018-11-22T08:40:21Z
 )
 ```
 

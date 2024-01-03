@@ -24,7 +24,7 @@ instance = KoronaCloudClient::EndOfDayStatement.new(
   id: null,
   revision: null,
   number: null,
-  finish_time: 2018-11-22T09:40:21+01:00,
+  finish_time: 2018-11-22T08:40:21Z,
   receipt_count: null,
   successfully_checked: null,
   summaries: null,

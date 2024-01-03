@@ -139,6 +139,8 @@ docs/NumberRange.md
 docs/NumberRangeConfiguration.md
 docs/NumberRangeConfigurationsApi.md
 docs/OpeningHours.md
+docs/OrderPortalSupplier.md
+docs/OrderPortalSuppliersApi.md
 docs/OrganizationalUnit.md
 docs/OrganizationalUnitSpecificNumber.md
 docs/OrganizationalUnitsApi.md
@@ -151,8 +153,8 @@ docs/PaymentServiceConfiguration.md
 docs/PaymentSummary.md
 docs/PaymentTerminalReceipt.md
 docs/PeriodRevenueDataListStatisticTopSeller.md
-docs/PeriodRevenueDataMapStringStatisticRevenueData.md
-docs/PeriodRevenueDataStatisticRevenueData.md
+docs/PeriodRevenueDataMapStringRevenueData.md
+docs/PeriodRevenueDataRevenueData.md
 docs/PointsOfSaleApi.md
 docs/Pos.md
 docs/PosBalance.md
@@ -277,6 +279,7 @@ docs/ResultListInventoryListItem.md
 docs/ResultListItemSequence.md
 docs/ResultListLanguage.md
 docs/ResultListNumberRangeConfiguration.md
+docs/ResultListOrderPortalSupplier.md
 docs/ResultListOrganizationalUnit.md
 docs/ResultListPaymentMethod.md
 docs/ResultListPaymentMethodCategory.md
@@ -320,6 +323,7 @@ docs/ResultListVoucherConfiguration.md
 docs/ResultListVoucherTransaction.md
 docs/RevenueAccount.md
 docs/RevenueAccountsApi.md
+docs/RevenueData.md
 docs/SalesTax.md
 docs/SalesTaxRate.md
 docs/SalesTaxesApi.md
@@ -428,6 +432,7 @@ lib/korona-cloud-client/api/korona_account_api.rb
 lib/korona-cloud-client/api/languages_api.rb
 lib/korona-cloud-client/api/messages_api.rb
 lib/korona-cloud-client/api/number_range_configurations_api.rb
+lib/korona-cloud-client/api/order_portal_suppliers_api.rb
 lib/korona-cloud-client/api/organizational_units_api.rb
 lib/korona-cloud-client/api/payment_method_categories_api.rb
 lib/korona-cloud-client/api/payment_methods_api.rb
@@ -567,6 +572,7 @@ lib/korona-cloud-client/models/not_found_error_model.rb
 lib/korona-cloud-client/models/number_range.rb
 lib/korona-cloud-client/models/number_range_configuration.rb
 lib/korona-cloud-client/models/opening_hours.rb
+lib/korona-cloud-client/models/order_portal_supplier.rb
 lib/korona-cloud-client/models/organizational_unit.rb
 lib/korona-cloud-client/models/organizational_unit_specific_number.rb
 lib/korona-cloud-client/models/payment.rb
@@ -576,8 +582,8 @@ lib/korona-cloud-client/models/payment_service_configuration.rb
 lib/korona-cloud-client/models/payment_summary.rb
 lib/korona-cloud-client/models/payment_terminal_receipt.rb
 lib/korona-cloud-client/models/period_revenue_data_list_statistic_top_seller.rb
-lib/korona-cloud-client/models/period_revenue_data_map_string_statistic_revenue_data.rb
-lib/korona-cloud-client/models/period_revenue_data_statistic_revenue_data.rb
+lib/korona-cloud-client/models/period_revenue_data_map_string_revenue_data.rb
+lib/korona-cloud-client/models/period_revenue_data_revenue_data.rb
 lib/korona-cloud-client/models/pos.rb
 lib/korona-cloud-client/models/pos_balance.rb
 lib/korona-cloud-client/models/pos_balance_item.rb
@@ -689,6 +695,7 @@ lib/korona-cloud-client/models/result_list_inventory_list_item.rb
 lib/korona-cloud-client/models/result_list_item_sequence.rb
 lib/korona-cloud-client/models/result_list_language.rb
 lib/korona-cloud-client/models/result_list_number_range_configuration.rb
+lib/korona-cloud-client/models/result_list_order_portal_supplier.rb
 lib/korona-cloud-client/models/result_list_organizational_unit.rb
 lib/korona-cloud-client/models/result_list_payment_method.rb
 lib/korona-cloud-client/models/result_list_payment_method_category.rb
@@ -731,6 +738,7 @@ lib/korona-cloud-client/models/result_list_voucher.rb
 lib/korona-cloud-client/models/result_list_voucher_configuration.rb
 lib/korona-cloud-client/models/result_list_voucher_transaction.rb
 lib/korona-cloud-client/models/revenue_account.rb
+lib/korona-cloud-client/models/revenue_data.rb
 lib/korona-cloud-client/models/sales_tax.rb
 lib/korona-cloud-client/models/sales_tax_rate.rb
 lib/korona-cloud-client/models/sector.rb
@@ -789,7 +797,12 @@ lib/korona-cloud-client/models/voucher_transaction.rb
 lib/korona-cloud-client/models/voucher_transaction_old.rb
 lib/korona-cloud-client/models/weather.rb
 lib/korona-cloud-client/version.rb
+spec/api/order_portal_suppliers_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
+spec/models/order_portal_supplier_spec.rb
+spec/models/period_revenue_data_map_string_revenue_data_spec.rb
+spec/models/period_revenue_data_revenue_data_spec.rb
 spec/models/promotion_benefit_extended_discount_position_selection_criteria_min_max_range_value_comperator_spec.rb
+spec/models/result_list_order_portal_supplier_spec.rb
 spec/spec_helper.rb

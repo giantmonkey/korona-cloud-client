@@ -23,7 +23,7 @@ instance = KoronaCloudClient::Payment.new(
   amount: null,
   currency: null,
   payment_method: null,
-  transaction_time: 2018-11-22T09:40:21+01:00,
+  transaction_time: 2018-11-22T08:40:21Z,
   transaction_token: null,
   external_references: null,
   prepaid_card: null,

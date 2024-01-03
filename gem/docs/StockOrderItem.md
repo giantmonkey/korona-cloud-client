@@ -15,7 +15,7 @@
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **delivery_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **received_quantity** | **Float** |  | [optional] |
-| **revision** | **Integer** |  | [optional] |
+| **revision** | **Integer** |  | [optional][readonly] |
 
 ## Example
 
@@ -32,7 +32,7 @@ instance = KoronaCloudClient::StockOrderItem.new(
   container_size: null,
   item_price: null,
   product: null,
-  delivery_date: 2018-11-22T09:40:21+01:00,
+  delivery_date: 2018-11-22T08:40:21Z,
   received_quantity: null,
   revision: null
 )

@@ -14,7 +14,7 @@
 | **check_product_listing** | **Boolean** |  | [optional] |
 | **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **description** | **String** |  | [optional] |
-| **execution_days** | **Array&lt;String&gt;** |  | [optional] |
+| **execution_days** | **Array&lt;String&gt;** | only if type&#x3D;PERPETUAL_INVENTORY | [optional] |
 | **execution_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **has_booked_receipts** | **Boolean** |  | [optional][readonly] |
 | **max_products_per_list** | **Integer** | only if type&#x3D;ANNUAL_INVENTORY | INVENTORY_IRREGULARITY | [optional] |
@@ -38,10 +38,10 @@ instance = KoronaCloudClient::Inventory.new(
   automatic_booking_after_days: null,
   check_product_assortment_validity: null,
   check_product_listing: null,
-  create_time: 2018-11-22T09:40:21+01:00,
+  create_time: 2018-11-22T08:40:21Z,
   description: null,
   execution_days: null,
-  execution_time: 2018-11-22T09:40:21+01:00,
+  execution_time: 2018-11-22T08:40:21Z,
   has_booked_receipts: null,
   max_products_per_list: null,
   one_commodity_group_per_inventory_list: null,

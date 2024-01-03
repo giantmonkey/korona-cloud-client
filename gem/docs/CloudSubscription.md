@@ -14,7 +14,7 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::CloudSubscription.new(
   status: null,
-  valid_to: 2018-11-22T09:40:21+01:00
+  valid_to: 2018-11-22T08:40:21Z
 )
 ```
 

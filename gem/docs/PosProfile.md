@@ -27,15 +27,15 @@
 | **auto_reset_quick_access_pad** | **Boolean** |  | [optional] |
 | **easy_repeat_product_enabled** | **Boolean** |  | [optional] |
 | **external_system_calls_on_book_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **external_system_calls_on_reject_receipt** | **Object** |  | [optional] |
-| **external_system_calls_on_total_receipt** | **Object** |  | [optional] |
-| **external_system_calls_on_void_receipt** | **Object** |  | [optional] |
-| **external_system_calls_on_book_delivery_note** | **Object** |  | [optional] |
-| **external_system_calls_on_reverse_receipt** | **Object** |  | [optional] |
-| **external_system_calls_on_login_cashier** | **Object** |  | [optional] |
-| **external_system_calls_on_logout_cashier** | **Object** |  | [optional] |
-| **external_system_calls_on_book_first_sale** | **Object** |  | [optional] |
-| **external_system_calls_on_open_non_empty_receipt** | **Object** |  | [optional] |
+| **external_system_calls_on_reject_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_total_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_void_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_book_delivery_note** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_reverse_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_login_cashier** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_logout_cashier** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_book_first_sale** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_open_non_empty_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **designate_balance_difference** | **Boolean** |  | [optional] |
 | **end_of_day_report_enabled** | **Boolean** |  | [optional] |
 | **unknown_number_action** | **String** |  | [optional] |
@@ -53,6 +53,7 @@
 | **automatic_cashier_logout_lock_cashier** | **Boolean** |  | [optional] |
 | **report_file** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **show_bank_notes_for_payment_denomination_only** | **Boolean** |  | [optional] |
+| **end_of_day_statement_afterwards** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -108,7 +109,8 @@ instance = KoronaCloudClient::PosProfile.new(
   restrict_to_one_parked_receipt: null,
   automatic_cashier_logout_lock_cashier: null,
   report_file: null,
-  show_bank_notes_for_payment_denomination_only: null
+  show_bank_notes_for_payment_denomination_only: null,
+  end_of_day_statement_afterwards: null
 )
 ```
 

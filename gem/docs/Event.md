@@ -32,7 +32,7 @@ instance = KoronaCloudClient::Event.new(
   duration: null,
   location: null,
   name: null,
-  start: 2018-11-22T09:40:21+01:00,
+  start: 2018-11-22T08:40:21Z,
   tags: null,
   description: null
 )

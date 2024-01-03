@@ -1,6 +1,6 @@
 # KoronaCloudClient::ImagesApi
 
-All URIs are relative to *https://128.koronacloud.com/web/api/v3*
+All URIs are relative to *http://localhost:8080/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -309,7 +309,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, image/png, image/jpg
+- **Accept**: image/png, image/jpg, application/json
 
 
 ## get_images

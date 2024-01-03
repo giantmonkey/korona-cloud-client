@@ -23,7 +23,7 @@
 | **reversal** | **Boolean** |  | [optional] |
 | **fiscal_transactions** | [**Array&lt;FiscalTransaction&gt;**](FiscalTransaction.md) |  | [optional] |
 | **geo_location** | [**GeoLocation**](GeoLocation.md) |  | [optional] |
-| **info_texts** | **Array&lt;String&gt;** |  | [optional] |
+| **info_texts** | **Array&lt;Object&gt;** |  | [optional] |
 | **items** | [**Array&lt;ReceiptItem&gt;**](ReceiptItem.md) |  | [optional] |
 | **max_revisions** | [**ReceiptMaxRevisions**](ReceiptMaxRevisions.md) |  | [optional] |
 | **order_number** | **String** |  | [optional] |
@@ -36,15 +36,15 @@
 | **signature** | [**Signature**](Signature.md) |  | [optional] |
 | **total** | [**ReceiptTotal**](ReceiptTotal.md) |  | [optional] |
 | **voided** | **Boolean** |  | [optional] |
-| **voided_items** | [**Array&lt;VoidedReceiptItem&gt;**](VoidedReceiptItem.md) |  | [optional] |
-| **void_fiscal_transactions** | **Object** |  | [optional] |
-| **voucher_transactions** | [**Array&lt;VoucherTransactionOld&gt;**](VoucherTransactionOld.md) |  | [optional] |
+| **voided_items** | [**Array&lt;VoidedReceiptItem&gt;**](VoidedReceiptItem.md) |  | [optional][readonly] |
+| **void_fiscal_transactions** | [**Array&lt;FiscalTransaction&gt;**](FiscalTransaction.md) |  | [optional] |
+| **voucher_transactions** | [**Array&lt;VoucherTransactionOld&gt;**](VoucherTransactionOld.md) | Deprecated, please use voucherTransactionReferences instead. | [optional][readonly] |
 | **voucher_transaction_references** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **zcounter** | **Integer** |  | [optional] |
 | **promotion_applications** | [**Array&lt;PromotionApplication&gt;**](PromotionApplication.md) |  | [optional] |
 | **coupon_positions** | [**Array&lt;CouponPosition&gt;**](CouponPosition.md) |  | [optional] |
 | **digital_receipt_info** | [**DigitalReceiptInfo**](DigitalReceiptInfo.md) |  | [optional] |
-| **zcounter** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -58,10 +58,10 @@ instance = KoronaCloudClient::Receipt.new(
   number: null,
   account_transactions: null,
   additional_info: null,
-  booking_time: 2018-11-22T09:40:21+01:00,
+  booking_time: 2018-11-22T08:40:21Z,
   cancelled: null,
   cashier: null,
-  creation_time: 2018-11-22T09:40:21+01:00,
+  creation_time: 2018-11-22T08:40:21Z,
   currency: null,
   reversed_receipt: null,
   customer: null,
@@ -89,10 +89,10 @@ instance = KoronaCloudClient::Receipt.new(
   voucher_transactions: null,
   voucher_transaction_references: null,
   warehouse: null,
+  zcounter: null,
   promotion_applications: null,
   coupon_positions: null,
-  digital_receipt_info: null,
-  zcounter: null
+  digital_receipt_info: null
 )
 ```
 

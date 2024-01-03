@@ -6,12 +6,12 @@
 | ---- | ---- | ----------- | ----- |
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **quantity** | **Float** |  | [optional] |
-| **serial_numbers** | **Array&lt;String&gt;** |  | [optional] |
+| **serial_numbers** | **Array&lt;Object&gt;** |  | [optional] |
 | **sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **indent** | **Integer** |  | [optional] |
 | **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
-| **info_texts** | **Array&lt;String&gt;** |  | [optional] |
+| **info_texts** | **Array&lt;Object&gt;** |  | [optional] |
 | **id** | **String** |  | [optional] |
 
 ## Example

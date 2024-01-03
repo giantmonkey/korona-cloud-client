@@ -1,6 +1,6 @@
 # KoronaCloudClient::PricesApi
 
-All URIs are relative to *https://128.koronacloud.com/web/api/v3*
+All URIs are relative to *http://localhost:8080/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -33,7 +33,7 @@ end
 
 api_instance = KoronaCloudClient::PricesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-price = [KoronaCloudClient::Price.new] # Array<Price> | array of new product prices
+price = [KoronaCloudClient::Price.new({product: KoronaCloudClient::ModelReference.new})] # Array<Price> | array of new product prices
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
   write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
@@ -111,7 +111,7 @@ end
 
 api_instance = KoronaCloudClient::PricesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-price = [KoronaCloudClient::Price.new] # Array<Price> | array of existing product prices (id or number required)
+price = [KoronaCloudClient::Price.new({product: KoronaCloudClient::ModelReference.new})] # Array<Price> | array of existing product prices (id or number required)
 
 begin
   
@@ -339,7 +339,7 @@ end
 
 api_instance = KoronaCloudClient::PricesApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-price = [KoronaCloudClient::Price.new] # Array<Price> | array of existing product prices (id or number required)
+price = [KoronaCloudClient::Price.new({product: KoronaCloudClient::ModelReference.new})] # Array<Price> | array of existing product prices (id or number required)
 
 begin
   

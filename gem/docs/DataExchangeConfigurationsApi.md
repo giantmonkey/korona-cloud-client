@@ -1,6 +1,6 @@
 # KoronaCloudClient::DataExchangeConfigurationsApi
 
-All URIs are relative to *https://128.koronacloud.com/web/api/v3*
+All URIs are relative to *http://localhost:8080/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -30,7 +30,7 @@ end
 
 api_instance = KoronaCloudClient::DataExchangeConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-data_exchange_configuration_type = 'KORONA_ENTRY' # String | id of the related object (important: id should match the uuid-format)
+data_exchange_configuration_type = 'KORONA_ENTRY' # String | data exchange configuration type
 
 begin
   
@@ -64,7 +64,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
-| **data_exchange_configuration_type** | **String** | id of the related object (important: id should match the uuid-format) |  |
+| **data_exchange_configuration_type** | **String** | data exchange configuration type |  |
 
 ### Return type
 

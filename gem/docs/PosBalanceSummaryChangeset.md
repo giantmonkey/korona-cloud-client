@@ -16,7 +16,7 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::PosBalanceSummaryChangeset.new(
-  change_time: 2018-11-22T09:40:21+01:00,
+  change_time: 2018-11-22T08:40:21Z,
   new_actual: null,
   old_actual: null,
   payment_method: null,

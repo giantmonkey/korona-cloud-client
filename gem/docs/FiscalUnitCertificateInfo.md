@@ -15,8 +15,8 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::FiscalUnitCertificateInfo.new(
   data: null,
-  expiration_date: 2018-11-22T09:40:21+01:00,
-  reminder_date: 2018-11-22T09:40:21+01:00
+  expiration_date: 2018-11-22T08:40:21Z,
+  reminder_date: 2018-11-22T08:40:21Z
 )
 ```
 

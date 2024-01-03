@@ -23,7 +23,7 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::DayRating.new(
   cashier: null,
   comment: null,
-  date: 2018-11-22T09:40:21+01:00,
+  date: 2018-11-22T08:40:21Z,
   id: null,
   organizational_unit: null,
   rating: null,

@@ -14,8 +14,8 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::PeriodRevenueDataListStatisticTopSeller.new(
-  start: 2018-11-22T09:40:21+01:00,
-  _end: 2018-11-22T09:40:21+01:00,
+  start: 2018-11-22T08:40:21Z,
+  _end: 2018-11-22T08:40:21Z,
   results: null
 )
 ```

@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **value** | **Float** |  | [optional] |
+| **value** | **Float** |  |  |
 | **quantity_from** | **Float** |  | [optional] |
-| **special_price_configuration** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **special_price_configuration** | [**ModelReference**](ModelReference.md) |  |  |
 
 ## Example
 

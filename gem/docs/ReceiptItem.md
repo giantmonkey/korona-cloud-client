@@ -12,12 +12,12 @@
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **indent** | **Integer** |  | [optional] |
 | **index** | **Integer** |  | [optional][readonly] |
-| **info_texts** | **Array&lt;String&gt;** |  | [optional] |
+| **info_texts** | **Array&lt;Object&gt;** |  | [optional] |
 | **manual_price** | **Boolean** |  | [optional] |
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **quantity** | **Float** |  | [optional] |
 | **sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **serial_numbers** | **Array&lt;String&gt;** |  | [optional] |
+| **serial_numbers** | **Array&lt;Object&gt;** |  | [optional] |
 | **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
 | **delivery_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
@@ -35,7 +35,7 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::ReceiptItem.new(
   attendance: null,
-  booking_time: 2018-11-22T09:40:21+01:00,
+  booking_time: 2018-11-22T08:40:21Z,
   commodity_group: null,
   description: null,
   discounts: null,
@@ -49,7 +49,7 @@ instance = KoronaCloudClient::ReceiptItem.new(
   sector: null,
   serial_numbers: null,
   total: null,
-  delivery_date: 2018-11-22T09:40:21+01:00,
+  delivery_date: 2018-11-22T08:40:21Z,
   external_references: null,
   recognition_number: null,
   type: null,

@@ -28,8 +28,8 @@ instance = KoronaCloudClient::Voucher.new(
   amount: null,
   customer: null,
   voucher_configuration: null,
-  created_on: 2018-11-22T09:40:21+01:00,
-  valid_to: 2018-11-22T09:40:21+01:00,
+  created_on: 2018-11-22T08:40:21Z,
+  valid_to: 2018-11-22T08:40:21Z,
   locked: null
 )
 ```

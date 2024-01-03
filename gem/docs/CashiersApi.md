@@ -1,6 +1,6 @@
 # KoronaCloudClient::CashiersApi
 
-All URIs are relative to *https://128.koronacloud.com/web/api/v3*
+All URIs are relative to *http://localhost:8080/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **value** | **Float** | required | [optional] |
+| **value** | **Float** | required |  |
 | **quantity_from** | **Float** |  | [optional] |
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 

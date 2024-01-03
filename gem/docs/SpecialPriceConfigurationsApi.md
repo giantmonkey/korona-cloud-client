@@ -1,6 +1,6 @@
 # KoronaCloudClient::SpecialPriceConfigurationsApi
 
-All URIs are relative to *https://128.koronacloud.com/web/api/v3*
+All URIs are relative to *http://localhost:8080/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -34,7 +34,7 @@ end
 
 api_instance = KoronaCloudClient::SpecialPriceConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of new special price configurations
+special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new({valid_from: Time.parse('2018-11-22T08:40:21Z'), valid_to: Time.parse('2018-11-22T08:40:21Z')})] # Array<SpecialPriceConfiguration> | array of new special price configurations
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
   write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
@@ -112,7 +112,7 @@ end
 
 api_instance = KoronaCloudClient::SpecialPriceConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
+special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new({valid_from: Time.parse('2018-11-22T08:40:21Z'), valid_to: Time.parse('2018-11-22T08:40:21Z')})] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
 
 begin
   
@@ -412,7 +412,7 @@ end
 
 api_instance = KoronaCloudClient::SpecialPriceConfigurationsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
-special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
+special_price_configuration = [KoronaCloudClient::SpecialPriceConfiguration.new({valid_from: Time.parse('2018-11-22T08:40:21Z'), valid_to: Time.parse('2018-11-22T08:40:21Z')})] # Array<SpecialPriceConfiguration> | array of existing special price configurations (id or number required)
 
 begin
   

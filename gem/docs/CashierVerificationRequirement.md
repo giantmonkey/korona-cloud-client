@@ -11,6 +11,7 @@
 | **question_text** | **String** |  | [optional] |
 | **required_age** | **Integer** |  | [optional] |
 | **type** | **String** |  | [optional] |
+| **trigger_on** | **String** |  | [optional] |
 | **answer_options** | **Array&lt;String&gt;** |  | [optional] |
 | **failure_text** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
@@ -28,6 +29,7 @@ instance = KoronaCloudClient::CashierVerificationRequirement.new(
   question_text: null,
   required_age: null,
   type: null,
+  trigger_on: null,
   answer_options: null,
   failure_text: null,
   name: null

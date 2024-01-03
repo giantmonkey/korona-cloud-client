@@ -1,6 +1,6 @@
 # KoronaCloudClient::ProductsApi
 
-All URIs are relative to *https://128.koronacloud.com/web/api/v3*
+All URIs are relative to *http://localhost:8080/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -41,6 +41,7 @@ product = [KoronaCloudClient::Product.new] # Array<Product> | array of new produ
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
   merge_list_items: true, # Boolean | if set to true, merges lists instead of replacing them
+  merge_tags: true, # Boolean | if set to true, merges tags instead of overwriting the list
   write_mode: 'DEFAULT' # String | DEFAULT = insert; ADD_OR_UPDATE = insert or update, overwrite all non-null fields; ADD_OR_REPLACE = insert or update, overwrite all fields
 }
 
@@ -79,6 +80,7 @@ end
 | **product** | [**Array&lt;Product&gt;**](Product.md) | array of new products |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **merge_list_items** | **Boolean** | if set to true, merges lists instead of replacing them | [optional] |
+| **merge_tags** | **Boolean** | if set to true, merges tags instead of overwriting the list | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
 
 ### Return type
@@ -584,7 +586,8 @@ korona_account_id = 'korona_account_id_example' # String | account id of the KOR
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 product = KoronaCloudClient::Product.new # Product | the properties to update of the product
 opts = {
-  merge_list_items: true # Boolean | if set to true, merges lists instead of replacing them
+  merge_list_items: true, # Boolean | if set to true, merges lists instead of replacing them
+  merge_tags: true # Boolean | if set to true, merges tags instead of overwriting the list
 }
 
 begin
@@ -621,6 +624,7 @@ end
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product** | [**Product**](Product.md) | the properties to update of the product |  |
 | **merge_list_items** | **Boolean** | if set to true, merges lists instead of replacing them | [optional] |
+| **merge_tags** | **Boolean** | if set to true, merges tags instead of overwriting the list | [optional] |
 
 ### Return type
 
@@ -660,7 +664,8 @@ api_instance = KoronaCloudClient::ProductsApi.new
 korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
 product = [KoronaCloudClient::Product.new] # Array<Product> | an array of existing products
 opts = {
-  merge_list_items: true # Boolean | if set to true, merges lists instead of replacing them
+  merge_list_items: true, # Boolean | if set to true, merges lists instead of replacing them
+  merge_tags: true # Boolean | if set to true, merges tags instead of overwriting the list
 }
 
 begin
@@ -697,6 +702,7 @@ end
 | **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
 | **product** | [**Array&lt;Product&gt;**](Product.md) | an array of existing products |  |
 | **merge_list_items** | **Boolean** | if set to true, merges lists instead of replacing them | [optional] |
+| **merge_tags** | **Boolean** | if set to true, merges tags instead of overwriting the list | [optional] |
 
 ### Return type
 

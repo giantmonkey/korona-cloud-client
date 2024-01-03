@@ -37,8 +37,8 @@ instance = KoronaCloudClient::User.new(
   phone_number: null,
   user_role: null,
   organizational_units: null,
-  create_time: 2018-11-22T09:40:21+01:00,
-  last_login: 2018-11-22T09:40:21+01:00
+  create_time: 2018-11-22T08:40:21Z,
+  last_login: 2018-11-22T08:40:21Z
 )
 ```
 

@@ -12,7 +12,7 @@
 | **number** | **Integer** |  | [optional] |
 | **print_link** | **String** |  | [optional] |
 | **print_qr_code** | **String** |  | [optional] |
-| **print_texts** | **Array&lt;String&gt;** |  | [optional] |
+| **print_texts** | **Array&lt;Object&gt;** |  | [optional] |
 | **process_data** | **String** |  | [optional] |
 | **process_type** | **String** |  | [optional] |
 | **signature** | **String** |  | [optional] |
@@ -27,8 +27,8 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::FiscalTransaction.new(
   error_description: null,
   failed: null,
-  finish_time: 2018-11-22T09:40:21+01:00,
-  first_process_time: 2018-11-22T09:40:21+01:00,
+  finish_time: 2018-11-22T08:40:21Z,
+  first_process_time: 2018-11-22T08:40:21Z,
   fiscal_unit: null,
   number: null,
   print_link: null,
@@ -38,7 +38,7 @@ instance = KoronaCloudClient::FiscalTransaction.new(
   process_type: null,
   signature: null,
   signature_counter: null,
-  start_time: 2018-11-22T09:40:21+01:00
+  start_time: 2018-11-22T08:40:21Z
 )
 ```
 

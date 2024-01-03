@@ -18,7 +18,7 @@
 | **default_payment_method** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **device_information** | [**DeviceInformation**](DeviceInformation.md) |  | [optional] |
 | **entry_gate** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **external** | **Boolean** |  | [optional] |
+| **external** | **Boolean** | deprecated; use type instead | [optional] |
 | **fiscal_service_type** | **String** |  | [optional] |
 | **fiscal_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **fiscal_unit_pre_configuration** | [**FiscalUnitPreConfiguration**](FiscalUnitPreConfiguration.md) |  | [optional] |

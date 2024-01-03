@@ -41,7 +41,7 @@ instance = KoronaCloudClient::VoucherTransaction.new(
   point_of_sale: null,
   cashier: null,
   receipt_number: null,
-  booking_time: 2018-11-22T09:40:21+01:00,
+  booking_time: 2018-11-22T08:40:21Z,
   voucher: null,
   receipt: null,
   receipt_item: null,

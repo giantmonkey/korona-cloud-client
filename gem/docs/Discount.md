@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **coupons** | [**Array&lt;Coupon&gt;**](Coupon.md) |  | [optional] |
+| **coupons** | [**Array&lt;Coupon&gt;**](Coupon.md) |  | [optional][readonly] |
 | **label** | **String** |  | [optional] |
 | **promotion** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **receipt_discount** | **Boolean** |  | [optional] |

@@ -40,7 +40,7 @@ instance = KoronaCloudClient::Customer.new(
   revision: null,
   number: null,
   address: null,
-  birthday: 2018-11-22T09:40:21+01:00,
+  birthday: 2018-11-22T08:40:21Z,
   cards: null,
   company: null,
   customer_group: null,
@@ -55,8 +55,8 @@ instance = KoronaCloudClient::Customer.new(
   tax_id: null,
   privacy_policy_accepted: null,
   marketing_contact_permitted: null,
-  create_time: 2018-11-22,
-  last_receipt_time: 2018-11-22,
+  create_time: null,
+  last_receipt_time: null,
   use_email_for_digital_receipt: null,
   lock_delivery_note_sales: null
 )

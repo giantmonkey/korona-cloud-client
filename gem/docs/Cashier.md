@@ -16,7 +16,7 @@
 | **gender** | **String** |  | [optional] |
 | **login_code** | **String** | by default, the md5 hash of the cashiers login code. on GET requests this can be changed via the &#x60;displayCashierCredentials&#x3D;(HASH|PLAIN|NONE)&#x60; parameter, on POST and PATCH it is always assumed to be &#x60;PLAIN&#x60; text. | [optional] |
 | **login_password** | **String** | by default, the md5 hash of the cashiers login password. on GET requests this can be changed via the &#x60;displayCashierCredentials&#x3D;(HASH|PLAIN|NONE)&#x60; parameter, on POST and PATCH it is always assumed to be &#x60;PLAIN&#x60; text. | [optional] |
-| **permissions** | **Array&lt;String&gt;** |  | [optional] |
+| **permissions** | **Array&lt;String&gt;** |  | [optional][readonly] |
 | **role** | **String** |  | [optional][readonly] |
 | **bonus_points** | **Integer** |  | [optional] |
 | **background_color** | **Integer** |  | [optional] |
@@ -50,8 +50,8 @@ instance = KoronaCloudClient::Cashier.new(
   background_color: null,
   organizational_units: null,
   cashier_role: null,
-  create_time: 2018-11-22,
-  last_receipt_time: 2018-11-22,
+  create_time: null,
+  last_receipt_time: null,
   organizational_unit_specific_numbers: null
 )
 ```

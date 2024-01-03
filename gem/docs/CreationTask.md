@@ -25,7 +25,7 @@ instance = KoronaCloudClient::CreationTask.new(
   entry_id: null,
   description: null,
   user: null,
-  creation_time: 2018-11-22T09:40:21+01:00,
+  creation_time: 2018-11-22T08:40:21Z,
   ticket_number_start: null,
   quantity: null,
   created: null,

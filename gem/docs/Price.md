@@ -13,7 +13,7 @@
 | **product_code** | **String** |  | [optional] |
 | **price_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **organizational_unit** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **product** | [**ModelReference**](ModelReference.md) |  |  |
 
 ## Example
 
@@ -26,7 +26,7 @@ instance = KoronaCloudClient::Price.new(
   revision: null,
   number: null,
   value: null,
-  valid_from: 2018-11-22T09:40:21+01:00,
+  valid_from: 2018-11-22T08:40:21Z,
   product_code: null,
   price_group: null,
   organizational_unit: null,

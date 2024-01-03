@@ -25,7 +25,7 @@ instance = KoronaCloudClient::Assortment.new(
   number: null,
   cost_center: null,
   description: null,
-  last_clean_up: 2018-11-22T09:40:21+01:00,
+  last_clean_up: 2018-11-22T08:40:21Z,
   name: null
 )
 ```

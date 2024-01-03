@@ -17,11 +17,11 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::CashierVerificationResult.new(
-  finish_time: 2018-11-22T09:40:21+01:00,
+  finish_time: 2018-11-22T08:40:21Z,
   requirement: null,
   selected_option: null,
   failed: null,
-  date_of_birth: 2018-11-22T09:40:21+01:00,
+  date_of_birth: 2018-11-22T08:40:21Z,
   type: null
 )
 ```

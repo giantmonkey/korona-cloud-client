@@ -23,7 +23,7 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::VoucherTransactionOld.new(
   amount: null,
-  booking_time: 2018-11-22T09:40:21+01:00,
+  booking_time: 2018-11-22T08:40:21Z,
   cashier: null,
   comment: null,
   price: null,

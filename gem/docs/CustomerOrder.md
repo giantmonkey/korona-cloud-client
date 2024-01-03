@@ -14,7 +14,7 @@
 | **create_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **customer** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **customer_data** | [**CustomerData**](CustomerData.md) |  | [optional] |
-| **deposits** | [**Array&lt;Deposit&gt;**](Deposit.md) |  | [optional] |
+| **deposits** | [**Array&lt;Deposit&gt;**](Deposit.md) | an empty list will not delete existing deposits and will result in an error | [optional] |
 | **finish_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **info_texts** | **Array&lt;String&gt;** |  | [optional] |
 | **items** | [**Array&lt;CustomerOrderItem&gt;**](CustomerOrderItem.md) |  | [optional] |
@@ -34,18 +34,18 @@ instance = KoronaCloudClient::CustomerOrder.new(
   id: null,
   revision: null,
   number: null,
-  booking_time: 2018-11-22T09:40:21+01:00,
+  booking_time: 2018-11-22T08:40:21Z,
   cashier: null,
   comment: null,
-  create_time: 2018-11-22T09:40:21+01:00,
+  create_time: 2018-11-22T08:40:21Z,
   customer: null,
   customer_data: null,
   deposits: null,
-  finish_time: 2018-11-22T09:40:21+01:00,
+  finish_time: 2018-11-22T08:40:21Z,
   info_texts: null,
   items: null,
   organizational_unit: null,
-  pick_up_time: 2018-11-22T09:40:21+01:00,
+  pick_up_time: 2018-11-22T08:40:21Z,
   point_of_sale: null,
   ready_for_pick_up: null,
   warehouse: null

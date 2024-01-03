@@ -27,9 +27,9 @@ instance = KoronaCloudClient::Attendance.new(
   number: null,
   category_name: null,
   category_id: null,
-  creation_time: 2018-11-22T09:40:21+01:00,
+  creation_time: 2018-11-22T08:40:21Z,
   event: null,
-  expiration_time: 2018-11-22T09:40:21+01:00,
+  expiration_time: 2018-11-22T08:40:21Z,
   seats: null
 )
 ```

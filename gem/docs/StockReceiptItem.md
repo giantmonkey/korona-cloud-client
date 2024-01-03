@@ -24,7 +24,7 @@ instance = KoronaCloudClient::StockReceiptItem.new(
   product: null,
   purchase_price: null,
   revision: null,
-  shelf_life: 2018-11-22T09:40:21+01:00
+  shelf_life: 2018-11-22T08:40:21Z
 )
 ```
 
