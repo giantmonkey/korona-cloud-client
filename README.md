@@ -32,18 +32,18 @@ openapi-generator generate -i swagger.json -g ruby -o gem --package-name korona-
 
 # Publish gem to rubygems
 ## fix the overlong file path for a spec file and build gem
-```
+```bash
 cd gem
 mv spec/models/promotion_benefit_extended_discount_position_selection_criteria_min_max_range_value_comperator_spec.rb spec/models/promotion_benefit_extended_discount_position_selection_comperator_spec.rb
 gem build korona-cloud-client.gemspec
 ```
 ## push to rubygems
-```
+```bash
 gem push korona-cloud-client-1.0.10.gem
 ```
 
 # usage in a project
-```
+```ruby
 config = KoronaCloudClient::Configuration.new do |config|
   config.username = '<KORONA_API_USERNAME>'
   config.password = '<KORONA_API_PASSWORD>'
