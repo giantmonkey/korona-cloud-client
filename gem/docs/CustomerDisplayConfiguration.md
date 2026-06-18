@@ -7,7 +7,7 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **font_scale** | **Integer** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **booking_url** | **String** |  | [optional] |
@@ -23,6 +23,9 @@
 | **welcome_image_id** | **String** |  | [optional] |
 | **graphical_display** | **String** |  | [optional] |
 | **layout_type** | **String** |  | [optional] |
+| **welcome_layout_type** | **String** |  | [optional] |
+| **closed_layout_type** | **String** |  | [optional] |
+| **booking_layout_type** | **String** |  | [optional] |
 | **theme_color** | **String** |  | [optional] |
 
 ## Example
@@ -50,6 +53,9 @@ instance = KoronaCloudClient::CustomerDisplayConfiguration.new(
   welcome_image_id: null,
   graphical_display: null,
   layout_type: null,
+  welcome_layout_type: null,
+  closed_layout_type: null,
+  booking_layout_type: null,
   theme_color: null
 )
 ```

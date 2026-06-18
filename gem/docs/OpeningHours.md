@@ -15,8 +15,8 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::OpeningHours.new(
   week_day: null,
-  from: 49020,
-  to: 49020
+  from: 13:37:00,
+  to: 13:37:00
 )
 ```
 

@@ -7,10 +7,9 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **address** | [**AddressInformation**](AddressInformation.md) |  | [optional] |
 | **birthday** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
-| **cards** | [**Array&lt;CustomerCard&gt;**](CustomerCard.md) |  | [optional] |
 | **company** | **String** |  | [optional] |
 | **customer_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **economic_zone** | [**ModelReference**](ModelReference.md) |  | [optional] |
@@ -28,6 +27,7 @@
 | **last_receipt_time** | **Date** | yyyy-MM-dd | [optional][readonly] |
 | **use_email_for_digital_receipt** | **Boolean** |  | [optional] |
 | **lock_delivery_note_sales** | **Boolean** |  | [optional] |
+| **send_x_invoice** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -40,8 +40,7 @@ instance = KoronaCloudClient::Customer.new(
   revision: null,
   number: null,
   address: null,
-  birthday: 2018-11-22T08:40:21Z,
-  cards: null,
+  birthday: 2018-11-22T09:40:21+01:00,
   company: null,
   customer_group: null,
   economic_zone: null,
@@ -55,10 +54,11 @@ instance = KoronaCloudClient::Customer.new(
   tax_id: null,
   privacy_policy_accepted: null,
   marketing_contact_permitted: null,
-  create_time: null,
-  last_receipt_time: null,
+  create_time: Thu Nov 22 01:00:00 CET 2018,
+  last_receipt_time: Thu Nov 22 01:00:00 CET 2018,
   use_email_for_digital_receipt: null,
-  lock_delivery_note_sales: null
+  lock_delivery_note_sales: null,
+  send_x_invoice: null
 )
 ```
 

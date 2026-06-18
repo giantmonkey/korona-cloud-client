@@ -27,7 +27,7 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::CustomerOrderItem.new(
   attendance: null,
-  booking_time: 2018-11-22T08:40:21Z,
+  booking_time: 2018-11-22T09:40:21+01:00,
   commodity_group: null,
   description: null,
   discounts: null,

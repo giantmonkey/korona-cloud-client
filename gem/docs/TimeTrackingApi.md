@@ -1,6 +1,6 @@
 # KoronaCloudClient::TimeTrackingApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -33,7 +33,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 time_tracking_entity = [KoronaCloudClient::TimeTrackingEntity.new] # Array<TimeTrackingEntity> | array of new time tracking entities
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -71,7 +71,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **time_tracking_entity** | [**Array&lt;TimeTrackingEntity&gt;**](TimeTrackingEntity.md) | array of new time tracking entities |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -111,7 +111,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 time_tracking_entry = [KoronaCloudClient::TimeTrackingEntry.new] # Array<TimeTrackingEntry> | array of new time tracking entries
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -149,7 +149,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **time_tracking_entry** | [**Array&lt;TimeTrackingEntry&gt;**](TimeTrackingEntry.md) | array of new time tracking entries |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -189,7 +189,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -230,7 +230,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -273,7 +273,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 time_tracking_entity_id = 'time_tracking_entity_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -307,7 +307,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **time_tracking_entity_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -345,7 +345,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -390,7 +390,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -437,7 +437,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TimeTrackingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 time_tracking_entry_id = 'time_tracking_entry_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -471,7 +471,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **time_tracking_entry_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type

@@ -1,6 +1,6 @@
 # KoronaCloudClient::PosPageLayoutConfigurationsApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -34,7 +34,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 pos_page_layout_configuration = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | array of new pos page layout configurations
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -72,7 +72,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **pos_page_layout_configuration** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | array of new pos page layout configurations |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -112,7 +112,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 pos_page_layout_configuration_id = 'pos_page_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -145,7 +145,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **pos_page_layout_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -183,7 +183,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 pos_page_layout_configuration = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | array of existing pos page layout configurations (id or number required)
 
 begin
@@ -217,7 +217,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **pos_page_layout_configuration** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | array of existing pos page layout configurations (id or number required) |  |
 
 ### Return type
@@ -255,7 +255,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 pos_page_layout_configuration_id = 'pos_page_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -289,7 +289,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **pos_page_layout_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -327,7 +327,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -368,7 +368,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -411,7 +411,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 pos_page_layout_configuration_id = 'pos_page_layout_configuration_id_example' # String | id of the related object (important: id should match the uuid-format)
 pos_page_layout_configuration = KoronaCloudClient::PosPageLayoutConfiguration.new # PosPageLayoutConfiguration | the properties to update of the pos page layout configuration
 
@@ -445,7 +445,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **pos_page_layout_configuration_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **pos_page_layout_configuration** | [**PosPageLayoutConfiguration**](PosPageLayoutConfiguration.md) | the properties to update of the pos page layout configuration |  |
 
@@ -484,7 +484,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PosPageLayoutConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 pos_page_layout_configuration = [KoronaCloudClient::PosPageLayoutConfiguration.new] # Array<PosPageLayoutConfiguration> | an array of existing pos page layout configurations
 
 begin
@@ -518,7 +518,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **pos_page_layout_configuration** | [**Array&lt;PosPageLayoutConfiguration&gt;**](PosPageLayoutConfiguration.md) | an array of existing pos page layout configurations |  |
 
 ### Return type

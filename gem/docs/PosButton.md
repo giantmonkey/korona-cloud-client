@@ -12,6 +12,8 @@
 | **size** | **String** |  | [optional] |
 | **authorization_condition_cashier_role** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **authorization_condition_four_eyes** | **Boolean** |  | [optional] |
+| **button_texts** | [**Array&lt;ButtonText&gt;**](ButtonText.md) |  | [optional] |
+| **image** | [**ModelReference**](ModelReference.md) |  | [optional] |
 
 ## Example
 
@@ -26,7 +28,9 @@ instance = KoronaCloudClient::PosButton.new(
   name: null,
   size: null,
   authorization_condition_cashier_role: null,
-  authorization_condition_four_eyes: null
+  authorization_condition_four_eyes: null,
+  button_texts: null,
+  image: null
 )
 ```
 

@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **gln** | **String** |  | [optional] |
 | **tax_id** | **String** |  | [optional] |
+| **tax_number** | **String** |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::CompanyIdentification.new(
   gln: null,
-  tax_id: null
+  tax_id: null,
+  tax_number: null
 )
 ```
 

@@ -7,7 +7,7 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **allowed_balance_difference** | **Float** |  | [optional] |
 | **currency** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **force_customer_number** | **Boolean** |  | [optional] |
@@ -18,13 +18,14 @@
 | **tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **use_cash_drawer** | **Boolean** |  | [optional] |
 | **revenue_account** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **attach_payment_terminal_data_to_receipt** | **Boolean** |  | [optional] |
+| **attach_payment_terminal_data_to_receipt** | **Boolean** | corresponds to field &#39;doNotPrintMerchantReceipt&#39; | [optional] |
 | **max_payment_sum** | **Float** |  | [optional] |
 | **balance** | **Boolean** |  | [optional] |
 | **change_due** | **Boolean** |  | [optional] |
 | **category** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **payout** | **Boolean** |  | [optional] |
 | **minimum_receipt_amount** | **Float** |  | [optional] |
+| **cash_rounding_configuration** | [**CashRoundingConfiguration**](CashRoundingConfiguration.md) |  | [optional] |
 
 ## Example
 
@@ -52,7 +53,8 @@ instance = KoronaCloudClient::PaymentMethod.new(
   change_due: null,
   category: null,
   payout: null,
-  minimum_receipt_amount: null
+  minimum_receipt_amount: null,
+  cash_rounding_configuration: null
 )
 ```
 

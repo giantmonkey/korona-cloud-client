@@ -10,9 +10,14 @@
 | **transaction_time** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **transaction_token** | **String** |  | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
+| **payment_terminal_receipts** | [**Array&lt;PaymentTerminalReceipt&gt;**](PaymentTerminalReceipt.md) |  | [optional] |
 | **prepaid_card** | [**PrepaidCard**](PrepaidCard.md) |  | [optional] |
 | **input_amount** | **Float** |  | [optional] |
-| **payment_terminal_receipts** | [**Array&lt;PaymentTerminalReceipt&gt;**](PaymentTerminalReceipt.md) |  | [optional] |
+| **transaction_id** | **String** |  | [optional] |
+| **process_data** | **String** |  | [optional] |
+| **ref_data** | **String** |  | [optional] |
+| **ref_number** | **String** |  | [optional] |
+| **slip_number** | **String** |  | [optional] |
 
 ## Example
 
@@ -23,12 +28,17 @@ instance = KoronaCloudClient::Payment.new(
   amount: null,
   currency: null,
   payment_method: null,
-  transaction_time: 2018-11-22T08:40:21Z,
+  transaction_time: 2018-11-22T09:40:21+01:00,
   transaction_token: null,
   external_references: null,
+  payment_terminal_receipts: null,
   prepaid_card: null,
   input_amount: null,
-  payment_terminal_receipts: null
+  transaction_id: null,
+  process_data: null,
+  ref_data: null,
+  ref_number: null,
+  slip_number: null
 )
 ```
 

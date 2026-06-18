@@ -1,6 +1,6 @@
 # KoronaCloudClient::StoreOrdersApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -38,7 +38,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 store_order_item = [KoronaCloudClient::StoreOrderItem.new] # Array<StoreOrderItem> | data to add
 
@@ -73,7 +73,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **store_order_item** | [**Array&lt;StoreOrderItem&gt;**](StoreOrderItem.md) | data to add |  |
 
@@ -112,7 +112,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order = [KoronaCloudClient::StoreOrder.new] # Array<StoreOrder> | data to add
 
 begin
@@ -146,7 +146,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order** | [**Array&lt;StoreOrder&gt;**](StoreOrder.md) | data to add |  |
 
 ### Return type
@@ -184,7 +184,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
@@ -218,7 +218,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
@@ -257,7 +257,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -291,7 +291,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -329,7 +329,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
@@ -364,7 +364,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
@@ -403,7 +403,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 opts = {
   page: 56, # Integer | number of the page to fetch
@@ -441,7 +441,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
@@ -481,7 +481,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -529,7 +529,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -579,7 +579,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 order_action = 'ACCORDING_TO_SPECIFICATIONS' # String | type of order finalization. according to items speficiations (either each item must have a source, or those without are ignored and deleted) or regardless of items specifications (joint supplier or warehouse)
 opts = {
@@ -617,7 +617,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **order_action** | **String** | type of order finalization. according to items speficiations (either each item must have a source, or those without are ignored and deleted) or regardless of items specifications (joint supplier or warehouse) |  |
 | **warehouse** | **String** | warehouse (&#x3D; organizational unit having warehouse flag) | [optional] |
@@ -658,7 +658,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 store_order = KoronaCloudClient::StoreOrder.new # StoreOrder | data to update
 
@@ -692,7 +692,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **store_order** | [**StoreOrder**](StoreOrder.md) | data to update |  |
 
@@ -731,7 +731,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 store_order_item = KoronaCloudClient::StoreOrderItem.new # StoreOrderItem | data to update
@@ -766,7 +766,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **store_order_item** | [**StoreOrderItem**](StoreOrderItem.md) | data to update |  |
@@ -806,7 +806,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StoreOrdersApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 store_order_id = 'store_order_id_example' # String | id of the related object (important: id should match the uuid-format)
 store_order_item = [KoronaCloudClient::StoreOrderItem.new] # Array<StoreOrderItem> | data to update
 
@@ -841,7 +841,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **store_order_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **store_order_item** | [**Array&lt;StoreOrderItem&gt;**](StoreOrderItem.md) | data to update |  |
 

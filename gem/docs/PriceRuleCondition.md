@@ -11,6 +11,7 @@
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **sale_tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **tag** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **commodity_group_prefix** | **String** |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = KoronaCloudClient::PriceRuleCondition.new(
   position_type: null,
   product: null,
   sale_tag: null,
-  tag: null
+  tag: null,
+  commodity_group_prefix: null
 )
 ```
 

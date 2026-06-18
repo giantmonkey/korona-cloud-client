@@ -1,6 +1,6 @@
 # KoronaCloudClient::StockAdjustmentsApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -38,7 +38,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 stock_adjustment_item = [KoronaCloudClient::StockAdjustmentItem.new] # Array<StockAdjustmentItem> | data to add
 
@@ -73,7 +73,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **stock_adjustment_item** | [**Array&lt;StockAdjustmentItem&gt;**](StockAdjustmentItem.md) | data to add |  |
 
@@ -112,7 +112,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment = [KoronaCloudClient::StockAdjustment.new] # Array<StockAdjustment> | data to add
 
 begin
@@ -146,7 +146,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment** | [**Array&lt;StockAdjustment&gt;**](StockAdjustment.md) | data to add |  |
 
 ### Return type
@@ -184,7 +184,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -217,7 +217,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -255,7 +255,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
@@ -289,7 +289,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
@@ -328,7 +328,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -362,7 +362,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -400,7 +400,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
@@ -435,7 +435,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
@@ -474,7 +474,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 opts = {
   page: 56, # Integer | number of the page to fetch
@@ -514,7 +514,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
@@ -556,7 +556,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -604,7 +604,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -654,7 +654,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 stock_adjustment = KoronaCloudClient::StockAdjustment.new # StockAdjustment | data to update
 
@@ -688,7 +688,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **stock_adjustment** | [**StockAdjustment**](StockAdjustment.md) | data to update |  |
 
@@ -727,7 +727,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 stock_adjustment_item = KoronaCloudClient::StockAdjustmentItem.new # StockAdjustmentItem | data to update
@@ -762,7 +762,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **stock_adjustment_item** | [**StockAdjustmentItem**](StockAdjustmentItem.md) | data to update |  |
@@ -802,7 +802,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StockAdjustmentsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 stock_adjustment_id = 'stock_adjustment_id_example' # String | id of the related object (important: id should match the uuid-format)
 stock_adjustment_item = [KoronaCloudClient::StockAdjustmentItem.new] # Array<StockAdjustmentItem> | data to update
 
@@ -837,7 +837,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **stock_adjustment_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **stock_adjustment_item** | [**Array&lt;StockAdjustmentItem&gt;**](StockAdjustmentItem.md) | data to update |  |
 

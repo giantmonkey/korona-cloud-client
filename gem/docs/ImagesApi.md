@@ -1,6 +1,6 @@
 # KoronaCloudClient::ImagesApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -34,7 +34,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ImagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 image = [KoronaCloudClient::Image.new] # Array<Image> | list of properties of new images
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -73,7 +73,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **image** | [**Array&lt;Image&gt;**](Image.md) | list of properties of new images |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **processing** | **Boolean** | whether PRINTER images should be processed with Dithering | [optional] |
@@ -114,7 +114,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ImagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 image_id = 'image_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -147,7 +147,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **image_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -185,7 +185,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ImagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 image = [KoronaCloudClient::Image.new] # Array<Image> | array of existing images (id or number required)
 
 begin
@@ -219,7 +219,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **image** | [**Array&lt;Image&gt;**](Image.md) | array of existing images (id or number required) |  |
 
 ### Return type
@@ -257,7 +257,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ImagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 image_id = 'image_id_example' # String | id of the related object (important: id should match the uuid-format)
 opts = {
   accept: 'accept_example' # String | the accepted content type for the response
@@ -294,7 +294,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **image_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **accept** | **String** | the accepted content type for the response | [optional] |
 
@@ -309,7 +309,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: image/png, image/jpg, application/json
+- **Accept**: application/json, image/png, image/jpg
 
 
 ## get_images
@@ -333,7 +333,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ImagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -375,7 +375,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -419,7 +419,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ImagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 image_id = 'image_id_example' # String | id of the related object (important: id should match the uuid-format)
 image = KoronaCloudClient::Image.new # Image | the properties to update the image
 opts = {
@@ -456,7 +456,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **image_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **image** | [**Image**](Image.md) | the properties to update the image |  |
 | **processing** | **Boolean** | whether PRINTER images should be processed with Dithering | [optional] |
@@ -496,7 +496,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ImagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 image = [KoronaCloudClient::Image.new] # Array<Image> | an array of existing images
 opts = {
   processing: true # Boolean | whether PRINTER images should be processed with Dithering
@@ -533,7 +533,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **image** | [**Array&lt;Image&gt;**](Image.md) | an array of existing images |  |
 | **processing** | **Boolean** | whether PRINTER images should be processed with Dithering | [optional] |
 

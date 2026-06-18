@@ -7,8 +7,9 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
-| **container_mode** | **Boolean** |  | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
+| **container_mode** | **Boolean** | Deprecated, please use containerSelection instead. | [optional][readonly] |
+| **container_selection** | **String** |  | [optional] |
 | **contra_account** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **coupled** | **Boolean** |  | [optional][readonly] |
 | **coupled_client_system_information** | **Hash&lt;String, String&gt;** |  | [optional] |
@@ -40,6 +41,8 @@
 | **warehouse** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **device_configuration_variable_values** | [**Array&lt;DeviceConfigurationVariableValue&gt;**](DeviceConfigurationVariableValue.md) |  | [optional] |
 | **type** | **String** |  | [optional] |
+| **sco_configuration** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **surcharge_account** | [**ModelReference**](ModelReference.md) |  | [optional] |
 
 ## Example
 
@@ -52,6 +55,7 @@ instance = KoronaCloudClient::Pos.new(
   revision: null,
   number: null,
   container_mode: null,
+  container_selection: null,
   contra_account: null,
   coupled: null,
   coupled_client_system_information: null,
@@ -82,7 +86,9 @@ instance = KoronaCloudClient::Pos.new(
   use_alternative_sector: null,
   warehouse: null,
   device_configuration_variable_values: null,
-  type: null
+  type: null,
+  sco_configuration: null,
+  surcharge_account: null
 )
 ```
 

@@ -10,6 +10,7 @@
 | **customer_groups** | [**Array&lt;CustomerGroupSummary&gt;**](CustomerGroupSummary.md) |  | [optional] |
 | **payments** | [**Array&lt;PaymentSummary&gt;**](PaymentSummary.md) |  | [optional] |
 | **taxes** | [**Array&lt;TaxSummary&gt;**](TaxSummary.md) |  | [optional] |
+| **vouchers** | [**Array&lt;VoucherSummary&gt;**](VoucherSummary.md) |  | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = KoronaCloudClient::EndOfDayStatementSummary.new(
   commodity_groups: null,
   customer_groups: null,
   payments: null,
-  taxes: null
+  taxes: null,
+  vouchers: null
 )
 ```
 

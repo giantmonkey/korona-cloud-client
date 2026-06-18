@@ -1,6 +1,6 @@
 # KoronaCloudClient::DataExchangeConfigurationsApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -29,7 +29,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::DataExchangeConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 data_exchange_configuration_type = 'KORONA_ENTRY' # String | data exchange configuration type
 
 begin
@@ -63,7 +63,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **data_exchange_configuration_type** | **String** | data exchange configuration type |  |
 
 ### Return type
@@ -82,7 +82,7 @@ end
 
 ## get_data_exchange_configurations
 
-> <ResultListDataExchangeConfiguration> get_data_exchange_configurations(korona_account_id)
+> <ResultListDataExchangeConfiguration> get_data_exchange_configurations(korona_account_id, opts)
 
 
 
@@ -101,11 +101,18 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::DataExchangeConfigurationsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
+opts = {
+  page: 56, # Integer | number of the page to fetch
+  size: 56, # Integer | amount of objects to return per page
+  sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
+  revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
+  include_deleted: true # Boolean | indicates deleted objects should be loaded or not (default: false)
+}
 
 begin
   
-  result = api_instance.get_data_exchange_configurations(korona_account_id)
+  result = api_instance.get_data_exchange_configurations(korona_account_id, opts)
   p result
 rescue KoronaCloudClient::ApiError => e
   puts "Error when calling DataExchangeConfigurationsApi->get_data_exchange_configurations: #{e}"
@@ -116,12 +123,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResultListDataExchangeConfiguration>, Integer, Hash)> get_data_exchange_configurations_with_http_info(korona_account_id)
+> <Array(<ResultListDataExchangeConfiguration>, Integer, Hash)> get_data_exchange_configurations_with_http_info(korona_account_id, opts)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.get_data_exchange_configurations_with_http_info(korona_account_id)
+  data, status_code, headers = api_instance.get_data_exchange_configurations_with_http_info(korona_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ResultListDataExchangeConfiguration>
@@ -134,7 +141,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
+| **page** | **Integer** | number of the page to fetch | [optional] |
+| **size** | **Integer** | amount of objects to return per page | [optional] |
+| **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
+| **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
+| **include_deleted** | **Boolean** | indicates deleted objects should be loaded or not (default: false) | [optional] |
 
 ### Return type
 

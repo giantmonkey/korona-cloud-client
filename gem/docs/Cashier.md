@@ -7,7 +7,7 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **_alias** | **String** |  | [optional] |
 | **deactivated** | **Boolean** |  | [optional] |
 | **email** | **String** |  | [optional] |
@@ -25,6 +25,7 @@
 | **create_time** | **Date** | yyyy-MM-dd | [optional][readonly] |
 | **last_receipt_time** | **Date** | yyyy-MM-dd | [optional][readonly] |
 | **organizational_unit_specific_numbers** | [**Array&lt;OrganizationalUnitSpecificNumber&gt;**](OrganizationalUnitSpecificNumber.md) |  | [optional] |
+| **organizational_unit_roles** | [**Array&lt;ModelReferencePair&gt;**](ModelReferencePair.md) |  | [optional] |
 
 ## Example
 
@@ -50,9 +51,10 @@ instance = KoronaCloudClient::Cashier.new(
   background_color: null,
   organizational_units: null,
   cashier_role: null,
-  create_time: null,
-  last_receipt_time: null,
-  organizational_unit_specific_numbers: null
+  create_time: Thu Nov 22 01:00:00 CET 2018,
+  last_receipt_time: Thu Nov 22 01:00:00 CET 2018,
+  organizational_unit_specific_numbers: null,
+  organizational_unit_roles: null
 )
 ```
 

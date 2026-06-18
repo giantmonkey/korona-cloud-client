@@ -6,13 +6,14 @@
 | ---- | ---- | ----------- | ----- |
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **quantity** | **Float** |  | [optional] |
-| **serial_numbers** | **Array&lt;Object&gt;** |  | [optional] |
+| **serial_numbers** | **Array&lt;String&gt;** |  | [optional] |
 | **sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **commodity_group** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **indent** | **Integer** |  | [optional] |
 | **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
-| **info_texts** | **Array&lt;Object&gt;** |  | [optional] |
+| **info_texts** | **Array&lt;String&gt;** |  | [optional] |
 | **id** | **String** |  | [optional] |
+| **voucher_transaction_reference** | [**ModelReference**](ModelReference.md) |  | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = KoronaCloudClient::DeliveryNoteItem.new(
   indent: null,
   total: null,
   info_texts: null,
-  id: null
+  id: null,
+  voucher_transaction_reference: null
 )
 ```
 

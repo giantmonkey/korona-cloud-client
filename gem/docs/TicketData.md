@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **valid_from** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **daily_valid_from** | **String** | HH:mm:ss | [optional] |
-| **max_possible_admissions** | **Integer** |  | [optional] |
-| **valid_to** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **daily_valid_to** | **String** | HH:mm:ss | [optional] |
-| **entry_gate_numbers** | **Array&lt;Object&gt;** |  | [optional] |
+| **valid_from** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **valid_to** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
+| **max_possible_admissions** | **Integer** |  | [optional] |
+| **entry_gate_numbers** | **Array&lt;String&gt;** |  | [optional] |
 | **ticket_number_prefix** | **String** |  | [optional] |
 | **days_blocked_after_use** | **Integer** |  | [optional] |
 | **activation_delay** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
@@ -22,11 +22,11 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::TicketData.new(
-  valid_from: 2018-11-22T08:40:21Z,
-  daily_valid_from: 49020,
+  daily_valid_from: 13:37:00,
+  daily_valid_to: 13:37:00,
+  valid_from: 2018-11-22T09:40:21+01:00,
+  valid_to: 2018-11-22T09:40:21+01:00,
   max_possible_admissions: null,
-  valid_to: 2018-11-22T08:40:21Z,
-  daily_valid_to: 49020,
   entry_gate_numbers: null,
   ticket_number_prefix: null,
   days_blocked_after_use: null,

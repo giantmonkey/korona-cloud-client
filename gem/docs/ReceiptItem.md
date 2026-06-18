@@ -12,12 +12,12 @@
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **indent** | **Integer** |  | [optional] |
 | **index** | **Integer** |  | [optional][readonly] |
-| **info_texts** | **Array&lt;Object&gt;** |  | [optional] |
+| **info_texts** | **Array&lt;String&gt;** |  | [optional] |
 | **manual_price** | **Boolean** |  | [optional] |
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **quantity** | **Float** |  | [optional] |
 | **sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **serial_numbers** | **Array&lt;Object&gt;** |  | [optional] |
+| **serial_numbers** | **Array&lt;String&gt;** |  | [optional] |
 | **total** | [**TotalPrice**](TotalPrice.md) |  | [optional] |
 | **delivery_date** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional] |
 | **external_references** | **Hash&lt;String, String&gt;** |  | [optional] |
@@ -26,7 +26,11 @@
 | **voucher_transaction** | [**VoucherTransactionOld**](VoucherTransactionOld.md) |  | [optional] |
 | **voucher_transaction_reference** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **special_price_configuration** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **return_original_receipt_reference** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **return_reason** | [**ReceiptItemReturnReason**](ReceiptItemReturnReason.md) |  | [optional] |
+| **seller** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **container_quantity** | **Float** |  | [optional] |
+| **costs** | **Float** | Costs. | [optional][readonly] |
 
 ## Example
 
@@ -35,7 +39,7 @@ require 'korona-cloud-client'
 
 instance = KoronaCloudClient::ReceiptItem.new(
   attendance: null,
-  booking_time: 2018-11-22T08:40:21Z,
+  booking_time: 2018-11-22T09:40:21+01:00,
   commodity_group: null,
   description: null,
   discounts: null,
@@ -49,14 +53,18 @@ instance = KoronaCloudClient::ReceiptItem.new(
   sector: null,
   serial_numbers: null,
   total: null,
-  delivery_date: 2018-11-22T08:40:21Z,
+  delivery_date: 2018-11-22T09:40:21+01:00,
   external_references: null,
   recognition_number: null,
   type: null,
   voucher_transaction: null,
   voucher_transaction_reference: null,
   special_price_configuration: null,
-  return_reason: null
+  return_original_receipt_reference: null,
+  return_reason: null,
+  seller: null,
+  container_quantity: null,
+  costs: null
 )
 ```
 

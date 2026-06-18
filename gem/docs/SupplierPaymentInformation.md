@@ -8,9 +8,9 @@
 | **bank** | **String** |  | [optional] |
 | **bank_number** | **String** |  | [optional] |
 | **bic** | **String** |  | [optional] |
+| **iban** | **String** |  | [optional] |
 | **creditor_identifier** | **String** |  | [optional] |
 | **currency** | [**ModelReference**](ModelReference.md) |  | [optional] |
-| **iban** | **String** |  | [optional] |
 | **payment_method** | **String** | SupplierPaymentMethod | [optional] |
 | **minimum_order_value** | **Float** |  | [optional] |
 
@@ -24,9 +24,9 @@ instance = KoronaCloudClient::SupplierPaymentInformation.new(
   bank: null,
   bank_number: null,
   bic: null,
+  iban: null,
   creditor_identifier: null,
   currency: null,
-  iban: null,
   payment_method: null,
   minimum_order_value: null
 )

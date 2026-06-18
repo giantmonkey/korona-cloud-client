@@ -1,6 +1,6 @@
 # KoronaCloudClient::ProductsApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -8,7 +8,8 @@ All URIs are relative to *http://localhost:8080/web/api/v3*
 | [**delete_product**](ProductsApi.md#delete_product) | **DELETE** /accounts/{koronaAccountId}/products/{productId} |  |
 | [**delete_products**](ProductsApi.md#delete_products) | **DELETE** /accounts/{koronaAccountId}/products |  |
 | [**get_product**](ProductsApi.md#get_product) | **GET** /accounts/{koronaAccountId}/products/{productId} |  |
-| [**get_product_stocks**](ProductsApi.md#get_product_stocks) | **GET** /accounts/{koronaAccountId}/products/{productId}/stocks |  |
+| [**get_product_stocks**](ProductsApi.md#get_product_stocks) | **POST** /accounts/{koronaAccountId}/products/{productId}/stocks |  |
+| [**get_product_stocks1**](ProductsApi.md#get_product_stocks1) | **GET** /accounts/{koronaAccountId}/products/{productId}/stocks |  |
 | [**get_products**](ProductsApi.md#get_products) | **GET** /accounts/{koronaAccountId}/products |  |
 | [**remove_tag_from_product**](ProductsApi.md#remove_tag_from_product) | **DELETE** /accounts/{koronaAccountId}/products/{productId}/tags/{tagId} |  |
 | [**update_product**](ProductsApi.md#update_product) | **PATCH** /accounts/{koronaAccountId}/products/{productId} |  |
@@ -36,7 +37,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product = [KoronaCloudClient::Product.new] # Array<Product> | array of new products
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -76,7 +77,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product** | [**Array&lt;Product&gt;**](Product.md) | array of new products |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **merge_list_items** | **Boolean** | if set to true, merges lists instead of replacing them | [optional] |
@@ -118,7 +119,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -151,7 +152,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -189,7 +190,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product = [KoronaCloudClient::Product.new] # Array<Product> | array of existing products (id or number required)
 
 begin
@@ -223,7 +224,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product** | [**Array&lt;Product&gt;**](Product.md) | array of existing products (id or number required) |  |
 
 ### Return type
@@ -261,7 +262,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -295,7 +296,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -318,7 +319,7 @@ end
 
 
 
-lists the product stocks in different warehouses (KORONA.retail required)
+lists the product stocks in different warehouses (KORONA Retail required)
 
 ### Examples
 
@@ -333,13 +334,11 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 opts = {
-  page: 56, # Integer | number of the page to fetch
-  size: 56, # Integer | amount of objects to return per page
-  sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
-  revision: 789 # Integer | last revision number, objects with a greater revision than this will be returned
+  revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
+  model_reference: [KoronaCloudClient::ModelReference.new] # Array<ModelReference> | warehouses to filter
 }
 
 begin
@@ -373,7 +372,87 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
+| **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
+| **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
+| **model_reference** | [**Array&lt;ModelReference&gt;**](ModelReference.md) | warehouses to filter | [optional] |
+
+### Return type
+
+[**ResultListProductStock**](ResultListProductStock.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_product_stocks1
+
+> <ResultListProductStock> get_product_stocks1(korona_account_id, product_id, opts)
+
+
+
+lists the product stocks in different warehouses (KORONA Retail required)
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::ProductsApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
+product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
+opts = {
+  page: 56, # Integer | number of the page to fetch
+  size: 56, # Integer | amount of objects to return per page
+  sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
+  revision: 789 # Integer | last revision number, objects with a greater revision than this will be returned
+}
+
+begin
+  
+  result = api_instance.get_product_stocks1(korona_account_id, product_id, opts)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling ProductsApi->get_product_stocks1: #{e}"
+end
+```
+
+#### Using the get_product_stocks1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ResultListProductStock>, Integer, Hash)> get_product_stocks1_with_http_info(korona_account_id, product_id, opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_product_stocks1_with_http_info(korona_account_id, product_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ResultListProductStock>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling ProductsApi->get_product_stocks1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
@@ -415,7 +494,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -427,7 +506,8 @@ opts = {
   assortment: 'assortment_example', # String | assortment id to filter by
   tag: 'tag_example', # String | tag id to filter by
   number: 'number_example', # String | number of the related object
-  name: 'name_example' # String | name of the related object
+  name: 'name_example', # String | name of the related object
+  omit_page_counts: true # Boolean | Set 'pagesTotal' and 'resultsTotal' to -1, allowing us to omit the count operation and speeding up the query.
 }
 
 begin
@@ -461,7 +541,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -473,6 +553,7 @@ end
 | **tag** | **String** | tag id to filter by | [optional] |
 | **number** | **String** | number of the related object | [optional] |
 | **name** | **String** | name of the related object | [optional] |
+| **omit_page_counts** | **Boolean** | Set &#39;pagesTotal&#39; and &#39;resultsTotal&#39; to -1, allowing us to omit the count operation and speeding up the query. | [optional] |
 
 ### Return type
 
@@ -509,7 +590,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 tag_id = 'tag_id_example' # String | id of the related object (important: id should match the uuid-format)
 
@@ -543,7 +624,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **tag_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
@@ -582,7 +663,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product_id = 'product_id_example' # String | id of the related object (important: id should match the uuid-format)
 product = KoronaCloudClient::Product.new # Product | the properties to update of the product
 opts = {
@@ -620,7 +701,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **product** | [**Product**](Product.md) | the properties to update of the product |  |
 | **merge_list_items** | **Boolean** | if set to true, merges lists instead of replacing them | [optional] |
@@ -661,7 +742,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::ProductsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 product = [KoronaCloudClient::Product.new] # Array<Product> | an array of existing products
 opts = {
   merge_list_items: true, # Boolean | if set to true, merges lists instead of replacing them
@@ -699,7 +780,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **product** | [**Array&lt;Product&gt;**](Product.md) | an array of existing products |  |
 | **merge_list_items** | **Boolean** | if set to true, merges lists instead of replacing them | [optional] |
 | **merge_tags** | **Boolean** | if set to true, merges tags instead of overwriting the list | [optional] |

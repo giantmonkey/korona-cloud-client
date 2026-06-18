@@ -7,7 +7,7 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **alternative_sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **assortment** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **codes** | [**Array&lt;ProductCode&gt;**](ProductCode.md) |  | [optional] |
@@ -39,6 +39,7 @@
 | **related_products** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **sector** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **serial_number_required** | **Boolean** |  | [optional] |
+| **stock_return_unsellable** | **Boolean** |  | [optional] |
 | **subproduct_presentation** | **String** |  | [optional] |
 | **subproducts** | [**Array&lt;ProductSubproduct&gt;**](ProductSubproduct.md) |  | [optional] |
 | **supplier_prices** | [**Array&lt;ProductSupplierPrice&gt;**](ProductSupplierPrice.md) |  | [optional] |
@@ -55,7 +56,7 @@
 | **container_capacity** | **Float** |  | [optional] |
 | **independent_subarticle_discounts** | **Boolean** |  | [optional] |
 | **listed_organizational_units** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
-| **stock_return_unsellable** | **Boolean** |  | [optional] |
+| **track_inventory_since** | **Time** | yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX | [optional][readonly] |
 
 ## Example
 
@@ -82,7 +83,7 @@ instance = KoronaCloudClient::Product.new(
   item_sequence: null,
   last_purchase_price: null,
   listed: null,
-  listed_since: 2018-11-22T08:40:21Z,
+  listed_since: 2018-11-22T09:40:21+01:00,
   max_price: 9999.99,
   min_price: -9999.99,
   name: null,
@@ -98,6 +99,7 @@ instance = KoronaCloudClient::Product.new(
   related_products: null,
   sector: null,
   serial_number_required: null,
+  stock_return_unsellable: null,
   subproduct_presentation: null,
   subproducts: null,
   supplier_prices: null,
@@ -114,7 +116,7 @@ instance = KoronaCloudClient::Product.new(
   container_capacity: null,
   independent_subarticle_discounts: null,
   listed_organizational_units: null,
-  stock_return_unsellable: null
+  track_inventory_since: 2018-11-22T09:40:21+01:00
 )
 ```
 

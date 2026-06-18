@@ -32,7 +32,7 @@ instance = KoronaCloudClient::StockOrderItem.new(
   container_size: null,
   item_price: null,
   product: null,
-  delivery_date: 2018-11-22T08:40:21Z,
+  delivery_date: 2018-11-22T09:40:21+01:00,
   received_quantity: null,
   revision: null
 )

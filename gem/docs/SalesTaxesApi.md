@@ -1,6 +1,6 @@
 # KoronaCloudClient::SalesTaxesApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -32,7 +32,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 sales_tax = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of new sectors
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -70,7 +70,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **sales_tax** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of new sectors |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -110,7 +110,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 sales_tax = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of existing sales taxes (id or number required)
 
 begin
@@ -144,7 +144,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **sales_tax** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of existing sales taxes (id or number required) |  |
 
 ### Return type
@@ -182,7 +182,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 sales_tax_id = 'sales_tax_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -216,7 +216,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **sales_tax_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -254,7 +254,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -295,7 +295,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -338,7 +338,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::SalesTaxesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 sales_tax = [KoronaCloudClient::SalesTax.new] # Array<SalesTax> | array of existing sales taxes (id or number required)
 
 begin
@@ -372,7 +372,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **sales_tax** | [**Array&lt;SalesTax&gt;**](SalesTax.md) | array of existing sales taxes (id or number required) |  |
 
 ### Return type

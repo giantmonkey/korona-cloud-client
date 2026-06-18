@@ -1,6 +1,6 @@
 # KoronaCloudClient::TicketingApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -54,7 +54,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 creation_task = KoronaCloudClient::CreationTask.new # CreationTask | a single ticket creation task
 
 begin
@@ -88,7 +88,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **creation_task** | [**CreationTask**](CreationTask.md) | a single ticket creation task |  |
 
 ### Return type
@@ -126,7 +126,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 entry_gate = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of new entry gates
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -164,7 +164,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **entry_gate** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of new entry gates |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -198,7 +198,7 @@ require 'time'
 require 'korona-cloud-client'
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 event = [KoronaCloudClient::Event.new] # Array<Event> | an array of new events
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -236,7 +236,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **event** | [**Array&lt;Event&gt;**](Event.md) | an array of new events |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -276,7 +276,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 attendance = [KoronaCloudClient::Attendance.new] # Array<Attendance> | an array of attendances
 
 begin
@@ -310,7 +310,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **attendance** | [**Array&lt;Attendance&gt;**](Attendance.md) | an array of attendances |  |
 
 ### Return type
@@ -348,7 +348,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_definition = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of new ticket definitions
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -386,7 +386,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_definition** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of new ticket definitions |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -426,7 +426,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 attendance_id = 'attendance_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -459,7 +459,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **attendance_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -497,7 +497,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 entry_gate = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
 
 begin
@@ -531,7 +531,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **entry_gate** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of existing entry gates (id or number required) |  |
 
 ### Return type
@@ -563,7 +563,7 @@ require 'time'
 require 'korona-cloud-client'
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 event_id = 'event_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -596,7 +596,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **event_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -634,7 +634,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_definition_id = 'ticket_definition_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -667,7 +667,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_definition_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -705,7 +705,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_definition = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of existing ticket definitions (id or number required)
 
 begin
@@ -739,7 +739,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_definition** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of existing ticket definitions (id or number required) |  |
 
 ### Return type
@@ -777,7 +777,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 attendance_id = 'attendance_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -811,7 +811,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **attendance_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -849,7 +849,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -889,7 +889,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -931,7 +931,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   creation_time_from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | creation time from
   creation_time_to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | creation time to
@@ -969,7 +969,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **creation_time_from** | **Time** | creation time from | [optional] |
 | **creation_time_to** | **Time** | creation time to | [optional] |
 | **statuses** | [**Array&lt;String&gt;**](String.md) | creation task statuses | [optional] |
@@ -1009,7 +1009,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 entry_gate_id = 'entry_gate_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -1043,7 +1043,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **entry_gate_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -1081,7 +1081,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -1122,7 +1122,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -1159,7 +1159,7 @@ require 'time'
 require 'korona-cloud-client'
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 event_id = 'event_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -1193,7 +1193,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **event_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -1225,7 +1225,7 @@ require 'time'
 require 'korona-cloud-client'
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -1267,7 +1267,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -1311,7 +1311,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_definition_id = 'ticket_definition_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -1345,7 +1345,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_definition_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -1383,7 +1383,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
@@ -1423,7 +1423,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
@@ -1465,7 +1465,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 page = 56 # Integer | number of the page to fetch
 size = 56 # Integer | amount of objects to return per page
 opts = {
@@ -1510,7 +1510,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch |  |
 | **size** | **Integer** | amount of objects to return per page |  |
 | **ticket_number** | **String** | ticket number | [optional] |
@@ -1557,7 +1557,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_number = 'ticket_number_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -1590,7 +1590,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_number** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -1628,7 +1628,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_number = 'ticket_number_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -1661,7 +1661,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_number** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -1699,7 +1699,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 entry_gate = [KoronaCloudClient::EntryGate.new] # Array<EntryGate> | array of existing entry gates (id or number required)
 
 begin
@@ -1733,7 +1733,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **entry_gate** | [**Array&lt;EntryGate&gt;**](EntryGate.md) | array of existing entry gates (id or number required) |  |
 
 ### Return type
@@ -1765,7 +1765,7 @@ require 'time'
 require 'korona-cloud-client'
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 event_id = 'event_id_example' # String | id of the related object (important: id should match the uuid-format)
 event = KoronaCloudClient::Event.new # Event | the properties to update of the event
 
@@ -1799,7 +1799,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **event_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 | **event** | [**Event**](Event.md) | the properties to update of the event |  |
 
@@ -1832,7 +1832,7 @@ require 'time'
 require 'korona-cloud-client'
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 event = [KoronaCloudClient::Event.new] # Array<Event> | an array of existing events
 
 begin
@@ -1866,7 +1866,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **event** | [**Array&lt;Event&gt;**](Event.md) | an array of existing events |  |
 
 ### Return type
@@ -1904,7 +1904,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_number = 'ticket_number_example' # String | old ticket number
 opts = {
   new_ticket_number: 'new_ticket_number_example', # String | new ticket number
@@ -1942,7 +1942,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_number** | **String** | old ticket number |  |
 | **new_ticket_number** | **String** | new ticket number | [optional] |
 | **first_name** | **String** | ticket owner&#39;s first name | [optional] |
@@ -1983,7 +1983,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::TicketingApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 ticket_definition = [KoronaCloudClient::TicketDefinition.new] # Array<TicketDefinition> | array of existing ticket definitions (id or number required)
 
 begin
@@ -2017,7 +2017,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **ticket_definition** | [**Array&lt;TicketDefinition&gt;**](TicketDefinition.md) | array of existing ticket definitions (id or number required) |  |
 
 ### Return type

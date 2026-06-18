@@ -1,14 +1,91 @@
 # KoronaCloudClient::StatisticsApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**get_financial_accounting_data**](StatisticsApi.md#get_financial_accounting_data) | **GET** /accounts/{koronaAccountId}/statistics/financialAccounting |  |
 | [**get_revenue**](StatisticsApi.md#get_revenue) | **GET** /accounts/{koronaAccountId}/statistics/revenueData |  |
 | [**get_revenue_for_customer_groups**](StatisticsApi.md#get_revenue_for_customer_groups) | **GET** /accounts/{koronaAccountId}/statistics/revenueDataForCustomerGroups |  |
 | [**get_revenue_hourly**](StatisticsApi.md#get_revenue_hourly) | **GET** /accounts/{koronaAccountId}/statistics/revenueDataHourly |  |
 | [**get_sector_revenue_by_month**](StatisticsApi.md#get_sector_revenue_by_month) | **GET** /accounts/{koronaAccountId}/statistics/sectorRevenueByMonth |  |
 | [**get_top_seller**](StatisticsApi.md#get_top_seller) | **GET** /accounts/{koronaAccountId}/statistics/topSeller |  |
+
+
+## get_financial_accounting_data
+
+> <StatisticListFinancialAccountingData> get_financial_accounting_data(korona_account_id, opts)
+
+
+
+returns the financial accounting data by revision or date; if both is set, date will be ignored
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::StatisticsApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
+opts = {
+  revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
+  day: Date.parse('2013-10-20') # Date | day
+}
+
+begin
+  
+  result = api_instance.get_financial_accounting_data(korona_account_id, opts)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling StatisticsApi->get_financial_accounting_data: #{e}"
+end
+```
+
+#### Using the get_financial_accounting_data_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<StatisticListFinancialAccountingData>, Integer, Hash)> get_financial_accounting_data_with_http_info(korona_account_id, opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_financial_accounting_data_with_http_info(korona_account_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <StatisticListFinancialAccountingData>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling StatisticsApi->get_financial_accounting_data_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
+| **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
+| **day** | **Date** | day | [optional] |
+
+### Return type
+
+[**StatisticListFinancialAccountingData**](StatisticListFinancialAccountingData.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## get_revenue
@@ -32,7 +109,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StatisticsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   organizational_unit: 'organizational_unit_example', # String | number of the organizational unit
   period: 'DAY' # String | time period for comparison
@@ -69,7 +146,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **organizational_unit** | **String** | number of the organizational unit | [optional] |
 | **period** | **String** | time period for comparison | [optional] |
 
@@ -108,7 +185,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StatisticsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   organizational_unit: 'organizational_unit_example', # String | number of the organizational unit
   period: 'DAY' # String | time period for comparison
@@ -145,7 +222,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **organizational_unit** | **String** | number of the organizational unit | [optional] |
 | **period** | **String** | time period for comparison | [optional] |
 
@@ -184,7 +261,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StatisticsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   organizational_unit: 'organizational_unit_example', # String | number of the organizational unit
   period: 'DAY' # String | time period for comparison
@@ -221,7 +298,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **organizational_unit** | **String** | number of the organizational unit | [optional] |
 | **period** | **String** | time period for comparison | [optional] |
 
@@ -260,7 +337,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StatisticsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 min_create_time = Time.parse('2013-10-20T19:20:30+01:00') # Time | min (inclusive) create time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
 max_create_time = Time.parse('2013-10-20T19:20:30+01:00') # Time | max (inclusive) create time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
 opts = {
@@ -299,7 +376,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **min_create_time** | **Time** | min (inclusive) create time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) |  |
 | **max_create_time** | **Time** | max (inclusive) create time of the receipt (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) |  |
 | **sector** | **String** | id or number of the sector | [optional] |
@@ -340,7 +417,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::StatisticsApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   organizational_unit: 'organizational_unit_example', # String | number of the organizational unit
   period: 'DAY', # String | time period for comparison
@@ -378,7 +455,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **organizational_unit** | **String** | number of the organizational unit | [optional] |
 | **period** | **String** | time period for comparison | [optional] |
 | **limit** | **Integer** | maximum number of products to show | [optional] |

@@ -1,6 +1,6 @@
 # KoronaCloudClient::PricesApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -32,7 +32,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PricesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 price = [KoronaCloudClient::Price.new({product: KoronaCloudClient::ModelReference.new})] # Array<Price> | array of new product prices
 opts = {
   upsert: true, # Boolean | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead
@@ -70,7 +70,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **price** | [**Array&lt;Price&gt;**](Price.md) | array of new product prices |  |
 | **upsert** | **Boolean** | when set to true, updates the object instead of generating a already-exists-error; deprecated, use writeMode ADD_OR_UPDATE instead | [optional] |
 | **write_mode** | **String** | DEFAULT &#x3D; insert; ADD_OR_UPDATE &#x3D; insert or update, overwrite all non-null fields; ADD_OR_REPLACE &#x3D; insert or update, overwrite all fields | [optional] |
@@ -110,7 +110,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PricesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 price = [KoronaCloudClient::Price.new({product: KoronaCloudClient::ModelReference.new})] # Array<Price> | array of existing product prices (id or number required)
 
 begin
@@ -144,7 +144,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **price** | [**Array&lt;Price&gt;**](Price.md) | array of existing product prices (id or number required) |  |
 
 ### Return type
@@ -182,7 +182,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PricesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 price_id = 'price_id_example' # String | id of the related object (important: id should match the uuid-format)
 
 begin
@@ -216,7 +216,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **price_id** | **String** | id of the related object (important: id should match the uuid-format) |  |
 
 ### Return type
@@ -254,14 +254,17 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PricesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 opts = {
   page: 56, # Integer | number of the page to fetch
   size: 56, # Integer | amount of objects to return per page
   sort: 'sort_example', # String | attribute to sort by (multiple separated by comma; max. 5)
   revision: 789, # Integer | last revision number, objects with a greater revision than this will be returned
   include_deleted: true, # Boolean | indicates deleted objects should be loaded or not (default: false)
-  number: 'number_example' # String | number of the related object
+  number: 'number_example', # String | number of the related object
+  min_valid_from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | min (inclusive) timestamp for validFrom (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional)
+  price_group: 'price_group_example', # String | price group
+  organizational_unit: 'organizational_unit_example' # String | organizational unit
 }
 
 begin
@@ -295,13 +298,16 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **page** | **Integer** | number of the page to fetch | [optional] |
 | **size** | **Integer** | amount of objects to return per page | [optional] |
 | **sort** | **String** | attribute to sort by (multiple separated by comma; max. 5) | [optional] |
 | **revision** | **Integer** | last revision number, objects with a greater revision than this will be returned | [optional] |
 | **include_deleted** | **Boolean** | indicates deleted objects should be loaded or not (default: false) | [optional] |
 | **number** | **String** | number of the related object | [optional] |
+| **min_valid_from** | **Time** | min (inclusive) timestamp for validFrom (ISO 8601; Format: YYYY-MM-DDTHH:MM:SS; timezone optional) | [optional] |
+| **price_group** | **String** | price group | [optional] |
+| **organizational_unit** | **String** | organizational unit | [optional] |
 
 ### Return type
 
@@ -338,7 +344,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::PricesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 price = [KoronaCloudClient::Price.new({product: KoronaCloudClient::ModelReference.new})] # Array<Price> | array of existing product prices (id or number required)
 
 begin
@@ -372,7 +378,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **price** | [**Array&lt;Price&gt;**](Price.md) | array of existing product prices (id or number required) |  |
 
 ### Return type

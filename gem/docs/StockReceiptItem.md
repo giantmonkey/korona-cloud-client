@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **amount** | [**StockReceiptItemAmount**](StockReceiptItemAmount.md) |  | [optional] |
 | **identification** | [**StockReceiptItemIdentification**](StockReceiptItemIdentification.md) |  | [optional] |
+| **ignore_purchase_price** | **Boolean** |  | [optional] |
 | **index** | **Integer** |  | [optional][readonly] |
 | **product** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **purchase_price** | [**StockReceiptItemPurchasePrice**](StockReceiptItemPurchasePrice.md) |  | [optional] |
@@ -20,11 +21,12 @@ require 'korona-cloud-client'
 instance = KoronaCloudClient::StockReceiptItem.new(
   amount: null,
   identification: null,
+  ignore_purchase_price: null,
   index: null,
   product: null,
   purchase_price: null,
   revision: null,
-  shelf_life: 2018-11-22T08:40:21Z
+  shelf_life: 2018-11-22T09:40:21+01:00
 )
 ```
 

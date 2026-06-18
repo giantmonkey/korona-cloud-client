@@ -1,6 +1,6 @@
 # KoronaCloudClient::MessagesApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -28,7 +28,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::MessagesApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 message = [KoronaCloudClient::Message.new] # Array<Message> | array of messages
 
 begin
@@ -62,7 +62,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 | **message** | [**Array&lt;Message&gt;**](Message.md) | array of messages |  |
 
 ### Return type

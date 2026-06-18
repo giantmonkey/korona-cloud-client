@@ -21,7 +21,7 @@ instance = KoronaCloudClient::TimeTrackingEntry.new(
   id: null,
   active: null,
   revision: null,
-  time_stamp: 2018-11-22T08:40:21Z,
+  time_stamp: 2018-11-22T09:40:21+01:00,
   cashier: null,
   organizational_unit: null,
   time_tracking_entity: null

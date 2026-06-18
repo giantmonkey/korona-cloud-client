@@ -1,10 +1,152 @@
 # KoronaCloudClient::KoronaAccountApi
 
-All URIs are relative to *http://localhost:8080/web/api/v3*
+All URIs are relative to *https://128.koronacloud.com/web/api/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**get_account_max_revisions**](KoronaAccountApi.md#get_account_max_revisions) | **GET** /accounts/{koronaAccountId}/maxRevisions |  |
+| [**get_elster_export_data**](KoronaAccountApi.md#get_elster_export_data) | **GET** /accounts/{koronaAccountId}/elsterExport |  |
 | [**get_korona_account**](KoronaAccountApi.md#get_korona_account) | **GET** /accounts/{koronaAccountId} |  |
+
+
+## get_account_max_revisions
+
+> <AccountMaxRevisions> get_account_max_revisions(korona_account_id)
+
+
+
+returns the max revisions of relevant types
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::KoronaAccountApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
+
+begin
+  
+  result = api_instance.get_account_max_revisions(korona_account_id)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling KoronaAccountApi->get_account_max_revisions: #{e}"
+end
+```
+
+#### Using the get_account_max_revisions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AccountMaxRevisions>, Integer, Hash)> get_account_max_revisions_with_http_info(korona_account_id)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_account_max_revisions_with_http_info(korona_account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AccountMaxRevisions>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling KoronaAccountApi->get_account_max_revisions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
+
+### Return type
+
+[**AccountMaxRevisions**](AccountMaxRevisions.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_elster_export_data
+
+> <ElsterData> get_elster_export_data(korona_account_id)
+
+
+
+returns the elster export in xml formatted text for all organizational units per tax id
+
+### Examples
+
+```ruby
+require 'time'
+require 'korona-cloud-client'
+# setup authorization
+KoronaCloudClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = KoronaCloudClient::KoronaAccountApi.new
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
+
+begin
+  
+  result = api_instance.get_elster_export_data(korona_account_id)
+  p result
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling KoronaAccountApi->get_elster_export_data: #{e}"
+end
+```
+
+#### Using the get_elster_export_data_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ElsterData>, Integer, Hash)> get_elster_export_data_with_http_info(korona_account_id)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_elster_export_data_with_http_info(korona_account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ElsterData>
+rescue KoronaCloudClient::ApiError => e
+  puts "Error when calling KoronaAccountApi->get_elster_export_data_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
+
+### Return type
+
+[**ElsterData**](ElsterData.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## get_korona_account
@@ -28,7 +170,7 @@ KoronaCloudClient.configure do |config|
 end
 
 api_instance = KoronaCloudClient::KoronaAccountApi.new
-korona_account_id = 'korona_account_id_example' # String | account id of the KORONA.cloud account
+korona_account_id = 'korona_account_id_example' # String | account id of the KORONA Studio account
 
 begin
   
@@ -61,7 +203,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **korona_account_id** | **String** | account id of the KORONA.cloud account |  |
+| **korona_account_id** | **String** | account id of the KORONA Studio account |  |
 
 ### Return type
 

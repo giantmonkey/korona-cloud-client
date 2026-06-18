@@ -7,7 +7,7 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **cent_name** | **String** |  | [optional] |
 | **decimal_places** | **Integer** |  | [optional] |
 | **denominations** | [**Array&lt;CurrencyDenomination&gt;**](CurrencyDenomination.md) |  | [optional] |
@@ -16,7 +16,7 @@
 | **max_payment_input** | **Float** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **symbol** | **String** |  | [optional] |
-| **system_currency** | **Boolean** |  | [optional] |
+| **system_currency** | **Boolean** |  | [optional][readonly] |
 
 ## Example
 

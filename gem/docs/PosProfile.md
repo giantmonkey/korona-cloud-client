@@ -7,11 +7,14 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **name** | **String** |  | [optional] |
 | **automatic_cashier_logout_interval** | [**TimePeriod**](TimePeriod.md) |  | [optional] |
 | **auto_receipt_print** | **Boolean** |  | [optional] |
 | **force_closed_drawer** | **Boolean** |  | [optional] |
+| **force_drawer_selection** | **Boolean** |  | [optional] |
+| **guest_count_required** | **Boolean** |  | [optional] |
+| **show_receipt_print_button_on_opened_drawer** | **Boolean** |  | [optional] |
 | **max_balance_attempts** | **Integer** |  | [optional] |
 | **order_number_required** | **Boolean** |  | [optional] |
 | **payment_service_configurations** | [**Array&lt;PaymentServiceConfiguration&gt;**](PaymentServiceConfiguration.md) |  | [optional] |
@@ -36,6 +39,7 @@
 | **external_system_calls_on_logout_cashier** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **external_system_calls_on_book_first_sale** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **external_system_calls_on_open_non_empty_receipt** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
+| **external_system_calls_on_return** | [**Array&lt;ModelReference&gt;**](ModelReference.md) |  | [optional] |
 | **designate_balance_difference** | **Boolean** |  | [optional] |
 | **end_of_day_report_enabled** | **Boolean** |  | [optional] |
 | **unknown_number_action** | **String** |  | [optional] |
@@ -54,6 +58,13 @@
 | **report_file** | [**ModelReference**](ModelReference.md) |  | [optional] |
 | **show_bank_notes_for_payment_denomination_only** | **Boolean** |  | [optional] |
 | **end_of_day_statement_afterwards** | **Boolean** |  | [optional] |
+| **cancel_parked_receipts_on_end_of_day_statement** | **Boolean** |  | [optional] |
+| **force_receipt_reversal_reason** | **Boolean** |  | [optional] |
+| **filter_products_by_organization_assortments** | **Boolean** |  | [optional] |
+| **stock_return_required_cashier_role** | [**ModelReference**](ModelReference.md) |  | [optional] |
+| **stock_return_multi_cashier_authorization_from** | **Float** |  | [optional] |
+| **max_cash_amount** | **Float** |  | [optional] |
+| **show_open_receipt_warning_on_logout** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -69,6 +80,9 @@ instance = KoronaCloudClient::PosProfile.new(
   automatic_cashier_logout_interval: null,
   auto_receipt_print: null,
   force_closed_drawer: null,
+  force_drawer_selection: null,
+  guest_count_required: null,
+  show_receipt_print_button_on_opened_drawer: null,
   max_balance_attempts: null,
   order_number_required: null,
   payment_service_configurations: null,
@@ -93,6 +107,7 @@ instance = KoronaCloudClient::PosProfile.new(
   external_system_calls_on_logout_cashier: null,
   external_system_calls_on_book_first_sale: null,
   external_system_calls_on_open_non_empty_receipt: null,
+  external_system_calls_on_return: null,
   designate_balance_difference: null,
   end_of_day_report_enabled: null,
   unknown_number_action: null,
@@ -110,7 +125,14 @@ instance = KoronaCloudClient::PosProfile.new(
   automatic_cashier_logout_lock_cashier: null,
   report_file: null,
   show_bank_notes_for_payment_denomination_only: null,
-  end_of_day_statement_afterwards: null
+  end_of_day_statement_afterwards: null,
+  cancel_parked_receipts_on_end_of_day_statement: null,
+  force_receipt_reversal_reason: null,
+  filter_products_by_organization_assortments: null,
+  stock_return_required_cashier_role: null,
+  stock_return_multi_cashier_authorization_from: null,
+  max_cash_amount: null,
+  show_open_receipt_warning_on_logout: null
 )
 ```
 

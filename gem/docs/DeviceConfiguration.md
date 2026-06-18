@@ -14,6 +14,7 @@
 | **default_device** | **Boolean** |  | [optional] |
 | **device_parameters** | [**Array&lt;DeviceParameterItem&gt;**](DeviceParameterItem.md) |  | [optional] |
 | **production_type_settings** | [**Array&lt;ProductionTypeSetting&gt;**](ProductionTypeSetting.md) |  | [optional] |
+| **name** | **String** |  | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = KoronaCloudClient::DeviceConfiguration.new(
   port_parameter_variable: null,
   default_device: null,
   device_parameters: null,
-  production_type_settings: null
+  production_type_settings: null,
+  name: null
 )
 ```
 

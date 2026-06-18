@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **from** | **String** |  | [optional] |
-| **to** | **String** |  | [optional] |
+| **from** | **String** | HH:mm:ss | [optional] |
+| **to** | **String** | HH:mm:ss | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'korona-cloud-client'
 
 instance = KoronaCloudClient::DayTimePeriod.new(
-  from: null,
-  to: null
+  from: 09:40:21,
+  to: 09:40:21
 )
 ```
 

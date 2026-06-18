@@ -7,7 +7,7 @@
 | **active** | **Boolean** | indicates whether the object is active for use or not | [optional][readonly] |
 | **id** | **String** | global object uuid (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx) | [optional] |
 | **revision** | **Integer** | the revision number of the object. revision numbers are unique per object-type. there is is no object of the same type with identical revision numbers. | [optional][readonly] |
-| **number** | **String** | number of the object, like it is set in backoffice; will be removed when active&#x3D;false | [optional] |
+| **number** | **String** | number of the object, like it is set in backoffice | [optional] |
 | **additional_information** | **String** |  | [optional] |
 | **address** | [**Data**](Data.md) |  | [optional] |
 | **contact** | [**SupplierContact**](SupplierContact.md) |  | [optional] |
@@ -17,6 +17,7 @@
 | **payment** | [**SupplierPaymentInformation**](SupplierPaymentInformation.md) |  | [optional] |
 | **return_address** | [**Data**](Data.md) |  | [optional] |
 | **delivery_conditions** | **String** |  | [optional] |
+| **order_email** | **String** |  | [optional] |
 
 ## Example
 
@@ -36,7 +37,8 @@ instance = KoronaCloudClient::Supplier.new(
   name: null,
   payment: null,
   return_address: null,
-  delivery_conditions: null
+  delivery_conditions: null,
+  order_email: null
 )
 ```
 
